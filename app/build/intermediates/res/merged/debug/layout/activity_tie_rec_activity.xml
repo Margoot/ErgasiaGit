@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.ergasia.Tie_activity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/frameLayout3">
+
+        <TextView
+            android:layout_width="173dp"
+            android:layout_height="88dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Félicitation vous avez un &quot;Tie&quot;"
+            android:id="@+id/tieTextView"
+            android:textStyle="italic"
+            android:textSize="@dimen/sub_title2"
+            android:layout_gravity="center_horizontal|top"
+            android:textColor="@color/ergasiagreen"
+            android:gravity="center" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="63dp"
+            android:text="NOM Prénom"
+            android:id="@+id/tieNomPostTextView"
+            android:layout_gravity="center_vertical|left"
+            android:layout_below="@+id/frameLayout3"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:textSize="@dimen/sub_title"
+            android:textStyle="italic"
+            android:gravity="bottom" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="82dp"
+            android:text="Libellé de l&apos;offre"
+            android:id="@+id/textView"
+            android:layout_gravity="right|bottom"
+            android:textStyle="italic"
+            android:textSize="@dimen/sub_title" />
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="false"
+        android:layout_below="@+id/frameLayout3"
+        android:gravity="center"
+        android:weightSum="1">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/cont_rech"
+            android:id="@+id/contSearchTextView"
+            android:layout_weight="0.27"
+            android:background="@color/ergasiagreen"
+            android:textColor="@color/white" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.10" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/envoyer_mess"
+            android:id="@+id/sendMessageTextView"
+            android:layout_weight="0.27"
+            android:background="@color/ergasiagreen"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+</RelativeLayout>
