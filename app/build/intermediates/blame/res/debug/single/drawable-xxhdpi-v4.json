@@ -68,12 +68,12 @@
         "source": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/drawable-xxhdpi-v4/abc_btn_switch_to_on_mtrl_00012.9.png"
     },
     {
-        "merged": "/Users/simonthome/AndroidStudioProjects/Ergasia/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/abc_spinner_mtrl_am_alpha.9.png",
-        "source": "/Users/simonthome/AndroidStudioProjects/Ergasia/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/drawable-xxhdpi-v4/abc_spinner_mtrl_am_alpha.9.png"
-    },
-    {
         "merged": "/Users/simonthome/Ergasia/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/ok_icon.png",
         "source": "/Users/simonthome/Ergasia/app/src/main/res/drawable-xxhdpi/ok_icon.png"
+    },
+    {
+        "merged": "/Users/simonthome/AndroidStudioProjects/Ergasia/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/abc_spinner_mtrl_am_alpha.9.png",
+        "source": "/Users/simonthome/AndroidStudioProjects/Ergasia/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/drawable-xxhdpi-v4/abc_spinner_mtrl_am_alpha.9.png"
     },
     {
         "merged": "/Users/simonthome/Ergasia/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/abc_ic_menu_selectall_mtrl_alpha.png",
@@ -128,12 +128,12 @@
         "source": "/Users/simonthome/AndroidStudioProjects/Ergasia/app/src/main/res/drawable-xxhdpi/ic_ergasia.png"
     },
     {
-        "merged": "/Users/simonthome/Ergasia/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/abc_list_selector_disabled_holo_dark.9.png",
-        "source": "/Users/simonthome/Ergasia/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/drawable-xxhdpi-v4/abc_list_selector_disabled_holo_dark.9.png"
-    },
-    {
         "merged": "/Users/simonthome/AndroidStudioProjects/Ergasia/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/abc_btn_switch_to_on_mtrl_00012.9.png",
         "source": "/Users/simonthome/AndroidStudioProjects/Ergasia/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/drawable-xxhdpi-v4/abc_btn_switch_to_on_mtrl_00012.9.png"
+    },
+    {
+        "merged": "/Users/simonthome/Ergasia/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/abc_list_selector_disabled_holo_dark.9.png",
+        "source": "/Users/simonthome/Ergasia/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/drawable-xxhdpi-v4/abc_list_selector_disabled_holo_dark.9.png"
     },
     {
         "merged": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/abc_scrubber_control_to_pressed_mtrl_005.png",
@@ -160,12 +160,12 @@
         "source": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/src/main/res/drawable-xxhdpi/action_plus.png"
     },
     {
-        "merged": "/Users/simonthome/Ergasia/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/abc_btn_check_to_on_mtrl_015.png",
-        "source": "/Users/simonthome/Ergasia/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/drawable-xxhdpi-v4/abc_btn_check_to_on_mtrl_015.png"
-    },
-    {
         "merged": "/Users/simonthome/Ergasia/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/ic_message.png",
         "source": "/Users/simonthome/Ergasia/app/src/main/res/drawable-xxhdpi/ic_message.png"
+    },
+    {
+        "merged": "/Users/simonthome/Ergasia/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/abc_btn_check_to_on_mtrl_015.png",
+        "source": "/Users/simonthome/Ergasia/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/drawable-xxhdpi-v4/abc_btn_check_to_on_mtrl_015.png"
     },
     {
         "merged": "/Users/simonthome/Ergasia/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/abc_popup_background_mtrl_mult.9.png",
@@ -192,12 +192,12 @@
         "source": "/Users/simonthome/Ergasia/app/src/main/res/drawable-xxhdpi/profil_icon.png"
     },
     {
-        "merged": "/Users/simonthome/Ergasia/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/load_icon.png",
-        "source": "/Users/simonthome/Ergasia/app/src/main/res/drawable-xxhdpi/load_icon.png"
-    },
-    {
         "merged": "/Users/simonthome/AndroidStudioProjects/Ergasia/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/message_icon.png",
         "source": "/Users/simonthome/AndroidStudioProjects/Ergasia/app/src/main/res/drawable-xxhdpi/message_icon.png"
+    },
+    {
+        "merged": "/Users/simonthome/Ergasia/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/load_icon.png",
+        "source": "/Users/simonthome/Ergasia/app/src/main/res/drawable-xxhdpi/load_icon.png"
     },
     {
         "merged": "/Users/simonthome/ErgasiaGit/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/abc_btn_switch_to_on_mtrl_00012.9.png",
@@ -224,12 +224,12 @@
         "source": "/Users/simonthome/Ergasia/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/drawable-xxhdpi-v4/abc_spinner_mtrl_am_alpha.9.png"
     },
     {
-        "merged": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/abc_scrubber_primary_mtrl_alpha.9.png",
-        "source": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/drawable-xxhdpi-v4/abc_scrubber_primary_mtrl_alpha.9.png"
-    },
-    {
         "merged": "/Users/simonthome/AndroidStudioProjects/Ergasia/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/abc_popup_background_mtrl_mult.9.png",
         "source": "/Users/simonthome/AndroidStudioProjects/Ergasia/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/drawable-xxhdpi-v4/abc_popup_background_mtrl_mult.9.png"
+    },
+    {
+        "merged": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/abc_scrubber_primary_mtrl_alpha.9.png",
+        "source": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/drawable-xxhdpi-v4/abc_scrubber_primary_mtrl_alpha.9.png"
     },
     {
         "merged": "/Users/simonthome/ErgasiaGit/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/ic_profil.png",
@@ -304,12 +304,12 @@
         "source": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/src/main/res/drawable-xxhdpi/message_icon.png"
     },
     {
-        "merged": "/Users/simonthome/AndroidStudioProjects/Ergasia/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/abc_list_pressed_holo_dark.9.png",
-        "source": "/Users/simonthome/AndroidStudioProjects/Ergasia/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/drawable-xxhdpi-v4/abc_list_pressed_holo_dark.9.png"
-    },
-    {
         "merged": "/Users/simonthome/AndroidStudioProjects/Ergasia/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/abc_list_longpressed_holo.9.png",
         "source": "/Users/simonthome/AndroidStudioProjects/Ergasia/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/drawable-xxhdpi-v4/abc_list_longpressed_holo.9.png"
+    },
+    {
+        "merged": "/Users/simonthome/AndroidStudioProjects/Ergasia/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/abc_list_pressed_holo_dark.9.png",
+        "source": "/Users/simonthome/AndroidStudioProjects/Ergasia/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/drawable-xxhdpi-v4/abc_list_pressed_holo_dark.9.png"
     },
     {
         "merged": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/load_image2.png",

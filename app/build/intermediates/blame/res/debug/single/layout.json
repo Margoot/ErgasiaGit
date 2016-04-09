@@ -1,11 +1,11 @@
 [
     {
-        "merged": "/Users/simonthome/Ergasia/app/build/intermediates/res/merged/debug/layout/abc_activity_chooser_view_list_item.xml",
-        "source": "/Users/simonthome/Ergasia/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/layout/abc_activity_chooser_view_list_item.xml"
-    },
-    {
         "merged": "/Users/simonthome/ErgasiaGit/app/build/intermediates/res/merged/debug/layout/activity_login.xml",
         "source": "/Users/simonthome/ErgasiaGit/app/src/main/res/layout/activity_login.xml"
+    },
+    {
+        "merged": "/Users/simonthome/Ergasia/app/build/intermediates/res/merged/debug/layout/abc_activity_chooser_view_list_item.xml",
+        "source": "/Users/simonthome/Ergasia/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/layout/abc_activity_chooser_view_list_item.xml"
     },
     {
         "merged": "/Users/simonthome/Ergasia/app/build/intermediates/res/merged/debug/layout/activity_message_rec_activity.xml",
@@ -64,12 +64,12 @@
         "source": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/src/main/res/layout/activity_tie_rec_activity.xml"
     },
     {
-        "merged": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/res/merged/debug/layout/abc_list_menu_item_radio.xml",
-        "source": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/layout/abc_list_menu_item_radio.xml"
-    },
-    {
         "merged": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/res/merged/debug/layout/notification_template_part_time.xml",
         "source": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/layout/notification_template_part_time.xml"
+    },
+    {
+        "merged": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/res/merged/debug/layout/abc_list_menu_item_radio.xml",
+        "source": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/layout/abc_list_menu_item_radio.xml"
     },
     {
         "merged": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/res/merged/debug/layout/abc_expanded_menu_layout.xml",
@@ -84,12 +84,12 @@
         "source": "/Users/simonthome/Ergasia/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/layout/abc_select_dialog_material.xml"
     },
     {
-        "merged": "/Users/simonthome/AndroidStudioProjects/Ergasia/app/build/intermediates/res/merged/debug/layout/abc_action_bar_view_list_nav_layout.xml",
-        "source": "/Users/simonthome/AndroidStudioProjects/Ergasia/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/layout/abc_action_bar_view_list_nav_layout.xml"
-    },
-    {
         "merged": "/Users/simonthome/ErgasiaGit/app/build/intermediates/res/merged/debug/layout/abc_search_view.xml",
         "source": "/Users/simonthome/ErgasiaGit/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/layout/abc_search_view.xml"
+    },
+    {
+        "merged": "/Users/simonthome/AndroidStudioProjects/Ergasia/app/build/intermediates/res/merged/debug/layout/abc_action_bar_view_list_nav_layout.xml",
+        "source": "/Users/simonthome/AndroidStudioProjects/Ergasia/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/layout/abc_action_bar_view_list_nav_layout.xml"
     },
     {
         "merged": "/Users/simonthome/AndroidStudioProjects/Ergasia/app/build/intermediates/res/merged/debug/layout/abc_screen_simple.xml",

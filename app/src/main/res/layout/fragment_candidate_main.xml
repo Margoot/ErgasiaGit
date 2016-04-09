@@ -138,21 +138,22 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/frameLayout2"
         android:layout_centerHorizontal="true"
-        android:gravity="center">
+        android:gravity="center"
+        android:weightSum="1">
 
         <ImageButton
             android:layout_width="wrap_content"
-            android:layout_height="123dp"
+            android:layout_height="90dp"
             android:id="@+id/okButton2"
             android:background="@drawable/ok_icon"
-            android:layout_weight="0.41" />
+            android:layout_weight="0.2" />
 
         <ImageButton
             android:layout_width="wrap_content"
-            android:layout_height="123dp"
+            android:layout_height="90dp"
             android:id="@+id/noButton2"
             android:background="@drawable/no_icon"
-            android:layout_weight="0.41" />
+            android:layout_weight="0.2" />
     </LinearLayout>
 
 </RelativeLayout>
