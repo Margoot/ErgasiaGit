@@ -16,6 +16,14 @@
         "source": "/Users/simonthome/Ergasia/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/color/switch_thumb_material_dark.xml"
     },
     {
+        "merged": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/res/merged/debug/color/abc_primary_text_disable_only_material_dark.xml",
+        "source": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/color/abc_primary_text_disable_only_material_dark.xml"
+    },
+    {
+        "merged": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/res/merged/debug/color/switch_thumb_material_dark.xml",
+        "source": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/color/switch_thumb_material_dark.xml"
+    },
+    {
         "merged": "/Users/simonthome/ErgasiaGit/app/build/intermediates/res/merged/debug/color/abc_primary_text_disable_only_material_dark.xml",
         "source": "/Users/simonthome/ErgasiaGit/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/color/abc_primary_text_disable_only_material_dark.xml"
     },
@@ -36,12 +44,24 @@
         "source": "/Users/simonthome/Ergasia/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/color/abc_background_cache_hint_selector_material_dark.xml"
     },
     {
+        "merged": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/res/merged/debug/color/abc_primary_text_material_light.xml",
+        "source": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/color/abc_primary_text_material_light.xml"
+    },
+    {
+        "merged": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/res/merged/debug/color/abc_background_cache_hint_selector_material_light.xml",
+        "source": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/color/abc_background_cache_hint_selector_material_light.xml"
+    },
+    {
         "merged": "/Users/simonthome/AndroidStudioProjects/Ergasia/app/build/intermediates/res/merged/debug/color/abc_background_cache_hint_selector_material_dark.xml",
         "source": "/Users/simonthome/AndroidStudioProjects/Ergasia/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/color/abc_background_cache_hint_selector_material_dark.xml"
     },
     {
         "merged": "/Users/simonthome/Ergasia/app/build/intermediates/res/merged/debug/color/abc_primary_text_disable_only_material_light.xml",
         "source": "/Users/simonthome/Ergasia/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/color/abc_primary_text_disable_only_material_light.xml"
+    },
+    {
+        "merged": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/res/merged/debug/color/switch_thumb_material_light.xml",
+        "source": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/color/switch_thumb_material_light.xml"
     },
     {
         "merged": "/Users/simonthome/AndroidStudioProjects/Ergasia/app/build/intermediates/res/merged/debug/color/abc_secondary_text_material_light.xml",
@@ -60,12 +80,20 @@
         "source": "/Users/simonthome/AndroidStudioProjects/Ergasia/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/color/abc_search_url_text.xml"
     },
     {
+        "merged": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/res/merged/debug/color/abc_secondary_text_material_dark.xml",
+        "source": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/color/abc_secondary_text_material_dark.xml"
+    },
+    {
         "merged": "/Users/simonthome/ErgasiaGit/app/build/intermediates/res/merged/debug/color/switch_thumb_material_light.xml",
         "source": "/Users/simonthome/ErgasiaGit/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/color/switch_thumb_material_light.xml"
     },
     {
         "merged": "/Users/simonthome/ErgasiaGit/app/build/intermediates/res/merged/debug/color/abc_background_cache_hint_selector_material_light.xml",
         "source": "/Users/simonthome/ErgasiaGit/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/color/abc_background_cache_hint_selector_material_light.xml"
+    },
+    {
+        "merged": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/res/merged/debug/color/abc_primary_text_material_dark.xml",
+        "source": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/color/abc_primary_text_material_dark.xml"
     },
     {
         "merged": "/Users/simonthome/ErgasiaGit/app/build/intermediates/res/merged/debug/color/abc_primary_text_disable_only_material_light.xml",
@@ -82,6 +110,10 @@
     {
         "merged": "/Users/simonthome/Ergasia/app/build/intermediates/res/merged/debug/color/abc_background_cache_hint_selector_material_light.xml",
         "source": "/Users/simonthome/Ergasia/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/color/abc_background_cache_hint_selector_material_light.xml"
+    },
+    {
+        "merged": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/res/merged/debug/color/abc_background_cache_hint_selector_material_dark.xml",
+        "source": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/color/abc_background_cache_hint_selector_material_dark.xml"
     },
     {
         "merged": "/Users/simonthome/ErgasiaGit/app/build/intermediates/res/merged/debug/color/abc_search_url_text.xml",
@@ -108,6 +140,14 @@
         "source": "/Users/simonthome/AndroidStudioProjects/Ergasia/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/color/abc_primary_text_disable_only_material_light.xml"
     },
     {
+        "merged": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/res/merged/debug/color/abc_primary_text_disable_only_material_light.xml",
+        "source": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/color/abc_primary_text_disable_only_material_light.xml"
+    },
+    {
+        "merged": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/res/merged/debug/color/abc_search_url_text.xml",
+        "source": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/color/abc_search_url_text.xml"
+    },
+    {
         "merged": "/Users/simonthome/ErgasiaGit/app/build/intermediates/res/merged/debug/color/abc_secondary_text_material_light.xml",
         "source": "/Users/simonthome/ErgasiaGit/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/color/abc_secondary_text_material_light.xml"
     },
@@ -122,6 +162,10 @@
     {
         "merged": "/Users/simonthome/Ergasia/app/build/intermediates/res/merged/debug/color/abc_primary_text_material_dark.xml",
         "source": "/Users/simonthome/Ergasia/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/color/abc_primary_text_material_dark.xml"
+    },
+    {
+        "merged": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/res/merged/debug/color/abc_secondary_text_material_light.xml",
+        "source": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/color/abc_secondary_text_material_light.xml"
     },
     {
         "merged": "/Users/simonthome/Ergasia/app/build/intermediates/res/merged/debug/color/abc_primary_text_material_light.xml",

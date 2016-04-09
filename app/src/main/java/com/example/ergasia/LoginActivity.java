@@ -10,6 +10,8 @@ import android.content.CursorLoader;
 import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
+import android.graphics.Paint;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.AsyncTask;
 
@@ -17,6 +19,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -57,6 +60,22 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
 
+		TextView textView1 = (TextView)findViewById(R.id.inscriptionTextView);
+		TextView textView2 = (TextView)findViewById(R.id.email);
+		TextView textView3 = (TextView)findViewById(R.id.password);
+		TextView textView4 = (TextView)findViewById(R.id.email_sign_in_button);
+		TextView textView5 = (TextView)findViewById(R.id.createAccountButton);
+		setFont(textView1, "BrushScriptMT.ttf");
+		setFont(textView2, "BigCaslon.ttf");
+		setFont(textView3, "BigCaslon.ttf");
+		setFont(textView4, "BigCaslon.ttf");
+		setFont(textView5, "BigCaslon.ttf");
+		textView5.setPaintFlags(textView5.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+
+
+		
+		
+
 		// Set up the login form.
 		mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
 		populateAutoComplete();
@@ -86,6 +105,23 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
 		addListenerOnButton();
 	}
+
+	/**
+	 * function setFont which use to customize the font of the view
+	 * @param textView
+	 * @param fontName
+	 */
+	private void setFont(TextView textView, String fontName) {
+		if(fontName != null){
+			try {
+				Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/" + fontName);
+				textView.setTypeface(typeface);
+			} catch (Exception e) {
+				Log.e("FONT", fontName + " not found", e);
+			}
+		}
+	}
+
 
 	private void addListenerOnButton () {
 		createAccountButton = (Button) findViewById(R.id.createAccountButton);

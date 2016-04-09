@@ -12,8 +12,16 @@
         "source": "/Users/simonthome/AndroidStudioProjects/Ergasia/app/build/intermediates/exploded-aar/com.android.support/design/23.2.1/res/anim-v21/design_bottom_sheet_slide_in.xml"
     },
     {
+        "merged": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/res/merged/debug/anim-v21/design_bottom_sheet_slide_in.xml",
+        "source": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/exploded-aar/com.android.support/design/23.2.1/res/anim-v21/design_bottom_sheet_slide_in.xml"
+    },
+    {
         "merged": "/Users/simonthome/Ergasia/app/build/intermediates/res/merged/debug/anim-v21/design_bottom_sheet_slide_out.xml",
         "source": "/Users/simonthome/Ergasia/app/build/intermediates/exploded-aar/com.android.support/design/23.2.1/res/anim-v21/design_bottom_sheet_slide_out.xml"
+    },
+    {
+        "merged": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/res/merged/debug/anim-v21/design_bottom_sheet_slide_out.xml",
+        "source": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/exploded-aar/com.android.support/design/23.2.1/res/anim-v21/design_bottom_sheet_slide_out.xml"
     },
     {
         "merged": "/Users/simonthome/ErgasiaGit/app/build/intermediates/res/merged/debug/anim-v21/design_bottom_sheet_slide_in.xml",

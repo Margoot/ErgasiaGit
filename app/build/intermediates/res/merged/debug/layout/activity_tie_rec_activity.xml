@@ -7,7 +7,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.ergasia.Tie_activity">
+    tools:context="com.example.ergasia.Tie_activity"
+    android:background="@color/ergasiayellow">
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -15,15 +16,14 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/frameLayout3">
+        android:id="@+id/layoutTie">
 
         <TextView
-            android:layout_width="173dp"
-            android:layout_height="88dp"
-            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="match_parent"
+            android:layout_height="105dp"
             android:text="Félicitation vous avez un &quot;Tie&quot;"
             android:id="@+id/tieTextView"
-            android:textStyle="italic"
+            android:textStyle="bold|italic"
             android:textSize="@dimen/sub_title2"
             android:layout_gravity="center_horizontal|top"
             android:textColor="@color/ergasiagreen"
@@ -35,21 +35,23 @@
             android:text="NOM Prénom"
             android:id="@+id/tieNomPostTextView"
             android:layout_gravity="center_vertical|left"
-            android:layout_below="@+id/frameLayout3"
+            android:layout_below="@+id/layoutTie"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:textSize="@dimen/sub_title"
             android:textStyle="italic"
-            android:gravity="bottom" />
+            android:gravity="bottom"
+            android:textColor="@color/white" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="82dp"
             android:text="Libellé de l&apos;offre"
-            android:id="@+id/textView"
+            android:id="@+id/tieOfferRecTextView"
             android:layout_gravity="right|bottom"
             android:textStyle="italic"
-            android:textSize="@dimen/sub_title" />
+            android:textSize="@dimen/sub_title"
+            android:textColor="@color/white" />
 
     </FrameLayout>
 
@@ -60,16 +62,15 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="false"
-        android:layout_below="@+id/frameLayout3"
-        android:gravity="center"
+        android:layout_below="@+id/layoutTie"
+        android:gravity="bottom"
         android:weightSum="1">
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/cont_rech"
-            android:id="@+id/contSearchTextView"
-            android:layout_weight="0.27"
+            android:id="@+id/contSearchButton"
             android:background="@color/ergasiagreen"
             android:textColor="@color/white" />
 
@@ -83,8 +84,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/envoyer_mess"
-            android:id="@+id/sendMessageTextView"
-            android:layout_weight="0.27"
+            android:id="@+id/sendMessageButton"
             android:background="@color/ergasiagreen"
             android:textColor="@color/white" />
     </LinearLayout>

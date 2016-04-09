@@ -88,22 +88,22 @@
             android:textColor="@color/white"
             android:layout_weight="0.27" />
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/creer_compte"
+            android:id="@+id/createAccountButton"
+            android:background="@color/white"
+            android:nestedScrollingEnabled="false"
+            android:textColor="@color/ergasiagreen"
+            android:layout_weight="0.27" />
+
         <Space
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_weight="0.10" />
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/creer_compte"
-            android:id="@+id/createAccountButton"
-            android:layout_gravity="center_horizontal"
-            android:background="@color/ergasiagreen"
-            android:nestedScrollingEnabled="false"
-            android:textColor="@color/white"
-            android:layout_weight="0.27" />
     </LinearLayout>
 
 </LinearLayout>
