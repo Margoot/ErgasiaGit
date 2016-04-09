@@ -26,7 +26,8 @@
                 android:text="@string/nom"
                 android:id="@+id/name"
                 android:textSize="@dimen/sub_title2"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                />
 
             <EditText
                 android:layout_width="wrap_content"

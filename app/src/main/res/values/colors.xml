@@ -12,7 +12,7 @@
     <item name="darkred" type="color">#FFCC0000</item>
     <item name="white" type="color">#FFFFFFFF</item>
     <item name="ergasiagreen" type="color">#1CD4AC</item>
-    <item name="ergasiayellow" type="color">#F7F52A</item>
+    <item name="ergasiayellow" type="color">#FED2A5</item>
     <item name="appBackground" type="color">#E0E0E3</item>
 
     <integer-array name="androidcolors">

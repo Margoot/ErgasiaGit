@@ -70,7 +70,7 @@
     <color name="dim_foreground_material_dark">#ffbebebe</color>
     <color name="dim_foreground_material_light">#ff323232</color>
     <item name="ergasiagreen" type="color">#1CD4AC</item>
-    <item name="ergasiayellow" type="color">#F7F52A</item>
+    <item name="ergasiayellow" type="color">#FED2A5</item>
     <color name="foreground_material_dark">@android:color/white</color>
     <color name="foreground_material_light">@android:color/black</color>
     <item name="green" type="color">#FF99CC00</item>
@@ -274,9 +274,9 @@
     <dimen name="notification_large_icon_width">64dp</dimen>
     <dimen name="notification_subtext_size">12dp</dimen>
     <dimen name="sub_title">20sp</dimen>
-    <dimen name="sub_title2">25sp</dimen>
+    <dimen name="sub_title2">35sp</dimen>
     <dimen name="text1">18sp</dimen>
-    <dimen name="title_dimension">30sp</dimen>
+    <dimen name="title_dimension">50sp</dimen>
     <drawable name="notification_template_icon_bg">#3333B5E5</drawable>
     <item name="action_bar_activity_content" type="id"/>
     <item name="action_bar_spinner" type="id"/>
@@ -398,6 +398,7 @@
             res/values-vXX/styles.xml, while customizations related to
             backward-compatibility can go here.
         -->
+
         <item name="android:actionBarStyle">@style/CustomColorActionBar</item>
     </style>
     <style name="AppTheme" parent="AppBaseTheme">

@@ -12,8 +12,8 @@
     android:background="@color/ergasiayellow">
 
     <ImageView
-        android:layout_width="272dp"
-        android:layout_height="272dp"
+        android:layout_width="339dp"
+        android:layout_height="339dp"
         android:id="@+id/imageView"
         android:layout_gravity="center"
         android:src="@drawable/load_image2" />

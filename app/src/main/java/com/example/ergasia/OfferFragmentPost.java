@@ -1,7 +1,9 @@
 package com.example.ergasia;
 
 import android.app.Fragment;
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +20,7 @@ public class OfferFragmentPost extends Fragment {
     private static final String ARG_SECTION_NUMBER = "section_number";
 
     public OfferFragmentPost() {
+
     }
 
     /**
@@ -29,6 +32,9 @@ public class OfferFragmentPost extends Fragment {
         Bundle args = new Bundle();
         args.putInt(ARG_SECTION_NUMBER, sectionNumber);
         fragment.setArguments(args);
+
+
+
         return fragment;
     }
 
@@ -36,8 +42,39 @@ public class OfferFragmentPost extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_offer_main, container, false);
-        //TextView textView = (TextView) rootView.findViewById(R.id.section_label);
-        //textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
+
+        TextView textView1 = (TextView) rootView.findViewById(R.id.companyTextView2);
+        TextView textView2 = (TextView) rootView.findViewById(R.id.companySmallText2);
+        TextView textView3 = (TextView) rootView.findViewById(R.id.typeTextView);
+        TextView textView4 = (TextView) rootView.findViewById(R.id.cdiRadioButton);
+        TextView textView5 = (TextView) rootView.findViewById(R.id.cddRadioButton);
+        TextView textView6 = (TextView) rootView.findViewById(R.id.internRadioButton);
+        TextView textView7 = (TextView) rootView.findViewById(R.id.areaTextView);
+        TextView textView8 = (TextView) rootView.findViewById(R.id.areaSmallTextView);
+        TextView textView9 = (TextView) rootView.findViewById(R.id.jobTextView);
+        TextView textView10 = (TextView) rootView.findViewById(R.id.locationSmallTextView);
+        TextView textView11 = (TextView) rootView.findViewById(R.id.salaryTextView2);
+        TextView textView12 = (TextView) rootView.findViewById(R.id.salarySmallTextView);
+        TextView textView13 = (TextView) rootView.findViewById(R.id.euroSmallTextView);
+        TextView textView14 = (TextView) rootView.findViewById(R.id.skillsTextView);
+        TextView textView15 = (TextView) rootView.findViewById(R.id.skillsSmallTextView);
+        Typeface font = Typeface.createFromAsset(getActivity().getAssets(), "fonts/BigCaslon.ttf");
+        textView1.setTypeface(font);
+        textView2.setTypeface(font);
+        textView3.setTypeface(font);
+        textView4.setTypeface(font);
+        textView5.setTypeface(font);
+        textView6.setTypeface(font);
+        textView7.setTypeface(font);
+        textView8.setTypeface(font);
+        textView9.setTypeface(font);
+        textView10.setTypeface(font);
+        textView11.setTypeface(font);
+        textView12.setTypeface(font);
+        textView13.setTypeface(font);
+        textView14.setTypeface(font);
+        textView15.setTypeface(font);
+
         return rootView;
     }
 }

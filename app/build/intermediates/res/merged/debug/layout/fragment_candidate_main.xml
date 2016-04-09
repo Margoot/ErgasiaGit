@@ -97,7 +97,7 @@
                         android:layout_height="match_parent"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:text="Anglais"
-                        android:id="@+id/textView12"
+                        android:id="@+id/recLanguageSmallTextView"
                         android:textSize="@dimen/text1"
                         android:layout_weight="0.19"
                         android:gravity="center_vertical"

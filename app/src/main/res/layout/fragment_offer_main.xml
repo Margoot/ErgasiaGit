@@ -104,7 +104,7 @@
                     android:layout_height="47dp"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:text="Informatique"
-                    android:id="@+id/areaSmallText"
+                    android:id="@+id/areaSmallTextView"
                     android:textSize="@dimen/text1"
                     android:textStyle="italic" />
 
@@ -172,7 +172,7 @@
                     android:layout_height="47dp"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:text="C++"
-                    android:id="@+id/skillsSmallText"
+                    android:id="@+id/skillsSmallTextView"
                     android:textSize="@dimen/text1"
                     android:textStyle="italic" />
 
