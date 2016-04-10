@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools" >
     <item
         android:id="@+id/action_plus"
-        android:icon="@drawable/action_plus"
+        android:icon="@drawable/icon_plus"
         android:title="Ajouter une offre"
         android:showAsAction="always"/>
 </menu>

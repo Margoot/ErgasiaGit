@@ -16,7 +16,8 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
         android:id="@+id/frameLayout"
-        android:background="@color/white">
+        android:background="@color/white"
+        android:clickable="true">
 
         <ScrollView
             android:layout_width="match_parent"
@@ -193,7 +194,7 @@
             android:layout_width="wrap_content"
             android:layout_height="90dp"
             android:id="@+id/okButton"
-            android:background="@drawable/ok_icon"
+            android:background="@drawable/icon_yes"
             android:longClickable="true"
             android:layout_weight="0.2" />
 
@@ -201,7 +202,7 @@
             android:layout_width="wrap_content"
             android:layout_height="90dp"
             android:id="@+id/imageButton"
-            android:background="@drawable/no_icon"
+            android:background="@drawable/icon_no"
             android:longClickable="true"
             android:layout_weight="0.2" />
 
