@@ -16,5 +16,5 @@
         android:layout_height="339dp"
         android:id="@+id/imageView"
         android:layout_gravity="center"
-        android:src="@drawable/load_image2" />
+        android:src="@drawable/icon_ergasia" />
 </FrameLayout>

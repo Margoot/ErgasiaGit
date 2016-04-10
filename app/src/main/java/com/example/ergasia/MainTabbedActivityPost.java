@@ -34,9 +34,9 @@ public class MainTabbedActivityPost extends Activity implements ActionBar.TabLis
     private ViewPager mViewPager;
 
     final int[] ICONS = new int[] {
-            R.drawable.ic_profil,
-            R.drawable.ic_ergasia,
-            R.drawable.ic_message,
+            R.drawable.icon_profil,
+            R.drawable.icon_ergasia,
+            R.drawable.icon_messaging,
     };
 
     @Override
