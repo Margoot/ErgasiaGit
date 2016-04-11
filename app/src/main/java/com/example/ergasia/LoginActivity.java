@@ -53,7 +53,7 @@ import java.util.Map;
  * A login screen that offers login via email/password.
  * 
  */
-public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
+public class LoginActivity extends Activity  {
 
 	private static final String TAG = Inscription_activity.class.getSimpleName();//Tag to identify the request
     private Button btnLogin;
@@ -62,7 +62,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 	 * Keep track of the login task to ensure we can cancel it if requested.
 	 */
 	//private UserLoginTask mAuthTask = null;
-    private AutoCompleteTextView inputEmail;
+    private EditText inputEmail;
     private EditText inputPassword;
     private ProgressDialog pDialog;
     private SessionManager session;
@@ -70,8 +70,8 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 	// UI references.
 
 
-	private View mProgressView;
-	private View mLoginFormView;
+	//private View mProgressView;
+	//private View mLoginFormView;
 
 
 	@Override
@@ -92,7 +92,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
         textView5.setPaintFlags(textView5.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
         // intialisation of the different inputs and buttons
-        inputEmail = (AutoCompleteTextView) findViewById(R.id.email);
+        inputEmail = (EditText) findViewById(R.id.email);
         inputPassword = (EditText) findViewById(R.id.password);
 		btnLogin = (Button) findViewById(R.id.email_sign_in_button);
         createAccountButton = (Button) findViewById(R.id.createAccountButton);
@@ -121,10 +121,10 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
 		// Set up the login form.
 		//mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
-		populateAutoComplete();
+		//populateAutoComplete();
 
 
-		inputPassword.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+		/*inputPassword.setOnEditorActionListener(new TextView.OnEditorActionListener() {
 			@Override
 			public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
 				if (id == R.id.login || id == EditorInfo.IME_NULL) {
@@ -133,12 +133,12 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 				}
 				return false;
 			}
-		});
+		});*/
 
 
 
-		mLoginFormView = findViewById(R.id.login_form);
-		mProgressView = findViewById(R.id.login_progress);
+		//mLoginFormView = findViewById(R.id.login_form);
+		//mProgressView = findViewById(R.id.login_progress);
 
 		addListenerOnButton();
 	}
@@ -161,7 +161,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
 
     private void addListenerOnButton () {
-        btnLogin.setOnClickListener(new OnClickListener() {
+        btnLogin.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             attemptLogin();
@@ -170,7 +170,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
         createAccountButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View arg0){
+            public void onClick(View view) {
                 Intent i = new Intent(LoginActivity.this, Inscription_activity.class);
                 startActivity(i);
                 finish();
@@ -265,9 +265,9 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
             pDialog.dismiss();
     }
 
-	private void populateAutoComplete() {
+	/*private void populateAutoComplete() {
 		getLoaderManager().initLoader(0, null, this);
-	}
+	}*/
 
 	/**
 	 * Attempts to sign in or register the account specified by the login form.
@@ -275,42 +275,20 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 	 * errors are presented and no actual login attempt is made.
 	 */
 	public void attemptLogin() {
-		/*if (mAuthTask != null) {
-			return;
-		}*/
 
-		// Reset errors.
-		inputEmail.setError(null);
-		inputPassword.setError(null);
+        String email = inputEmail.getText().toString().trim();
+        String password = inputPassword.getText().toString().trim();
 
-		// Store values at the time of the login attempt.
-		String email = inputEmail.getText().toString().trim();
-		String password = inputPassword.getText().toString().trim();
-
-		boolean cancel = false;
-		View focusView = null;
-
-		// Check for a valid password, if the user entered one.
-		if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
-			inputPassword.setError(getString(R.string.error_invalid_password));
-			focusView = inputPassword;
-			cancel = true;
-		}
-
-		// Check for a valid email address.
-		if (TextUtils.isEmpty(email)) {
-			inputEmail.setError(getString(R.string.error_field_required));
-			focusView = inputEmail;
-			cancel = true;
+        //Check for empty data in form
+        if (!email.isEmpty() && !password.isEmpty()){
+            //login user
             checkLogin(email, password);
-		} else if (!isEmailValid(email)) {
-			inputEmail.setError(getString(R.string.error_invalid_email));
-			focusView = inputEmail;
-			cancel = true;
-            Toast.makeText(getApplicationContext(), "Veuillez saisir les champs",Toast.LENGTH_LONG).show();
+        } else {
+            //Prompt user to enter credidentials
+            Toast.makeText(getApplicationContext(),"Veuillez saisir les champs!", Toast.LENGTH_LONG).show();
         }
 
-		if (cancel) {
+		/*if (cancel) {
 			// There was an error; don't attempt login and focus the first
 			// form field with an error.
 			focusView.requestFocus();
@@ -320,10 +298,10 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 			showProgress(true);
 			//mAuthTask = new UserLoginTask(email, password);
 			//mAuthTask.execute((Void) null);
-		}
+		}*/
 	}
 
-	private boolean isEmailValid(String email) {
+	/*private boolean isEmailValid(String email) {
 		// TODO: Replace this with your own logic
 		return email.contains("@");
 	}
@@ -331,11 +309,8 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 	private boolean isPasswordValid(String password) {
 		// TODO: Replace this with your own logic
 		return password.length() > 4;
-	}
-
-	/**
-	 * Shows the progress UI and hides the login form.
-	 */
+	}*/
+/*
 	@TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
 	public void showProgress(final boolean show) {
 		// On Honeycomb MR2 we have the ViewPropertyAnimator APIs, which allow
@@ -402,6 +377,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 	public void onLoaderReset(Loader<Cursor> cursorLoader) {
 
 	}
+
 
 	private interface ProfileQuery {
 		String[] PROJECTION = { ContactsContract.CommonDataKinds.Email.ADDRESS,

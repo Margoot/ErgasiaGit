@@ -47,15 +47,16 @@
                 android:gravity="center"
                 android:orientation="vertical" >
 
-                <AutoCompleteTextView
-                    android:id="@+id/email"
+                <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:hint="@string/prompt_email"
                     android:inputType="textEmailAddress"
-                    android:maxLines="1"
-                    android:singleLine="true" />
+                    android:ems="10"
+                    android:id="@+id/email"
+                    android:layout_gravity="center_horizontal"
+                    android:singleLine="true"
+                    android:hint="@string/email"
+                    android:gravity="center" />
 
                 <EditText
                     android:id="@+id/password"
