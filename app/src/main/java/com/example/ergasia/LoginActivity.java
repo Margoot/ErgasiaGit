@@ -14,6 +14,8 @@ import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.app.ProgressDialog;
+
 
 import android.os.Build;
 import android.os.Bundle;
@@ -29,8 +31,23 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+
+import java.lang.String;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.android.volley.Request.Method;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * A login screen that offers login via email/password.
@@ -38,50 +55,76 @@ import java.util.List;
  */
 public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
-	/**
-	 * A dummy authentication store containing known user names and passwords.
-	 * TODO: remove after connecting to a real authentication system.
-	 */
-	private static final String[] DUMMY_CREDENTIALS = new String[] { "foo@example.com:hello", "bar@example.com:world" };
+	private static final String TAG = Inscription_activity.class.getSimpleName();//Tag to identify the request
+    private Button btnLogin;
+    private Button createAccountButton;
 	/**
 	 * Keep track of the login task to ensure we can cancel it if requested.
 	 */
-	private UserLoginTask mAuthTask = null;
-
+	//private UserLoginTask mAuthTask = null;
+    private AutoCompleteTextView inputEmail;
+    private EditText inputPassword;
+    private ProgressDialog pDialog;
+    private SessionManager session;
+    private SQLiteHandler db;
 	// UI references.
-	private AutoCompleteTextView mEmailView;
-	private EditText mPasswordView;
+
+
 	private View mProgressView;
 	private View mLoginFormView;
-	private Button createAccountButton;
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
 
-		TextView textView1 = (TextView)findViewById(R.id.inscriptionTextView);
-		TextView textView2 = (TextView)findViewById(R.id.email);
-		TextView textView3 = (TextView)findViewById(R.id.password);
-		TextView textView4 = (TextView)findViewById(R.id.email_sign_in_button);
-		TextView textView5 = (TextView)findViewById(R.id.createAccountButton);
-		setFont(textView1, "BrushScriptMT.ttf");
-		setFont(textView2, "BigCaslon.ttf");
-		setFont(textView3, "BigCaslon.ttf");
-		setFont(textView4, "BigCaslon.ttf");
-		setFont(textView5, "BigCaslon.ttf");
-		textView5.setPaintFlags(textView5.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        TextView textView1 = (TextView)findViewById(R.id.inscriptionTextView);
+        TextView textView2 = (TextView)findViewById(R.id.email);
+        TextView textView3 = (TextView)findViewById(R.id.password);
+        TextView textView4 = (TextView)findViewById(R.id.email_sign_in_button);
+        TextView textView5 = (TextView)findViewById(R.id.createAccountButton);
+        setFont(textView1, "BrushScriptMT.ttf");
+        setFont(textView2, "BigCaslon.ttf");
+        setFont(textView3, "BigCaslon.ttf");
+        setFont(textView4, "BigCaslon.ttf");
+        setFont(textView5, "BigCaslon.ttf");
+        textView5.setPaintFlags(textView5.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
+        // intialisation of the different inputs and buttons
+        inputEmail = (AutoCompleteTextView) findViewById(R.id.email);
+        inputPassword = (EditText) findViewById(R.id.password);
+		btnLogin = (Button) findViewById(R.id.email_sign_in_button);
+        createAccountButton = (Button) findViewById(R.id.createAccountButton);
 
-		
+        // intialisation of the progress dialog
+        pDialog = new ProgressDialog(this);
+        pDialog.setCancelable(false);
+
+        // SQlite database handler
+        db = new SQLiteHandler(getApplicationContext());
+
+        // Session manager
+        session = new SessionManager(getApplicationContext());
+
+        //check if user is already logged in
+        if(session.isLoggedIn()) {
+            //User is already logged in. Take him to Post/Rec activity
+            Intent i = new Intent(LoginActivity.this, MainTabbedActivityPost.class );
+            startActivity(i);
+            finish();
+            // A FAIRE: différencier Postulant Recruteur
+        }
+
+        //
 		
 
 		// Set up the login form.
-		mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
+		//mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
 		populateAutoComplete();
 
-		mPasswordView = (EditText) findViewById(R.id.password);
-		mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+
+		inputPassword.setOnEditorActionListener(new TextView.OnEditorActionListener() {
 			@Override
 			public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
 				if (id == R.id.login || id == EditorInfo.IME_NULL) {
@@ -92,13 +135,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 			}
 		});
 
-		Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
-		mEmailSignInButton.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View view) {
-				attemptLogin();
-			}
-		});
+
 
 		mLoginFormView = findViewById(R.id.login_form);
 		mProgressView = findViewById(R.id.login_progress);
@@ -123,18 +160,110 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 	}
 
 
-	private void addListenerOnButton () {
-		createAccountButton = (Button) findViewById(R.id.createAccountButton);
+    private void addListenerOnButton () {
+        btnLogin.setOnClickListener(new OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            attemptLogin();
+        }
+    });
 
-		createAccountButton.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View arg0){
-				Intent i = new Intent(LoginActivity.this, Inscription_activity.class);
-				startActivity(i);
+        createAccountButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0){
+                Intent i = new Intent(LoginActivity.this, Inscription_activity.class);
+                startActivity(i);
+                finish();
 
-			}
-		});
-	}
+            }
+        });
+    }
+
+    private void checkLogin(final String email,final String password) {
+        //Tag used to cancel the request
+        String tag_string_req = "req_login";
+
+        pDialog.setMessage("Logging in ...");
+        showDialog();
+
+        StringRequest strReq = new StringRequest(Method.POST,AppConfig.URL_LOGIN, new Response.Listener<String>(){
+            @Override
+            public void onResponse(String response) {
+                Log.d(TAG, "Login Response: " + response.toString());
+                hideDialog();
+
+                try {
+                    JSONObject jObj = new JSONObject(response);
+                    boolean error = jObj.getBoolean("error");
+
+                    //Check for error node in json
+                    if(!error) {
+                        //user successfully logged in
+                        //create login session
+                        session.setLogin(true);
+
+                        //Now store the user in SQLite
+                        String uid = jObj.getString("uid");
+
+						JSONObject user = jObj.getJSONObject("user");
+                        String name = user.getString("name");
+                        String firstname = user.getString("firstname");
+                        String email = user.getString("email");
+                        String created_at = user.getString("created_at");
+
+                        //Inserting row in users table
+                        db.addUser(name, firstname, email, uid, created_at);
+
+                        //Launch main activity
+                        Intent i = new Intent(LoginActivity.this, MainTabbedActivityPost.class);
+                        startActivity(i);
+                        finish();
+                    } else {
+                        //Error in login. Get the error message
+                        String errorMsg = jObj.getString("error_msg");
+                        Toast.makeText(getApplicationContext(),
+                                errorMsg, Toast.LENGTH_LONG).show();
+                    }
+                } catch (JSONException e) {
+                    //JSON error
+                    e.printStackTrace();
+                    Toast.makeText(getApplicationContext(), "Json error: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                }
+            }
+        }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e(TAG, "Login Error: " + error.getMessage());
+                Toast.makeText(getApplicationContext(),
+                        error.getMessage(), Toast.LENGTH_LONG).show();
+                hideDialog();
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() {
+                //Posting parameters to login url
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("email", email);
+                params.put("password", password);
+
+                return params;
+            }
+        };
+
+        // Adding request to request queue
+        AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
+    }
+
+    private void showDialog() {
+        if (!pDialog.isShowing())
+            pDialog.show();
+    }
+
+    private void hideDialog() {
+        if (pDialog.isShowing())
+            pDialog.dismiss();
+    }
 
 	private void populateAutoComplete() {
 		getLoaderManager().initLoader(0, null, this);
@@ -146,38 +275,40 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 	 * errors are presented and no actual login attempt is made.
 	 */
 	public void attemptLogin() {
-		if (mAuthTask != null) {
+		/*if (mAuthTask != null) {
 			return;
-		}
+		}*/
 
 		// Reset errors.
-		mEmailView.setError(null);
-		mPasswordView.setError(null);
+		inputEmail.setError(null);
+		inputPassword.setError(null);
 
 		// Store values at the time of the login attempt.
-		String email = mEmailView.getText().toString();
-		String password = mPasswordView.getText().toString();
+		String email = inputEmail.getText().toString().trim();
+		String password = inputPassword.getText().toString().trim();
 
 		boolean cancel = false;
 		View focusView = null;
 
 		// Check for a valid password, if the user entered one.
 		if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
-			mPasswordView.setError(getString(R.string.error_invalid_password));
-			focusView = mPasswordView;
+			inputPassword.setError(getString(R.string.error_invalid_password));
+			focusView = inputPassword;
 			cancel = true;
 		}
 
 		// Check for a valid email address.
 		if (TextUtils.isEmpty(email)) {
-			mEmailView.setError(getString(R.string.error_field_required));
-			focusView = mEmailView;
+			inputEmail.setError(getString(R.string.error_field_required));
+			focusView = inputEmail;
 			cancel = true;
+            checkLogin(email, password);
 		} else if (!isEmailValid(email)) {
-			mEmailView.setError(getString(R.string.error_invalid_email));
-			focusView = mEmailView;
+			inputEmail.setError(getString(R.string.error_invalid_email));
+			focusView = inputEmail;
 			cancel = true;
-		}
+            Toast.makeText(getApplicationContext(), "Veuillez saisir les champs",Toast.LENGTH_LONG).show();
+        }
 
 		if (cancel) {
 			// There was an error; don't attempt login and focus the first
@@ -187,8 +318,8 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 			// Show a progress spinner, and kick off a background task to
 			// perform the user login attempt.
 			showProgress(true);
-			mAuthTask = new UserLoginTask(email, password);
-			mAuthTask.execute((Void) null);
+			//mAuthTask = new UserLoginTask(email, password);
+			//mAuthTask.execute((Void) null);
 		}
 	}
 
@@ -286,14 +417,14 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(LoginActivity.this,
 				android.R.layout.simple_dropdown_item_1line, emailAddressCollection);
 
-		mEmailView.setAdapter(adapter);
+		inputEmail.setAdapter(adapter);
 	}
 
 	/**
 	 * Represents an asynchronous login/registration task used to authenticate
 	 * the user.
 	 */
-	public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
+	/*public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
 
 		private final String mEmail;
 		private final String mPassword;
@@ -334,8 +465,8 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 			if (success) {
 				finish();
 			} else {
-				mPasswordView.setError(getString(R.string.error_incorrect_password));
-				mPasswordView.requestFocus();
+				inputPassword.setError(getString(R.string.error_incorrect_password));
+				inputPassword.requestFocus();
 			}
 		}
 
@@ -344,5 +475,5 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 			mAuthTask = null;
 			showProgress(false);
 		}
-	}
+	}*/
 }
