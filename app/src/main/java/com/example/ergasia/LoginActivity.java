@@ -49,6 +49,7 @@ public class LoginActivity extends Activity  {
     private SQLiteHandler db;
 
 
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -81,16 +82,9 @@ public class LoginActivity extends Activity  {
 
         // Session manager
         session = new SessionManager(getApplicationContext());
-/*
-        //check if user is already logged in
-        if(session.isLoggedIn()) {
-            //User is already logged in. Take him to Post/Rec activity
-            Intent i = new Intent(LoginActivity.this, MainTabbedActivityPost.class );
-            startActivity(i);
-            finish();
-            // A FAIRE: différencier Postulant Recruteur
-        }
-        */
+
+
+
 		addListenerOnButton();
 	}
 
@@ -166,10 +160,17 @@ public class LoginActivity extends Activity  {
                         db.addUser(name, firstname, email, uid, created_at);
 
                         //Launch main activity
-                        Intent i = new Intent(LoginActivity.this, MainTabbedActivityPost.class);
-                        // METTRE LA PAGE POUR CRÉER OFFRE OU ENTRER COORDONNES POSTULANT
-                        startActivity(i);
-                        finish();
+                        if (Post_rec_activity.getIsPost()) {
+                            Intent i = new Intent(LoginActivity.this, MainTabbedActivityPost.class);
+                            // METTRE LA PAGE POUR CRÉER OFFRE OU ENTRER COORDONNES POSTULANT
+                            startActivity(i);
+                            finish();
+                        } else {
+                            Intent i = new Intent(LoginActivity.this, MainTabbedActivityRec.class);
+                            // METTRE LA PAGE POUR CRÉER OFFRE OU ENTRER COORDONNES POSTULANT
+                            startActivity(i);
+                            finish();
+                        }
                     } else {
                         //Error in login. Get the error message
                         String errorMsg = jObj.getString("error_msg");

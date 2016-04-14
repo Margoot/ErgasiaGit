@@ -19,6 +19,8 @@ public class Post_rec_activity extends Activity {
 	Button jerecButton;
 	private SessionManager session;
 	private SQLiteHandler db;
+	public static Boolean isPost;
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +61,8 @@ public class Post_rec_activity extends Activity {
 	 * @param textView
 	 * @param fontName
 	 */
+
+
 	private void setFont(TextView textView, String fontName) {
 		if(fontName != null){
 			try {
@@ -70,28 +74,39 @@ public class Post_rec_activity extends Activity {
 		}
 	}
 
-	private void addListenerOnButton() {
 
-		//final Context context = this;
+		private  void addListenerOnButton() {
 
-		jepostButton = (Button) findViewById(R.id.postButton);
-		jerecButton = (Button) findViewById(R.id.recButton);
+			//final Context context = this;
 
-		jepostButton.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View arg0){
-				Intent i = new Intent(Post_rec_activity.this, LoginActivity.class);
-				startActivity(i);
-			}
-		});
+			jepostButton = (Button) findViewById(R.id.postButton);
+			jerecButton = (Button) findViewById(R.id.recButton);
 
-		jerecButton.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View arg0){
-				Intent i = new Intent(Post_rec_activity.this, LoginActivity.class);
-				startActivity(i);
-			}
-		});
+			jepostButton.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View arg0) {
+					isPost = true;
+					Intent i = new Intent(Post_rec_activity.this, LoginActivity.class);
+					startActivity(i);
+
+
+				}
+			});
+
+			jerecButton.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View arg0) {
+					isPost = false;
+					Intent i = new Intent(Post_rec_activity.this, LoginActivity.class);
+					startActivity(i);
+
+				}
+			});
+		}
+
+
+	public static boolean getIsPost() {
+		return isPost;
 	}
 
 	@Override
