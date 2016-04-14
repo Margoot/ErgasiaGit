@@ -49,6 +49,8 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.android.volley.Request.Method.POST;
+
 /**
  * A login screen that offers login via email/password.
  * 
@@ -186,7 +188,7 @@ public class LoginActivity extends Activity  {
         pDialog.setMessage("Logging in ...");
         showDialog();
 
-        StringRequest strReq = new StringRequest(Method.POST,AppConfig.URL_LOGIN, new Response.Listener<String>(){
+        StringRequest strReq = new StringRequest(POST,AppConfig.URL_LOGIN, new Response.Listener<String>(){
             @Override
             public void onResponse(String response) {
                 Log.d(TAG, "Login Response: " + response.toString());
