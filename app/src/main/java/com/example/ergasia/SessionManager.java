@@ -23,8 +23,8 @@ public class SessionManager {
     int PRIVATE_MODE = 0;
 
     //Shared preferences file name
-    private static final String PREF_NAME = "ErgasiaLogin";
-    private static final String KEY_IS_LOGGEDIN = "isLoggedIn";
+    public static final String PREF_NAME = "ErgasiaLogin";
+    public static final String KEY_IS_LOGGEDIN = "isLoggedIn";
 
     public SessionManager (Context context) {
         this._context = context;

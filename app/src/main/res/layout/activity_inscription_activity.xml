@@ -30,7 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/inscriptionTextView"
-        android:id="@+id/frameLayout5">
+        android:id="@+id/frameLayout6">
 
         <ScrollView
             android:id="@+id/scrollView1"
@@ -149,7 +149,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/linearLayout"
         android:layout_alignParentBottom="true"
-        android:layout_below="@+id/frameLayout5"
+        android:layout_below="@+id/frameLayout6"
         android:gravity="center_vertical">
 
         <Button
@@ -159,7 +159,7 @@
             android:background="@color/ergasiagreen"
             android:text="@string/creer"
             android:textColor="@color/white"
-            android:layout_below="@+id/frameLayout5"
+            android:layout_below="@+id/frameLayout6"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true" />

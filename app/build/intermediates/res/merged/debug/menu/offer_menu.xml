@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools" >
     <item
-        android:id="@+id/action_plus"
-        android:icon="@drawable/icon_plus"
-        android:title="Ajouter une offre"
-        android:showAsAction="always"/>
+        android:id="@+id/action_logout"
+        android:orderInCategory="100"
+        android:title="@string/action_logout"/>
 </menu>

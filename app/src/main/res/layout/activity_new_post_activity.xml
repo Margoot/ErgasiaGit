@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="@dimen/activity_vertical_margin"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_vertical_margin"
+                tools:context="com.example.ergasia.New_offer_activity"
+              android:orientation="vertical"
+              android:weightSum="1">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="363dp"
+        android:layout_above="@+id/linearLayout2"
+        android:layout_weight="0.85">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/scrollView3"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" >
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="@string/nom"
+                    android:id="@+id/name"
+                    android:textSize="@dimen/sub_title2"
+                    android:textStyle="bold"
+                    />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:ems="10"
+                    android:id="@+id/editName"
+                    android:selectAllOnFocus="false"
+                    android:textStyle="italic"
+                    android:textSize="@dimen/text1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="@string/prenom"
+                    android:id="@+id/firstName"
+                    android:textSize="@dimen/sub_title2"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:ems="10"
+                    android:id="@+id/editFirstName"
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="@dimen/text1"
+                    android:textStyle="italic" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="@string/formation"
+                    android:id="@+id/training"
+                    android:textSize="@dimen/sub_title2"
+                    android:textStyle="bold" />
+
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="46dp"
+                    android:id="@+id/trainingSpinner"
+                    android:spinnerMode="dropdown" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="@string/domaine"
+                    android:id="@+id/area"
+                    android:textSize="@dimen/sub_title2"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/editArea"
+                    android:textSize="@dimen/text1"
+                    android:textStyle="italic" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="@string/emploi"
+                    android:id="@+id/job"
+                    android:textSize="@dimen/sub_title2"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/editJob"
+                    android:layout_gravity="center_horizontal"
+                    android:textStyle="italic"
+                    android:textSize="@dimen/text1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="@string/langues"
+                    android:id="@+id/language"
+                    android:textSize="@dimen/sub_title2"
+                    android:textStyle="bold" />
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <EditText
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/editLanguage"
+                            android:minWidth="@dimen/lang_dimension"
+                            android:textSize="@dimen/text1"
+                            android:textStyle="italic" />
+
+                        <RatingBar
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/ratingBar"
+                            android:layout_column="1"
+                            android:numStars="3" />
+                    </TableRow>
+                </TableLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="@string/competences"
+                    android:id="@+id/skills"
+                    android:textSize="@dimen/sub_title2"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/skillsEditText"
+                    android:textStyle="italic"
+                    android:textSize="@dimen/text1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="@string/geoloc"
+                    android:id="@+id/geolocation"
+                    android:textSize="@dimen/sub_title2"
+                    android:textStyle="bold" />
+
+                <Switch
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Enable:"
+                    android:id="@+id/geolocSwitch"
+                    android:layout_gravity="center_horizontal"
+                    android:checked="false" />
+
+                <SeekBar
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/seekBar"
+                    android:layout_gravity="center_horizontal" />
+
+                <AutoCompleteTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Lieu"
+                    android:id="@+id/autoCompleteTextView"
+                    android:textStyle="italic"
+                    android:textSize="@dimen/text1" />
+            </LinearLayout>
+        </ScrollView>
+    </FrameLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/scrollView3"
+        android:layout_alignStart="@+id/scrollView3"
+        android:id="@+id/linearLayout2"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_vertical">
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="22dp"
+            android:layout_gravity="center_horizontal"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/au_boulot"
+            android:id="@+id/button"
+            android:background="@color/ergasiagreen"
+            android:textColor="@color/white"
+            />
+    </LinearLayout>
+
+</LinearLayout>

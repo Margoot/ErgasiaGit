@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.ergasia"
-    android:versionCode="1"
-    android:versionName="1.0">
+<manifest package="com.example.ergasia"
+          xmlns:android="http://schemas.android.com/apk/res/android"
+          android:versionCode="1"
+          android:versionName="1.0">
 
     <!-- To auto-complete the email text field in the login form with the user's emails -->
-    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-    <uses-permission android:name="android.permission.READ_PROFILE" />
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.READ_PROFILE"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
-        android:name="com.example.ergasia.AppController"
+        android:name=".AppController"
         android:allowBackup="true"
         android:icon="@drawable/icon_ergasia"
         android:label="@string/app_name"
@@ -26,9 +26,9 @@
 
             <!-- android:label="@string/app_name" -->
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <!--
@@ -38,20 +38,21 @@
         -->
         <activity
             android:name=".Post_rec_activity"
-            android:label="@string/title_activity_post_rec_activity"/>
-
+            android:label="@string/title_activity_post_rec_activity"
+            android:windowSoftInputMode="adjustPan"/>
         <activity
             android:name=".Inscription_activity"
             android:label="@string/title_activity_inscription_activity"
-            android:parentActivityName=".Post_rec_activity">
+            android:parentActivityName=".Post_rec_activity"
+            android:windowSoftInputMode="adjustPan">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.ergasia.Post_rec_activity" />
+                android:value="com.example.ergasia.Post_rec_activity"/>
 
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity
@@ -60,85 +61,107 @@
             android:windowSoftInputMode="adjustResize|stateVisible"/>
         <activity
             android:name=".MainTabbedActivityPost"
-            android:label="@string/title_activity_main_tabbed">
+            android:label="@string/title_activity_main_tabbed"
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".MainTabbedActivityRec"
-            android:label="@string/title_activity_main_tabbed_activity_rec">
+            android:label="@string/title_activity_main_tabbed_activity_rec"
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".New_offer_activity"
             android:label="@string/title_activity_new_offer_activity"
-            android:parentActivityName=".MainTabbedActivityRec">
+            android:parentActivityName=".MainTabbedActivityRec"
+            android:windowSoftInputMode="adjustPan">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.ergasia.MainTabbedActivityRec" />
+                android:value="com.example.ergasia.MainTabbedActivityRec"/>
 
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".Tie_rec_activity"
-            android:label="@string/title_activity_tie_activity">
+            android:label="@string/title_activity_tie_activity"
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".Tie_post_activity"
-            android:label="@string/title_activity_tie_activity">
+            android:label="@string/title_activity_tie_activity"
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".Message_rec_activity"
             android:label="@string/title_activity_message_rec_activity"
-            android:parentActivityName=".MainTabbedActivityRec">
+            android:parentActivityName=".MainTabbedActivityRec"
+            android:windowSoftInputMode="adjustPan">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.ergasia.MainTabbedActivityRec" />
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                android:value="com.example.ergasia.MainTabbedActivityRec"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".Message_post_activity"
             android:label="@string/title_activity_message_rec_activity"
-            android:parentActivityName=".MainTabbedActivityRec">
+            android:parentActivityName=".MainTabbedActivityRec"
+            android:windowSoftInputMode="adjustPan">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.ergasia.MainTabbedActivityRec" />
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                android:value="com.example.ergasia.MainTabbedActivityRec"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <!-- ATTENTION: This was auto-generated to add Google Play services to your project for
-             App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
+        <!--
+             ATTENTION: This was auto-generated to add Google Play services to your project for
+             App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
+        -->
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version"/>
+
+        <activity
+            android:name=".New_post_activity"
+            android:label="@string/title_activity_new_post_activity"
+            android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

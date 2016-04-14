@@ -33,28 +33,4 @@ public class ProfilFragmentRec extends Fragment {
         return rootView;
     }
 
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setHasOptionsMenu(true);
-    }
-
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.offer_menu, menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if(id == R.id.action_settings){
-            //Do whatever you want to do
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-
 }
