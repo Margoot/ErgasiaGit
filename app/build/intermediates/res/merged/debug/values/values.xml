@@ -332,7 +332,6 @@
     <string name="action_sign_in_short">Sign in</string>
     <string name="app_name">Ergasia</string>
     <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
-    <string name="au_boulot">Au boulot !</string>
     <string name="au_travail">Au travail!</string>
     <string name="auth_google_play_services_client_facebook_display_name">Facebook</string>
     <string name="auth_google_play_services_client_google_display_name">Google</string>

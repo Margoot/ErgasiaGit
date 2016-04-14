@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,159 +7,185 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.ergasia.New_offer_activity">
+    tools:context="com.example.ergasia.New_offer_activity"
+              android:orientation="vertical">
 
-    <ScrollView
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/scrollView3"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" >
+        android:layout_height="408dp">
 
-        <LinearLayout
-            android:orientation="vertical"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:id="@+id/scrollView3"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" >
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="@string/entreprise"
-                android:id="@+id/newJobTextView"
-                android:textSize="@dimen/sub_title2"
-                android:textStyle="bold" />
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/newJobEditText"
-                android:textSize="@dimen/text1"
-                android:textStyle="italic" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="@string/type"
-                android:id="@+id/newTypeTextView"
-                android:textStyle="bold"
-                android:textSize="@dimen/sub_title2" />
-
-            <RadioGroup
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/entreprise"
+                    android:id="@+id/newJobTextView"
+                    android:textSize="@dimen/sub_title2"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/newJobEditText"
+                    android:textSize="@dimen/text1"
+                    android:textStyle="italic" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/type"
+                    android:id="@+id/newTypeTextView"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/sub_title2" />
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="CDI"
+                            android:id="@+id/cdiRadioButton"
+                            android:textSize="@dimen/text1"
+                            android:textStyle="italic" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="CDD"
+                            android:id="@+id/cddRadioButton"
+                            android:textSize="@dimen/text1"
+                            android:textStyle="italic" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Stage"
+                            android:id="@+id/internRadioButton"
+                            android:textStyle="italic"
+                            android:textSize="@dimen/text1" />
+                    </LinearLayout>
+                </RadioGroup>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/domaine"
+                    android:id="@+id/newAreaTextView"
+                    android:textSize="@dimen/sub_title2"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/newAreaEditText"
+                    android:textStyle="italic"
+                    android:textSize="@dimen/text1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/lieu"
+                    android:id="@+id/newLocationTextView"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/sub_title2" />
+
+                <AutoCompleteTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="New AutoCompleteTextView"
+                    android:id="@+id/newLocationTextEdit"
+                    android:textSize="@dimen/text1"
+                    android:textStyle="italic" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/salaire"
+                    android:id="@+id/newWageTextView"
+                    android:textSize="@dimen/sub_title2"
+                    android:textStyle="bold" />
 
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <RadioButton
+                    <EditText
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="CDI"
-                        android:id="@+id/cdiRadioButton"
-                        android:textSize="@dimen/text1"
-                        android:textStyle="italic" />
+                        android:inputType="numberDecimal"
+                        android:ems="10"
+                        android:id="@+id/newWageTextEdit" />
 
-                    <RadioButton
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="CDD"
-                        android:id="@+id/cddRadioButton"
-                        android:textSize="@dimen/text1"
-                        android:textStyle="italic" />
-
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Stage"
-                        android:id="@+id/internRadioButton"
+                        android:text="€"
+                        android:id="@+id/euro"
                         android:textStyle="italic"
                         android:textSize="@dimen/text1" />
                 </LinearLayout>
-            </RadioGroup>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="@string/domaine"
-                android:id="@+id/newAreaTextView"
-                android:textSize="@dimen/sub_title2"
-                android:textStyle="bold" />
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/newAreaEditText"
-                android:textStyle="italic"
-                android:textSize="@dimen/text1" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="@string/lieu"
-                android:id="@+id/newLocationTextView"
-                android:textStyle="bold"
-                android:textSize="@dimen/sub_title2" />
-
-            <AutoCompleteTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="New AutoCompleteTextView"
-                android:id="@+id/newLocationTextEdit"
-                android:textSize="@dimen/text1"
-                android:textStyle="italic" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="@string/salaire"
-                android:id="@+id/newWageTextView"
-                android:textSize="@dimen/sub_title2"
-                android:textStyle="bold" />
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:inputType="numberDecimal"
-                    android:ems="10"
-                    android:id="@+id/newWageTextEdit" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="€"
-                    android:id="@+id/euro"
-                    android:textStyle="italic"
-                    android:textSize="@dimen/text1" />
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/comp_nec"
+                    android:id="@+id/newSkillsTextView"
+                    android:textSize="@dimen/sub_title2"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/newSkillsTextEdit"
+                    android:textSize="@dimen/text1"
+                    android:textStyle="italic" />
+
             </LinearLayout>
+        </ScrollView>
+    </FrameLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="@string/comp_nec"
-                android:id="@+id/newSkillsTextView"
-                android:textSize="@dimen/sub_title2"
-                android:textStyle="bold" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical">
 
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/newSkillsTextEdit"
-                android:textSize="@dimen/text1"
-                android:textStyle="italic" />
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_gravity="center_horizontal"/>
 
-        </LinearLayout>
-    </ScrollView>
-</RelativeLayout>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/embauche"
+            android:id="@+id/button2"
+            android:textColor="@color/white"
+            android:background="@color/ergasiagreen"/>
+    </LinearLayout>
+</LinearLayout>
