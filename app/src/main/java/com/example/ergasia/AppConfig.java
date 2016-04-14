@@ -5,11 +5,8 @@ package com.example.ergasia;
  */
 public class AppConfig {
     //server user login url
-    public static String URL_LOGIN = "http://192.168.0.16:8888/Login.php";
+    public static String URL_LOGIN = "http://192.168.0.13:8888/Login.php";
 
     //server user register url
-    public static String URL_REGISTER = "http://192.168.0.16:8888/Register.php";
-
-
-
+    public static String URL_REGISTER = "http://192.168.0.13:8888/Register.php";
 }

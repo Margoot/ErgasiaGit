@@ -17,12 +17,14 @@ public class Post_rec_activity extends Activity {
 
 	Button jepostButton;
 	Button jerecButton;
+	private SessionManager session;
+	private SQLiteHandler db;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_post_rec_activity);
-		addListenerOnButton();
+
 
 		TextView  textView1  = (TextView)findViewById(R.id.inscriptionTextView);
 		TextView  textView2  = (TextView)findViewById(R.id.postButton);
@@ -33,6 +35,22 @@ public class Post_rec_activity extends Activity {
 		setFont(textView2, "BigCaslon.ttf");
 		setFont(textView3, "BigCaslon.ttf");
 		setFont(textView4, "BigCaslon.ttf");
+
+		// SQlite database handler
+		db = new SQLiteHandler(getApplicationContext());
+		// Session manager
+		session = new SessionManager(getApplicationContext());
+
+		//check if user is already logged in
+		if(session.isLoggedIn()) {
+			//User is already logged in. Take him to Post/Rec activity
+			Intent i = new Intent(Post_rec_activity.this, MainTabbedActivityPost.class );
+			startActivity(i);
+			finish();
+			// A FAIRE: différencier Postulant Recruteur
+		}
+
+		addListenerOnButton();
 
 	}
 

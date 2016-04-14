@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Typeface;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -15,7 +14,6 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.android.volley.Request.Method;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -24,16 +22,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.lang.String;
 
-import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.google.android.gms.appindexing.Action;
-import com.google.android.gms.appindexing.AppIndex;
-import com.google.android.gms.common.api.GoogleApiClient;
-
-import org.json.JSONObject;
-
 import static com.android.volley.Request.Method.POST;
 
 
@@ -49,11 +40,6 @@ public class Inscription_activity extends Activity {
     private SessionManager session;
     private SQLiteHandler db;
     RelativeLayout layout;
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
-    private GoogleApiClient client;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,7 +94,7 @@ public class Inscription_activity extends Activity {
         //Check if user is already logged in or not
         if (session.isLoggedIn()) {
             //User is already logged in. Take him to main activity
-            Intent intent = new Intent(Inscription_activity.this, LoginActivity.class);
+            Intent intent = new Intent(Inscription_activity.this, MainTabbedActivityPost.class);
             startActivity(intent);
             finish();
         }
@@ -132,19 +118,7 @@ public class Inscription_activity extends Activity {
             }
         });
 
-        //Link to Login Screen
-        /*createButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View arg0) {
-				Intent i = new Intent(getApplicationContext(),
-						LoginActivity.class);
-				startActivity(i);
-				finish();
-			}
-		});*/
         setContentView(layout);
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
     /**
@@ -172,11 +146,11 @@ public class Inscription_activity extends Activity {
             public void onResponse(String response) {
                 Log.d(TAG, "Register Response: " + response.toString());
                 hideDialog();
-                System.out.println("Should work!");
 
                 try {
                     JSONObject jObj = new JSONObject(response);
                     boolean error = jObj.getBoolean("error");
+                    System.out.println(error);
                     if (!error) {
                         //User succesfully stored in MySQL
                         //Now store the user in Sqlite
@@ -188,8 +162,10 @@ public class Inscription_activity extends Activity {
                         String email = user.getString("email");
                         String created_at = user.getString("created_at");
 
+
                         //Inserting row in users table
                         db.addUser(name, firstname, email, uid, created_at);
+                        System.out.println("adduser");
                         Toast.makeText(getApplicationContext(), "User successfully registered. " +
                                 "Try login now!", Toast.LENGTH_LONG).show();
 
@@ -204,6 +180,7 @@ public class Inscription_activity extends Activity {
                                 Toast.LENGTH_LONG).show();
                     }
                 } catch (JSONException e) {
+                    System.out.println("entré dans catch");
                     e.printStackTrace();
                 }
             }
@@ -278,43 +255,4 @@ public class Inscription_activity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        client.connect();
-        Action viewAction = Action.newAction(
-                Action.TYPE_VIEW, // TODO: choose an action type.
-                "Inscription_activity Page", // TODO: Define a title for the content shown.
-                // TODO: If you have web page content that matches this app activity's content,
-                // make sure this auto-generated web page URL is correct.
-                // Otherwise, set the URL to null.
-                Uri.parse("http://host/path"),
-                // TODO: Make sure this auto-generated app deep link URI is correct.
-                Uri.parse("android-app://com.example.ergasia/http/host/path")
-        );
-        AppIndex.AppIndexApi.start(client, viewAction);
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        Action viewAction = Action.newAction(
-                Action.TYPE_VIEW, // TODO: choose an action type.
-                "Inscription_activity Page", // TODO: Define a title for the content shown.
-                // TODO: If you have web page content that matches this app activity's content,
-                // make sure this auto-generated web page URL is correct.
-                // Otherwise, set the URL to null.
-                Uri.parse("http://host/path"),
-                // TODO: Make sure this auto-generated app deep link URI is correct.
-                Uri.parse("android-app://com.example.ergasia/http/host/path")
-        );
-        AppIndex.AppIndexApi.end(client, viewAction);
-        client.disconnect();
-    }
 }
