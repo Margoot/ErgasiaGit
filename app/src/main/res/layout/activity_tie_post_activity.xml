@@ -22,7 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="103dp"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Félicitation vous avez un &quot;Tie&quot;"
+            android:text="@string/tie"
             android:id="@+id/tieTextView2"
             android:textStyle="bold|italic"
             android:textSize="@dimen/sub_title2"
@@ -70,8 +70,8 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/cont_rech"
-            android:id="@+id/contSearchButton2"
+            android:text="@string/envoyer_mess_post"
+            android:id="@+id/sendMessageButton2"
             android:background="@color/ergasiagreen"
             android:textColor="@color/white" />
 
@@ -84,10 +84,11 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/envoyer_mess"
-            android:id="@+id/sendMessageButton2"
+            android:text="@string/cont_rech"
+            android:id="@+id/contSearchButton2"
             android:background="@color/ergasiagreen"
             android:textColor="@color/white" />
+
     </LinearLayout>
 
 </RelativeLayout>

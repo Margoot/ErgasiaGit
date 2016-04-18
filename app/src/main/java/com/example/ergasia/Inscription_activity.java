@@ -112,7 +112,7 @@ public class Inscription_activity extends Activity {
                 if (!name.isEmpty() && !firstname.isEmpty() && !email.isEmpty() && !password.isEmpty()) {
                     registerUser(name, firstname, email, password);
                 } else {
-                    Toast.makeText(getApplicationContext(), "Please enter your details!",
+                    Toast.makeText(getApplicationContext(), "Veuillez entrer vos coordonnées !",
                             Toast.LENGTH_LONG).show();
                 }
             }
@@ -134,7 +134,7 @@ public class Inscription_activity extends Activity {
                               final String email, final String password) {
         //Tag used to cancel the request
         String tag_string_req = "req_register";
-        pDialog.setMessage("Registering ...");
+        pDialog.setMessage("Enregistrement...");
         showDialog();
 
         //Request a string response from the provided URL
@@ -150,7 +150,6 @@ public class Inscription_activity extends Activity {
                 try {
                     JSONObject jObj = new JSONObject(response);
                     boolean error = jObj.getBoolean("error");
-                    System.out.println(error);
                     if (!error) {
                         //User succesfully stored in MySQL
                         //Now store the user in Sqlite
@@ -165,9 +164,8 @@ public class Inscription_activity extends Activity {
 
                         //Inserting row in users table
                         db.addUser(name, firstname, email, uid, created_at);
-                        System.out.println("adduser");
-                        Toast.makeText(getApplicationContext(), "User successfully registered. " +
-                                "Try login now!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "Enregistré avec succès ! " +
+                                "Connectez-vous maintenant !", Toast.LENGTH_LONG).show();
 
                         //Launch login activity
                         Intent intent = new Intent(Inscription_activity.this, LoginActivity.class);
@@ -180,7 +178,6 @@ public class Inscription_activity extends Activity {
                                 Toast.LENGTH_LONG).show();
                     }
                 } catch (JSONException e) {
-                    System.out.println("entré dans catch");
                     e.printStackTrace();
                 }
             }

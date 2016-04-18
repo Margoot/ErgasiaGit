@@ -92,19 +92,18 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/type"
+                android:id="@+id/type"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="@string/emploi"
-                android:id="@+id/job"
                 android:textSize="@dimen/sub_title2"
-                android:textStyle="bold" />
+                android:textStyle="bold"/>
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/editJob"
-                android:layout_gravity="center_horizontal"
+                android:id="@+id/editType"
                 android:textStyle="italic"
-                android:textSize="@dimen/text1" />
+                android:textSize="@dimen/text1"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -126,7 +125,7 @@
                     <EditText
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/editLanguage"
+                        android:id="@+id/editLanguage1"
                         android:minWidth="@dimen/lang_dimension"
                         android:textSize="@dimen/text1"
                         android:textStyle="italic" />
@@ -134,11 +133,49 @@
                     <RatingBar
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/ratingBar"
+                        android:id="@+id/ratingBar1"
                         android:layout_column="1"
-                        android:numStars="3" />
+                        android:numStars="3"
+                        />
                 </TableRow>
             </TableLayout>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/editLanguage2"
+                    android:minWidth="@dimen/lang_dimension"
+                    android:visibility="visible"/>
+
+                <RatingBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ratingBar2"
+                    android:numStars="3"
+                    android:visibility="visible"/>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal">
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/editLanguage3"
+                    android:minWidth="@dimen/lang_dimension"/>
+
+                <RatingBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ratingBar3"
+                    android:numStars="3"/>
+            </TableRow>
 
             <TextView
                 android:layout_width="wrap_content"

@@ -46,16 +46,13 @@ public class OfferFragmentPost extends Fragment {
         TextView textView1 = (TextView) rootView.findViewById(R.id.companyTextView2);
         TextView textView2 = (TextView) rootView.findViewById(R.id.companySmallText2);
         TextView textView3 = (TextView) rootView.findViewById(R.id.typeTextView);
-        TextView textView4 = (TextView) rootView.findViewById(R.id.cdiRadioButton);
-        TextView textView5 = (TextView) rootView.findViewById(R.id.cddRadioButton);
-        TextView textView6 = (TextView) rootView.findViewById(R.id.internRadioButton);
+        TextView textView4 = (TextView) rootView.findViewById(R.id.typeSmallTextView);
         TextView textView7 = (TextView) rootView.findViewById(R.id.areaTextView);
         TextView textView8 = (TextView) rootView.findViewById(R.id.areaSmallTextView);
         TextView textView9 = (TextView) rootView.findViewById(R.id.jobTextView);
         TextView textView10 = (TextView) rootView.findViewById(R.id.locationSmallTextView);
-        TextView textView11 = (TextView) rootView.findViewById(R.id.salaryTextView2);
-        TextView textView12 = (TextView) rootView.findViewById(R.id.salarySmallTextView);
-        TextView textView13 = (TextView) rootView.findViewById(R.id.euroSmallTextView);
+        TextView textView11 = (TextView) rootView.findViewById(R.id.jobTitleTextView2);
+        TextView textView12 = (TextView) rootView.findViewById(R.id.jobTitleSmallTextView);
         TextView textView14 = (TextView) rootView.findViewById(R.id.skillsTextView);
         TextView textView15 = (TextView) rootView.findViewById(R.id.skillsSmallTextView);
         Typeface font = Typeface.createFromAsset(getActivity().getAssets(), "fonts/BigCaslon.ttf");
@@ -63,15 +60,12 @@ public class OfferFragmentPost extends Fragment {
         textView2.setTypeface(font);
         textView3.setTypeface(font);
         textView4.setTypeface(font);
-        textView5.setTypeface(font);
-        textView6.setTypeface(font);
         textView7.setTypeface(font);
         textView8.setTypeface(font);
         textView9.setTypeface(font);
         textView10.setTypeface(font);
         textView11.setTypeface(font);
         textView12.setTypeface(font);
-        textView13.setTypeface(font);
         textView14.setTypeface(font);
         textView15.setTypeface(font);
 

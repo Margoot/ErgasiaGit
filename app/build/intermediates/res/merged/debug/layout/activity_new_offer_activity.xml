@@ -46,6 +46,38 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/intitule_post"
+                    android:id="@+id/newWageTextView"
+                    android:textSize="@dimen/sub_title2"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:ems="10"
+                    android:id="@+id/newWageTextEdit" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/domaine"
+                    android:id="@+id/newAreaTextView"
+                    android:textSize="@dimen/sub_title2"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/newAreaEditText"
+                    android:textStyle="italic"
+                    android:textSize="@dimen/text1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
                     android:text="@string/type"
                     android:id="@+id/newTypeTextView"
                     android:textStyle="bold"
@@ -53,7 +85,8 @@
 
                 <RadioGroup
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    >
 
                     <LinearLayout
                         android:orientation="horizontal"
@@ -90,22 +123,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="@string/domaine"
-                    android:id="@+id/newAreaTextView"
-                    android:textSize="@dimen/sub_title2"
-                    android:textStyle="bold" />
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/newAreaEditText"
-                    android:textStyle="italic"
-                    android:textSize="@dimen/text1" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
                     android:text="@string/lieu"
                     android:id="@+id/newLocationTextView"
                     android:textStyle="bold"
@@ -119,34 +136,11 @@
                     android:textSize="@dimen/text1"
                     android:textStyle="italic" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="@string/salaire"
-                    android:id="@+id/newWageTextView"
-                    android:textSize="@dimen/sub_title2"
-                    android:textStyle="bold" />
-
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <EditText
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:inputType="numberDecimal"
-                        android:ems="10"
-                        android:id="@+id/newWageTextEdit" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="€"
-                        android:id="@+id/euro"
-                        android:textStyle="italic"
-                        android:textSize="@dimen/text1" />
                 </LinearLayout>
 
                 <TextView
@@ -183,7 +177,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/embauche"
+            android:text="@string/lancer_recherche"
             android:id="@+id/button2"
             android:textColor="@color/white"
             android:background="@color/ergasiagreen"/>

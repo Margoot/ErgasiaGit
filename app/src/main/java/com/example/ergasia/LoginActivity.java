@@ -128,7 +128,7 @@ public class LoginActivity extends Activity  {
         //Tag used to cancel the request
         String tag_string_req = "req_login";
 
-        pDialog.setMessage("Logging in ...");
+        pDialog.setMessage("Connection en cours ... ");
         showDialog();
 
         StringRequest strReq = new StringRequest(POST,AppConfig.URL_LOGIN, new Response.Listener<String>(){
@@ -234,7 +234,7 @@ public class LoginActivity extends Activity  {
             checkLogin(email, password);
         } else {
             //Prompt user to enter credidentials
-            Toast.makeText(getApplicationContext(),"Veuillez saisir les champs!", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(),"Veuillez saisir tous les champs!", Toast.LENGTH_LONG).show();
         }
 
 	}

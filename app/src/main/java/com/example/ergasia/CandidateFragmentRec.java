@@ -45,8 +45,8 @@ public class CandidateFragmentRec extends Fragment {
         TextView textView1 = (TextView) rootView.findViewById(R.id.recDiplomaTextView);
         TextView textView2 = (TextView) rootView.findViewById(R.id.recAreaTextView);
         TextView textView3 = (TextView) rootView.findViewById(R.id.recAreaSmallTextView);
-        TextView textView4 = (TextView) rootView.findViewById(R.id.recJobTextView);
-        TextView textView5 = (TextView) rootView.findViewById(R.id.recJobSmallTextView);
+        TextView textView4 = (TextView) rootView.findViewById(R.id.recTypeView);
+        TextView textView5 = (TextView) rootView.findViewById(R.id.recTypeSmallTextView);
         TextView textView6 = (TextView) rootView.findViewById(R.id.recLanguageTextView);
         TextView textView7 = (TextView) rootView.findViewById(R.id.recLanguageSmallTextView);
         TextView textView8 = (TextView) rootView.findViewById(R.id.recSkillsTextView);

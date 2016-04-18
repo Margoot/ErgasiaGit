@@ -32,16 +32,17 @@ public class ProfilFragmentPost extends Fragment {
         TextView textView3 = (TextView) rootView.findViewById(R.id.editFirstName);
         TextView textView4 = (TextView) rootView.findViewById(R.id.training);
         TextView textView5 = (TextView) rootView.findViewById(R.id.area);
-        TextView textView6 = (TextView) rootView.findViewById(R.id.job);
-        TextView textView7 = (TextView) rootView.findViewById(R.id.editJob);
+        TextView textView6 = (TextView) rootView.findViewById(R.id.type);
+        TextView textView7 = (TextView) rootView.findViewById(R.id.editType);
         TextView textView8 = (TextView) rootView.findViewById(R.id.language);
-        TextView textView9 = (TextView) rootView.findViewById(R.id.editLanguage);
+        TextView textView9 = (TextView) rootView.findViewById(R.id.editLanguage1);
         TextView textView10 = (TextView) rootView.findViewById(R.id.skills);
         TextView textView11 = (TextView) rootView.findViewById(R.id.skillsEditText);
         TextView textView12 = (TextView) rootView.findViewById(R.id.geolocation);
         TextView textView13 = (TextView) rootView.findViewById(R.id.geolocSwitch);
         TextView textView14 = (TextView) rootView.findViewById(R.id.autoCompleteTextView);
         TextView textView15 = (TextView) rootView.findViewById(R.id.name);
+
         Typeface font = Typeface.createFromAsset(getActivity().getAssets(), "fonts/BigCaslon.ttf");
         textView1.setTypeface(font);
         textView2.setTypeface(font);

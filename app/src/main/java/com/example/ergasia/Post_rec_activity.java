@@ -19,7 +19,7 @@ public class Post_rec_activity extends Activity {
 	Button jerecButton;
 	private SessionManager session;
 	private SQLiteHandler db;
-	public static Boolean isPost;
+	private static Boolean isPost;
 
 
 	@Override
@@ -43,6 +43,7 @@ public class Post_rec_activity extends Activity {
 		// Session manager
 		session = new SessionManager(getApplicationContext());
 
+			/*
 		//check if user is already logged in
 		if(session.isLoggedIn()) {
 			//User is already logged in. Take him to Post/Rec activity
@@ -51,7 +52,7 @@ public class Post_rec_activity extends Activity {
 			finish();
 			// A FAIRE: différencier Postulant Recruteur
 		}
-
+*/
 		addListenerOnButton();
 
 	}

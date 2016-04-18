@@ -17,6 +17,19 @@
         <item>@color/appBackground</item>
 
     </integer-array>
+    <string-array name="training_array">
+        <item>Séléctionner une formation</item>
+        <item>Bac professionnel</item>
+        <item>Bac</item>
+        <item>Bac+1</item>
+        <item>Bac+2</item>
+        <item>Bac+3</item>
+        <item>Bac+4/5</item>
+        <item>Licence</item>
+        <item>CAP</item>
+        <item>DUT</item>
+        <item>BTS</item>
+    </string-array>
     <attr format="reference" name="drawerArrowStyle"/>
     <attr format="dimension" name="height"/>
     <attr format="boolean" name="isLightTheme"/>
@@ -287,6 +300,7 @@
     <dimen name="sub_title">20sp</dimen>
     <dimen name="sub_title2">25sp</dimen>
     <dimen name="text1">18sp</dimen>
+    <dimen name="text_language">190sp</dimen>
     <dimen name="title_dimension">50sp</dimen>
     <drawable name="notification_template_icon_bg">#3333B5E5</drawable>
     <item name="action_bar_activity_content" type="id"/>
@@ -327,12 +341,12 @@
     <string name="abc_shareactionprovider_share_with">Share with</string>
     <string name="abc_shareactionprovider_share_with_application">Share with %s</string>
     <string name="abc_toolbar_collapse_description">Collapse</string>
+    <string name="action_add">Ajouter offre</string>
     <string name="action_logout">Se déconnecter</string>
     <string name="action_sign_in">Sign in or register</string>
     <string name="action_sign_in_short">Sign in</string>
     <string name="app_name">Ergasia</string>
     <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
-    <string name="au_travail">Au travail!</string>
     <string name="auth_google_play_services_client_facebook_display_name">Facebook</string>
     <string name="auth_google_play_services_client_google_display_name">Google</string>
     <string name="bottom_sheet_behavior" translatable="false">android.support.design.widget.BottomSheetBehavior</string>
@@ -371,19 +385,17 @@
     <string name="competences">Compétences</string>
     <string name="confmdp">Confirmation mot de passe</string>
     <string name="connexion">Connexion</string>
-    <string name="cont_rech">Continuer recherche</string>
-    <string name="cont_recherche">Continuer recherche</string>
+    <string name="cont_rech">Continuer la recherche</string>
     <string name="creer">Créer</string>
     <string name="creer_compte">Créer un compte</string>
-    <string name="domaine">Domaine</string>
+    <string name="domaine">Domaine d\'activité</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="email">E-mail</string>
-    <string name="embauche">A l\'embauche!</string>
     <string name="emploi">Emploi actuel</string>
     <string name="entreprise">Entreprise</string>
-    <string name="env_mess">Envoyer un message</string>
-    <string name="envoyer_mess">Envoyer un message</string>
+    <string name="envoyer_mess_post">Envoyer un message au recruteur </string>
+    <string name="envoyer_mess_rec">Envoyer un message au postulant </string>
     <string name="error_field_required">This field is required</string>
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_invalid_email">This email address is invalid</string>
@@ -391,12 +403,14 @@
     <string name="formation">Formation</string>
     <string name="geoloc">Géolocalisation</string>
     <string name="inscription">Inscription</string>
+    <string name="intitule_post">Intitulé du poste</string>
     <string name="je_post">Je Postule</string>
     <string name="je_rec">Je Recrute</string>
-    <string name="job">Jobs</string>
+    <string name="job">Emplois</string>
+    <string name="lancer_recherche">Lancer la recherche !</string>
     <string name="langues">Langues</string>
     <string name="lieu">Lieu</string>
-    <string name="load_activity_icon">load activity</string>
+    <string name="load_activity_icon">Chargement</string>
     <string name="logo_of_the_application">logo of the application</string>
     <string name="mdp">Mot de passe</string>
     <string name="mess">Messagerie</string>
@@ -409,9 +423,9 @@
     <string name="profil">Profil</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password (optional)</string>
-    <string name="salaire">Salaire</string>
     <string name="slogan">Quand chercher un travail devient une partie de plaisir!</string>
     <string name="status_bar_notification_info_overflow">999+</string>
+    <string name="tie">Félicitations vous avez un \"Tie\"</string>
     <string name="title_activity_inscription_activity">Inscription</string>
     <string name="title_activity_load_activity">Chargement</string>
     <string name="title_activity_loadscreen">Chargement</string>

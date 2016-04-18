@@ -32,12 +32,12 @@ public class New_offer_activity extends Activity {
         TextView  textView7  = (TextView)findViewById(R.id.newLocationTextEdit);
         TextView  textView8  = (TextView)findViewById(R.id.newWageTextView);
         TextView  textView9  = (TextView)findViewById(R.id.newWageTextEdit);
-        TextView  textView10  = (TextView)findViewById(R.id.euro);
         TextView  textView11  = (TextView)findViewById(R.id.newSkillsTextView);
         TextView  textView12  = (TextView)findViewById(R.id.newSkillsTextEdit);
-        TextView  textView13  = (TextView)findViewById(R.id.newJobTextView);
-        TextView  textView14  = (TextView)findViewById(R.id.newJobEditText);
         TextView  textView15  = (TextView)findViewById(R.id.newTypeTextView);
+        TextView  textView13  = (TextView)findViewById(R.id.typeSmallTextView);
+        TextView textView14  = (TextView)findViewById(R.id.newJobTextView);
+        TextView textView16  = (TextView)findViewById(R.id.newJobEditText);
 
 
         setFont(textView1, "BigCaslon.ttf");
@@ -49,12 +49,12 @@ public class New_offer_activity extends Activity {
         setFont(textView7, "BigCaslon.ttf");
         setFont(textView8, "BigCaslon.ttf");
         setFont(textView9, "BigCaslon.ttf");
-        setFont(textView10, "BigCaslon.ttf");
         setFont(textView11, "BigCaslon.ttf");
         setFont(textView12, "BigCaslon.ttf");
         setFont(textView13, "BigCaslon.ttf");
         setFont(textView14, "BigCaslon.ttf");
         setFont(textView15, "BigCaslon.ttf");
+        setFont(textView16, "BigCaslon.ttf");
     }
 
     /**

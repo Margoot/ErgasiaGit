@@ -3,9 +3,10 @@
 
     <string name="app_name">Ergasia</string>
     <string name="action_logout">Se déconnecter</string>
+    <string name="action_add">Ajouter offre</string>
     <string name="logo_of_the_application">logo of the application</string>
     <string name="title_activity_load_activity">Chargement</string>
-    <string name="load_activity_icon">load activity</string>
+    <string name="load_activity_icon">Chargement</string>
     <string name="title_activity_post_rec_activity">Postuler/Recruter</string>
     <string name="je_post">Je Postule</string>
     <string name="je_rec">Je Recrute</string>
@@ -15,32 +16,31 @@
     <string name="email">E-mail</string>
     <string name="mdp">Mot de passe</string>
     <string name="confmdp">Confirmation mot de passe</string>
-    <string name="au_travail">Au travail!</string>
-    <string name="embauche">A l\'embauche!</string>
     <string name="creer">Créer</string>
     <string name="connexion">Connexion</string>
     <string name="profil">Profil</string>
     <string name="formation">Formation</string>
-    <string name="domaine">Domaine</string>
+    <string name="domaine">Domaine d\'activité</string>
     <string name="emploi">Emploi actuel</string>
     <string name="langues">Langues</string>
     <string name="competences">Compétences</string>
     <string name="geoloc">Géolocalisation</string>
     <string name="offre">Offre</string>
     <string name="mess">Messagerie</string>
-    <string name="job">Jobs</string>
+    <string name="job">Emplois</string>
     <string name="entreprise">Entreprise</string>
+    <string name="intitule_post">Intitulé du poste</string>
     <string name="type">Type</string>
     <string name="lieu">Lieu</string>
-    <string name="salaire">Salaire</string>
     <string name="comp_nec">Compétences neccesaires</string>
     <string name="nouv_offre">Nouvelle offre</string>
     <string name="nouv_post">Nouveau postulant</string>
     <string name="post">Postulant</string>
-    <string name="cont_recherche">Continuer recherche</string>
-    <string name="cont_rech">Continuer recherche</string>
-    <string name="env_mess">Envoyer un message</string>
-    <string name="envoyer_mess">Envoyer un message</string>
+    <string name="tie">Félicitations vous avez un \"Tie\"</string>
+    <string name="cont_rech">Continuer la recherche</string>
+    <string name="envoyer_mess_post">Envoyer un message au recruteur </string>
+    <string name="envoyer_mess_rec">Envoyer un message au postulant </string>
+    <string name="lancer_recherche">Lancer la recherche !</string>
 
 
     <string name="slogan">Quand chercher un travail devient une partie de plaisir!</string>
@@ -63,5 +63,18 @@
     <string name="title_activity_message_rec_activity">Message</string>
     <string name="title_activity_new_post_activity">Nouveau postulant</string>
 
+    <string-array name="training_array">
+        <item>Séléctionner une formation</item>
+        <item>Bac professionnel</item>
+        <item>Bac</item>
+        <item>Bac+1</item>
+        <item>Bac+2</item>
+        <item>Bac+3</item>
+        <item>Bac+4/5</item>
+        <item>Licence</item>
+        <item>CAP</item>
+        <item>DUT</item>
+        <item>BTS</item>
+    </string-array>
 
 </resources>

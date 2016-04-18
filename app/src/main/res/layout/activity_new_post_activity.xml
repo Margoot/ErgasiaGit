@@ -81,7 +81,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="46dp"
                     android:id="@+id/trainingSpinner"
-                    android:spinnerMode="dropdown" />
+                    android:spinnerMode="dropdown"
+                    android:touchscreenBlocksFocus="false"
+                    android:textAlignment="center"
+                    android:gravity="center"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -102,28 +105,76 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="@string/type"
+                    android:id="@+id/typeTextView"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="@string/emploi"
-                    android:id="@+id/job"
                     android:textSize="@dimen/sub_title2"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"/>
 
-                <EditText
+                <RadioGroup
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/editJob"
-                    android:layout_gravity="center_horizontal"
-                    android:textStyle="italic"
-                    android:textSize="@dimen/text1" />
+                    android:orientation="horizontal"
+                    android:id="@+id/radioButtonType">
 
-                <TextView
-                    android:layout_width="wrap_content"
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="CDI"
+                        android:id="@+id/radioButtonCdi"/>
+
+                    <Space
+                        android:layout_width="70dp"
+                        android:layout_height="match_parent"
+                        />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="CDD"
+                        android:id="@+id/radioButtonCdd"/>
+
+                    <Space
+                        android:layout_width="70dp"
+                        android:layout_height="match_parent"
+                        />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Stage"
+                        android:id="@+id/radioButtonIntern"/>
+                </RadioGroup>
+
+                <TableRow
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="@string/langues"
-                    android:id="@+id/language"
-                    android:textSize="@dimen/sub_title2"
-                    android:textStyle="bold" />
+                    android:layout_gravity="left|center_horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="@string/langues"
+                        android:id="@+id/language"
+                        android:textSize="@dimen/sub_title2"
+                        android:textStyle="bold"
+                        android:layout_gravity="center_vertical"/>
+
+                    <Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_weight="10"/>
+
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/addLanguage"
+                        android:background="@drawable/icon_plus"
+                        android:adjustViewBounds="false"/>
+
+                </TableRow>
 
                 <TableLayout
                     android:layout_width="match_parent"
@@ -131,22 +182,75 @@
 
                     <TableRow
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent"
+                        android:id="@+id/tableRow1"
+                        android:visibility="visible"
+                        android:transitionGroup="true"
+                        android:measureWithLargestChild="false"
+                        android:minWidth="@dimen/lang_dimension"
+                        android:layout_gravity="bottom">
 
                         <EditText
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/editLanguage"
-                            android:minWidth="@dimen/lang_dimension"
-                            android:textSize="@dimen/text1"
-                            android:textStyle="italic" />
+                            android:id="@+id/editLanguage1"
+                            android:inputType="textCapCharacters"
+                            android:minWidth="@dimen/text_language"/>
 
                         <RatingBar
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/ratingBar"
+                            android:id="@+id/ratingBar1"
                             android:layout_column="1"
-                            android:numStars="3" />
+                            android:numStars="3"
+                            android:stepSize="1"
+                            android:indeterminateDrawable="@color/ergasiagreen"
+                            android:visibility="visible"/>
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:id="@+id/tableRow2"
+                        android:visibility="gone">
+
+                        <EditText
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/editLanguage2"
+                            android:minWidth="@dimen/text_language"/>
+
+                        <RatingBar
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/ratingBar2"
+                            android:numStars="3"
+                            android:visibility="gone"/>
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:id="@+id/tableRow3"
+                        android:visibility="gone">
+
+                        <EditText
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/editLanguage3"
+                            android:minWidth="@dimen/text_language"/>
+
+                        <RatingBar
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/ratingBar3"
+                            android:numStars="3"
+                            android:visibility="gone"/>
+
                     </TableRow>
                 </TableLayout>
 
@@ -218,7 +322,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/au_travail"
+            android:text="@string/lancer_recherche"
             android:id="@+id/button"
             android:background="@color/ergasiagreen"
             android:textColor="@color/white"

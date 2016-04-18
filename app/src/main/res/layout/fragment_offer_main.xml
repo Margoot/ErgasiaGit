@@ -51,45 +51,26 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="@string/type"
-                    android:id="@+id/typeTextView"
-                    android:textSize="@dimen/sub_title2"
-                    android:textStyle="bold" />
+                    android:text="@string/intitule_post"
+                    android:id="@+id/jobTitleTextView2"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/sub_title2" />
 
-                <RadioGroup
+                <LinearLayout
+                    android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" >
 
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent" >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="47dp"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:id="@+id/jobTitleSmallTextView"
+                        android:textStyle="italic"
+                        android:textSize="@dimen/text1"
+                        android:text="Ingénieur d&apos;affaire"/>
 
-                        <RadioButton
-                            android:layout_width="wrap_content"
-                            android:layout_height="47dp"
-                            android:text="CDI"
-                            android:id="@+id/cdiRadioButton"
-                            android:textSize="@dimen/text1"
-                            android:textStyle="italic" />
-
-                        <RadioButton
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="CDD"
-                            android:id="@+id/cddRadioButton"
-                            android:textSize="@dimen/text1"
-                            android:textStyle="italic" />
-
-                        <RadioButton
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Stage"
-                            android:id="@+id/internRadioButton"
-                            android:textStyle="italic"
-                            android:textSize="@dimen/text1" />
-                    </LinearLayout>
-                </RadioGroup>
+                </LinearLayout>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -113,6 +94,24 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/type"
+                    android:id="@+id/typeTextView"
+                    android:textSize="@dimen/sub_title2"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="47dp"
+                    android:text="CDI"
+                    android:id="@+id/typeSmallTextView"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textStyle="italic"
+                    android:textSize="@dimen/text1"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
                     android:text="@string/lieu"
                     android:id="@+id/jobTextView"
                     android:textSize="@dimen/sub_title2"
@@ -126,38 +125,6 @@
                     android:id="@+id/locationSmallTextView"
                     android:textStyle="italic"
                     android:textSize="@dimen/text1" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="@string/salaire"
-                    android:id="@+id/salaryTextView2"
-                    android:textStyle="bold"
-                    android:textSize="@dimen/sub_title2" />
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="47dp"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="2000"
-                        android:id="@+id/salarySmallTextView"
-                        android:textStyle="italic"
-                        android:textSize="@dimen/text1" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="€"
-                        android:id="@+id/euroSmallTextView"
-                        android:textStyle="italic"
-                        android:textSize="@dimen/text1" />
-                </LinearLayout>
 
                 <TextView
                     android:layout_width="wrap_content"
