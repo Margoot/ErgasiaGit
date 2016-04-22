@@ -58,7 +58,6 @@ public class New_post_activity extends Activity implements AdapterView.OnItemSel
     private Spinner spinnerTraining;
     private EditText inputAreaActivity;
     private RadioGroup inputType;
-    private RadioButton selectedRadioButton;
     private EditText inputLanguage1;
     private RatingBar inputLevelLanguage1;
     private EditText inputLanguage2;
@@ -88,12 +87,12 @@ public class New_post_activity extends Activity implements AdapterView.OnItemSel
         TextView textView9 = (TextView) findViewById(R.id.editLanguage3);
         TextView textView10 = (TextView) findViewById(R.id.skills);
         TextView textView11 = (TextView) findViewById(R.id.skillsEditText);
-        TextView textView12 = (TextView) findViewById(R.id.geolocation);
+        TextView textView12 = (TextView) findViewById(R.id.geolocationEditText);
         TextView textView13 = (TextView) findViewById(R.id.geolocSwitch);
-        TextView textView14 = (TextView) findViewById(R.id.autoCompleteTextView);
+        TextView textView14 = (TextView) findViewById(R.id.geolocation);
         TextView textView15 = (TextView) findViewById(R.id.name);
         TextView textView16 = (TextView) findViewById(R.id.typeTextView);
-        TextView textView17 = (TextView) findViewById(R.id.editType);
+        TextView textView18 = (TextView) findViewById(R.id.editArea);
 
         setFont(textView1, "BigCaslon.ttf");
         setFont(textView2, "BigCaslon.ttf");
@@ -111,7 +110,8 @@ public class New_post_activity extends Activity implements AdapterView.OnItemSel
         setFont(textView14, "BigCaslon.ttf");
         setFont(textView15, "BigCaslon.ttf");
         setFont(textView16, "BigCaslon.ttf");
-        setFont(textView17, "BigCaslon.ttf");
+        //setFont(textView17, "BigCaslon.ttf");
+        setFont(textView18, "BigCaslon.ttf");
 
 
         inputName = (EditText) findViewById(R.id.editName);
@@ -126,7 +126,7 @@ public class New_post_activity extends Activity implements AdapterView.OnItemSel
         inputLanguage3 = (EditText) findViewById(R.id.editLanguage3);
         inputLevelLanguage3 = (RatingBar) findViewById(R.id.ratingBar3);
         inputSkill = (EditText) findViewById(R.id.skillsEditText);
-        inputGeolocation = (EditText) findViewById(R.id.autoCompleteTextView);
+        inputGeolocation = (EditText) findViewById(R.id.geolocationEditText);
         validateButton = (Button) findViewById(R.id.createButton);
 
         spinnerTraining = (Spinner) findViewById(R.id.trainingSpinner);
@@ -153,35 +153,34 @@ public class New_post_activity extends Activity implements AdapterView.OnItemSel
                 String training = spinnerTraining.getSelectedItem().toString();
                 String areaActivity = inputAreaActivity.getText().toString().trim();
 
-                if(inputType.getCheckedRadioButtonId()==-1)
-                    Toast.makeText(getApplicationContext(), "Veuillez choisir votre type de contrat", Toast.LENGTH_SHORT).show();
-                else {
-                    // get selected radio button from radioGroup
-                    int selectedId = inputType.getCheckedRadioButtonId();
-                    // find the radiobutton by returned id
-                    selectedRadioButton = (RadioButton)findViewById(selectedId);
-                }
-                String type = selectedRadioButton.getText().toString();
-                String language1 = inputLanguage1.getText().toString().trim();
-                String levelLanguage1 = String.valueOf(inputLevelLanguage1.getRating());
-                String language2 = inputLanguage2.getText().toString().trim();
-                String levelLanguage2 = String.valueOf(inputLevelLanguage2.getRating());
-                String language3 = inputLanguage3.getText().toString().trim();
-                String levelLanguage3 = String.valueOf(inputLevelLanguage3.getRating());
-                String skill = inputSkill.getText().toString().trim();
-                String geolocation = inputGeolocation.getText().toString().trim();
-
-                //je n'ai pas mis type dans le if car c'est déjà checker plus haut
-                if (!name.isEmpty() && !firstname.isEmpty() && !training.isEmpty() && !areaActivity.isEmpty() &&
-                        !language1.isEmpty() && levelLanguage1.isEmpty() && !language2.isEmpty() &&
-                        levelLanguage2.isEmpty() && !language3.isEmpty() && levelLanguage3.isEmpty() &&
-                        !skill.isEmpty() && !geolocation.isEmpty()) {
-                    registerNewCandidate(name, firstname, training, areaActivity, type,
-                            language1,levelLanguage1, language2, levelLanguage2,
-                            language3, levelLanguage3, skill, geolocation);
+                //if confition to check if the user has chosen the type
+                if (inputType.getCheckedRadioButtonId() == -1) {
+                    Toast.makeText(getApplicationContext(), "Veuillez choisir le type de contrat", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(getApplicationContext(), "Veuillez entrer tous les champs !",
-                            Toast.LENGTH_LONG).show();
+                    RadioButton selectedButton = (RadioButton) findViewById(inputType.getCheckedRadioButtonId());
+                    String type = selectedButton.getText().toString();
+
+
+                    String language1 = inputLanguage1.getText().toString().trim();
+                    String levelLanguage1 = String.valueOf(inputLevelLanguage1.getRating());
+                    String language2 = inputLanguage2.getText().toString().trim();
+                    String levelLanguage2 = String.valueOf(inputLevelLanguage2.getRating());
+                    String language3 = inputLanguage3.getText().toString().trim();
+                    String levelLanguage3 = String.valueOf(inputLevelLanguage3.getRating());
+                    String skill = inputSkill.getText().toString().trim();
+                    String geolocation = inputGeolocation.getText().toString().trim();
+
+
+                    if (!name.isEmpty() && !firstname.isEmpty() && !training.isEmpty() && !areaActivity.isEmpty() &&
+                            !language1.isEmpty() && !levelLanguage1.isEmpty()  &&
+                            !skill.isEmpty() && !geolocation.isEmpty()) {
+                        registerNewCandidate(name, firstname, training, areaActivity, type,
+                                language1, levelLanguage1, language2, levelLanguage2,
+                                language3, levelLanguage3, skill, geolocation);
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Veuillez entrer tous les champs !",
+                                Toast.LENGTH_LONG).show();
+                    }
                 }
             }
         });
@@ -261,28 +260,28 @@ public class New_post_activity extends Activity implements AdapterView.OnItemSel
                     JSONObject jObj = new JSONObject(response);
                     boolean error = jObj.getBoolean("error");
                     if (!error) {
-                        //User succesfully stored in MySQL
-                        //Now store the user in Sqlite
+                        //the new candidate succesfully stored in MySQL
+                        //Now store the candidate in Sqlite
                         String uid = jObj.getString("uid");
 
-                        JSONObject user = jObj.getJSONObject("user");
-                        String name = user.getString("name");
-                        String firstname = user.getString("firstname");
-                        String training = user.getString("training");
-                        String areaActivity = user.getString("area_activity");
-                        String type = user.getString("type");
-                        String language1 = user.getString("language1");
-                        String levelLanguage1 = user.getString("level_language1");
-                        String language2 = user.getString("language2");
-                        String levelLanguage2 = user.getString("level_language2");
-                        String language3 = user.getString("language3");
-                        String levelLanguage3 = user.getString("level_language3");
-                        String skill = user.getString("skill");
-                        String geolocation = user.getString("geolocation");
-                        String created_at = user.getString("created_at");
+                        JSONObject candidate = jObj.getJSONObject("candidate");
+                        String name = candidate.getString("name");
+                        String firstname = candidate.getString("firstname");
+                        String training = candidate.getString("training");
+                        String areaActivity = candidate.getString("area_activity");
+                        String type = candidate.getString("type");
+                        String language1 = candidate.getString("language1");
+                        String levelLanguage1 = candidate.getString("level_language1");
+                        String language2 = candidate.getString("language2");
+                        String levelLanguage2 = candidate.getString("level_language2");
+                        String language3 = candidate.getString("language3");
+                        String levelLanguage3 = candidate.getString("level_language3");
+                        String skill = candidate.getString("skill");
+                        String geolocation = candidate.getString("geolocation");
+                        String created_at = candidate.getString("created_at");
 
 
-                        //Inserting row in users table
+                        //Inserting row in candidates table
                         db.addNewCandidate(name, firstname, training, areaActivity, type,
                                 language1, levelLanguage1, language2, levelLanguage2,
                                 language3, levelLanguage3, skill, geolocation,
@@ -290,7 +289,7 @@ public class New_post_activity extends Activity implements AdapterView.OnItemSel
                         Toast.makeText(getApplicationContext(), "Votre candidature a été enregistré avec succès ! "
                                 , Toast.LENGTH_LONG).show();
 
-                        //Launch login activity
+                        //Launch MainTabbedActivityPost activity
                         Intent intent = new Intent(New_post_activity.this, MainTabbedActivityPost.class);
                         startActivity(intent);
                         finish();
@@ -315,7 +314,7 @@ public class New_post_activity extends Activity implements AdapterView.OnItemSel
         }) {
             @Override
             protected Map<String, String> getParams() {
-                // Posting params to register url
+                // Posting params to new candidate url
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("name", name);
                 params.put("firstname", firstname);

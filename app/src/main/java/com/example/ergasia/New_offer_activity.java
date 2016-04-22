@@ -1,6 +1,7 @@
 package com.example.ergasia;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -11,11 +12,40 @@ import android.app.Activity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import static com.android.volley.Request.Method.POST;
 
 public class New_offer_activity extends Activity {
 
     private SessionManager session;
+    private static final String TAG = New_offer_activity.class.getSimpleName();
+    private Button validateButton;
+    private EditText inputCompany;
+    private EditText inputJobTitle;
+    private EditText inputAreaActivity;
+    private RadioGroup inputType;
+    private EditText inputGeolocation;
+    private EditText inputSkill;
+    private ProgressDialog pDialog;
+    private SessionManagerNewOffer sessionNewOffer;
+    private SQLiteHandlerNewOffer db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,15 +59,15 @@ public class New_offer_activity extends Activity {
         TextView  textView4  = (TextView)findViewById(R.id.newAreaTextView);
         TextView  textView5  = (TextView)findViewById(R.id.newAreaEditText);
         TextView  textView6  = (TextView)findViewById(R.id.newLocationTextView);
-        TextView  textView7  = (TextView)findViewById(R.id.newLocationTextEdit);
-        TextView  textView8  = (TextView)findViewById(R.id.newWageTextView);
-        TextView  textView9  = (TextView)findViewById(R.id.newWageTextEdit);
+        TextView  textView7  = (TextView)findViewById(R.id.newLocationEditText);
+        TextView  textView8  = (TextView)findViewById(R.id.newJobTitleTextView);
+        TextView  textView9  = (TextView)findViewById(R.id.newJobTitleEditText);
         TextView  textView11  = (TextView)findViewById(R.id.newSkillsTextView);
-        TextView  textView12  = (TextView)findViewById(R.id.newSkillsTextEdit);
+        TextView  textView12  = (TextView)findViewById(R.id.newSkillsEditText);
         TextView  textView15  = (TextView)findViewById(R.id.newTypeTextView);
-        TextView  textView13  = (TextView)findViewById(R.id.typeSmallTextView);
-        TextView textView14  = (TextView)findViewById(R.id.newJobTextView);
-        TextView textView16  = (TextView)findViewById(R.id.newJobEditText);
+        TextView  textView13  = (TextView)findViewById(R.id.newTypeTextView);
+        TextView textView14  = (TextView)findViewById(R.id.newCompanyTextView);
+        TextView textView16  = (TextView)findViewById(R.id.newCompanyEditText);
 
 
         setFont(textView1, "BigCaslon.ttf");
@@ -55,6 +85,53 @@ public class New_offer_activity extends Activity {
         setFont(textView14, "BigCaslon.ttf");
         setFont(textView15, "BigCaslon.ttf");
         setFont(textView16, "BigCaslon.ttf");
+
+        inputCompany = (EditText) findViewById(R.id.newCompanyEditText);
+        inputJobTitle = (EditText) findViewById(R.id.newJobTitleEditText);
+        inputAreaActivity = (EditText) findViewById(R.id.newAreaEditText);
+        inputType = (RadioGroup) findViewById(R.id.typeRadioGroup);
+        inputGeolocation = (EditText) findViewById(R.id.newLocationEditText);
+        inputSkill = (EditText) findViewById(R.id.newSkillsEditText);
+        validateButton = (Button) findViewById(R.id.createButton);
+
+        //Progress dialog
+        pDialog = new ProgressDialog(this);
+        pDialog.setCancelable(false);
+
+        //Session manager for a new offer
+        sessionNewOffer = new SessionManagerNewOffer(getApplicationContext()); //return the context for the entire application
+
+        //SQlite database handler for a new offer
+        db = new SQLiteHandlerNewOffer(getApplicationContext());
+
+        //validate button click event
+        validateButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                String company = inputCompany.getText().toString().trim();
+                String jobTitle = inputJobTitle.getText().toString().trim();
+                String areaActivity = inputAreaActivity.getText().toString().trim();
+
+                //if confition to check if the user has chosen the type of the new offer
+                if (inputType.getCheckedRadioButtonId() == -1) {
+                    Toast.makeText(getApplicationContext(), "Veuillez choisir le type de contrat", Toast.LENGTH_SHORT).show();
+                } else {
+                    RadioButton selectedButton = (RadioButton) findViewById(inputType.getCheckedRadioButtonId());
+                    String type = selectedButton.getText().toString();
+
+                    String geolocation = inputGeolocation.getText().toString().trim();
+                    String skill = inputSkill.getText().toString().trim();
+
+                    //check if the fields are all filled without the type because it's already checked above
+                    if (!company.isEmpty() && !jobTitle.isEmpty() && !areaActivity.isEmpty() && !geolocation.isEmpty() &&
+                            !skill.isEmpty()) {
+                        registerNewOffer(company, jobTitle, areaActivity, type, geolocation, skill);
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Veuillez entrer tous les champs !",
+                                Toast.LENGTH_LONG).show();
+                    }
+                }
+            }
+        });
     }
 
     /**
@@ -72,6 +149,110 @@ public class New_offer_activity extends Activity {
             }
         }
     }
+
+
+    /**
+     * Function to store an offer in MySQL database will post params(tag, company,
+     * jobTitle, areaActivity, type,geolocation,skill) to new offer url
+     * @param company
+     * @param jobTitle
+     * @param areaActivity
+     * @param type
+     * @param geolocation
+     * @param skill
+     */
+    private void registerNewOffer(final String company, final String jobTitle,final String areaActivity,
+                              final String type, final String geolocation, final String skill ) {
+        //Tag used to cancel the request
+        String tag_string_req = "req_register";
+        pDialog.setMessage("Enregistrement...");
+        showDialog();
+
+        //Request a string response from the provided URL
+        StringRequest strReq = new StringRequest(POST,
+                AppConfig.URL_NEW_OFFER, new Response.Listener<String>() {
+
+
+            @Override
+            public void onResponse(String response) {
+                Log.d(TAG, "Register Response: " + response.toString());
+                hideDialog();
+
+                try {
+                    JSONObject jObj = new JSONObject(response);
+                    boolean error = jObj.getBoolean("error");
+                    if (!error) {
+                        //new offer succesfully stored in MySQL
+                        //Now store the offer in Sqlite
+                        String uid = jObj.getString("uid");
+
+                        JSONObject offer = jObj.getJSONObject("offer");
+                        String company = offer.getString("company");
+                        String jobTitle = offer.getString("job_title");
+                        String areaActivity = offer.getString("area_activity");
+                        String type = offer.getString("type");
+                        String geolocation = offer.getString("geolocation");
+                        String skill = offer.getString("skill");
+                        String created_at = offer.getString("created_at");
+
+
+                        //Inserting row in recruiters table
+                        db.addOffer(company, jobTitle, areaActivity, type, geolocation, skill, uid, created_at);
+                        Toast.makeText(getApplicationContext(), "L'offre a été enregistré avec succès ! "
+                                , Toast.LENGTH_LONG).show();
+
+                        //Launch mainTabbedActivity activity
+                        Intent intent = new Intent(New_offer_activity.this, MainTabbedActivityRec.class);
+                        startActivity(intent);
+                        finish();
+                    } else {
+                        //Error occured in registration. Get the error message
+                        String errorMsg = jObj.getString("error_msg");
+                        Toast.makeText(getApplicationContext(), errorMsg,
+                                Toast.LENGTH_LONG).show();
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e(TAG, "Registration Error: " + error.getMessage());
+                Toast.makeText(getApplicationContext(),
+                        error.getMessage(), Toast.LENGTH_LONG).show();
+                hideDialog();
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() {
+                // Posting params to register url
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("company", company);
+                params.put("job_title", jobTitle);
+                params.put("area_activity", areaActivity);
+                params.put("type", type);
+                params.put("geolocation", geolocation);
+                params.put("skill", skill);
+                return params;
+            }
+        };
+
+        //Adding request to request queue
+        AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
+    }
+
+    private void showDialog() {
+        if (!pDialog.isShowing())
+            pDialog.show();
+    }
+
+    private void hideDialog() {
+        if (pDialog.isShowing())
+            pDialog.dismiss();
+    }
+
+
 
     //Logout function
     private void logout(){

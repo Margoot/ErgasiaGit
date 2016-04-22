@@ -18,7 +18,7 @@ public class SQLiteHandlerNewCandidate extends SQLiteOpenHelper {
 
     //All Static variables
     //Database version
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 1;
 
     //Database name
     private static final String DATABASE_NAME = "Ergasia";

@@ -12,4 +12,9 @@ public class AppConfig {
 
     //create new candidate url
     public static String URL_NEW_CANDIDATE = "http://192.168.1.14:8888/New_Candidate.php";
+
+    //create new offer url
+    public static String URL_NEW_OFFER = "http://192.168.1.14:8888/New_Offer.php";
+
+
 }

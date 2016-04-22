@@ -31,32 +31,33 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:text="@string/entreprise"
-                    android:id="@+id/newJobTextView"
+                    android:id="@+id/newCompanyTextView"
                     android:textSize="@dimen/sub_title2"
                     android:textStyle="bold" />
 
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/newJobEditText"
+                    android:id="@+id/newCompanyEditText"
                     android:textSize="@dimen/text1"
-                    android:textStyle="italic" />
+                    android:textStyle="italic"
+                    android:inputType="textCapSentences"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:text="@string/intitule_post"
-                    android:id="@+id/newWageTextView"
+                    android:id="@+id/newJobTitleTextView"
                     android:textSize="@dimen/sub_title2"
                     android:textStyle="bold" />
 
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="text"
+                    android:inputType="textCapSentences"
                     android:ems="10"
-                    android:id="@+id/newWageTextEdit" />
+                    android:id="@+id/newJobTitleEditText" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -72,7 +73,8 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/newAreaEditText"
                     android:textStyle="italic"
-                    android:textSize="@dimen/text1" />
+                    android:textSize="@dimen/text1"
+                    android:inputType="textCapSentences"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -86,37 +88,38 @@
                 <RadioGroup
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:id="@+id/typeRadioGroup"
+                    android:orientation="horizontal"
+                    android:contextClickable="true"
+                    android:onClick="setContentView"
                     >
 
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="CDI"
+                        android:id="@+id/cdiRadioButton"
+                        android:textSize="@dimen/text1"
+                        android:textStyle="italic"
+                        android:contextClickable="true"/>
 
-                        <RadioButton
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="CDI"
-                            android:id="@+id/cdiRadioButton"
-                            android:textSize="@dimen/text1"
-                            android:textStyle="italic" />
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="CDD"
+                        android:id="@+id/cddRadioButton"
+                        android:textSize="@dimen/text1"
+                        android:textStyle="italic"
+                        android:contextClickable="true"/>
 
-                        <RadioButton
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="CDD"
-                            android:id="@+id/cddRadioButton"
-                            android:textSize="@dimen/text1"
-                            android:textStyle="italic" />
-
-                        <RadioButton
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Stage"
-                            android:id="@+id/internRadioButton"
-                            android:textStyle="italic"
-                            android:textSize="@dimen/text1" />
-                    </LinearLayout>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Stage"
+                        android:id="@+id/internRadioButton"
+                        android:textStyle="italic"
+                        android:textSize="@dimen/text1"
+                        android:contextClickable="true"/>
                 </RadioGroup>
 
                 <TextView
@@ -131,10 +134,11 @@
                 <AutoCompleteTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="New AutoCompleteTextView"
-                    android:id="@+id/newLocationTextEdit"
+                    android:id="@+id/newLocationEditText"
                     android:textSize="@dimen/text1"
-                    android:textStyle="italic" />
+                    android:textStyle="italic"
+                    android:text="Lieu"
+                    android:inputType="textCapSentences"/>
 
                 <LinearLayout
                     android:orientation="horizontal"
@@ -155,9 +159,10 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/newSkillsTextEdit"
+                    android:id="@+id/newSkillsEditText"
                     android:textSize="@dimen/text1"
-                    android:textStyle="italic" />
+                    android:textStyle="italic"
+                    android:inputType="textCapWords"/>
 
             </LinearLayout>
         </ScrollView>
@@ -178,7 +183,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/lancer_recherche"
-            android:id="@+id/button2"
+            android:id="@+id/createButton"
             android:textColor="@color/white"
             android:background="@color/ergasiagreen"/>
     </LinearLayout>
