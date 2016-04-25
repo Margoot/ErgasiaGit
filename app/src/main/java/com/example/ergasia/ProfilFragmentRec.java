@@ -16,7 +16,6 @@ import android.widget.TextView;
 public class ProfilFragmentRec extends Fragment {
 
 
-
     public static ProfilFragmentRec newInstance() {
         ProfilFragmentRec fragment = new ProfilFragmentRec();
         return fragment;

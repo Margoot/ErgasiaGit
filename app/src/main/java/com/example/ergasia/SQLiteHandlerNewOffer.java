@@ -65,6 +65,15 @@ public class SQLiteHandlerNewOffer extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+    @Override
+    public void onDowngrade(SQLiteDatabase db,int oldVersion, int newVersion) {
+        //Drop older table if existed
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NEW_OFFER);
+
+        //Create tables again
+        onCreate(db);
+    }
+
     /**
      * add an offer into the database
      * @param company

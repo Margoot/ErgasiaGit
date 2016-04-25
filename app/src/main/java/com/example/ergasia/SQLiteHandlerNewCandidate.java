@@ -18,7 +18,7 @@ public class SQLiteHandlerNewCandidate extends SQLiteOpenHelper {
 
     //All Static variables
     //Database version
-    private static final int DATABASE_VERSION = 3;
+    private static final int DATABASE_VERSION = 2;
 
     //Database name
     private static final String DATABASE_NAME = "Ergasia";
@@ -68,6 +68,15 @@ public class SQLiteHandlerNewCandidate extends SQLiteOpenHelper {
     //Upgrading database
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        //Drop older table if existed
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NEW_CANDIDATE);
+
+        //Create tables again
+        onCreate(db);
+    }
+
+    @Override
+    public void onDowngrade(SQLiteDatabase db,int oldVersion, int newVersion) {
         //Drop older table if existed
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NEW_CANDIDATE);
 

@@ -20,7 +20,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
     //All Static variables
     //Database version
-    private static final int DATABASE_VERSION = 3;
+    private static final int DATABASE_VERSION = 1;
 
     //Database name
     private static final String DATABASE_NAME = "Ergasia";
@@ -43,6 +43,8 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     //Creating Tables
     @Override
     public void onCreate(SQLiteDatabase db) {
+        System.out.println(db.getVersion());
+
         String CREATE_LOGIN_TABLE = "CREATE TABLE " + TABLE_USER + "("
                 + KEY_ID + " INTEGER PRIMARY KEY," + KEY_NAME + " TEXT,"
                 + KEY_FIRSTNAME + " TEXT,"
@@ -56,6 +58,15 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     //Upgrading database
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        //Drop older table if existed
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_USER);
+
+        //Create tables again
+        onCreate(db);
+    }
+
+    @Override
+    public void onDowngrade(SQLiteDatabase db,int oldVersion, int newVersion) {
         //Drop older table if existed
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_USER);
 
