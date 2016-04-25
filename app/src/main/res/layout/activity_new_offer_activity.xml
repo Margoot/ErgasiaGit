@@ -126,31 +126,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="@string/lieu"
-                    android:id="@+id/newLocationTextView"
-                    android:textStyle="bold"
-                    android:textSize="@dimen/sub_title2" />
-
-                <AutoCompleteTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/newLocationEditText"
-                    android:textSize="@dimen/text1"
-                    android:textStyle="italic"
-                    android:text="Lieu"
-                    android:inputType="textCapSentences"/>
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
                     android:text="@string/comp_nec"
                     android:id="@+id/newSkillsTextView"
                     android:textSize="@dimen/sub_title2"
@@ -163,6 +138,35 @@
                     android:textSize="@dimen/text1"
                     android:textStyle="italic"
                     android:inputType="textCapWords"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/lieu"
+                    android:id="@+id/newLocationTextView"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/sub_title2" />
+
+                <Switch
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Géolocalisation"
+                    android:id="@+id/geolocSwitchNewOffer"/>
+
+                <SeekBar
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/seekBar2"/>
+
+                <AutoCompleteTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/LocationEditText"
+                    android:textSize="@dimen/text1"
+                    android:textStyle="italic"
+                    android:text="Lieu"
+                    android:inputType="textCapSentences"/>
 
             </LinearLayout>
         </ScrollView>

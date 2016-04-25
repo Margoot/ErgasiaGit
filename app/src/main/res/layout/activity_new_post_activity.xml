@@ -276,9 +276,8 @@
                 <Switch
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Enable:"
+                    android:text="Géolocalisation"
                     android:id="@+id/geolocSwitch"
-                    android:layout_gravity="center_horizontal"
                     android:checked="false" />
 
                 <SeekBar
@@ -291,7 +290,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Lieu"
-                    android:id="@+id/geolocationEditText"
+                    android:id="@+id/locationEditText"
                     android:textStyle="italic"
                     android:textSize="@dimen/text1"
                     android:inputType="textCapSentences"/>
