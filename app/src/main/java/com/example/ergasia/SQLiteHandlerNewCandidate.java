@@ -18,7 +18,7 @@ public class SQLiteHandlerNewCandidate extends SQLiteOpenHelper {
 
     //All Static variables
     //Database version
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 3;
 
     //Database name
     private static final String DATABASE_NAME = "Ergasia";
@@ -125,7 +125,7 @@ public class SQLiteHandlerNewCandidate extends SQLiteOpenHelper {
     /**
      * Getting candidate data from database
      */
-    public HashMap<String, String> getUserDetails() {
+    public HashMap<String, String> getCandidateDetails() {
         HashMap<String, String> user = new HashMap<String, String>();
         String selectQuery = "SELECT * FROM " + TABLE_NEW_CANDIDATE;
 
@@ -157,7 +157,7 @@ public class SQLiteHandlerNewCandidate extends SQLiteOpenHelper {
         return user;
     }
 
-    public void deleteUsers() {
+    public void deleteCandidates() {
         SQLiteDatabase db = this.getWritableDatabase();
         //Delete all rows
         db.delete(TABLE_NEW_CANDIDATE, null , null);

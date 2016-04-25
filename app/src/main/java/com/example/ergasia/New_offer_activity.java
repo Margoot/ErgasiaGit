@@ -91,7 +91,7 @@ public class New_offer_activity extends Activity {
         inputJobTitle = (EditText) findViewById(R.id.newJobTitleEditText);
         inputAreaActivity = (EditText) findViewById(R.id.newAreaEditText);
         inputType = (RadioGroup) findViewById(R.id.typeRadioGroup);
-        inputGeolocation = (EditText) findViewById(R.id.newLocationEditText);
+        inputGeolocation = (EditText) findViewById(R.id.LocationEditText);
         inputSkill = (EditText) findViewById(R.id.newSkillsEditText);
         validateButton = (Button) findViewById(R.id.createButton);
 

@@ -125,7 +125,7 @@ public class New_post_activity extends Activity implements AdapterView.OnItemSel
         inputLanguage3 = (EditText) findViewById(R.id.editLanguage3);
         inputLevelLanguage3 = (RatingBar) findViewById(R.id.ratingBar3);
         inputSkill = (EditText) findViewById(R.id.skillsEditText);
-        inputGeolocation = (EditText) findViewById(R.id.geolocationEditText);
+        inputGeolocation = (EditText) findViewById(R.id.locationEditText);
         validateButton = (Button) findViewById(R.id.createButton);
 
         spinnerTraining = (Spinner) findViewById(R.id.trainingSpinner);

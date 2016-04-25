@@ -107,7 +107,7 @@ public class SQLiteHandlerNewOffer extends SQLiteOpenHelper {
     /**
      * Getting user data from database
      */
-    public HashMap<String, String> getUserDetails() {
+    public HashMap<String, String> getOfferDetails() {
         HashMap<String, String> user = new HashMap<String, String>();
         String selectQuery = "SELECT * FROM " + TABLE_NEW_OFFER;
 
@@ -134,9 +134,9 @@ public class SQLiteHandlerNewOffer extends SQLiteOpenHelper {
     }
 
     /**
-     * J'ai juste changé le nom
+     * delete offers
      */
-    public void deleteOffer() {
+    public void deleteOffers() {
         SQLiteDatabase db = this.getWritableDatabase();
         //Delete all rows
         db.delete(TABLE_NEW_OFFER, null , null);
