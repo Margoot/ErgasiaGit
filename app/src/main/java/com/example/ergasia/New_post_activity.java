@@ -86,7 +86,7 @@ public class New_post_activity extends Activity implements AdapterView.OnItemSel
         TextView textView9 = (TextView) findViewById(R.id.editLanguage3);
         TextView textView10 = (TextView) findViewById(R.id.skills);
         TextView textView11 = (TextView) findViewById(R.id.skillsEditText);
-        TextView textView12 = (TextView) findViewById(R.id.geolocationEditText);
+        TextView textView12 = (TextView) findViewById(R.id.locationEditText);
         TextView textView13 = (TextView) findViewById(R.id.geolocSwitch);
         TextView textView14 = (TextView) findViewById(R.id.geolocation);
         TextView textView15 = (TextView) findViewById(R.id.name);

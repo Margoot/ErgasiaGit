@@ -58,9 +58,10 @@ public class New_offer_activity extends Activity {
         TextView  textView4  = (TextView)findViewById(R.id.newAreaTextView);
         TextView  textView5  = (TextView)findViewById(R.id.newAreaEditText);
         TextView  textView6  = (TextView)findViewById(R.id.newLocationTextView);
-        TextView  textView7  = (TextView)findViewById(R.id.newLocationEditText);
+        TextView  textView7  = (TextView)findViewById(R.id.LocationEditText);
         TextView  textView8  = (TextView)findViewById(R.id.newJobTitleTextView);
         TextView  textView9  = (TextView)findViewById(R.id.newJobTitleEditText);
+        TextView  textView10  = (TextView)findViewById(R.id.geolocSwitchNewOffer);
         TextView  textView11  = (TextView)findViewById(R.id.newSkillsTextView);
         TextView  textView12  = (TextView)findViewById(R.id.newSkillsEditText);
         TextView  textView15  = (TextView)findViewById(R.id.newTypeTextView);
@@ -78,6 +79,7 @@ public class New_offer_activity extends Activity {
         setFont(textView7, "BigCaslon.ttf");
         setFont(textView8, "BigCaslon.ttf");
         setFont(textView9, "BigCaslon.ttf");
+        setFont(textView10, "BigCaslon.ttf");
         setFont(textView11, "BigCaslon.ttf");
         setFont(textView12, "BigCaslon.ttf");
         setFont(textView13, "BigCaslon.ttf");

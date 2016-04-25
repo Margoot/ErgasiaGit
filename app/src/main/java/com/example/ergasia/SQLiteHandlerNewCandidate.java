@@ -18,7 +18,7 @@ public class SQLiteHandlerNewCandidate extends SQLiteOpenHelper {
 
     //All Static variables
     //Database version
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
 
     //Database name
     private static final String DATABASE_NAME = "Ergasia";
@@ -115,21 +115,6 @@ public class SQLiteHandlerNewCandidate extends SQLiteOpenHelper {
         values.put(KEY_GEOLOCATION, geolocation);
         values.put(KEY_UID, uid); //unique id
         values.put(KEY_CREATED_AT, created_at); //created_at
-        System.out.println(name + "db");
-        System.out.println(firstname + "db");
-        System.out.println(training + "db");
-        System.out.println(area_activity + "db");
-        System.out.println(type +"db");
-        System.out.println(language1 +"db");
-        System.out.println(level_language1 + "db");
-        System.out.println(language2 +"db");
-        System.out.println(level_language2 +"db");
-        System.out.println(language3 + "db");
-        System.out.println(level_language3 +"db");
-        System.out.println(skill +"db");
-        System.out.println(geolocation + "db");
-        System.out.println(uid +"db");
-        System.out.println(created_at +"db");
         //Inserting Row
         long id = db.insert(TABLE_NEW_CANDIDATE, null, values);
         db.close(); //Closing database connection
