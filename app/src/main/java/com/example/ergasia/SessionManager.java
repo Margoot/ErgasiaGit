@@ -23,8 +23,10 @@ public class SessionManager {
     int PRIVATE_MODE = 0;
 
     //Shared preferences file name
-    public static final String PREF_NAME = "ErgasiaLogin";
+    public static final String PREF_NAME = "Ergasia";
     public static final String KEY_IS_LOGGEDIN = "isLoggedIn";
+    public static final String KEY_IS_CANDIDATE = "isCandidate";
+    public static final String KEY_IS_RECRUITER = "isRecruiter";
 
     public SessionManager (Context context) {
         this._context = context;
@@ -43,5 +45,29 @@ public class SessionManager {
 
     public boolean isLoggedIn () {
         return pref.getBoolean(KEY_IS_LOGGEDIN, false);
+    }
+
+    public void setCandidate(boolean isCandidate) {
+        editor.putBoolean(KEY_IS_CANDIDATE, isCandidate);
+
+        //commit changes
+        editor.commit();
+        Log.d(TAG, "User is a candidate");
+    }
+
+    public boolean isCandidate() {
+        return pref.getBoolean(KEY_IS_CANDIDATE, false);
+    }
+
+    public void setRecruiter(boolean isRecruiter) {
+        editor.putBoolean(KEY_IS_RECRUITER, isRecruiter);
+
+        //commit changes
+        editor.commit();
+        Log.d(TAG, "User is a recruiter");
+    }
+
+    public boolean isRecruiter() {
+        return pref.getBoolean(KEY_IS_RECRUITER, false);
     }
 }

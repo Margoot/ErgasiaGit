@@ -171,7 +171,7 @@ public class MainTabbedActivityRec extends Activity implements ActionBar.TabList
                         editor.commit();
 
                         //Starting login activity
-                        Intent intent = new Intent(MainTabbedActivityRec.this, LoginActivity.class);
+                        Intent intent = new Intent(MainTabbedActivityRec.this, Post_rec_activity.class);
                         startActivity(intent);
                     }
                 });
@@ -188,6 +188,25 @@ public class MainTabbedActivityRec extends Activity implements ActionBar.TabList
         AlertDialog alertDialog = alertDialogBuilder.create();
         alertDialog.show();
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main_tabbed, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+        if (id == R.id.action_logout) {
+            logout();
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 

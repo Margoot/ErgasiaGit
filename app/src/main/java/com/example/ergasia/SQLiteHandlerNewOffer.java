@@ -133,7 +133,10 @@ public class SQLiteHandlerNewOffer extends SQLiteOpenHelper {
         return user;
     }
 
-    public void deleteUsers() {
+    /**
+     * J'ai juste changé le nom
+     */
+    public void deleteOffer() {
         SQLiteDatabase db = this.getWritableDatabase();
         //Delete all rows
         db.delete(TABLE_NEW_OFFER, null , null);

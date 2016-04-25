@@ -43,16 +43,22 @@ public class Post_rec_activity extends Activity {
 		// Session manager
 		session = new SessionManager(getApplicationContext());
 
-			/*
+
 		//check if user is already logged in
 		if(session.isLoggedIn()) {
-			//User is already logged in. Take him to Post/Rec activity
-			Intent i = new Intent(Post_rec_activity.this, MainTabbedActivityPost.class );
-			startActivity(i);
-			finish();
+			if(session.isCandidate()) {
+				//User is already logged in. Take him to Post/Rec activity
+				Intent i = new Intent(Post_rec_activity.this, MainTabbedActivityPost.class);
+				startActivity(i);
+				finish();
+			} else {
+				Intent i = new Intent(Post_rec_activity.this, MainTabbedActivityRec.class);
+				startActivity(i);
+				finish();
+			}
 			// A FAIRE: différencier Postulant Recruteur
 		}
-*/
+
 		addListenerOnButton();
 
 	}

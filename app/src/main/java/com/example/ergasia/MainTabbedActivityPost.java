@@ -226,7 +226,7 @@ public class MainTabbedActivityPost extends Activity implements ActionBar.TabLis
                         editor.commit();
 
                         //Starting login activity
-                        Intent intent = new Intent(MainTabbedActivityPost.this, LoginActivity.class);
+                        Intent intent = new Intent(MainTabbedActivityPost.this, Post_rec_activity.class);
                         startActivity(intent);
                     }
                 });

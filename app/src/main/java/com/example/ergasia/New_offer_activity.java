@@ -44,7 +44,6 @@ public class New_offer_activity extends Activity {
     private EditText inputGeolocation;
     private EditText inputSkill;
     private ProgressDialog pDialog;
-    private SessionManagerNewOffer sessionNewOffer;
     private SQLiteHandlerNewOffer db;
 
     @Override
@@ -99,7 +98,7 @@ public class New_offer_activity extends Activity {
         pDialog.setCancelable(false);
 
         //Session manager for a new offer
-        sessionNewOffer = new SessionManagerNewOffer(getApplicationContext()); //return the context for the entire application
+        session = new SessionManager(getApplicationContext()); //return the context for the entire application
 
         //SQlite database handler for a new offer
         db = new SQLiteHandlerNewOffer(getApplicationContext());
@@ -117,6 +116,14 @@ public class New_offer_activity extends Activity {
                 } else {
                     RadioButton selectedButton = (RadioButton) findViewById(inputType.getCheckedRadioButtonId());
                     String type = selectedButton.getText().toString();
+
+                    /**
+                     *
+                     * Pourquoi laisser tous les autres champs dans le else du radio button?
+                     * Le dernier if ne devrait pas etre en dehors de la première condition car on chack que tous les champs sont bien
+                     * complet
+                     * Comme ça ça doit marcher mais un peu chelou je trouve, ça fait beaucoup de conditions imbriquées
+                     */
 
                     String geolocation = inputGeolocation.getText().toString().trim();
                     String skill = inputSkill.getText().toString().trim();
@@ -184,6 +191,13 @@ public class New_offer_activity extends Activity {
                     if (!error) {
                         //new offer succesfully stored in MySQL
                         //Now store the offer in Sqlite
+                        session.setRecruiter(true);
+                        /**
+                         *
+                         * C'est ici qu'il faut faire appel au sessionmanager,
+                         * puisque on ne sauvegarde jamais le fait que l'utillisateur est bien enregistré, one ne
+                         * fait qu'afficher un message
+                         */
                         String uid = jObj.getString("uid");
 
                         JSONObject offer = jObj.getJSONObject("offer");
@@ -276,7 +290,7 @@ public class New_offer_activity extends Activity {
                         editor.commit();
 
                         //Starting login activity
-                        Intent intent = new Intent(New_offer_activity.this, LoginActivity.class);
+                        Intent intent = new Intent(New_offer_activity.this, Post_rec_activity.class);
                         startActivity(intent);
                     }
                 });

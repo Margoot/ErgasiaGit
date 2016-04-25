@@ -68,7 +68,6 @@ public class New_post_activity extends Activity implements AdapterView.OnItemSel
     private EditText inputGeolocation;
     private Button validateButton;
     private ProgressDialog pDialog;
-    private SessionManagerNewCandidate sessionNewCandidate;
     private SQLiteHandlerNewCandidate db;
 
     @Override
@@ -140,7 +139,7 @@ public class New_post_activity extends Activity implements AdapterView.OnItemSel
         pDialog.setCancelable(false);
 
         //Session manager
-        sessionNewCandidate = new SessionManagerNewCandidate(getApplicationContext()); //return the context for the entire application
+        session = new SessionManager(getApplicationContext()); //return the context for the entire application
 
         //SQlite database handler
         db = new SQLiteHandlerNewCandidate(getApplicationContext());
@@ -159,6 +158,11 @@ public class New_post_activity extends Activity implements AdapterView.OnItemSel
                 } else {
                     RadioButton selectedButton = (RadioButton) findViewById(inputType.getCheckedRadioButtonId());
                     String type = selectedButton.getText().toString();
+
+                    /**
+                     *
+                     * Même remarque que pour new offer
+                     */
 
 
                     String language1 = inputLanguage1.getText().toString().trim();
@@ -262,6 +266,8 @@ public class New_post_activity extends Activity implements AdapterView.OnItemSel
                     if (!error) {
                         //the new candidate succesfully stored in MySQL
                         //Now store the candidate in Sqlite
+                        session.setCandidate(true);
+
                         String uid = jObj.getString("uid");
 
                         JSONObject candidate = jObj.getJSONObject("candidate");
@@ -369,7 +375,7 @@ public class New_post_activity extends Activity implements AdapterView.OnItemSel
                         editor.commit();
 
                         //Starting login activity
-                        Intent intent = new Intent(New_post_activity.this, LoginActivity.class);
+                        Intent intent = new Intent(New_post_activity.this, Post_rec_activity.class);
                         startActivity(intent);
                     }
                 });
