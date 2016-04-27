@@ -68,7 +68,7 @@ public class New_post_activity extends Activity implements AdapterView.OnItemSel
     private EditText inputGeolocation;
     private Button validateButton;
     private ProgressDialog pDialog;
-    private SQLiteHandlerNewCandidate db;
+    private SQLiteHandler db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -142,7 +142,13 @@ public class New_post_activity extends Activity implements AdapterView.OnItemSel
         session = new SessionManager(getApplicationContext()); //return the context for the entire application
 
         //SQlite database handler
-        db = new SQLiteHandlerNewCandidate(getApplicationContext());
+        db = new SQLiteHandler(getApplicationContext());
+
+        /*if (session.isCandidate()) {
+            Intent intent = new Intent(New_post_activity.this, MainTabbedActivityPost.class);
+            startActivity(intent);
+            //finish();
+        }*/
 
         //Create button click event
         validateButton.setOnClickListener(new View.OnClickListener() {

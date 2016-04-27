@@ -43,6 +43,7 @@ public class SQLiteHandlerNewCandidate extends SQLiteOpenHelper {
     private static final String KEY_GEOLOCATION = "geolocation";
     private static final String KEY_UID = "uid";
     private static final String KEY_CREATED_AT = "created_at";
+    private static final String KEY_ID_USERS_FK = "id_users_fk";
 
     public SQLiteHandlerNewCandidate(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -59,7 +60,7 @@ public class SQLiteHandlerNewCandidate extends SQLiteOpenHelper {
                 + KEY_LANGUAGE2 + " TEXT," + KEY_LEVEL_LANGUAGE2 + " TEXT,"
                 + KEY_LANGUAGE3 + " TEXT," + KEY_LEVEL_LANGUAGE3 + " TEXT,"
                 + KEY_SKILL + " TEXT," + KEY_GEOLOCATION + " TEXT,"
-                + KEY_UID + " TEXT," + KEY_CREATED_AT + " TEXT" + ")";
+                + KEY_UID + " TEXT," + KEY_CREATED_AT + " TEXT," + KEY_ID_USERS_FK + " INTEGER,"+ " FOREIGN KEY ("+KEY_ID_USERS_FK+") REFERENCES users (id))";
         db.execSQL(CREATE_NEW_CANDIDATE_TABLE);
 
         Log.d(TAG, "Database tables created");

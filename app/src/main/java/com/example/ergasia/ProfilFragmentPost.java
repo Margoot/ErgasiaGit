@@ -117,11 +117,11 @@ public class ProfilFragmentPost extends Fragment {
         String areaActivity = candidate.get("area_activity");
         String type = candidate.get("type");
         String language1 = candidate.get("language1");
-        String levelLanguage1 = candidate.get("level_language1");
+        //String levelLanguage1 = candidate.get("level_language1");
         String language2 = candidate.get("language2");
-        String levelLanguage2 = candidate.get("level_language2");
+        //String levelLanguage2 = candidate.get("level_language2");
         String language3 = candidate.get("language3");
-        String levelLanguage3 = candidate.get("level_language3");
+        //String levelLanguage3 = candidate.get("level_language3");
         String skill = candidate.get("skill");
         String geolocation = candidate.get("geolocation");
 
@@ -131,11 +131,11 @@ public class ProfilFragmentPost extends Fragment {
         inputAreaActivity.setText(areaActivity);
         inputType.setText(type);
         inputLanguage1.setText(language1);
-        inputLevelLanguage1.setRating(Float.parseFloat(levelLanguage1));
+        //inputLevelLanguage1.setRating(Float.parseFloat(levelLanguage1));
         inputLanguage2.setText(language2);
-        inputLevelLanguage2.setRating(Float.parseFloat(levelLanguage2));
+        //inputLevelLanguage2.setRating(Float.parseFloat(levelLanguage2));
         inputLanguage3.setText(language3);
-        inputLevelLanguage3.setRating(Float.parseFloat(levelLanguage3));
+       // inputLevelLanguage3.setRating(Float.parseFloat(levelLanguage3));
         inputSkill.setText(skill);
         inputLocation.setText(geolocation);
 

@@ -50,39 +50,7 @@ public class MainTabbedActivityPost extends Activity implements ActionBar.TabLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_tabbed);
-        /*
-        TextView textView1  = (TextView)findViewById(R.id.companyTextView2);
-        TextView  textView2  = (TextView)findViewById(R.id.companySmallText2);
-        TextView  textView3  = (TextView)findViewById(R.id.typeTextView);
-        TextView  textView4  = (TextView)findViewById(R.id.cdiRadioButton);
-        TextView  textView5  = (TextView)findViewById(R.id.cddRadioButton);
-        TextView  textView6  = (TextView)findViewById(R.id.internRadioButton);
-        TextView  textView7  = (TextView)findViewById(R.id.areaTextView);
-        TextView  textView8  = (TextView)findViewById(R.id.areaSmallText);
-        TextView  textView9  = (TextView)findViewById(R.id.jobTextView);
-        TextView  textView10  = (TextView)findViewById(R.id.locationSmallTextView);
-        TextView  textView11  = (TextView)findViewById(R.id.salaryTextView2);
-        TextView  textView12  = (TextView)findViewById(R.id.salarySmallTextView);
-        TextView  textView13  = (TextView)findViewById(R.id.euroSmallTextView);
-        TextView  textView14  = (TextView)findViewById(R.id.skillsTextView);
-        TextView  textView15  = (TextView)findViewById(R.id.skillsSmallText);
 
-        setFont(textView1, "BigCaslon.ttf");
-        setFont(textView2, "BigCaslon.ttf");
-        setFont(textView3, "BigCaslon.ttf");
-        setFont(textView4, "BigCaslon.ttf");
-        setFont(textView5, "BigCaslon.ttf");
-        setFont(textView6, "BigCaslon.ttf");
-        setFont(textView7, "BigCaslon.ttf");
-        setFont(textView8, "BigCaslon.ttf");
-        setFont(textView9, "BigCaslon.ttf");
-        setFont(textView10, "BigCaslon.ttf");
-        setFont(textView11, "BigCaslon.ttf");
-        setFont(textView12, "BigCaslon.ttf");
-        setFont(textView13, "BigCaslon.ttf");
-        setFont(textView14, "BigCaslon.ttf");
-        setFont(textView15, "BigCaslon.ttf");
-*/
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.

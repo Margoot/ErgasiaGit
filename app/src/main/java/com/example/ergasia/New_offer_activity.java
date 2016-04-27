@@ -44,7 +44,7 @@ public class New_offer_activity extends Activity {
     private EditText inputGeolocation;
     private EditText inputSkill;
     private ProgressDialog pDialog;
-    private SQLiteHandlerNewOffer db;
+    private SQLiteHandler db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,7 +103,13 @@ public class New_offer_activity extends Activity {
         session = new SessionManager(getApplicationContext()); //return the context for the entire application
 
         //SQlite database handler for a new offer
-        db = new SQLiteHandlerNewOffer(getApplicationContext());
+        db = new SQLiteHandler(getApplicationContext());
+
+       /* if (session.isRecruiter()) {
+            Intent intent = new Intent(New_offer_activity.this, MainTabbedActivityRec.class);
+            startActivity(intent);
+            //finish();
+        }*/
 
         //validate button click event
         validateButton.setOnClickListener(new View.OnClickListener() {
