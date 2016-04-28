@@ -81,10 +81,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         System.out.println(db.getVersion());
 
-        if(!db.isReadOnly()) {
-            //Enable foreign key constraints
-            db.execSQL("PRAGMA foreign_keys=ON;");
-        }
+
 
         String CREATE_LOGIN_TABLE = "CREATE TABLE " + TABLE_USER + "("
                 + KEY_ID + " INTEGER PRIMARY KEY," + KEY_NAME + " TEXT,"
@@ -96,14 +93,14 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
 
         String CREATE_NEW_CANDIDATE_TABLE = "CREATE TABLE " + TABLE_NEW_CANDIDATE + "("
-                + KEY_ID_CANDIDATE + " INTEGER PRIMARY KEY," + KEY_NAME_CANDIDATE + " TEXT,"
+                + KEY_ID_CANDIDATE + " INTEGER PRIMARY KEY," + KEY_ID_USERS_FK_CANDIDATE + " INTEGER," + KEY_NAME_CANDIDATE + " TEXT,"
                 + KEY_FIRSTNAME_CANDIDATE + " TEXT," + KEY_TRAINING_CANDIDATE + " TEXT,"
                 + KEY_AREA_ACTIVITY_CANDIDATE + " TEXT," + KEY_TYPE_CANDIDATE + " TEXT,"
                 + KEY_LANGUAGE1_CANDIDATE + " TEXT," + KEY_LEVEL_LANGUAGE1_CANDIDATE + " TEXT,"
                 + KEY_LANGUAGE2_CANDIDATE + " TEXT," + KEY_LEVEL_LANGUAGE2_CANDIDATE + " TEXT,"
                 + KEY_LANGUAGE3_CANDIDATE+ " TEXT," + KEY_LEVEL_LANGUAGE3_CANDIDATE + " TEXT,"
                 + KEY_SKILL_CANDIDATE + " TEXT," + KEY_GEOLOCATION_CANDIDATE + " TEXT,"
-                + KEY_UID_CANDIDATE + " TEXT," + KEY_CREATED_AT_CANDIDATE + " TEXT," + KEY_ID_USERS_FK_CANDIDATE + " INTEGER,"+ " FOREIGN KEY ("+KEY_ID_USERS_FK_CANDIDATE+") REFERENCES " + TABLE_USER+ " ("+KEY_ID+"))";
+                + KEY_UID_CANDIDATE + " TEXT," + KEY_CREATED_AT_CANDIDATE + " TEXT," + " FOREIGN KEY ("+KEY_ID_USERS_FK_CANDIDATE+") REFERENCES " + TABLE_USER+ " ("+KEY_ID+"))";
         db.execSQL(CREATE_NEW_CANDIDATE_TABLE);
 
         String CREATE_NEW_OFFER_TABLE = "CREATE TABLE " + TABLE_NEW_OFFER + "("
@@ -140,6 +137,15 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
         //Create tables again
         onCreate(db);
+    }
+
+    @Override
+    public void onOpen(SQLiteDatabase db){
+        super.onOpen(db);
+        if(!db.isReadOnly()) {
+            //Enable foreign key constraints
+            db.execSQL("PRAGMA foreign_keys=ON;");
+        }
     }
 
     /**
@@ -180,12 +186,11 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         //Move to first row
         cursor.moveToFirst();
         if (cursor.getCount() > 0) {
-            //user.put("id", cursor.getString(1));
-            user.put("name", cursor.getString(2));
-            user.put("firstname", cursor.getString(3));
-            user.put("email", cursor.getString(4));
-            user.put("uid", cursor.getString(5));
-            user.put("created_at", cursor.getString(6));
+            user.put("name", cursor.getString(1));
+            user.put("firstname", cursor.getString(2));
+            user.put("email", cursor.getString(3));
+            user.put("uid", cursor.getString(4));
+            user.put("created_at", cursor.getString(5));
         }
 
         cursor.close();
@@ -222,7 +227,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
      * @param uid
      * @param created_at
      */
-    public void addNewCandidate(String name, String firstname, String training, String area_activity, String type,
+    public void addNewCandidate(int id_users_fk, String name, String firstname, String training, String area_activity, String type,
                                 String language1, String level_language1, String language2, String level_language2,
                                 String language3, String level_language3, String skill, String geolocation,
                                 String uid, String created_at) {
@@ -230,6 +235,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         db.execSQL("PRAGMA foreign_keys=ON;");
 
         ContentValues values = new ContentValues();
+        values.put(KEY_ID_USERS_FK_CANDIDATE, id_users_fk);
         values.put(KEY_NAME_CANDIDATE, name);
         values.put(KEY_FIRSTNAME_CANDIDATE, firstname);
         values.put(KEY_TRAINING_CANDIDATE, training);
@@ -246,7 +252,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         values.put(KEY_UID_CANDIDATE, uid); //unique id
         values.put(KEY_CREATED_AT_CANDIDATE, created_at); //created_at
         //Inserting Row
-        //values.put(KEY_ID_CANDIDATE,  )
+        //values.put(KEY_ID_CANDIDATE, Integer.parseInt(id_users_fk));
         long id = db.insert(TABLE_NEW_CANDIDATE, null, values);
         db.close(); //Closing database connection
 

@@ -277,6 +277,7 @@ public class New_post_activity extends Activity implements AdapterView.OnItemSel
                         String uid = jObj.getString("uid");
 
                         JSONObject candidate = jObj.getJSONObject("candidate");
+                        int id_users_fk = candidate.getInt("id_users_fk");
                         String name = candidate.getString("name");
                         String firstname = candidate.getString("firstname");
                         String training = candidate.getString("training");
@@ -294,7 +295,7 @@ public class New_post_activity extends Activity implements AdapterView.OnItemSel
 
 
                         //Inserting row in candidates table
-                        db.addNewCandidate(name, firstname, training, areaActivity, type,
+                        db.addNewCandidate(id_users_fk, name, firstname, training, areaActivity, type,
                                 language1, levelLanguage1, language2, levelLanguage2,
                                 language3, levelLanguage3, skill, geolocation,
                                 uid, created_at);
