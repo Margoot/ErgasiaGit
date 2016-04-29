@@ -1,38 +1,74 @@
 [
     {
-        "merged": "/Users/simonthome/ErgasiaGit/app/build/intermediates/res/merged/debug/menu/menu_new_post_activity.xml",
-        "source": "/Users/simonthome/ErgasiaGit/app/src/main/res/menu/menu_new_post_activity.xml"
+        "merged": "C:\\Users\\simonthome\\ErgasiaGit\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_new_post_activity.xml",
+        "source": "C:\\Users\\simonthome\\ErgasiaGit\\app\\src\\main\\res\\menu\\menu_new_post_activity.xml"
     },
     {
-        "merged": "/Users/simonthome/ErgasiaGit/app/build/intermediates/res/merged/debug/menu/offer_menu.xml",
-        "source": "/Users/simonthome/ErgasiaGit/app/src/main/res/menu/offer_menu.xml"
+        "merged": "C:\\Users\\simonthome\\ErgasiaGit\\app\\build\\intermediates\\res\\merged\\debug\\menu\\offer_menu.xml",
+        "source": "C:\\Users\\simonthome\\ErgasiaGit\\app\\src\\main\\res\\menu\\offer_menu.xml"
     },
     {
-        "merged": "/Users/simonthome/ErgasiaGit/app/build/intermediates/res/merged/debug/menu/offer_activity.xml",
-        "source": "/Users/simonthome/ErgasiaGit/app/src/main/res/menu/offer_activity.xml"
+        "merged": "C:\\Users\\simonthome\\ErgasiaGit\\app\\build\\intermediates\\res\\merged\\debug\\menu\\offer_activity.xml",
+        "source": "C:\\Users\\simonthome\\ErgasiaGit\\app\\src\\main\\res\\menu\\offer_activity.xml"
     },
     {
-        "merged": "/Users/simonthome/ErgasiaGit/app/build/intermediates/res/merged/debug/menu/inscription_activity.xml",
-        "source": "/Users/simonthome/ErgasiaGit/app/src/main/res/menu/inscription_activity.xml"
+        "merged": "C:\\Users\\simonthome\\ErgasiaGit\\app\\build\\intermediates\\res\\merged\\debug\\menu\\inscription_activity.xml",
+        "source": "C:\\Users\\simonthome\\ErgasiaGit\\app\\src\\main\\res\\menu\\inscription_activity.xml"
     },
     {
-        "merged": "/Users/simonthome/ErgasiaGit/app/build/intermediates/res/merged/debug/menu/load_activity.xml",
-        "source": "/Users/simonthome/ErgasiaGit/app/src/main/res/menu/load_activity.xml"
+        "merged": "C:\\Users\\simonthome\\ErgasiaGit\\app\\build\\intermediates\\res\\merged\\debug\\menu\\load_activity.xml",
+        "source": "C:\\Users\\simonthome\\ErgasiaGit\\app\\src\\main\\res\\menu\\load_activity.xml"
     },
     {
-        "merged": "/Users/simonthome/ErgasiaGit/app/build/intermediates/res/merged/debug/menu/post_rec_activity.xml",
-        "source": "/Users/simonthome/ErgasiaGit/app/src/main/res/menu/post_rec_activity.xml"
+        "merged": "C:\\Users\\simonthome\\ErgasiaGit\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_main_tabbed.xml",
+        "source": "C:\\Users\\simonthome\\ErgasiaGit\\app\\src\\main\\res\\menu\\menu_main_tabbed.xml"
     },
     {
-        "merged": "/Users/simonthome/ErgasiaGit/app/build/intermediates/res/merged/debug/menu/menu_main_tabbed.xml",
-        "source": "/Users/simonthome/ErgasiaGit/app/src/main/res/menu/menu_main_tabbed.xml"
+        "merged": "C:\\Users\\hp\\AndroidStudioProjects\\ErgasiaGit\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_main_tabbed.xml",
+        "source": "C:\\Users\\hp\\AndroidStudioProjects\\ErgasiaGit\\app\\src\\main\\res\\menu\\menu_main_tabbed.xml"
     },
     {
-        "merged": "/Users/simonthome/ErgasiaGit/app/build/intermediates/res/merged/debug/menu/menu_new_offer_activity.xml",
-        "source": "/Users/simonthome/ErgasiaGit/app/src/main/res/menu/menu_new_offer_activity.xml"
+        "merged": "C:\\Users\\hp\\AndroidStudioProjects\\ErgasiaGit\\app\\build\\intermediates\\res\\merged\\debug\\menu\\offer_menu.xml",
+        "source": "C:\\Users\\hp\\AndroidStudioProjects\\ErgasiaGit\\app\\src\\main\\res\\menu\\offer_menu.xml"
     },
     {
-        "merged": "/Users/simonthome/ErgasiaGit/app/build/intermediates/res/merged/debug/menu/menu_main_tabbed_activity_rec.xml",
-        "source": "/Users/simonthome/ErgasiaGit/app/src/main/res/menu/menu_main_tabbed_activity_rec.xml"
+        "merged": "C:\\Users\\simonthome\\ErgasiaGit\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_new_offer_activity.xml",
+        "source": "C:\\Users\\simonthome\\ErgasiaGit\\app\\src\\main\\res\\menu\\menu_new_offer_activity.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\AndroidStudioProjects\\ErgasiaGit\\app\\build\\intermediates\\res\\merged\\debug\\menu\\offer_activity.xml",
+        "source": "C:\\Users\\hp\\AndroidStudioProjects\\ErgasiaGit\\app\\src\\main\\res\\menu\\offer_activity.xml"
+    },
+    {
+        "merged": "C:\\Users\\simonthome\\ErgasiaGit\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_main_tabbed_activity_rec.xml",
+        "source": "C:\\Users\\simonthome\\ErgasiaGit\\app\\src\\main\\res\\menu\\menu_main_tabbed_activity_rec.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\AndroidStudioProjects\\ErgasiaGit\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_new_post_activity.xml",
+        "source": "C:\\Users\\hp\\AndroidStudioProjects\\ErgasiaGit\\app\\src\\main\\res\\menu\\menu_new_post_activity.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\AndroidStudioProjects\\ErgasiaGit\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_main_tabbed_activity_rec.xml",
+        "source": "C:\\Users\\hp\\AndroidStudioProjects\\ErgasiaGit\\app\\src\\main\\res\\menu\\menu_main_tabbed_activity_rec.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\AndroidStudioProjects\\ErgasiaGit\\app\\build\\intermediates\\res\\merged\\debug\\menu\\post_rec_activity.xml",
+        "source": "C:\\Users\\hp\\AndroidStudioProjects\\ErgasiaGit\\app\\src\\main\\res\\menu\\post_rec_activity.xml"
+    },
+    {
+        "merged": "C:\\Users\\simonthome\\ErgasiaGit\\app\\build\\intermediates\\res\\merged\\debug\\menu\\post_rec_activity.xml",
+        "source": "C:\\Users\\simonthome\\ErgasiaGit\\app\\src\\main\\res\\menu\\post_rec_activity.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\AndroidStudioProjects\\ErgasiaGit\\app\\build\\intermediates\\res\\merged\\debug\\menu\\inscription_activity.xml",
+        "source": "C:\\Users\\hp\\AndroidStudioProjects\\ErgasiaGit\\app\\src\\main\\res\\menu\\inscription_activity.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\AndroidStudioProjects\\ErgasiaGit\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_new_offer_activity.xml",
+        "source": "C:\\Users\\hp\\AndroidStudioProjects\\ErgasiaGit\\app\\src\\main\\res\\menu\\menu_new_offer_activity.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\AndroidStudioProjects\\ErgasiaGit\\app\\build\\intermediates\\res\\merged\\debug\\menu\\load_activity.xml",
+        "source": "C:\\Users\\hp\\AndroidStudioProjects\\ErgasiaGit\\app\\src\\main\\res\\menu\\load_activity.xml"
     }
 ]

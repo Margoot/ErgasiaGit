@@ -1,6 +1,7 @@
 package com.example.ergasia;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,13 +15,20 @@ public class Message_post_activity extends Activity {
         setContentView(R.layout.activity_message_post_activity);
         getActionBar().setDisplayHomeAsUpEnabled(true);
 
+        Intent intent = getIntent();
+        int position = intent.getIntExtra("position", 0);
+
+
+
+        TextView myTextView = (TextView) findViewById(R.id.messagePostEditText);
+
+
         TextView textView1  = (TextView)findViewById(R.id.container);
         TextView textView2  = (TextView)findViewById(R.id.messagePostEditText);
         TextView textView3  = (TextView)findViewById(R.id.chatSendButton2);
         setFont(textView1,"BigCaslon.ttf");
         setFont(textView2,"BigCaslon.ttf");
         setFont(textView3,"BigCaslon.ttf");
-
 
     }
 
