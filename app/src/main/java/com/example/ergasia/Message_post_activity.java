@@ -1,7 +1,6 @@
 package com.example.ergasia;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,8 +14,8 @@ public class Message_post_activity extends Activity {
         setContentView(R.layout.activity_message_post_activity);
         getActionBar().setDisplayHomeAsUpEnabled(true);
 
-        Intent intent = getIntent();
-        int position = intent.getIntExtra("position", 0);
+        //Intent intent = getIntent();
+        //int position = intent.getIntExtra("position", 0);
 
 
 

@@ -5,20 +5,17 @@ package com.example.ergasia;
  */
 
 import android.app.Fragment;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ListView;
 
-public class MessageFragmentPost extends Fragment implements AdapterView.OnItemClickListener {
+public class MessageFragmentPost extends Fragment {
 
-    private ListView listview;
+    /*private ListView listview;
     String[] container = new String[]{
             "salut", "aurevoir"
-    };
+    };*/
 
      static MessageFragmentPost newInstance() {
         MessageFragmentPost fragment = new MessageFragmentPost();
@@ -34,14 +31,12 @@ public class MessageFragmentPost extends Fragment implements AdapterView.OnItemC
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_message_post, container, false);
-
-
+        //  View rootView = inflater.inflate(R.layout.fragment_message_post, container, false);
 
 
         //Edit
 
-        listview = (ListView) rootView.findViewById(R.id.messageListViewPost);
+        /*listview = (ListView) rootView.findViewById(R.id.messageListViewPost);
         listview.setOnItemClickListener(this);
         return rootView;
     }
@@ -57,6 +52,8 @@ public class MessageFragmentPost extends Fragment implements AdapterView.OnItemC
         intent.putExtra("position", position);
         intent.putExtra("id", id);
         startActivity(intent);
-    }
+    }*/
 
+        return null;
+    }
 }
