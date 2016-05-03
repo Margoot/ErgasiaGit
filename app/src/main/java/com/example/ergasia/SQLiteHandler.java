@@ -84,9 +84,9 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
 
         String CREATE_LOGIN_TABLE = "CREATE TABLE " + TABLE_USER + "("
-                + KEY_ID + " INTEGER PRIMARY KEY," + KEY_NAME + " TEXT,"
+                + KEY_ID + " INTEGER PRIMARY KEY," + KEY_UID + " TEXT," + KEY_NAME + " TEXT,"
                 + KEY_FIRSTNAME + " TEXT,"
-                + KEY_EMAIL + " TEXT UNIQUE," + KEY_UID + " TEXT,"
+                + KEY_EMAIL + " TEXT UNIQUE,"
                 + KEY_CREATED_AT + " TEXT" + ")";
         db.execSQL(CREATE_LOGIN_TABLE);
 
@@ -162,10 +162,10 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
 
         ContentValues values = new ContentValues();
+        values.put(KEY_UID, uid); //unique id
         values.put(KEY_NAME, name); //Name
         values.put(KEY_FIRSTNAME, firstname); //firstname
         values.put(KEY_EMAIL, email); //email
-        values.put(KEY_UID, uid); //unique id
         values.put(KEY_CREATED_AT, created_at); //created_at
         //Inserting Row
         long id = db.insert(TABLE_USER, null, values);
@@ -253,6 +253,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         values.put(KEY_CREATED_AT_CANDIDATE, created_at); //created_at
         //Inserting Row
         //values.put(KEY_ID_CANDIDATE, Integer.parseInt(id_users_fk));
+        System.out.println("IIIIIDDDDD FFFFFKKKKK" + id_users_fk);
         long id = db.insert(TABLE_NEW_CANDIDATE, null, values);
         db.close(); //Closing database connection
 

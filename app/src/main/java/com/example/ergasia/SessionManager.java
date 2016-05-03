@@ -25,6 +25,7 @@ public class SessionManager {
     //Shared preferences file name
     public static final String PREF_NAME = "Ergasia";
     public static final String KEY_IS_LOGGEDIN = "isLoggedIn";
+    public static final String KEY_EMAIL = "email";
     public static final String KEY_IS_CANDIDATE = "isCandidate";
     public static final String KEY_IS_RECRUITER = "isRecruiter";
 
@@ -46,6 +47,20 @@ public class SessionManager {
     public boolean isLoggedIn () {
         return pref.getBoolean(KEY_IS_LOGGEDIN, false);
     }
+
+    public void setEmail(String email) {
+        editor.putString(KEY_EMAIL, email);
+
+        //commit changes
+        editor.commit();
+        Log.d(TAG, "Email stored");
+
+    }
+
+    public String getEmail () {
+        return pref.getString(KEY_EMAIL, "");
+    }
+
 
     public void setCandidate(boolean isCandidate) {
         editor.putBoolean(KEY_IS_CANDIDATE, isCandidate);

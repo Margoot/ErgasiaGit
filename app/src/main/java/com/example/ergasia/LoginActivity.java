@@ -156,8 +156,10 @@ public class LoginActivity extends Activity  {
                         String email = user.getString("email");
                         String created_at = user.getString("created_at");
 
+                        session.setEmail(email);
+
                         //Inserting row in users table
-                        db.addUser(name, firstname, email, uid, created_at);
+                        //db.addUser(name, firstname, email, uid, created_at);
 
                         //Launch main activity
                         if (Post_rec_activity.getIsPost()) {
