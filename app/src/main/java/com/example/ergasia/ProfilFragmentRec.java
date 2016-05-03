@@ -1,7 +1,6 @@
 package com.example.ergasia;
 
 import android.app.Fragment;
-import android.app.ListFragment;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,18 +20,18 @@ import java.util.HashMap;
 import java.util.List;
 
 
-public class ProfilFragmentRec extends ListFragment {
+public class ProfilFragmentRec extends Fragment {
 
     private ListView myListView;
 
 
-    public View onCreate(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         View view = inflater.inflate(R.layout.fragment_profil_rec, container, false);
 
 
-        myListView = (ListView) view.findViewById(R.id.offerListView);
+        final ListView myListView = (ListView) getActivity().findViewById(R.id.offerListView);
 
         String[] jobs = {"ingé", "avocat", "peintre", "DG", "responsable",
                 "vendeur"};
@@ -42,7 +41,7 @@ public class ProfilFragmentRec extends ListFragment {
             list.add(jobs[i]);
         }
 
-        final StableArrayAdapter adapter = new StableArrayAdapter(getContext(), android.R.layout.simple_list_item_1, list);
+        final StableArrayAdapter adapter = new StableArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, list);
 
 
 
@@ -96,14 +95,14 @@ public class ProfilFragmentRec extends ListFragment {
 
     }
 
-    @Override
+  /*  @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_profil_rec, container, false);
         setHasOptionsMenu(true);
         return rootView;
     }
-
+*/
 
 
     @Override
