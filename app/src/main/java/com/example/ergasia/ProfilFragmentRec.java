@@ -1,6 +1,7 @@
 package com.example.ergasia;
 
 import android.app.Fragment;
+import android.app.ListFragment;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,7 +21,7 @@ import java.util.HashMap;
 import java.util.List;
 
 
-public class ProfilFragmentRec extends Fragment {
+public class ProfilFragmentRec extends ListFragment {
 
     private ListView myListView;
 
