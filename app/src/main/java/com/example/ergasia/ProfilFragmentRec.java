@@ -14,7 +14,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -25,16 +24,11 @@ public class ProfilFragmentRec extends Fragment {
     private ListView myListView;
 
 
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreate(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        View view = inflater.inflate(R.layout.fragment_profil_rec, container, false);
-
-
-        final ListView myListView = (ListView) getActivity().findViewById(R.id.offerListView);
-
-        String[] jobs = {"ingé", "avocat", "peintre", "DG", "responsable",
+        String[] jobs = {"ingénieur", "avocat", "peintre", "DG", "responsable",
                 "vendeur"};
+        View view = inflater.inflate(R.layout.fragment_profil_rec, container, false);
 
         final ArrayList<String> list = new ArrayList<String>();
         for (int i = 0; i < jobs.length; ++i) {
@@ -43,7 +37,7 @@ public class ProfilFragmentRec extends Fragment {
 
         final StableArrayAdapter adapter = new StableArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, list);
 
-
+        myListView = (ListView) getActivity().findViewById(R.id.offerListView);
 
         // on assigne l'adapter à notre list
         myListView.setAdapter(adapter);
@@ -54,14 +48,14 @@ public class ProfilFragmentRec extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
 
-                // l'index de l'item dans notre ListView
+                // position of the item in our list
                 int itemPosition = position;
 
-                // On récupère le texte de l'item cliqué
+                // get back the clicked item
                 String itemValue = (String) myListView
                         .getItemAtPosition(position);
 
-                // On affiche ce texte avec un Toast
+                // display of the text with a toast ( just for test )
                 Toast.makeText(
                         getActivity(),
                         "Position :" + itemPosition + "  ListItem : "
@@ -95,14 +89,14 @@ public class ProfilFragmentRec extends Fragment {
 
     }
 
-  /*  @Override
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_profil_rec, container, false);
         setHasOptionsMenu(true);
         return rootView;
     }
-*/
+
 
 
     @Override
