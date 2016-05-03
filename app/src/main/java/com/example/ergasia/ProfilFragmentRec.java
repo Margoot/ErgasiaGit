@@ -1,6 +1,7 @@
 package com.example.ergasia;
 
 import android.app.Fragment;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,6 +14,10 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 
 public class ProfilFragmentRec extends Fragment {
@@ -31,9 +36,14 @@ public class ProfilFragmentRec extends Fragment {
         String[] jobs = {"ingé", "avocat", "peintre", "DG", "responsable",
                 "vendeur"};
 
+        final ArrayList<String> list = new ArrayList<String>();
+        for (int i = 0; i < jobs.length; ++i) {
+            list.add(jobs[i]);
+        }
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
-                android.R.layout.simple_list_item_1, android.R.id.text1, jobs);
+        final StableArrayAdapter adapter = new StableArrayAdapter(getContext(), android.R.layout.simple_list_item_1, list);
+
+
 
         // on assigne l'adapter à notre list
         myListView.setAdapter(adapter);
@@ -61,6 +71,18 @@ public class ProfilFragmentRec extends Fragment {
 
         });
         return view;
+    }
+
+    private class StableArrayAdapter extends ArrayAdapter<String> {
+
+        HashMap<String, Integer> mIdMap = new HashMap<String, Integer>();
+
+        public StableArrayAdapter(Context context, int textViewResourceId, List<String> objects) {
+            super(context, textViewResourceId, objects);
+            for (int i=0 ; i < objects.size(); ++i) {
+                mIdMap.put(objects.get(i), i);
+            }
+        }
     }
 
 
