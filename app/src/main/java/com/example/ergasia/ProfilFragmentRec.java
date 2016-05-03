@@ -20,20 +20,17 @@ public class ProfilFragmentRec extends Fragment {
     private ListView myListView;
 
 
-    public void onCreate(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreate(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         View view = inflater.inflate(R.layout.fragment_profil_rec, container, false);
+
 
         myListView = (ListView) view.findViewById(R.id.offerListView);
 
         String[] jobs = {"ingé", "avocat", "peintre", "DG", "responsable",
                 "vendeur"};
 
-        // Définition de l'adapter
-        // Premier Paramètre - Context
-        // Second Paramètre - le Layout pour les Items de la Liste
-        // Troisième Paramètre - l'ID du TextView du Layout des Items
-        // Quatrième Paramètre - le Tableau de Données
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
                 android.R.layout.simple_list_item_1, android.R.id.text1, jobs);
@@ -41,7 +38,6 @@ public class ProfilFragmentRec extends Fragment {
         // on assigne l'adapter à notre list
         myListView.setAdapter(adapter);
 
-        // la gestion des clics sur les items de la liste
         myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
@@ -64,9 +60,8 @@ public class ProfilFragmentRec extends Fragment {
             }
 
         });
-
+        return view;
     }
-
 
 
     public static ProfilFragmentRec newInstance() {
