@@ -35,7 +35,7 @@ public class ProfilFragmentRec extends Fragment {
         // Troisième Paramètre - l'ID du TextView du Layout des Items
         // Quatrième Paramètre - le Tableau de Données
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(),
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
                 android.R.layout.simple_list_item_1, android.R.id.text1, jobs);
 
         // on assigne l'adapter à notre list
