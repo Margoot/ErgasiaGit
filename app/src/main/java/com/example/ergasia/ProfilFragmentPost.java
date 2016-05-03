@@ -19,7 +19,7 @@ import java.util.HashMap;
  */
 public class ProfilFragmentPost extends Fragment {
 
-    private SQLiteHandlerNewCandidate db;
+    private SQLiteHandler db;
     private SessionManager session;
 
     private EditText inputName;
@@ -106,7 +106,7 @@ public class ProfilFragmentPost extends Fragment {
         inputSkill = (EditText) rootView.findViewById(R.id.skillsEditText);
         inputLocation = (EditText) rootView.findViewById(R.id.locationEditText);
 
-        db = new SQLiteHandlerNewCandidate(getActivity().getApplicationContext());
+        db = new SQLiteHandler(getActivity().getApplicationContext());
         session = new SessionManager(getActivity().getApplicationContext());
 
         //Fetching candidate details from SQlite

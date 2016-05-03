@@ -158,7 +158,7 @@ public class New_post_activity extends Activity implements AdapterView.OnItemSel
                 String training = spinnerTraining.getSelectedItem().toString();
                 String areaActivity = inputAreaActivity.getText().toString().trim();
 
-                //if confition to check if the user has chosen the type
+                //if condition to check if the user has chosen the type
                 if (inputType.getCheckedRadioButtonId() == -1) {
                     Toast.makeText(getApplicationContext(), "Veuillez choisir le type de contrat", Toast.LENGTH_SHORT).show();
                 } else {
@@ -265,6 +265,7 @@ public class New_post_activity extends Activity implements AdapterView.OnItemSel
             public void onResponse(String response) {
                 Log.d(TAG, "New Candidate Register Response: " + response.toString());
                 hideDialog();
+                System.out.println("on response call!");
 
                 try {
                     JSONObject jObj = new JSONObject(response);
@@ -272,11 +273,13 @@ public class New_post_activity extends Activity implements AdapterView.OnItemSel
                     if (!error) {
                         //the new candidate succesfully stored in MySQL
                         //Now store the candidate in Sqlite
+                        System.out.println("IN function!!!!!");
                         session.setCandidate(true);
 
                         String uid = jObj.getString("uid");
 
                         JSONObject candidate = jObj.getJSONObject("candidate");
+                        int id_users_fk = candidate.getInt("id_users_fk");
                         String name = candidate.getString("name");
                         String firstname = candidate.getString("firstname");
                         String training = candidate.getString("training");
@@ -292,9 +295,11 @@ public class New_post_activity extends Activity implements AdapterView.OnItemSel
                         String geolocation = candidate.getString("geolocation");
                         String created_at = candidate.getString("created_at");
 
+                        System.out.println("IIIIIDDDDD FFFFFKKKKK" + id_users_fk);
+
 
                         //Inserting row in candidates table
-                        db.addNewCandidate(name, firstname, training, areaActivity, type,
+                        db.addNewCandidate(id_users_fk, name, firstname, training, areaActivity, type,
                                 language1, levelLanguage1, language2, levelLanguage2,
                                 language3, levelLanguage3, skill, geolocation,
                                 uid, created_at);
@@ -328,6 +333,7 @@ public class New_post_activity extends Activity implements AdapterView.OnItemSel
             protected Map<String, String> getParams() {
                 // Posting params to new candidate url
                 Map<String, String> params = new HashMap<String, String>();
+                params.put("email", session.getEmail());
                 params.put("name", name);
                 params.put("firstname", firstname);
                 params.put("training", training);
