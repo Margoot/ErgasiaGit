@@ -80,6 +80,7 @@ public class LoginActivity extends Activity  {
         // SQlite database handler
         db = new SQLiteHandler(getApplicationContext());
 
+
         // Session manager
         session = new SessionManager(getApplicationContext());
 
@@ -163,15 +164,27 @@ public class LoginActivity extends Activity  {
 
                         //Launch main activity
                         if (Post_rec_activity.getIsPost()) {
-                            Intent i = new Intent(LoginActivity.this, New_post_activity.class);
-                            // METTRE LA PAGE POUR CRÉER OFFRE OU ENTRER COORDONNES POSTULANT
-                            startActivity(i);
-                            finish();
+                            if (session.isCandidate()){
+                                Intent i = new Intent(LoginActivity.this, MainTabbedActivityPost.class);
+                                startActivity(i);
+                                finish();
+                            } else {
+                                Intent i = new Intent(LoginActivity.this, New_post_activity.class);
+                                // METTRE LA PAGE POUR CRÉER OFFRE OU ENTRER COORDONNES POSTULANT
+                                startActivity(i);
+                                finish();
+                            }
                         } else {
-                            Intent i = new Intent(LoginActivity.this, New_offer_activity.class);
-                            // METTRE LA PAGE POUR CRÉER OFFRE OU ENTRER COORDONNES POSTULANT
-                            startActivity(i);
-                            finish();
+                            if (session.isRecruiter()){
+                                Intent i = new Intent(LoginActivity.this, MainTabbedActivityRec.class);
+                                startActivity(i);
+                                finish();
+                            } else {
+                                Intent i = new Intent(LoginActivity.this, New_offer_activity.class);
+                                // METTRE LA PAGE POUR CRÉER OFFRE OU ENTRER COORDONNES POSTULANT
+                                startActivity(i);
+                                finish();
+                            }
                         }
                     } else {
                         //Error in login. Get the error message

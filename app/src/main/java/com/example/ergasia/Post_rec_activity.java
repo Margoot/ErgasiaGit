@@ -96,7 +96,6 @@ public class Post_rec_activity extends Activity {
 					Intent i = new Intent(Post_rec_activity.this, LoginActivity.class);
 					startActivity(i);
 
-
 				}
 			});
 
