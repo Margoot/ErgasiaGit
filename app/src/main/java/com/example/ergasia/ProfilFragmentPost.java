@@ -112,6 +112,7 @@ public class ProfilFragmentPost extends Fragment {
         //Fetching candidate details from SQlite
         HashMap<String, String> candidate = db.getCandidateDetails();
         String name = candidate.get("name");
+        //System.out.println(name);
         String firstname = candidate.get("firstname");
         String training = candidate.get("training");
         String areaActivity = candidate.get("area_activity");
@@ -135,7 +136,7 @@ public class ProfilFragmentPost extends Fragment {
         inputLanguage2.setText(language2);
         //inputLevelLanguage2.setRating(Float.parseFloat(levelLanguage2));
         inputLanguage3.setText(language3);
-       // inputLevelLanguage3.setRating(Float.parseFloat(levelLanguage3));
+        //inputLevelLanguage3.setRating(Float.parseFloat(levelLanguage3));
         inputSkill.setText(skill);
         inputLocation.setText(geolocation);
 

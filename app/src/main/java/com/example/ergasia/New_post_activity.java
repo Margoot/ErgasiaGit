@@ -265,7 +265,7 @@ public class New_post_activity extends Activity implements AdapterView.OnItemSel
             public void onResponse(String response) {
                 Log.d(TAG, "New Candidate Register Response: " + response.toString());
                 hideDialog();
-                System.out.println("on response call!");
+
 
                 try {
                     JSONObject jObj = new JSONObject(response);
@@ -273,13 +273,13 @@ public class New_post_activity extends Activity implements AdapterView.OnItemSel
                     if (!error) {
                         //the new candidate succesfully stored in MySQL
                         //Now store the candidate in Sqlite
-                        System.out.println("IN function!!!!!");
+
                         session.setCandidate(true);
 
                         String uid = jObj.getString("uid");
 
                         JSONObject candidate = jObj.getJSONObject("candidate");
-                        int id_users_fk = candidate.getInt("id_users_fk");
+
                         String name = candidate.getString("name");
                         String firstname = candidate.getString("firstname");
                         String training = candidate.getString("training");
@@ -293,22 +293,21 @@ public class New_post_activity extends Activity implements AdapterView.OnItemSel
                         String levelLanguage3 = candidate.getString("level_language3");
                         String skill = candidate.getString("skill");
                         String geolocation = candidate.getString("geolocation");
+                        int id_users_fk = candidate.getInt("id_users_fk");
                         String created_at = candidate.getString("created_at");
 
-                        System.out.println("IIIIIDDDDD FFFFFKKKKK" + id_users_fk);
-
-
                         //Inserting row in candidates table
-                        db.addNewCandidate(id_users_fk, name, firstname, training, areaActivity, type,
+                        db.addNewCandidate(name, firstname, training, areaActivity, type,
                                 language1, levelLanguage1, language2, levelLanguage2,
                                 language3, levelLanguage3, skill, geolocation,
-                                uid, created_at);
+                                uid, id_users_fk, created_at);
                         Toast.makeText(getApplicationContext(), "Votre candidature a été enregistré avec succès ! "
                                 , Toast.LENGTH_LONG).show();
 
                         //Launch MainTabbedActivityPost activity
                         Intent intent = new Intent(New_post_activity.this, MainTabbedActivityPost.class);
                         startActivity(intent);
+                        finish();
                         finish();
                     } else {
                         //Error occured in registration. Get the error message

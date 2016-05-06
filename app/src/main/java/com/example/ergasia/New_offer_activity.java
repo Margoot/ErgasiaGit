@@ -111,6 +111,13 @@ public class New_offer_activity extends Activity {
             //finish();
         }*/
 
+        /*
+        if(session.isRecruiter()){
+            Intent intent = new Intent(New_offer_activity.this,MainTabbedActivityRec.class);
+            startActivity(intent);
+        }
+        */
+
         //validate button click event
         validateButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {

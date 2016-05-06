@@ -151,6 +151,8 @@ public class Inscription_activity extends Activity {
                     JSONObject jObj = new JSONObject(response);
                     boolean error = jObj.getBoolean("error");
                     if (!error) {
+                        session.setCandidate(false);
+                        session.setRecruiter(false);
                         //User succesfully stored in MySQL
                         //Now store the user in Sqlite
                         String uid = jObj.getString("uid");

@@ -93,14 +93,15 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
 
         String CREATE_NEW_CANDIDATE_TABLE = "CREATE TABLE " + TABLE_NEW_CANDIDATE + "("
-                + KEY_ID_CANDIDATE + " INTEGER PRIMARY KEY," + KEY_ID_USERS_FK_CANDIDATE + " INTEGER," + KEY_NAME_CANDIDATE + " TEXT,"
+                + KEY_ID_CANDIDATE + " INTEGER PRIMARY KEY," +  KEY_NAME_CANDIDATE + " TEXT,"
                 + KEY_FIRSTNAME_CANDIDATE + " TEXT," + KEY_TRAINING_CANDIDATE + " TEXT,"
                 + KEY_AREA_ACTIVITY_CANDIDATE + " TEXT," + KEY_TYPE_CANDIDATE + " TEXT,"
                 + KEY_LANGUAGE1_CANDIDATE + " TEXT," + KEY_LEVEL_LANGUAGE1_CANDIDATE + " TEXT,"
                 + KEY_LANGUAGE2_CANDIDATE + " TEXT," + KEY_LEVEL_LANGUAGE2_CANDIDATE + " TEXT,"
                 + KEY_LANGUAGE3_CANDIDATE+ " TEXT," + KEY_LEVEL_LANGUAGE3_CANDIDATE + " TEXT,"
                 + KEY_SKILL_CANDIDATE + " TEXT," + KEY_GEOLOCATION_CANDIDATE + " TEXT,"
-                + KEY_UID_CANDIDATE + " TEXT," + KEY_CREATED_AT_CANDIDATE + " TEXT," + " FOREIGN KEY ("+KEY_ID_USERS_FK_CANDIDATE+") REFERENCES " + TABLE_USER+ " ("+KEY_ID+"))";
+                + KEY_UID_CANDIDATE + " TEXT," + KEY_ID_USERS_FK_CANDIDATE + " INTEGER,"
+                + KEY_CREATED_AT_CANDIDATE + " TEXT," + " FOREIGN KEY ("+KEY_ID_USERS_FK_CANDIDATE+") REFERENCES " + TABLE_USER+ " ("+KEY_ID+") ON UPDATE CASCADE)";
         db.execSQL(CREATE_NEW_CANDIDATE_TABLE);
 
         String CREATE_NEW_OFFER_TABLE = "CREATE TABLE " + TABLE_NEW_OFFER + "("
@@ -108,7 +109,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 + KEY_JOB_TITLE_RECRUITER + " TEXT," + KEY_AREA_ACTIVITY_RECRUITER + " TEXT,"
                 + KEY_TYPE_RECRUITER + " TEXT," + KEY_GEOLOCATION_RECRUITER + " TEXT,"
                 + KEY_SKILL_RECRUITER + " TEXT," + KEY_UID_RECRUITER + " TEXT,"
-                + KEY_CREATED_AT_RECRUITER + " TEXT," + KEY_ID_USERS_FK_RECRUITER + " INTEGER," + " FOREIGN KEY ("+ KEY_ID_USERS_FK_RECRUITER +") REFERENCES " + TABLE_USER+ " (" + KEY_ID + "))";
+                + KEY_CREATED_AT_RECRUITER + " TEXT," + KEY_ID_USERS_FK_RECRUITER + " INTEGER," + " FOREIGN KEY ("+ KEY_ID_USERS_FK_RECRUITER +") REFERENCES " + TABLE_USER+ " (" + KEY_ID + ") ON UPDATE CASCADE)";
         db.execSQL(CREATE_NEW_OFFER_TABLE);
 
         Log.d(TAG, "Database tables created");
@@ -181,20 +182,26 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         HashMap<String, String> user = new HashMap<String, String>();
         String selectQuery = "SELECT * FROM " + TABLE_USER;
 
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery(selectQuery, null);
-        //Move to first row
-        cursor.moveToFirst();
-        if (cursor.getCount() > 0) {
-            user.put("name", cursor.getString(1));
-            user.put("firstname", cursor.getString(2));
-            user.put("email", cursor.getString(3));
-            user.put("uid", cursor.getString(4));
-            user.put("created_at", cursor.getString(5));
-        }
+        try {
 
-        cursor.close();
-        db.close();
+            SQLiteDatabase db = this.getReadableDatabase();
+            Cursor cursor = db.rawQuery(selectQuery, null);
+
+            //Move to first row
+            cursor.moveToFirst();
+            if (cursor.getCount() > 0) {
+                user.put("name", cursor.getString(1));
+                user.put("firstname", cursor.getString(2));
+                user.put("email", cursor.getString(3));
+                user.put("uid", cursor.getString(4));
+                user.put("created_at", cursor.getString(5));
+            }
+
+            cursor.close();
+            db.close();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
         //Return user
         Log.d(TAG, "Fetching user from Sqlite: " + user.toString());
         return user;
@@ -227,15 +234,15 @@ public class SQLiteHandler extends SQLiteOpenHelper {
      * @param uid
      * @param created_at
      */
-    public void addNewCandidate(int id_users_fk, String name, String firstname, String training, String area_activity, String type,
+    public void addNewCandidate(String name, String firstname, String training, String area_activity, String type,
                                 String language1, String level_language1, String language2, String level_language2,
                                 String language3, String level_language3, String skill, String geolocation,
-                                String uid, String created_at) {
+                                String uid, int id_users_fk, String created_at) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL("PRAGMA foreign_keys=ON;");
 
         ContentValues values = new ContentValues();
-        values.put(KEY_ID_USERS_FK_CANDIDATE, id_users_fk);
+
         values.put(KEY_NAME_CANDIDATE, name);
         values.put(KEY_FIRSTNAME_CANDIDATE, firstname);
         values.put(KEY_TRAINING_CANDIDATE, training);
@@ -250,10 +257,11 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         values.put(KEY_SKILL_CANDIDATE, skill);
         values.put(KEY_GEOLOCATION_CANDIDATE, geolocation);
         values.put(KEY_UID_CANDIDATE, uid); //unique id
+        values.put(KEY_ID_USERS_FK_CANDIDATE, id_users_fk);
         values.put(KEY_CREATED_AT_CANDIDATE, created_at); //created_at
         //Inserting Row
-        //values.put(KEY_ID_CANDIDATE, Integer.parseInt(id_users_fk));
-        System.out.println("IIIIIDDDDD FFFFFKKKKK" + id_users_fk);
+
+
         long id = db.insert(TABLE_NEW_CANDIDATE, null, values);
         db.close(); //Closing database connection
 
@@ -264,35 +272,47 @@ public class SQLiteHandler extends SQLiteOpenHelper {
      * Getting candidate data from database
      */
     public HashMap<String, String> getCandidateDetails() {
-        HashMap<String, String> user = new HashMap<String, String>();
+
+        HashMap<String, String> candidate = new HashMap<String, String>();
         String selectQuery = "SELECT * FROM " + TABLE_NEW_CANDIDATE;
+        System.out.println(selectQuery);
+
+    try {
+
 
         SQLiteDatabase db = this.getReadableDatabase();
+        System.out.println(db);
         Cursor cursor = db.rawQuery(selectQuery, null);
+        System.out.println(cursor);
         //Move to first row
         cursor.moveToFirst();
-        if (cursor.getCount() > 0) {
-            user.put("name", cursor.getString(1));
-            user.put("firstname", cursor.getString(2));
-            user.put("training", cursor.getString(3));
-            user.put("area_activity", cursor.getString(4));
-            user.put("type", cursor.getString(5));
-            user.put("language1", cursor.getString(6));
-            user.put("level_language1", cursor.getString(7));
-            user.put("language2", cursor.getString(8));
-            user.put("level_language2", cursor.getString(9));
-            user.put("language3", cursor.getString(10));
-            user.put("level_language3", cursor.getString(11));
-            user.put("skill", cursor.getString(12));
-            user.put("geolocation", cursor.getString(13));
-            user.put("uid", cursor.getString(14));
-            user.put("created_at", cursor.getString(15));
+        System.out.println(cursor.getCount());
+        if (cursor.getCount()>0) {
+            candidate.put("name", cursor.getString(cursor.getColumnIndex(KEY_NAME_CANDIDATE)));
+            System.out.println("SSSSSKDJFNFKN" + cursor.getString(cursor.getColumnIndex(KEY_NAME_CANDIDATE)));
+            candidate.put("firstname", cursor.getString(cursor.getColumnIndex(KEY_FIRSTNAME_CANDIDATE)));
+            candidate.put("training", cursor.getString(cursor.getColumnIndex(KEY_TRAINING_CANDIDATE)));
+            candidate.put("area_activity", cursor.getString(cursor.getColumnIndex(KEY_AREA_ACTIVITY_CANDIDATE)));
+            candidate.put("type", cursor.getString(cursor.getColumnIndex(KEY_TYPE_CANDIDATE)));
+            candidate.put("language1", cursor.getString(cursor.getColumnIndex(KEY_LANGUAGE1_CANDIDATE)));
+            candidate.put("level_language1", cursor.getString(cursor.getColumnIndex(KEY_LEVEL_LANGUAGE1_CANDIDATE)));
+            candidate.put("language2", cursor.getString(cursor.getColumnIndex(KEY_LANGUAGE2_CANDIDATE)));
+            candidate.put("level_language2", cursor.getString(cursor.getColumnIndex(KEY_LEVEL_LANGUAGE2_CANDIDATE)));
+            candidate.put("language3", cursor.getString(cursor.getColumnIndex(KEY_LANGUAGE3_CANDIDATE)));
+            candidate.put("level_language3", cursor.getString(cursor.getColumnIndex(KEY_LEVEL_LANGUAGE3_CANDIDATE)));
+            candidate.put("skill", cursor.getString(cursor.getColumnIndex(KEY_SKILL_CANDIDATE)));
+            candidate.put("geolocation", cursor.getString(cursor.getColumnIndex(KEY_GEOLOCATION_CANDIDATE)));
+            candidate.put("uid", cursor.getString(cursor.getColumnIndex(KEY_UID_CANDIDATE)));
+            candidate.put("created_at", cursor.getString(cursor.getColumnIndex(KEY_CREATED_AT_CANDIDATE)));
         }
         cursor.close();
         db.close();
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
         //Return user
-        Log.d(TAG, "Fetching new candidate from Sqlite: " + user.toString());
-        return user;
+        Log.d(TAG, "Fetching new candidate from Sqlite: " + candidate.toString());
+        return candidate;
     }
 
     public void deleteCandidates() {
