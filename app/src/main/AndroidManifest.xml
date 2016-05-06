@@ -12,16 +12,21 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <permission android:name="com.example.ergasia.gcm.permission.C2D_MESSAGE"
+                android:protectionLevel="signature"/>
+    <uses-permission android:name="com.example.ergasia.gcm.permission.C2D_MESSAGE"/>
 
     <application
-        android:name=".AppController"
+        android:name=".app.AppController"
         android:allowBackup="true"
         android:icon="@drawable/icon_ergasia"
         android:label="@string/app_name"
         android:screenOrientation="portrait"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Load_activity"
+            android:name=".Activity.Load_activity"
             android:label="@string/title_activity_load_activity">
 
             <!-- android:label="@string/app_name" -->
@@ -37,17 +42,17 @@
         android:label="@string/title_activity_load_activity"></activity>
         -->
         <activity
-            android:name=".Post_rec_activity"
+            android:name=".Activity.Post_rec_activity"
             android:label="@string/title_activity_post_rec_activity"
             android:windowSoftInputMode="adjustPan"/>
         <activity
-            android:name=".Inscription_activity"
+            android:name=".Activity.Inscription_activity"
             android:label="@string/title_activity_inscription_activity"
-            android:parentActivityName=".Post_rec_activity"
+            android:parentActivityName=".Activity.Post_rec_activity"
             android:windowSoftInputMode="adjustPan">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.ergasia.Post_rec_activity"/>
+                android:value=".Activity.Post_rec_activity"/>
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -56,11 +61,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LoginActivity"
+            android:name=".Activity.LoginActivity"
             android:label="@string/title_activity_login"
             android:windowSoftInputMode="adjustResize|stateVisible"/>
         <activity
-            android:name=".MainTabbedActivityPost"
+            android:name=".Activity.MainTabbedActivityPost"
             android:label="@string/title_activity_main_tabbed"
             android:windowSoftInputMode="adjustPan">
             <intent-filter>
@@ -70,7 +75,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainTabbedActivityRec"
+            android:name=".Activity.MainTabbedActivityRec"
             android:label="@string/title_activity_main_tabbed_activity_rec"
             android:windowSoftInputMode="adjustPan">
             <intent-filter>
@@ -80,13 +85,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".New_offer_activity"
+            android:name=".Activity.New_offer_activity"
             android:label="@string/title_activity_new_offer_activity"
-            android:parentActivityName=".MainTabbedActivityRec"
+            android:parentActivityName=".Activity.MainTabbedActivityRec"
             android:windowSoftInputMode="adjustPan">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.ergasia.MainTabbedActivityRec"/>
+                android:value=".Activity.MainTabbedActivityRec"/>
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -95,7 +100,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Tie_rec_activity"
+            android:name=".Activity.Tie_rec_activity"
             android:label="@string/title_activity_tie_activity"
             android:windowSoftInputMode="adjustPan">
             <intent-filter>
@@ -105,7 +110,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Tie_post_activity"
+            android:name=".Activity.Tie_post_activity"
             android:label="@string/title_activity_tie_activity"
             android:windowSoftInputMode="adjustPan">
             <intent-filter>
@@ -115,13 +120,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Message_rec_activity"
+            android:name=".Activity.Message_rec_activity"
             android:label="@string/title_activity_message_rec_activity"
-            android:parentActivityName=".MainTabbedActivityRec"
+            android:parentActivityName=".Activity.MainTabbedActivityRec"
             android:windowSoftInputMode="adjustPan">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.ergasia.MainTabbedActivityRec"/>
+                android:value=".Activity.MainTabbedActivityRec"/>
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -130,13 +135,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Message_post_activity"
+            android:name=".Activity.Message_post_activity"
             android:label="@string/title_activity_message_rec_activity"
-            android:parentActivityName=".MainTabbedActivityRec"
+            android:parentActivityName=".Activity.MainTabbedActivityRec"
             android:windowSoftInputMode="adjustPan">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.ergasia.MainTabbedActivityRec"/>
+                android:value=".Activity.MainTabbedActivityRec"/>
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -153,7 +158,7 @@
             android:value="@integer/google_play_services_version"/>
 
         <activity
-            android:name=".New_post_activity"
+            android:name=".Activity.New_post_activity"
             android:label="@string/title_activity_new_post_activity"
             android:windowSoftInputMode="adjustPan">
             <intent-filter>
@@ -162,6 +167,32 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <receiver
+            android:name="com.google.android.gms.gcm.GcmReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2m.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <category android:name="info.androidhive.gcm" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name=".gcm.MyGcmPushReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            </intent-filter>
+        </service>
+
+        <service android:name=".gcm.GcmIntentService"
+                 android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.android.gms.iid.InstanceID"/>
+            </intent-filter>
+        </service>
+
     </application>
 
 </manifest>

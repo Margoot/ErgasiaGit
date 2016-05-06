@@ -1,6 +1,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.example.ergasia.Load_activity" >
+    tools:context=".Activity.Load_activity" >
 
     <item
         android:id="@+id/action_logout"

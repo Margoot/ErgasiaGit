@@ -16,16 +16,31 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <permission
+        android:name="com.example.ergasia.gcm.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.example.ergasia.gcm.permission.C2D_MESSAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" /> <!-- Permissions required for GCM -->
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
 
     <application
-        android:name="com.example.ergasia.AppController"
+        android:name="com.example.ergasia.app.AppController"
         android:allowBackup="true"
         android:icon="@drawable/icon_ergasia"
         android:label="@string/app_name"
         android:screenOrientation="portrait"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.example.ergasia.Load_activity"
+            android:name="com.example.ergasia.Activity.Load_activity"
             android:label="@string/title_activity_load_activity" >
 
             <!-- android:label="@string/app_name" -->
@@ -41,17 +56,17 @@
         android:label="@string/title_activity_load_activity"></activity>
         -->
         <activity
-            android:name="com.example.ergasia.Post_rec_activity"
+            android:name="com.example.ergasia.Activity.Post_rec_activity"
             android:label="@string/title_activity_post_rec_activity"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.example.ergasia.Inscription_activity"
+            android:name="com.example.ergasia.Activity.Inscription_activity"
             android:label="@string/title_activity_inscription_activity"
-            android:parentActivityName="com.example.ergasia.Post_rec_activity"
+            android:parentActivityName="com.example.ergasia.Activity.Post_rec_activity"
             android:windowSoftInputMode="adjustPan" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.ergasia.Post_rec_activity" />
+                android:value=".Activity.Post_rec_activity" />
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -60,11 +75,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.ergasia.LoginActivity"
+            android:name="com.example.ergasia.Activity.LoginActivity"
             android:label="@string/title_activity_login"
             android:windowSoftInputMode="adjustResize|stateVisible" />
         <activity
-            android:name="com.example.ergasia.MainTabbedActivityPost"
+            android:name="com.example.ergasia.Activity.MainTabbedActivityPost"
             android:label="@string/title_activity_main_tabbed"
             android:windowSoftInputMode="adjustPan" >
             <intent-filter>
@@ -74,7 +89,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.ergasia.MainTabbedActivityRec"
+            android:name="com.example.ergasia.Activity.MainTabbedActivityRec"
             android:label="@string/title_activity_main_tabbed_activity_rec"
             android:windowSoftInputMode="adjustPan" >
             <intent-filter>
@@ -84,13 +99,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.ergasia.New_offer_activity"
+            android:name="com.example.ergasia.Activity.New_offer_activity"
             android:label="@string/title_activity_new_offer_activity"
-            android:parentActivityName="com.example.ergasia.MainTabbedActivityRec"
+            android:parentActivityName="com.example.ergasia.Activity.MainTabbedActivityRec"
             android:windowSoftInputMode="adjustPan" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.ergasia.MainTabbedActivityRec" />
+                android:value=".Activity.MainTabbedActivityRec" />
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -99,7 +114,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.ergasia.Tie_rec_activity"
+            android:name="com.example.ergasia.Activity.Tie_rec_activity"
             android:label="@string/title_activity_tie_activity"
             android:windowSoftInputMode="adjustPan" >
             <intent-filter>
@@ -109,7 +124,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.ergasia.Tie_post_activity"
+            android:name="com.example.ergasia.Activity.Tie_post_activity"
             android:label="@string/title_activity_tie_activity"
             android:windowSoftInputMode="adjustPan" >
             <intent-filter>
@@ -119,13 +134,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.ergasia.Message_rec_activity"
+            android:name="com.example.ergasia.Activity.Message_rec_activity"
             android:label="@string/title_activity_message_rec_activity"
-            android:parentActivityName="com.example.ergasia.MainTabbedActivityRec"
+            android:parentActivityName="com.example.ergasia.Activity.MainTabbedActivityRec"
             android:windowSoftInputMode="adjustPan" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.ergasia.MainTabbedActivityRec" />
+                android:value=".Activity.MainTabbedActivityRec" />
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -134,13 +149,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.ergasia.Message_post_activity"
+            android:name="com.example.ergasia.Activity.Message_post_activity"
             android:label="@string/title_activity_message_rec_activity"
-            android:parentActivityName="com.example.ergasia.MainTabbedActivityRec"
+            android:parentActivityName="com.example.ergasia.Activity.MainTabbedActivityRec"
             android:windowSoftInputMode="adjustPan" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.ergasia.MainTabbedActivityRec" />
+                android:value=".Activity.MainTabbedActivityRec" />
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -157,7 +172,7 @@
             android:value="@integer/google_play_services_version" />
 
         <activity
-            android:name="com.example.ergasia.New_post_activity"
+            android:name="com.example.ergasia.Activity.New_post_activity"
             android:label="@string/title_activity_new_post_activity"
             android:windowSoftInputMode="adjustPan" >
             <intent-filter>
@@ -166,6 +181,62 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <receiver
+            android:name="com.google.android.gms.gcm.GcmReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2m.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+
+                <category android:name="info.androidhive.gcm" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.example.ergasia.gcm.MyGcmPushReceiver"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="com.example.ergasia.gcm.GcmIntentService"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.google.android.gms.iid.InstanceID" />
+            </intent-filter>
+        </service>
+
+        <provider
+            android:name="com.google.android.gms.measurement.AppMeasurementContentProvider"
+            android:authorities="com.example.ergasia.google_measurement_service"
+            android:exported="false" />
+
+        <receiver
+            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+            android:enabled="true" >
+            <intent-filter>
+                <action android:name="com.google.android.gms.measurement.UPLOAD" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.google.android.gms.measurement.AppMeasurementService"
+            android:enabled="true"
+            android:exported="false" /> <!-- Include the AdActivity and InAppPurchaseActivity configChanges and themes. -->
+        <activity
+            android:name="com.google.android.gms.ads.AdActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:theme="@android:style/Theme.Translucent" />
+        <activity
+            android:name="com.google.android.gms.ads.purchase.InAppPurchaseActivity"
+            android:theme="@style/Theme.IAPTheme" />
+        <activity
+            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
     </application>
 
 </manifest>

@@ -1,0 +1,35 @@
+{
+  "project_info": {
+    "project_number": "629894714266",
+    "project_id": "ergasia-7879a"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:629894714266:android:e3dd90c90f705085",
+        "android_client_info": {
+          "package_name": "com.package.Ergasia"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFELTNRhBDnrkOb7xibRodvn5FmPDHjQI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
