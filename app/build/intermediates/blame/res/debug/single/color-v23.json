@@ -1,14 +1,18 @@
 [
     {
-        "merged": "/Users/simonthome/ErgasiaGit/C:\\Users\\simonthome\\ErgasiaGit\\app\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_color_highlight_material.xml",
-        "source": "/Users/simonthome/ErgasiaGit/C:\\Users\\simonthome\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\color-v23\\abc_color_highlight_material.xml"
+        "merged": "C:\\Users\\simonthome\\ErgasiaGit\\app\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_color_highlight_material.xml",
+        "source": "C:\\Users\\simonthome\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\color-v23\\abc_color_highlight_material.xml"
     },
     {
-        "merged": "/Users/simonthome/ErgasiaGit/C:\\Users\\hp\\AndroidStudioProjects\\ErgasiaGit\\app\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_color_highlight_material.xml",
-        "source": "/Users/simonthome/ErgasiaGit/C:\\Users\\hp\\AndroidStudioProjects\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\color-v23\\abc_color_highlight_material.xml"
+        "merged": "C:\\Users\\hp\\AndroidStudioProjects\\ErgasiaGit\\app\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_color_highlight_material.xml",
+        "source": "C:\\Users\\hp\\AndroidStudioProjects\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\color-v23\\abc_color_highlight_material.xml"
     },
     {
-        "merged": "/Users/simonthome/ErgasiaGit/app/build/intermediates/res/merged/debug/color-v23/abc_color_highlight_material.xml",
-        "source": "/Users/simonthome/ErgasiaGit/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/color-v23/abc_color_highlight_material.xml"
+        "merged": "C:\\Users\\simonthome\\ErgasiaGit\\C:\\Users\\simonthome\\ErgasiaGit\\app\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_color_highlight_material.xml",
+        "source": "C:\\Users\\simonthome\\ErgasiaGit\\C:\\Users\\simonthome\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\color-v23\\abc_color_highlight_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\simonthome\\ErgasiaGit\\C:\\Users\\hp\\AndroidStudioProjects\\ErgasiaGit\\app\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_color_highlight_material.xml",
+        "source": "C:\\Users\\simonthome\\ErgasiaGit\\C:\\Users\\hp\\AndroidStudioProjects\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\color-v23\\abc_color_highlight_material.xml"
     }
 ]
