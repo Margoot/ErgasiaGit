@@ -140,14 +140,14 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    @Override
+   /* @Override
     public void onOpen(SQLiteDatabase db){
         super.onOpen(db);
         if(!db.isReadOnly()) {
             //Enable foreign key constraints
             db.execSQL("PRAGMA foreign_keys=ON;");
         }
-    }
+    }*/
 
     /**
      * Storing user details in database
@@ -274,38 +274,35 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
         HashMap<String, String> candidate = new HashMap<String, String>();
         String selectQuery = "SELECT * FROM " + TABLE_NEW_CANDIDATE;
-        System.out.println(selectQuery);
-
-    try {
 
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
+
         //Move to first row
         cursor.moveToFirst();
         System.out.println(cursor.getCount());
+
         if (cursor.getCount()>0) {
             candidate.put("name", cursor.getString(1));
             candidate.put("firstname", cursor.getString(2));
             candidate.put("training", cursor.getString(3));
-            candidate.put("area_activity", cursor.getString(3));
-            candidate.put("type", cursor.getString(4));
-            candidate.put("language1", cursor.getString(5));
-            candidate.put("level_language1", cursor.getString(6));
-            candidate.put("language2", cursor.getString(7));
-            candidate.put("level_language2", cursor.getString(8));
-            candidate.put("language3", cursor.getString(9));
-            candidate.put("level_language3", cursor.getString(10));
-            candidate.put("skill", cursor.getString(11));
-            candidate.put("geolocation", cursor.getString(12));
-            candidate.put("uid", cursor.getString(13));
-            candidate.put("created_at", cursor.getString(14));
+            candidate.put("area_activity", cursor.getString(4));
+            candidate.put("type", cursor.getString(5));
+            candidate.put("language1", cursor.getString(6));
+            candidate.put("level_language1", cursor.getString(7));
+            candidate.put("language2", cursor.getString(8));
+            candidate.put("level_language2", cursor.getString(9));
+            candidate.put("language3", cursor.getString(10));
+            candidate.put("level_language3", cursor.getString(11));
+            candidate.put("skill", cursor.getString(12));
+            candidate.put("geolocation", cursor.getString(13));
+            candidate.put("uid", cursor.getString(14));
+            candidate.put("created_at", cursor.getString(15));
+
         }
         cursor.close();
         db.close();
-    } catch (Exception e) {
-        e.printStackTrace();
 
-    }
         //Return user
         Log.d(TAG, "Fetching new candidate from Sqlite: " + candidate.toString());
         return candidate;
@@ -332,7 +329,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
      * @param created_at
      */
     public void addOffer(String company, String jobTitle, String areaActivity, String type,
-                         String geolocation, String skill, String uid, String created_at) {
+                         String geolocation, String skill, String uid ,int id_users_fk,String created_at) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL("PRAGMA foreign_keys=ON;");
 
@@ -344,6 +341,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         values.put(KEY_GEOLOCATION_RECRUITER, geolocation);
         values.put(KEY_SKILL_RECRUITER, skill);
         values.put(KEY_UID_RECRUITER, uid); //unique id
+        values.put(KEY_ID_USERS_FK_RECRUITER, id_users_fk);
         values.put(KEY_CREATED_AT_RECRUITER, created_at); //created_at
         //Inserting Row
         long id = db.insert(TABLE_NEW_OFFER, null, values);
@@ -356,7 +354,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
      * Getting user data from database
      */
     public HashMap<String, String> getOfferDetails() {
-        HashMap<String, String> user = new HashMap<String, String>();
+        HashMap<String, String> offer = new HashMap<String, String>();
         String selectQuery = "SELECT * FROM " + TABLE_NEW_OFFER;
 
         SQLiteDatabase db = this.getReadableDatabase();
@@ -364,21 +362,22 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         //Move to first row
         cursor.moveToFirst();
         if (cursor.getCount() > 0) {
-            user.put("company", cursor.getString(1));
-            user.put("job_title", cursor.getString(2));
-            user.put("area_activity", cursor.getString(3));
-            user.put("type", cursor.getString(4));
-            user.put("geolocation", cursor.getString(5));
-            user.put("skill", cursor.getString(6));
-            user.put("uid", cursor.getString(7));
-            user.put("created_at", cursor.getString(8));
+            offer.put("company", cursor.getString(1));
+            offer.put("job_title", cursor.getString(2));
+            offer.put("area_activity", cursor.getString(3));
+            offer.put("type", cursor.getString(4));
+            offer.put("geolocation", cursor.getString(5));
+            offer.put("skill", cursor.getString(6));
+            offer.put("uid", cursor.getString(7));
+            offer.put("created_at", cursor.getString(8));
         }
 
         cursor.close();
         db.close();
-        //Return user
-        Log.d(TAG, "Fetching offer from Sqlite: " + user.toString());
-        return user;
+
+        //Return offer
+        Log.d(TAG, "Fetching offer from Sqlite: " + offer.toString());
+        return offer;
     }
 
     /**

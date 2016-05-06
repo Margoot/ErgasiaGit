@@ -110,7 +110,6 @@ public class ProfilFragmentPost extends Fragment {
 
         db = new SQLiteHandler(getActivity().getApplicationContext());
         session = new SessionManager(getActivity().getApplicationContext());
-        db.getOfferDetails();
         //Fetching candidate details from SQlite
         HashMap<String, String> candidate = db.getCandidateDetails();
         String name = candidate.get("name");

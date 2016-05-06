@@ -222,6 +222,7 @@ public class New_offer_activity extends Activity {
                         String uid = jObj.getString("uid");
 
                         JSONObject offer = jObj.getJSONObject("offer");
+                        int id_users_fk = offer.getInt("id_users_fk");
                         String company = offer.getString("company");
                         String jobTitle = offer.getString("job_title");
                         String areaActivity = offer.getString("area_activity");
@@ -232,7 +233,7 @@ public class New_offer_activity extends Activity {
 
 
                         //Inserting row in recruiters table
-                        db.addOffer(company, jobTitle, areaActivity, type, geolocation, skill, uid, created_at);
+                        db.addOffer(company, jobTitle, areaActivity, type, geolocation, skill, uid,id_users_fk, created_at);
                         Toast.makeText(getApplicationContext(), "L'offre a été enregistré avec succès ! "
                                 , Toast.LENGTH_LONG).show();
 

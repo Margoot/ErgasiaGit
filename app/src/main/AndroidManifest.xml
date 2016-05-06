@@ -78,11 +78,7 @@
             android:name=".Activity.MainTabbedActivityRec"
             android:label="@string/title_activity_main_tabbed_activity_rec"
             android:windowSoftInputMode="adjustPan">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
         </activity>
         <activity
             android:name=".Activity.New_offer_activity"
@@ -93,11 +89,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Activity.MainTabbedActivityRec"/>
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
         </activity>
         <activity
             android:name=".Activity.Tie_rec_activity"
@@ -113,11 +104,7 @@
             android:name=".Activity.Tie_post_activity"
             android:label="@string/title_activity_tie_activity"
             android:windowSoftInputMode="adjustPan">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
         </activity>
         <activity
             android:name=".Activity.Message_rec_activity"
@@ -128,11 +115,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Activity.MainTabbedActivityRec"/>
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
         </activity>
         <activity
             android:name=".Activity.Message_post_activity"
@@ -143,11 +125,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Activity.MainTabbedActivityRec"/>
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
         </activity>
         <!--
              ATTENTION: This was auto-generated to add Google Play services to your project for
@@ -161,11 +138,6 @@
             android:name=".Activity.New_post_activity"
             android:label="@string/title_activity_new_post_activity"
             android:windowSoftInputMode="adjustPan">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
         </activity>
 
         <receiver

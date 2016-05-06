@@ -167,6 +167,9 @@ public class LoginActivity extends Activity  {
 
                         session.setEmail(email);
 
+
+
+
                         //Inserting row in users table
                         //db.addUser(name, firstname, email, uid, created_at);
 
@@ -185,6 +188,7 @@ public class LoginActivity extends Activity  {
                         } else {
                             if (session.isRecruiter()){
                                 Intent i = new Intent(LoginActivity.this, MainTabbedActivityRec.class);
+
                                 startActivity(i);
                                 finish();
                             } else {

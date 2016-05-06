@@ -36,6 +36,8 @@ public class MainTabbedActivityRec extends Activity implements ActionBar.TabList
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private SessionManager session;
 
+
+
     /**
      * The {@link ViewPager} that will host the section contents.
      */
@@ -58,6 +60,7 @@ public class MainTabbedActivityRec extends Activity implements ActionBar.TabList
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
+
 
 
         // Set up the action bar.
