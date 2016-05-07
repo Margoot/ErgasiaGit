@@ -26,6 +26,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.ergasia.Helper.SQLiteHandler;
 import com.example.ergasia.R;
 import com.example.ergasia.Helper.SessionManager;
 import com.example.ergasia.app.MessageConfig;
@@ -45,6 +46,7 @@ public class MainTabbedActivityPost extends Activity implements ActionBar.TabLis
      */
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private SessionManager session;
+    private SQLiteHandler db;
 
     /**
      * The {@link ViewPager} that will host the section contents.
@@ -132,6 +134,9 @@ public class MainTabbedActivityPost extends Activity implements ActionBar.TabLis
         if (checkPlayServices()) {
             registerGCM();
         }
+
+        db = new SQLiteHandler(getApplicationContext());
+        db.getUserDetails();
 
     }
 
@@ -277,6 +282,9 @@ public class MainTabbedActivityPost extends Activity implements ActionBar.TabLis
 
                         //Saving the sharedpreferences
                         editor.commit();
+
+                        db.deleteUsers();
+                        db.deleteCandidates();
 
                         //Starting login activity
                         Intent intent = new Intent(MainTabbedActivityPost.this, Post_rec_activity.class);

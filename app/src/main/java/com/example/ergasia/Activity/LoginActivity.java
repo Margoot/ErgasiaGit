@@ -7,10 +7,16 @@ import android.graphics.Typeface;
 import android.app.ProgressDialog;
 
 import android.os.Bundle;
+import android.support.design.widget.TextInputLayout;
+import android.text.Editable;
+import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,6 +30,7 @@ import com.example.ergasia.app.AppController;
 import com.example.ergasia.R;
 import com.example.ergasia.Helper.SQLiteHandler;
 import com.example.ergasia.Helper.SessionManager;
+import com.example.ergasia.model.User;
 
 import static com.android.volley.Request.Method.POST;
 
@@ -50,6 +57,7 @@ public class LoginActivity extends Activity  {
 	//private UserLoginTask mAuthTask = null;
     private EditText inputEmail;
     private EditText inputPassword;
+    private LinearLayout inputLayoutEmail;
     private ProgressDialog pDialog;
     private SessionManager session;
     private SQLiteHandler db;
@@ -147,8 +155,8 @@ public class LoginActivity extends Activity  {
                 hideDialog();
 
                 try {
-                    JSONObject jObj = new JSONObject(response);
-                    boolean error = jObj.getBoolean("error");
+                    JSONObject obj = new JSONObject(response);
+                    boolean error = obj.getBoolean("error");
 
                     //Check for error node in json
                     if(!error) {
@@ -157,21 +165,43 @@ public class LoginActivity extends Activity  {
                         session.setLogin(true);
 
                         //Now store the user in SQLite
-                        String uid = jObj.getString("uid");
+                        String uid = obj.getString("uid");
 
-						JSONObject user = jObj.getJSONObject("user");
-                        String name = user.getString("name");
-                        String firstname = user.getString("firstname");
-                        String email = user.getString("email");
-                        String created_at = user.getString("created_at");
+						JSONObject userObj = obj.getJSONObject("user");
+                        User user = new User(userObj.getString("user_id"), userObj.getString("name"), userObj.getString("email"));
 
-                        session.setEmail(email);
+                        String nameUser = userObj.getString("name");
+                        String firstnameUser = userObj.getString("firstname");
+                        String email = userObj.getString("email");
+                        String created_at_user = userObj.getString("created_at");
+
+                        db.addUser(nameUser, firstnameUser, email, uid, created_at_user);
+
+                        JSONObject candidateObj = obj.getJSONObject("candidate");
+                        String nameCandidate = candidateObj.getString("name");
+                        String firstnameCandidate = candidateObj.getString("firstname");
+                        String training = candidateObj.getString("training");
+                        String areaActivity = candidateObj.getString("area_activity");
+                        String type = candidateObj.getString("type");
+                        String language1 = candidateObj.getString("language1");
+                        String levelLanguage1 = candidateObj.getString("level_language1");
+                        String language2 = candidateObj.getString("language2");
+                        String levelLanguage2 = candidateObj.getString("level_language2");
+                        String language3 = candidateObj.getString("language3");
+                        String levelLanguage3 = candidateObj.getString("level_language3");
+                        String skill = candidateObj.getString("skill");
+                        String geolocation = candidateObj.getString("geolocation");
+                        String created_at_candidate = candidateObj.getString("created_at");
+
+                        db.addNewCandidate(nameCandidate,firstnameCandidate,training,areaActivity,type,
+                                language1,levelLanguage1,language2,levelLanguage2,language3,levelLanguage3,
+                                skill,geolocation,uid, created_at_candidate);
+
+                        //Storing user in shared preferences
+                        AppController.getInstance().getPrefManager().storeUser(user);
 
 
 
-
-                        //Inserting row in users table
-                        //db.addUser(name, firstname, email, uid, created_at);
 
                         //Launch main activity
                         if (Post_rec_activity.getIsPost()) {
@@ -200,7 +230,7 @@ public class LoginActivity extends Activity  {
                         }
                     } else {
                         //Error in login. Get the error message
-                        String errorMsg = jObj.getString("error_msg");
+                        String errorMsg = obj.getString("error_msg");
                         Toast.makeText(getApplicationContext(),
                                 errorMsg, Toast.LENGTH_LONG).show();
                     }
@@ -266,4 +296,10 @@ public class LoginActivity extends Activity  {
 
 	}
 
+
+
 }
+
+
+
+

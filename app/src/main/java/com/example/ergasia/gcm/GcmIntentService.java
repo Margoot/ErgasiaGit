@@ -8,13 +8,26 @@ import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.android.volley.NetworkResponse;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
 import com.example.ergasia.R;
+import com.example.ergasia.app.AppController;
+import com.example.ergasia.app.EndPoints;
 import com.example.ergasia.app.MessageConfig;
+import com.example.ergasia.model.User;
 import com.google.android.gms.gcm.GcmPubSub;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 import com.google.android.gms.iid.InstanceID;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by simonthome on 05/05/16.
@@ -81,8 +94,63 @@ public class GcmIntentService extends IntentService {
     }
 
     private void sendRegistrationToServer(final String token) {
-        //Send the registration token to our server
-        //to keep it in MySQL
+
+        //checking for valid login session
+        User user = AppController.getInstance().getPrefManager().getUser();
+        if (user == null) {
+            //TODO
+            //user not found, redirecting him to login screen
+            return;
+        }
+
+        String endPoint = EndPoints.USER.replace("_ID_", user.getId());
+
+        Log.e(TAG, "endpoint: " + endPoint);
+
+        StringRequest strReq = new StringRequest(Request.Method.PUT, endPoint , new Response.Listener<String>() {
+
+            @Override
+            public void onResponse(String response) {
+                Log.e(TAG, "response: " + response);
+
+                try {
+                    JSONObject obj = new JSONObject(response);
+
+                    //check for error
+                    if (obj.getBoolean("error") == false) {
+                        // broadcasting token to server
+                        Intent registrationComplete = new Intent(MessageConfig.SENT_TOKEN_TO_SERVER);
+                        LocalBroadcastManager.getInstance(getApplicationContext()).sendBroadcast(registrationComplete);
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Unable to send gcm registration id to our server. " + obj.getJSONObject("error").getString("message"), Toast.LENGTH_LONG).show();
+                    }
+                } catch (JSONException e) {
+                    Log.e(TAG, "json parsing error: " + e.getMessage());
+                    Toast.makeText(getApplicationContext(), "Json parse error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            }
+        }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                NetworkResponse networkResponse = error.networkResponse;
+                Log.e(TAG, "Volley error: " + error.getMessage() + ", code: " + networkResponse);
+                Toast.makeText(getApplicationContext(), "Volley error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        }) {
+
+            @Override
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("gcm_registration_id", token);
+
+                Log.e(TAG, "params: " + params.toString());
+                return params;
+            }
+        };
+
+        //Adding request to request queue
+        AppController.getInstance().addToRequestQueue(strReq);
     }
 
     /**

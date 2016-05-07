@@ -167,6 +167,7 @@ public class Inscription_activity extends Activity {
                         String email = user.getString("email");
                         String created_at = user.getString("created_at");
 
+                        session.setEmail(email);
 
                         //Inserting row in users table
                         db.addUser(name, firstname, email, uid, created_at);
@@ -174,9 +175,15 @@ public class Inscription_activity extends Activity {
                                 "Connectez-vous maintenant !", Toast.LENGTH_LONG).show();
 
                         //Launch login activity
-                        Intent intent = new Intent(Inscription_activity.this, LoginActivity.class);
-                        startActivity(intent);
-                        finish();
+                        if(Post_rec_activity.getIsPost()) {
+                            Intent intent = new Intent(Inscription_activity.this, New_post_activity.class);
+                            startActivity(intent);
+                            finish();
+                        } else {
+                            Intent intent = new Intent(Inscription_activity.this, New_offer_activity.class);
+                            startActivity(intent);
+                            finish();
+                        }
                     } else {
                         //Error occured in registration. Get the error message
                         String errorMsg = jObj.getString("error_msg");
