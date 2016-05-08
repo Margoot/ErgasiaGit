@@ -4,6 +4,9 @@ import android.app.Fragment;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -70,6 +73,14 @@ public class OfferFragmentPost extends Fragment {
         textView14.setTypeface(font);
         textView15.setTypeface(font);
 
+        setHasOptionsMenu(true);
+
         return rootView;
+    }
+
+    @Override
+    public void onPrepareOptionsMenu(Menu menu) {
+        menu.findItem(R.id.action_modify).setVisible(false);
+        super.onPrepareOptionsMenu(menu);
     }
 }

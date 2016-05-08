@@ -159,9 +159,10 @@ public class Inscription_activity extends Activity {
                         session.setRecruiter(false);
                         //User succesfully stored in MySQL
                         //Now store the user in Sqlite
-                        String uid = jObj.getString("uid");
+                        //String uidUser = jObj.getString("uidUser");
 
                         JSONObject user = jObj.getJSONObject("user");
+                        String uidUser = user.getString("uidUser");
                         String name = user.getString("name");
                         String firstname = user.getString("firstname");
                         String email = user.getString("email");
@@ -170,9 +171,9 @@ public class Inscription_activity extends Activity {
                         session.setEmail(email);
 
                         //Inserting row in users table
-                        db.addUser(name, firstname, email, uid, created_at);
+                        db.addUser(name, firstname, email, uidUser, created_at);
                         Toast.makeText(getApplicationContext(), "Enregistré avec succès ! " +
-                                "Connectez-vous maintenant !", Toast.LENGTH_LONG).show();
+                                "Entrez vos coordonées !", Toast.LENGTH_LONG).show();
 
                         //Launch login activity
                         if(Post_rec_activity.getIsPost()) {

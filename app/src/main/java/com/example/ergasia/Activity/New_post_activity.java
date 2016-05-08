@@ -145,11 +145,6 @@ public class New_post_activity extends Activity implements AdapterView.OnItemSel
         //SQlite database handler
         db = new SQLiteHandler(getApplicationContext());
 
-        /*if (session.isCandidate()) {
-            Intent intent = new Intent(New_post_activity.this, MainTabbedActivityPost.class);
-            startActivity(intent);
-            //finish();
-        }*/
 
         //Create button click event
         validateButton.setOnClickListener(new View.OnClickListener() {
@@ -166,12 +161,6 @@ public class New_post_activity extends Activity implements AdapterView.OnItemSel
                     RadioButton selectedButton = (RadioButton) findViewById(inputType.getCheckedRadioButtonId());
                     String type = selectedButton.getText().toString();
 
-                    /**
-                     *
-                     * Même remarque que pour new offer
-                     */
-
-
                     String language1 = inputLanguage1.getText().toString().trim();
                     String levelLanguage1 = String.valueOf(inputLevelLanguage1.getRating());
                     String language2 = inputLanguage2.getText().toString().trim();
@@ -181,6 +170,7 @@ public class New_post_activity extends Activity implements AdapterView.OnItemSel
                     String skill = inputSkill.getText().toString().trim();
                     String geolocation = inputGeolocation.getText().toString().trim();
 
+                    //dans le else car !empty is verified
 
                     if (!name.isEmpty() && !firstname.isEmpty() && !training.isEmpty() && !areaActivity.isEmpty() &&
                             !language1.isEmpty() && !levelLanguage1.isEmpty()  &&
@@ -277,10 +267,10 @@ public class New_post_activity extends Activity implements AdapterView.OnItemSel
 
                         session.setCandidate(true);
 
-                        String uid = jObj.getString("uid");
+                        //String uidCandidate = jObj.getString("uidCandidate");
 
                         JSONObject candidate = jObj.getJSONObject("candidate");
-
+                        String uidCandidate = candidate.getString("uidCandidate");
                         String name = candidate.getString("name");
                         String firstname = candidate.getString("firstname");
                         String training = candidate.getString("training");
@@ -301,7 +291,7 @@ public class New_post_activity extends Activity implements AdapterView.OnItemSel
                         db.addNewCandidate(name, firstname, training, areaActivity, type,
                                 language1, levelLanguage1, language2, levelLanguage2,
                                 language3, levelLanguage3, skill, geolocation,
-                                uid, created_at);
+                                uidCandidate, created_at);
                         Toast.makeText(getApplicationContext(), "Votre candidature a été enregistré avec succès ! "
                                 , Toast.LENGTH_LONG).show();
 

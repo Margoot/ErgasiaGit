@@ -4,6 +4,7 @@
     <string name="app_name">Ergasia</string>
     <string name="action_logout">Se déconnecter</string>
     <string name="action_add">Ajouter offre</string>
+    <string name="action_modify">Modifier</string>
     <string name="logo_of_the_application">logo of the application</string>
     <string name="title_activity_load_activity">Chargement</string>
     <string name="load_activity_icon">Chargement</string>
@@ -62,6 +63,8 @@
     <string name="title_activity_tie_activity">Tie</string>
     <string name="title_activity_message_rec_activity">Message</string>
     <string name="title_activity_new_post_activity">Nouveau postulant</string>
+
+    <string name="finish_modification">Terminé !</string>
 
     <string-array name="training_array">
         <item>Séléctionner une formation</item>

@@ -380,6 +380,7 @@
     <string name="accept">Accept</string>
     <string name="action_add">Ajouter offre</string>
     <string name="action_logout">Se déconnecter</string>
+    <string name="action_modify">Modifier</string>
     <string name="action_sign_in">Sign in or register</string>
     <string name="action_sign_in_short">Sign in</string>
     <string name="app_name">Ergasia</string>
@@ -445,6 +446,7 @@
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_invalid_email">This email address is invalid</string>
     <string name="error_invalid_password">This password is too short</string>
+    <string name="finish_modification">Terminé !</string>
     <string name="formation">Formation</string>
     <string name="gcm_defaultSenderId" translatable="false">629894714266</string>
     <string name="geoloc">Géolocalisation</string>

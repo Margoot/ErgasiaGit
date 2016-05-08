@@ -171,6 +171,8 @@ public class MainTabbedActivityRec extends Activity implements ActionBar.TabList
 
                         //Puting the value false for loggedin
                         editor.putBoolean(session.KEY_IS_LOGGEDIN, false);
+                        //db.deleteOffers();
+                        db.deleteUsers();
 
                         //Saving the sharedpreferences
                         editor.commit();

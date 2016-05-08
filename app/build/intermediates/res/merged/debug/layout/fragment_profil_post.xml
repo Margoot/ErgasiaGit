@@ -121,6 +121,33 @@
                 android:focusable="false"
                 />
 
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:id="@+id/radioButtonType"
+                android:visibility="gone">
+
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CDI"
+                    android:id="@+id/radioButtonCdi"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CDD"
+                    android:id="@+id/radioButtonCdd"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Stage"
+                    android:id="@+id/radioButtonIntern"/>
+            </RadioGroup>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -255,6 +282,15 @@
                 android:textSize="@dimen/text1"
                 android:focusable="false"
                 />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/finish_modification"
+                android:id="@+id/finishModification"
+                android:textColor="@color/white"
+                android:background="@color/ergasiagreen"
+                android:visibility="gone"/>
         </LinearLayout>
     </ScrollView>
 

@@ -219,7 +219,7 @@ public class New_offer_activity extends Activity {
                          * puisque on ne sauvegarde jamais le fait que l'utillisateur est bien enregistré, one ne
                          * fait qu'afficher un message
                          */
-                        String uid = jObj.getString("uid");
+                        String uidOffer = jObj.getString("uidOffer");
 
                         JSONObject offer = jObj.getJSONObject("offer");
                         int id_users_fk = offer.getInt("id_users_fk");
@@ -233,7 +233,7 @@ public class New_offer_activity extends Activity {
 
 
                         //Inserting row in recruiters table
-                        db.addOffer(company, jobTitle, areaActivity, type, geolocation, skill, uid,id_users_fk, created_at);
+                        db.addOffer(company, jobTitle, areaActivity, type, geolocation, skill, uidOffer,id_users_fk, created_at);
                         Toast.makeText(getApplicationContext(), "L'offre a été enregistré avec succès ! "
                                 , Toast.LENGTH_LONG).show();
 

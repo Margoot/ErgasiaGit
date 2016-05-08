@@ -47,6 +47,7 @@ public class MainTabbedActivityPost extends Activity implements ActionBar.TabLis
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private SessionManager session;
     private SQLiteHandler db;
+    private ProfilFragmentPost profilFragmentPost;
 
     /**
      * The {@link ViewPager} that will host the section contents.
@@ -321,6 +322,9 @@ public class MainTabbedActivityPost extends Activity implements ActionBar.TabLis
         int id = item.getItemId();
         if (id == R.id.action_logout) {
             logout();
+        }
+        if (id == R.id.action_modify) {
+            profilFragmentPost.modifyCandidate();
         }
         return super.onOptionsItemSelected(item);
     }

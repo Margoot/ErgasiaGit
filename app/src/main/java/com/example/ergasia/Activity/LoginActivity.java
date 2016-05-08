@@ -51,6 +51,7 @@ public class LoginActivity extends Activity  {
 	private static final String TAG = Inscription_activity.class.getSimpleName();//Tag to identify the request
     private Button btnLogin;
     private Button createAccountButton;
+
 	/**
 	 * Keep track of the login task to ensure we can cancel it if requested.
 	 */
@@ -93,13 +94,8 @@ public class LoginActivity extends Activity  {
         // SQlite database handler
         db = new SQLiteHandler(getApplicationContext());
 
-
-
         // Session manager
         session = new SessionManager(getApplicationContext());
-
-
-
 
 		addListenerOnButton();
 	}
@@ -164,19 +160,30 @@ public class LoginActivity extends Activity  {
                         session.setLogin(true);
 
                         //Now store the user in SQLite
-                        String uid = obj.getString("uid");
+                        //String uidUser = obj.getString("uidUser");
+
+                        //String uidCandidate = obj.getString("uidCandidate");
+                        //System.out.println("uidCandidate loginac: "+uidCandidate);
+
 
 						JSONObject userObj = obj.getJSONObject("user");
                         User user = new User(userObj.getString("user_id"), userObj.getString("name"), userObj.getString("email"));
-
+                        String uidUser = userObj.getString("uidUser");
                         String nameUser = userObj.getString("name");
                         String firstnameUser = userObj.getString("firstname");
                         String email = userObj.getString("email");
                         String created_at_user = userObj.getString("created_at");
 
-                        db.addUser(nameUser, firstnameUser, email, uid, created_at_user);
+                        db.addUser(nameUser, firstnameUser, email, uidUser, created_at_user);
+
+
+
+                        //String uidCandidate = obj.getString("uidCandidate");
+                        //System.out.println("uidCandidate loginac: "+uidCandidate);
 
                         JSONObject candidateObj = obj.getJSONObject("candidate");
+                        String uidCandidate = candidateObj.getString("uidCandidate");
+                        System.out.println("uidCandidate loginac: "+uidCandidate);
                         String nameCandidate = candidateObj.getString("name");
                         String firstnameCandidate = candidateObj.getString("firstname");
                         String training = candidateObj.getString("training");
@@ -192,9 +199,10 @@ public class LoginActivity extends Activity  {
                         String geolocation = candidateObj.getString("geolocation");
                         String created_at_candidate = candidateObj.getString("created_at");
 
+
                         db.addNewCandidate(nameCandidate,firstnameCandidate,training,areaActivity,type,
                                 language1,levelLanguage1,language2,levelLanguage2,language3,levelLanguage3,
-                                skill,geolocation,uid, created_at_candidate);
+                                skill,geolocation,uidCandidate, created_at_candidate);
 
                         //Storing user in shared preferences
                         AppController.getInstance().getPrefManager().storeUser(user);
