@@ -309,7 +309,6 @@ public class New_post_activity extends Activity implements AdapterView.OnItemSel
                         Intent intent = new Intent(New_post_activity.this, MainTabbedActivityPost.class);
                         startActivity(intent);
                         finish();
-                        finish();
                     } else {
                         //Error occured in registration. Get the error message
                         String errorMsg = jObj.getString("error_msg");

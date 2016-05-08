@@ -57,7 +57,6 @@ public class LoginActivity extends Activity  {
 	//private UserLoginTask mAuthTask = null;
     private EditText inputEmail;
     private EditText inputPassword;
-    private LinearLayout inputLayoutEmail;
     private ProgressDialog pDialog;
     private SessionManager session;
     private SQLiteHandler db;
