@@ -25,6 +25,7 @@ public final class R {
         public static final int design_fab_out=0x7f04000d;
         public static final int design_snackbar_in=0x7f04000e;
         public static final int design_snackbar_out=0x7f04000f;
+        public static final int zoom=0x7f040010;
     }
     public static final class array {
         public static final int androidcolors=0x7f0b0000;
