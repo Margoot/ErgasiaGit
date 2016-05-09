@@ -53,11 +53,11 @@ public class MyGcmPushReceiver extends GcmListenerService {
         if (flag == null)
             return;
 
-        if (AppController.getInstance().getPrefManager().getUser() == null) {
+       /* if (AppController.getInstance().getPrefManager().getUser() == null) {
             //user is not logged in, skipping push notification
             Log.e(TAG, "user is not logged in, skipping push notification");
             return;
-        }
+        }*/
 
         if (from.startsWith("/topics/")) {
             //message received from some topic

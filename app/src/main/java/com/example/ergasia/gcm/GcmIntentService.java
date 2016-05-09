@@ -100,6 +100,7 @@ public class GcmIntentService extends IntentService {
         if (user == null) {
             //TODO
             //user not found, redirecting him to login screen
+            System.out.println("no user in send registration");
             return;
         }
 

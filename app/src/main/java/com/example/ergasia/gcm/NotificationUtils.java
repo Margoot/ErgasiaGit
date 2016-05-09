@@ -91,13 +91,13 @@ public class NotificationUtils {
         }
     }
 
-    private void showSmallNotification(NotificationCompat.Builder mBuilder, int icon, String title, String message, String timeStamp, PendingIntent resultPendingIntent, Uri alarmsound) {
+    private void showSmallNotification(NotificationCompat.Builder mBuilder, int icon, String title, String message, String timeStamp, PendingIntent resultPendingIntent, Uri alarmSound) {
 
         NotificationCompat.InboxStyle inboxStyle = new NotificationCompat.InboxStyle();
 
         if (MessageConfig.appendNotificationMessages) {
             // store the notification in shared pref first
-            AppController.getInstance().getPrefManager().getNotifications();
+            AppController.getInstance().getPrefManager().addNotification(message);
 
             //get the notifications from shared preferences
             String oldNotification = AppController.getInstance().getPrefManager().getNotifications();
@@ -117,7 +117,7 @@ public class NotificationUtils {
                 .setAutoCancel(true)
                 .setContentTitle(title)
                 .setContentIntent(resultPendingIntent)
-                .setSound(alarmsound)
+                .setSound(alarmSound)
                 .setStyle(inboxStyle)
                 .setWhen(getTimeMilliSec(timeStamp))
                 .setSmallIcon(R.drawable.icon_ergasia)
