@@ -34,15 +34,9 @@ public class ProfilFragmentRec extends ListFragment {
     public ProfilFragmentRec(){
 
     }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-
     @Override
     public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle savesInstanceState) {
-        return inflater.inflate(R.layout.fragment_profil_post, container, false);
+        return inflater.inflate(R.layout.fragment_profil_rec, container, false);
     }
 
     @Override

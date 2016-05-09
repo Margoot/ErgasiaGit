@@ -5,7 +5,9 @@ package com.example.ergasia.app;
  */
 public class AppConfig {
     //server user login url
-    public static String URL_LOGIN = "http://192.168.0.13:8888/task_manager/include/Login.php";
+    public static String URL_LOGIN_CANDIDATE = "http://192.168.0.13:8888/task_manager/include/LoginCandidate.php";
+    //public static String URL_LOGIN = "http://90.79.44.238/Login.php";
+    public static String URL_LOGIN_RECRUITER = "http://192.168.0.13:8888/task_manager/include/LoginRecruiter.php";
     //public static String URL_LOGIN = "http://90.79.44.238/Login.php";
 
     //server user register url

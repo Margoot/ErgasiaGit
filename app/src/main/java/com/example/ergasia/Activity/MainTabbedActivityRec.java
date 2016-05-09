@@ -4,9 +4,7 @@ package com.example.ergasia.Activity;
 
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.app.ActionBar;
 import android.app.AlertDialog;
-import android.app.FragmentTransaction;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -14,8 +12,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.v13.app.FragmentPagerAdapter;
-import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -25,13 +21,23 @@ import android.view.MenuItem;
 import com.example.ergasia.Helper.SQLiteHandler;
 import com.example.ergasia.R;
 import com.example.ergasia.Helper.SessionManager;
-import com.example.ergasia.adapter.ViewPagerAdapter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainTabbedActivityRec extends AppCompatActivity  {
 
     private SQLiteHandler db;
     private SessionManager session;
+
     private Toolbar toolbar;
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
+    private int[] tabIcons = {
+            R.drawable.icon_profil,
+            R.drawable.icon_ergasia,
+            R.drawable.icon_messaging
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,36 +47,62 @@ public class MainTabbedActivityRec extends AppCompatActivity  {
         toolbar = (Toolbar) findViewById(R.id.toolbar); // Attaching the layout to the toolbar object
         setSupportActionBar(toolbar);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        viewPager = (ViewPager) findViewById(R.id.viewpager);
+        setupViewPager(viewPager);
+
+        tabLayout = (TabLayout) findViewById(R.id.tabLayout);
+        tabLayout.setupWithViewPager(viewPager);
+
         db = new SQLiteHandler(getApplicationContext());
 
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabLayout);
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.icon_profil));
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.icon_ergasia));
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.icon_messaging));
+        setupTabIcons();
+    }
 
-        final ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
-        final ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
+    private void setupTabIcons() {
+        tabLayout.getTabAt(0).setIcon(tabIcons[0]);
+        tabLayout.getTabAt(1).setIcon(tabIcons[1]);
+        tabLayout.getTabAt(2).setIcon(tabIcons[2]);
+    }
+
+    private void setupViewPager(ViewPager viewPager) {
+        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        adapter.addFragment(new ProfilFragmentRec(), "ONE");
+        adapter.addFragment(new CandidateFragmentRec(), "TWO");
+        adapter.addFragment(new MessageFragmentRec(), "THREE");
         viewPager.setAdapter(adapter);
+    }
 
-        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+    class ViewPagerAdapter extends android.support.v4.app.FragmentPagerAdapter {
+        private final List<Fragment> mFragmentList = new ArrayList<>();
+        private final List<String> mFragmentTitleList = new ArrayList<>();
 
-        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+        public ViewPagerAdapter(FragmentManager manager) {
+            super(manager);
+        }
 
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                viewPager.setCurrentItem(tab.getPosition());
-            }
+        @Override
+        public Fragment getItem(int position) {
+            return mFragmentList.get(position);
+        }
 
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
+        @Override
+        public int getCount() {
+            return mFragmentList.size();
+        }
 
-            }
+        public void addFragment(Fragment fragment, String title) {
+            mFragmentList.add(fragment);
+            mFragmentTitleList.add(title);
+        }
 
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return null;
+        }
 
-            }
-        });
+
     }
 
     //Logout function
