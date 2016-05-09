@@ -156,7 +156,7 @@
             android:id="@+id/createButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/ergasiagreen"
+            android:background="@drawable/shape"
             android:text="@string/creer"
             android:textColor="@color/white"
             android:layout_below="@+id/frameLayout6"

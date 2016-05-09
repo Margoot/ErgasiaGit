@@ -84,7 +84,7 @@
             android:id="@+id/email_sign_in_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/ergasiagreen"
+            android:background="@drawable/shape"
             android:text="@string/connexion"
             android:textColor="@color/white"
             android:layout_weight="0.27" />

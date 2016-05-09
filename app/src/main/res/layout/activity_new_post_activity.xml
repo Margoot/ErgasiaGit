@@ -318,7 +318,7 @@
             android:layout_height="match_parent"
             android:text="@string/lancer_recherche"
             android:id="@+id/createButton"
-            android:background="@color/ergasiagreen"
+            android:background="@drawable/shape"
             android:textColor="@color/white"
             />
     </LinearLayout>

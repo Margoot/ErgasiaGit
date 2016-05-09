@@ -72,7 +72,7 @@
             android:layout_height="wrap_content"
             android:text="@string/envoyer_mess_post"
             android:id="@+id/sendMessageButton2"
-            android:background="@color/ergasiagreen"
+            android:background="@drawable/shape"
             android:textColor="@color/white" />
 
         <Space
@@ -86,7 +86,7 @@
             android:layout_height="wrap_content"
             android:text="@string/cont_rech"
             android:id="@+id/contSearchButton2"
-            android:background="@color/ergasiagreen"
+            android:background="@drawable/shape"
             android:textColor="@color/white" />
 
     </LinearLayout>

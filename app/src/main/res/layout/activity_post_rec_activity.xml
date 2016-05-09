@@ -58,7 +58,7 @@
             android:id="@+id/postButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/ergasiagreen"
+            android:background="@drawable/shape"
             android:text="@string/je_post"
             android:textColor="@color/white"
             android:layout_weight="0.27" />
@@ -73,7 +73,7 @@
             android:id="@+id/recButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/ergasiagreen"
+            android:background="@drawable/shape"
             android:text="@string/je_rec"
             android:textColor="@color/white"
             android:layout_weight="0.27" />

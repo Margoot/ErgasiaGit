@@ -189,6 +189,6 @@
             android:text="@string/lancer_recherche"
             android:id="@+id/createButton"
             android:textColor="@color/white"
-            android:background="@color/ergasiagreen"/>
+            android:background="@drawable/shape"/>
     </LinearLayout>
 </LinearLayout>
