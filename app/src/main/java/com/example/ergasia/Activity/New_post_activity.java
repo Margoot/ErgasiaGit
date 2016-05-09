@@ -9,6 +9,8 @@ import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.app.Activity;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -43,7 +45,7 @@ import java.util.Map;
 
 import static com.android.volley.Request.Method.POST;
 
-public class New_post_activity extends Activity implements AdapterView.OnItemSelectedListener {
+public class New_post_activity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private static final String TAG = New_post_activity.class.getSimpleName();
     private SessionManager session;
@@ -70,11 +72,16 @@ public class New_post_activity extends Activity implements AdapterView.OnItemSel
     private Button validateButton;
     private ProgressDialog pDialog;
     private SQLiteHandler db;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_post_activity);
+
+        toolbar = (Toolbar) findViewById(R.id.toolbar); // Attaching the layout to the toolbar object
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         TextView textView1 = (TextView) findViewById(R.id.editName);
         TextView textView2 = (TextView) findViewById(R.id.firstName);

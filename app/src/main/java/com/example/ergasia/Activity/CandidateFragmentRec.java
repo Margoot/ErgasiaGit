@@ -4,7 +4,7 @@ package com.example.ergasia.Activity;
  * Created by simonthome on 03/04/16.
  */
 
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;

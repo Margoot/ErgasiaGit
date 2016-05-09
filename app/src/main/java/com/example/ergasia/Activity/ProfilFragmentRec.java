@@ -1,7 +1,7 @@
 package com.example.ergasia.Activity;
 
-import android.app.Fragment;
-import android.app.ListFragment;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.ListFragment;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -33,6 +33,16 @@ public class ProfilFragmentRec extends ListFragment {
 
     public ProfilFragmentRec(){
 
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle savesInstanceState) {
+        return inflater.inflate(R.layout.fragment_profil_post, container, false);
     }
 
     @Override

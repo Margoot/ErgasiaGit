@@ -9,6 +9,8 @@ import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.app.Activity;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -37,7 +39,7 @@ import java.util.Map;
 
 import static com.android.volley.Request.Method.POST;
 
-public class New_offer_activity extends Activity {
+public class New_offer_activity extends AppCompatActivity {
 
     private SessionManager session;
     private static final String TAG = New_offer_activity.class.getSimpleName();
@@ -50,12 +52,16 @@ public class New_offer_activity extends Activity {
     private EditText inputSkill;
     private ProgressDialog pDialog;
     private SQLiteHandler db;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_offer_activity);
-        getActionBar().setDisplayHomeAsUpEnabled(true);
+
+        toolbar = (Toolbar) findViewById(R.id.toolbar); // Attaching the layout to the toolbar object
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         TextView textView1  = (TextView)findViewById(R.id.cdiRadioButton);
         TextView  textView2  = (TextView)findViewById(R.id.cddRadioButton);

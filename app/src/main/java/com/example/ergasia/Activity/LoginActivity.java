@@ -160,12 +160,6 @@ public class LoginActivity extends Activity  {
                         session.setLogin(true);
 
                         //Now store the user in SQLite
-                        //String uidUser = obj.getString("uidUser");
-
-                        //String uidCandidate = obj.getString("uidCandidate");
-                        //System.out.println("uidCandidate loginac: "+uidCandidate);
-
-
 						JSONObject userObj = obj.getJSONObject("user");
                         User user = new User(userObj.getString("user_id"), userObj.getString("name"), userObj.getString("email"));
                         String uidUser = userObj.getString("uidUser");
@@ -175,11 +169,6 @@ public class LoginActivity extends Activity  {
                         String created_at_user = userObj.getString("created_at");
 
                         db.addUser(nameUser, firstnameUser, email, uidUser, created_at_user);
-
-
-
-                        //String uidCandidate = obj.getString("uidCandidate");
-                        //System.out.println("uidCandidate loginac: "+uidCandidate);
 
                         JSONObject candidateObj = obj.getJSONObject("candidate");
                         String uidCandidate = candidateObj.getString("uidCandidate");

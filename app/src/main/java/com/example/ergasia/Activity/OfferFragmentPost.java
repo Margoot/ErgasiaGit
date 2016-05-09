@@ -1,6 +1,6 @@
 package com.example.ergasia.Activity;
 
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;

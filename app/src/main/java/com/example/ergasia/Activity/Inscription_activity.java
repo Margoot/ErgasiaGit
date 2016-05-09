@@ -5,6 +5,8 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -32,7 +34,7 @@ import com.example.ergasia.Helper.SessionManager;
 import static com.android.volley.Request.Method.POST;
 
 
-public class Inscription_activity extends Activity {
+public class Inscription_activity extends AppCompatActivity {
 
     private static final String TAG = Inscription_activity.class.getSimpleName();
     private Button createButton;
@@ -50,6 +52,7 @@ public class Inscription_activity extends Activity {
         super.onCreate(savedInstanceState);
         layout = (RelativeLayout) RelativeLayout.inflate(Inscription_activity.this,
                 R.layout.activity_inscription_activity, null);
+
 
 
         // Set fonts

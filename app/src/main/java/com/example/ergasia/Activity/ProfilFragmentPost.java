@@ -5,7 +5,7 @@ import android.content.ContentValues;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -172,11 +172,11 @@ public class ProfilFragmentPost extends Fragment {
         inputAreaActivity.setText(areaActivity);
         inputType.setText(type);
         inputLanguage1.setText(language1);
-        //inputLevelLanguage1.setRating(Float.parseFloat(levelLanguage1));
+        inputLevelLanguage1.setRating(Float.parseFloat(levelLanguage1));
         inputLanguage2.setText(language2);
-        //inputLevelLanguage2.setRating(Float.parseFloat(levelLanguage2));
+        inputLevelLanguage2.setRating(Float.parseFloat(levelLanguage2));
         inputLanguage3.setText(language3);
-        //inputLevelLanguage3.setRating(Float.parseFloat(levelLanguage3));
+        inputLevelLanguage3.setRating(Float.parseFloat(levelLanguage3));
         inputSkill.setText(skill);
         inputLocation.setText(geolocation);
 
@@ -236,10 +236,13 @@ public class ProfilFragmentPost extends Fragment {
         inputType.setFocusableInTouchMode(true);
         inputLanguage1.setFocusableInTouchMode(true);
         inputLevelLanguage1.setFocusableInTouchMode(true);
+        inputLevelLanguage1.setIsIndicator(false);
         inputLanguage2.setFocusableInTouchMode(true);
         inputLevelLanguage2.setFocusableInTouchMode(true);
+        inputLevelLanguage2.setIsIndicator(false);
         inputLanguage3.setFocusableInTouchMode(true);
         inputLevelLanguage3.setFocusableInTouchMode(true);
+        inputLevelLanguage3.setIsIndicator(false);
         inputSkill.setFocusableInTouchMode(true);
         inputLocation.setFocusableInTouchMode(true);
 
@@ -300,39 +303,8 @@ public class ProfilFragmentPost extends Fragment {
                         Toast.makeText(getActivity().getApplicationContext(), "Votre candidature a été mise à jour avec succès ! "
                                 , Toast.LENGTH_LONG).show();
 
-                        //masquer bouton et remettre tout comme c'était dans le profil
-
-                        HashMap<String, String> candidate = db.getCandidateDetails();
-                        String newTraining = candidate.get("training");
-                        String newType = candidate.get("type");
-
-                        inputTraining.setText(newTraining);
-                        inputType.setText(newType);
-
-                        finishButton.setVisibility(View.GONE);
-                        inputTypeGroup.setVisibility(View.GONE);
-                        spinnerTraining.setVisibility(View.GONE);
-                        inputTraining.setVisibility(View.VISIBLE);
-                        inputType.setVisibility(View.VISIBLE);
-
-                        inputName.setFocusableInTouchMode(false);
-                        inputFirstname.setFocusableInTouchMode(false);
-                        inputTraining.setFocusableInTouchMode(false);
-                        inputAreaActivity.setFocusableInTouchMode(false);
-                        inputType.setFocusableInTouchMode(false);
-                        inputLanguage1.setFocusableInTouchMode(false);
-                        inputLevelLanguage1.setFocusableInTouchMode(false);
-                        inputLanguage2.setFocusableInTouchMode(false);
-                        inputLevelLanguage2.setFocusableInTouchMode(false);
-                        inputLanguage3.setFocusableInTouchMode(false);
-                        inputLevelLanguage3.setFocusableInTouchMode(false);
-                        inputSkill.setFocusableInTouchMode(false);
-                        inputLocation.setFocusableInTouchMode(false);
-
-
-
-
-
+                        //display the new data from the database
+                        showModifications(training,type);
 
                     } else {
                         //Error occured in registration. Get the error message
@@ -381,6 +353,50 @@ public class ProfilFragmentPost extends Fragment {
 
 
 
+    }
+
+    public void showModifications(String training, String type) {
+
+        inputTraining.setVisibility(View.VISIBLE);
+        inputType.setVisibility(View.VISIBLE);
+
+        inputTraining.setText(training);
+        inputType.setText(type);
+
+        finishButton.setVisibility(View.GONE);
+        inputTypeGroup.setVisibility(View.GONE);
+        spinnerTraining.setVisibility(View.GONE);
+
+        inputName.setFocusableInTouchMode(false);
+        inputFirstname.setFocusableInTouchMode(false);
+        inputTraining.setFocusableInTouchMode(false);
+        inputAreaActivity.setFocusableInTouchMode(false);
+        inputType.setFocusableInTouchMode(false);
+        inputLanguage1.setFocusableInTouchMode(false);
+        inputLevelLanguage1.setFocusableInTouchMode(false);
+        inputLanguage2.setFocusableInTouchMode(false);
+        inputLevelLanguage2.setFocusableInTouchMode(false);
+        inputLanguage3.setFocusableInTouchMode(false);
+        inputLevelLanguage3.setFocusableInTouchMode(false);
+        inputSkill.setFocusableInTouchMode(false);
+        inputLocation.setFocusableInTouchMode(false);
+
+        inputName.setFocusable(false);
+        inputFirstname.setFocusable(false);
+        inputTraining.setFocusable(false);
+        inputAreaActivity.setFocusable(false);
+        inputType.setFocusable(false);
+        inputLanguage1.setFocusable(false);
+        inputLevelLanguage1.setFocusable(false);
+        inputLevelLanguage1.setIsIndicator(true);
+        inputLanguage2.setFocusable(false);
+        inputLevelLanguage2.setFocusable(false);
+        inputLevelLanguage2.setIsIndicator(true);
+        inputLanguage3.setFocusable(false);
+        inputLevelLanguage3.setFocusable(false);
+        inputLevelLanguage3.setIsIndicator(true);
+        inputSkill.setFocusable(false);
+        inputLocation.setFocusable(false);
     }
 
     private void showDialog() {

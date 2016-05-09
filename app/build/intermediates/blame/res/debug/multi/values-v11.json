@@ -1,39 +1,39 @@
 [
     {
-        "outputFile": "C:\\Users\\Margot\\AndroidStudioProject\\ErgasiaGit\\app\\build\\intermediates\\res\\merged\\debug\\values-v11\\values-v11.xml",
+        "outputFile": "/Users/Margot/AndroidStudioProject/ErgasiaGit/C:\\Users\\Margot\\AndroidStudioProject\\ErgasiaGit\\app\\build\\intermediates\\res\\merged\\debug\\values-v11\\values-v11.xml",
         "map": [
             {
                 "to": {
                     "startLine": 2,
                     "startColumn": 4,
                     "startOffset": 55,
-                    "endLine": 4,
+                    "endLine": 9,
                     "endColumn": 12,
-                    "endOffset": 201
+                    "endOffset": 530
                 },
                 "from": {
-                    "file": "C:\\Users\\Margot\\AndroidStudioProject\\ErgasiaGit\\app\\src\\main\\res\\values-v11\\styles.xml",
+                    "file": "/Users/Margot/AndroidStudioProject/ErgasiaGit/C:\\Users\\Margot\\AndroidStudioProject\\ErgasiaGit\\app\\src\\main\\res\\values-v11\\styles.xml",
                     "position": {
                         "startLine": 6,
                         "startColumn": 4,
                         "startOffset": 177,
-                        "endLine": 8,
+                        "endLine": 13,
                         "endColumn": 12,
-                        "endOffset": 323
+                        "endOffset": 652
                     }
                 }
             },
             {
                 "to": {
-                    "startLine": 5,
+                    "startLine": 10,
                     "startColumn": 4,
-                    "startOffset": 206,
-                    "endLine": 10,
+                    "startOffset": 535,
+                    "endLine": 15,
                     "endColumn": 12,
-                    "endOffset": 620
+                    "endOffset": 949
                 },
                 "from": {
-                    "file": "C:\\Users\\Margot\\AndroidStudioProject\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
+                    "file": "/Users/Margot/AndroidStudioProject/ErgasiaGit/C:\\Users\\Margot\\AndroidStudioProject\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -46,15 +46,15 @@
             },
             {
                 "to": {
-                    "startLine": 11,
+                    "startLine": 16,
                     "startColumn": 4,
-                    "startOffset": 625,
-                    "endLine": 16,
+                    "startOffset": 954,
+                    "endLine": 21,
                     "endColumn": 12,
-                    "endOffset": 1045
+                    "endOffset": 1374
                 },
                 "from": {
-                    "file": "C:\\Users\\Margot\\AndroidStudioProject\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
+                    "file": "/Users/Margot/AndroidStudioProject/ErgasiaGit/C:\\Users\\Margot\\AndroidStudioProject\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
                     "position": {
                         "startLine": 8,
                         "startColumn": 4,
@@ -67,15 +67,15 @@
             },
             {
                 "to": {
-                    "startLine": 17,
+                    "startLine": 22,
                     "startColumn": 4,
-                    "startOffset": 1050,
-                    "endLine": 22,
+                    "startOffset": 1379,
+                    "endLine": 27,
                     "endColumn": 12,
-                    "endOffset": 1473
+                    "endOffset": 1802
                 },
                 "from": {
-                    "file": "C:\\Users\\Margot\\AndroidStudioProject\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
+                    "file": "/Users/Margot/AndroidStudioProject/ErgasiaGit/C:\\Users\\Margot\\AndroidStudioProject\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
                     "position": {
                         "startLine": 14,
                         "startColumn": 4,
@@ -88,15 +88,15 @@
             },
             {
                 "to": {
-                    "startLine": 23,
+                    "startLine": 28,
                     "startColumn": 4,
-                    "startOffset": 1478,
-                    "endLine": 28,
+                    "startOffset": 1807,
+                    "endLine": 33,
                     "endColumn": 12,
-                    "endOffset": 1899
+                    "endOffset": 2228
                 },
                 "from": {
-                    "file": "C:\\Users\\Margot\\AndroidStudioProject\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
+                    "file": "/Users/Margot/AndroidStudioProject/ErgasiaGit/C:\\Users\\Margot\\AndroidStudioProject\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
                     "position": {
                         "startLine": 20,
                         "startColumn": 4,
@@ -109,15 +109,15 @@
             },
             {
                 "to": {
-                    "startLine": 29,
+                    "startLine": 34,
                     "startColumn": 4,
-                    "startOffset": 1904,
-                    "endLine": 34,
+                    "startOffset": 2233,
+                    "endLine": 39,
                     "endColumn": 12,
-                    "endOffset": 2326
+                    "endOffset": 2655
                 },
                 "from": {
-                    "file": "C:\\Users\\Margot\\AndroidStudioProject\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
+                    "file": "/Users/Margot/AndroidStudioProject/ErgasiaGit/C:\\Users\\Margot\\AndroidStudioProject\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
                     "position": {
                         "startLine": 26,
                         "startColumn": 4,
@@ -130,15 +130,15 @@
             },
             {
                 "to": {
-                    "startLine": 35,
+                    "startLine": 40,
                     "startColumn": 4,
-                    "startOffset": 2331,
-                    "endLine": 40,
+                    "startOffset": 2660,
+                    "endLine": 45,
                     "endColumn": 12,
-                    "endOffset": 2751
+                    "endOffset": 3080
                 },
                 "from": {
-                    "file": "C:\\Users\\Margot\\AndroidStudioProject\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
+                    "file": "/Users/Margot/AndroidStudioProject/ErgasiaGit/C:\\Users\\Margot\\AndroidStudioProject\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
                     "position": {
                         "startLine": 32,
                         "startColumn": 4,
@@ -151,14 +151,14 @@
             },
             {
                 "to": {
-                    "startLine": 41,
+                    "startLine": 46,
                     "startColumn": 4,
-                    "startOffset": 2756,
+                    "startOffset": 3085,
                     "endColumn": 88,
-                    "endOffset": 2840
+                    "endOffset": 3169
                 },
                 "from": {
-                    "file": "C:\\Users\\Margot\\AndroidStudioProject\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
+                    "file": "/Users/Margot/AndroidStudioProject/ErgasiaGit/C:\\Users\\Margot\\AndroidStudioProject\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
                     "position": {
                         "startLine": 38,
                         "startColumn": 4,
@@ -170,14 +170,14 @@
             },
             {
                 "to": {
-                    "startLine": 42,
+                    "startLine": 47,
                     "startColumn": 4,
-                    "startOffset": 2845,
+                    "startOffset": 3174,
                     "endColumn": 100,
-                    "endOffset": 2941
+                    "endOffset": 3270
                 },
                 "from": {
-                    "file": "C:\\Users\\Margot\\AndroidStudioProject\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
+                    "file": "/Users/Margot/AndroidStudioProject/ErgasiaGit/C:\\Users\\Margot\\AndroidStudioProject\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
                     "position": {
                         "startLine": 39,
                         "startColumn": 4,
@@ -189,15 +189,15 @@
             },
             {
                 "to": {
-                    "startLine": 43,
+                    "startLine": 48,
                     "startColumn": 4,
-                    "startOffset": 2946,
-                    "endLine": 47,
+                    "startOffset": 3275,
+                    "endLine": 52,
                     "endColumn": 12,
-                    "endOffset": 3349
+                    "endOffset": 3678
                 },
                 "from": {
-                    "file": "C:\\Users\\Margot\\AndroidStudioProject\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
+                    "file": "/Users/Margot/AndroidStudioProject/ErgasiaGit/C:\\Users\\Margot\\AndroidStudioProject\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
                     "position": {
                         "startLine": 40,
                         "startColumn": 4,
@@ -210,15 +210,15 @@
             },
             {
                 "to": {
-                    "startLine": 48,
+                    "startLine": 53,
                     "startColumn": 4,
-                    "startOffset": 3354,
-                    "endLine": 52,
+                    "startOffset": 3683,
+                    "endLine": 57,
                     "endColumn": 12,
-                    "endOffset": 3769
+                    "endOffset": 4098
                 },
                 "from": {
-                    "file": "C:\\Users\\Margot\\AndroidStudioProject\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
+                    "file": "/Users/Margot/AndroidStudioProject/ErgasiaGit/C:\\Users\\Margot\\AndroidStudioProject\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
                     "position": {
                         "startLine": 45,
                         "startColumn": 4,
@@ -231,15 +231,15 @@
             },
             {
                 "to": {
-                    "startLine": 53,
+                    "startLine": 58,
                     "startColumn": 4,
-                    "startOffset": 3774,
-                    "endLine": 54,
+                    "startOffset": 4103,
+                    "endLine": 59,
                     "endColumn": 12,
-                    "endOffset": 3876
+                    "endOffset": 4205
                 },
                 "from": {
-                    "file": "C:\\Users\\Margot\\AndroidStudioProject\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
+                    "file": "/Users/Margot/AndroidStudioProject/ErgasiaGit/C:\\Users\\Margot\\AndroidStudioProject\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
                     "position": {
                         "startLine": 50,
                         "startColumn": 4,
@@ -252,15 +252,15 @@
             },
             {
                 "to": {
-                    "startLine": 55,
+                    "startLine": 60,
                     "startColumn": 4,
-                    "startOffset": 3881,
-                    "endLine": 56,
+                    "startOffset": 4210,
+                    "endLine": 61,
                     "endColumn": 12,
-                    "endOffset": 4005
+                    "endOffset": 4334
                 },
                 "from": {
-                    "file": "C:\\Users\\Margot\\AndroidStudioProject\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
+                    "file": "/Users/Margot/AndroidStudioProject/ErgasiaGit/C:\\Users\\Margot\\AndroidStudioProject\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
                     "position": {
                         "startLine": 52,
                         "startColumn": 4,
@@ -273,14 +273,14 @@
             },
             {
                 "to": {
-                    "startLine": 57,
+                    "startLine": 62,
                     "startColumn": 4,
-                    "startOffset": 4010,
+                    "startOffset": 4339,
                     "endColumn": 70,
-                    "endOffset": 4076
+                    "endOffset": 4405
                 },
                 "from": {
-                    "file": "C:\\Users\\Margot\\AndroidStudioProject\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
+                    "file": "/Users/Margot/AndroidStudioProject/ErgasiaGit/C:\\Users\\Margot\\AndroidStudioProject\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
                     "position": {
                         "startLine": 54,
                         "startColumn": 4,
@@ -292,14 +292,14 @@
             },
             {
                 "to": {
-                    "startLine": 58,
+                    "startLine": 63,
                     "startColumn": 4,
-                    "startOffset": 4081,
+                    "startOffset": 4410,
                     "endColumn": 82,
-                    "endOffset": 4159
+                    "endOffset": 4488
                 },
                 "from": {
-                    "file": "C:\\Users\\Margot\\AndroidStudioProject\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
+                    "file": "/Users/Margot/AndroidStudioProject/ErgasiaGit/C:\\Users\\Margot\\AndroidStudioProject\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
                     "position": {
                         "startLine": 55,
                         "startColumn": 4,
@@ -311,15 +311,15 @@
             },
             {
                 "to": {
-                    "startLine": 59,
+                    "startLine": 64,
                     "startColumn": 4,
-                    "startOffset": 4164,
-                    "endLine": 109,
+                    "startOffset": 4493,
+                    "endLine": 114,
                     "endColumn": 12,
-                    "endOffset": 7867
+                    "endOffset": 8196
                 },
                 "from": {
-                    "file": "C:\\Users\\Margot\\AndroidStudioProject\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
+                    "file": "/Users/Margot/AndroidStudioProject/ErgasiaGit/C:\\Users\\Margot\\AndroidStudioProject\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
                     "position": {
                         "startLine": 56,
                         "startColumn": 4,
@@ -332,15 +332,15 @@
             },
             {
                 "to": {
-                    "startLine": 110,
+                    "startLine": 115,
                     "startColumn": 4,
-                    "startOffset": 7872,
-                    "endLine": 161,
+                    "startOffset": 8201,
+                    "endLine": 166,
                     "endColumn": 12,
-                    "endOffset": 11715
+                    "endOffset": 12044
                 },
                 "from": {
-                    "file": "C:\\Users\\Margot\\AndroidStudioProject\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
+                    "file": "/Users/Margot/AndroidStudioProject/ErgasiaGit/C:\\Users\\Margot\\AndroidStudioProject\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
                     "position": {
                         "startLine": 107,
                         "startColumn": 4,
@@ -353,14 +353,14 @@
             },
             {
                 "to": {
-                    "startLine": 162,
+                    "startLine": 167,
                     "startColumn": 4,
-                    "startOffset": 11720,
+                    "startOffset": 12049,
                     "endColumn": 90,
-                    "endOffset": 11806
+                    "endOffset": 12135
                 },
                 "from": {
-                    "file": "C:\\Users\\Margot\\AndroidStudioProject\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
+                    "file": "/Users/Margot/AndroidStudioProject/ErgasiaGit/C:\\Users\\Margot\\AndroidStudioProject\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
                     "position": {
                         "startLine": 159,
                         "startColumn": 4,
@@ -373,7 +373,380 @@
         ]
     },
     {
-        "outputFile": "C:\\Users\\hp\\AndroidStudioProjects\\ErgasiaGit\\app\\build\\intermediates\\res\\merged\\debug\\values-v11\\values-v11.xml",
+        "outputFile": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/res/merged/debug/values-v11/values-v11.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endLine": 9,
+                    "endColumn": 12,
+                    "endOffset": 530
+                },
+                "from": {
+                    "file": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/src/main/res/values-v11/styles.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 177,
+                        "endLine": 13,
+                        "endColumn": 12,
+                        "endOffset": 652
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 10,
+                    "startColumn": 4,
+                    "startOffset": 535,
+                    "endLine": 15,
+                    "endColumn": 12,
+                    "endOffset": 949
+                },
+                "from": {
+                    "file": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/values-v11/values-v11.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endLine": 7,
+                        "endColumn": 12,
+                        "endOffset": 469
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 16,
+                    "startColumn": 4,
+                    "startOffset": 954,
+                    "endLine": 21,
+                    "endColumn": 12,
+                    "endOffset": 1374
+                },
+                "from": {
+                    "file": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/values-v11/values-v11.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 4,
+                        "startOffset": 474,
+                        "endLine": 13,
+                        "endColumn": 12,
+                        "endOffset": 894
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 22,
+                    "startColumn": 4,
+                    "startOffset": 1379,
+                    "endLine": 27,
+                    "endColumn": 12,
+                    "endOffset": 1802
+                },
+                "from": {
+                    "file": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/values-v11/values-v11.xml",
+                    "position": {
+                        "startLine": 14,
+                        "startColumn": 4,
+                        "startOffset": 899,
+                        "endLine": 19,
+                        "endColumn": 12,
+                        "endOffset": 1322
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 28,
+                    "startColumn": 4,
+                    "startOffset": 1807,
+                    "endLine": 33,
+                    "endColumn": 12,
+                    "endOffset": 2228
+                },
+                "from": {
+                    "file": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/values-v11/values-v11.xml",
+                    "position": {
+                        "startLine": 20,
+                        "startColumn": 4,
+                        "startOffset": 1327,
+                        "endLine": 25,
+                        "endColumn": 12,
+                        "endOffset": 1748
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 34,
+                    "startColumn": 4,
+                    "startOffset": 2233,
+                    "endLine": 39,
+                    "endColumn": 12,
+                    "endOffset": 2655
+                },
+                "from": {
+                    "file": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/values-v11/values-v11.xml",
+                    "position": {
+                        "startLine": 26,
+                        "startColumn": 4,
+                        "startOffset": 1753,
+                        "endLine": 31,
+                        "endColumn": 12,
+                        "endOffset": 2175
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 40,
+                    "startColumn": 4,
+                    "startOffset": 2660,
+                    "endLine": 45,
+                    "endColumn": 12,
+                    "endOffset": 3080
+                },
+                "from": {
+                    "file": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/values-v11/values-v11.xml",
+                    "position": {
+                        "startLine": 32,
+                        "startColumn": 4,
+                        "startOffset": 2180,
+                        "endLine": 37,
+                        "endColumn": 12,
+                        "endOffset": 2600
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 46,
+                    "startColumn": 4,
+                    "startOffset": 3085,
+                    "endColumn": 88,
+                    "endOffset": 3169
+                },
+                "from": {
+                    "file": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/values-v11/values-v11.xml",
+                    "position": {
+                        "startLine": 38,
+                        "startColumn": 4,
+                        "startOffset": 2605,
+                        "endColumn": 88,
+                        "endOffset": 2689
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 47,
+                    "startColumn": 4,
+                    "startOffset": 3174,
+                    "endColumn": 100,
+                    "endOffset": 3270
+                },
+                "from": {
+                    "file": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/values-v11/values-v11.xml",
+                    "position": {
+                        "startLine": 39,
+                        "startColumn": 4,
+                        "startOffset": 2694,
+                        "endColumn": 100,
+                        "endOffset": 2790
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 48,
+                    "startColumn": 4,
+                    "startOffset": 3275,
+                    "endLine": 52,
+                    "endColumn": 12,
+                    "endOffset": 3678
+                },
+                "from": {
+                    "file": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/values-v11/values-v11.xml",
+                    "position": {
+                        "startLine": 40,
+                        "startColumn": 4,
+                        "startOffset": 2795,
+                        "endLine": 44,
+                        "endColumn": 12,
+                        "endOffset": 3198
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 53,
+                    "startColumn": 4,
+                    "startOffset": 3683,
+                    "endLine": 57,
+                    "endColumn": 12,
+                    "endOffset": 4098
+                },
+                "from": {
+                    "file": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/values-v11/values-v11.xml",
+                    "position": {
+                        "startLine": 45,
+                        "startColumn": 4,
+                        "startOffset": 3203,
+                        "endLine": 49,
+                        "endColumn": 12,
+                        "endOffset": 3618
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 58,
+                    "startColumn": 4,
+                    "startOffset": 4103,
+                    "endLine": 59,
+                    "endColumn": 12,
+                    "endOffset": 4205
+                },
+                "from": {
+                    "file": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/values-v11/values-v11.xml",
+                    "position": {
+                        "startLine": 50,
+                        "startColumn": 4,
+                        "startOffset": 3623,
+                        "endLine": 51,
+                        "endColumn": 12,
+                        "endOffset": 3725
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 60,
+                    "startColumn": 4,
+                    "startOffset": 4210,
+                    "endLine": 61,
+                    "endColumn": 12,
+                    "endOffset": 4334
+                },
+                "from": {
+                    "file": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/values-v11/values-v11.xml",
+                    "position": {
+                        "startLine": 52,
+                        "startColumn": 4,
+                        "startOffset": 3730,
+                        "endLine": 53,
+                        "endColumn": 12,
+                        "endOffset": 3854
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 62,
+                    "startColumn": 4,
+                    "startOffset": 4339,
+                    "endColumn": 70,
+                    "endOffset": 4405
+                },
+                "from": {
+                    "file": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/values-v11/values-v11.xml",
+                    "position": {
+                        "startLine": 54,
+                        "startColumn": 4,
+                        "startOffset": 3859,
+                        "endColumn": 70,
+                        "endOffset": 3925
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 63,
+                    "startColumn": 4,
+                    "startOffset": 4410,
+                    "endColumn": 82,
+                    "endOffset": 4488
+                },
+                "from": {
+                    "file": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/values-v11/values-v11.xml",
+                    "position": {
+                        "startLine": 55,
+                        "startColumn": 4,
+                        "startOffset": 3930,
+                        "endColumn": 82,
+                        "endOffset": 4008
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 64,
+                    "startColumn": 4,
+                    "startOffset": 4493,
+                    "endLine": 114,
+                    "endColumn": 12,
+                    "endOffset": 8196
+                },
+                "from": {
+                    "file": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/values-v11/values-v11.xml",
+                    "position": {
+                        "startLine": 56,
+                        "startColumn": 4,
+                        "startOffset": 4013,
+                        "endLine": 106,
+                        "endColumn": 12,
+                        "endOffset": 7716
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 115,
+                    "startColumn": 4,
+                    "startOffset": 8201,
+                    "endLine": 166,
+                    "endColumn": 12,
+                    "endOffset": 12044
+                },
+                "from": {
+                    "file": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/values-v11/values-v11.xml",
+                    "position": {
+                        "startLine": 107,
+                        "startColumn": 4,
+                        "startOffset": 7721,
+                        "endLine": 158,
+                        "endColumn": 12,
+                        "endOffset": 11564
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 167,
+                    "startColumn": 4,
+                    "startOffset": 12049,
+                    "endColumn": 90,
+                    "endOffset": 12135
+                },
+                "from": {
+                    "file": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/values-v11/values-v11.xml",
+                    "position": {
+                        "startLine": 159,
+                        "startColumn": 4,
+                        "startOffset": 11569,
+                        "endColumn": 90,
+                        "endOffset": 11655
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "outputFile": "/Users/Margot/AndroidStudioProject/ErgasiaGit/C:\\Users\\hp\\AndroidStudioProjects\\ErgasiaGit\\app\\build\\intermediates\\res\\merged\\debug\\values-v11\\values-v11.xml",
         "map": [
             {
                 "to": {
@@ -385,7 +758,7 @@
                     "endOffset": 201
                 },
                 "from": {
-                    "file": "C:\\Users\\hp\\AndroidStudioProjects\\ErgasiaGit\\app\\src\\main\\res\\values-v11\\styles.xml",
+                    "file": "/Users/Margot/AndroidStudioProject/ErgasiaGit/C:\\Users\\hp\\AndroidStudioProjects\\ErgasiaGit\\app\\src\\main\\res\\values-v11\\styles.xml",
                     "position": {
                         "startLine": 6,
                         "startColumn": 4,
@@ -406,7 +779,7 @@
                     "endOffset": 620
                 },
                 "from": {
-                    "file": "C:\\Users\\hp\\AndroidStudioProjects\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
+                    "file": "/Users/Margot/AndroidStudioProject/ErgasiaGit/C:\\Users\\hp\\AndroidStudioProjects\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -427,7 +800,7 @@
                     "endOffset": 1045
                 },
                 "from": {
-                    "file": "C:\\Users\\hp\\AndroidStudioProjects\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
+                    "file": "/Users/Margot/AndroidStudioProject/ErgasiaGit/C:\\Users\\hp\\AndroidStudioProjects\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
                     "position": {
                         "startLine": 8,
                         "startColumn": 4,
@@ -448,7 +821,7 @@
                     "endOffset": 1473
                 },
                 "from": {
-                    "file": "C:\\Users\\hp\\AndroidStudioProjects\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
+                    "file": "/Users/Margot/AndroidStudioProject/ErgasiaGit/C:\\Users\\hp\\AndroidStudioProjects\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
                     "position": {
                         "startLine": 14,
                         "startColumn": 4,
@@ -469,7 +842,7 @@
                     "endOffset": 1899
                 },
                 "from": {
-                    "file": "C:\\Users\\hp\\AndroidStudioProjects\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
+                    "file": "/Users/Margot/AndroidStudioProject/ErgasiaGit/C:\\Users\\hp\\AndroidStudioProjects\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
                     "position": {
                         "startLine": 20,
                         "startColumn": 4,
@@ -490,7 +863,7 @@
                     "endOffset": 2326
                 },
                 "from": {
-                    "file": "C:\\Users\\hp\\AndroidStudioProjects\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
+                    "file": "/Users/Margot/AndroidStudioProject/ErgasiaGit/C:\\Users\\hp\\AndroidStudioProjects\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
                     "position": {
                         "startLine": 26,
                         "startColumn": 4,
@@ -511,7 +884,7 @@
                     "endOffset": 2751
                 },
                 "from": {
-                    "file": "C:\\Users\\hp\\AndroidStudioProjects\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
+                    "file": "/Users/Margot/AndroidStudioProject/ErgasiaGit/C:\\Users\\hp\\AndroidStudioProjects\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
                     "position": {
                         "startLine": 32,
                         "startColumn": 4,
@@ -531,7 +904,7 @@
                     "endOffset": 2840
                 },
                 "from": {
-                    "file": "C:\\Users\\hp\\AndroidStudioProjects\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
+                    "file": "/Users/Margot/AndroidStudioProject/ErgasiaGit/C:\\Users\\hp\\AndroidStudioProjects\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
                     "position": {
                         "startLine": 38,
                         "startColumn": 4,
@@ -550,7 +923,7 @@
                     "endOffset": 2941
                 },
                 "from": {
-                    "file": "C:\\Users\\hp\\AndroidStudioProjects\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
+                    "file": "/Users/Margot/AndroidStudioProject/ErgasiaGit/C:\\Users\\hp\\AndroidStudioProjects\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
                     "position": {
                         "startLine": 39,
                         "startColumn": 4,
@@ -570,7 +943,7 @@
                     "endOffset": 3349
                 },
                 "from": {
-                    "file": "C:\\Users\\hp\\AndroidStudioProjects\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
+                    "file": "/Users/Margot/AndroidStudioProject/ErgasiaGit/C:\\Users\\hp\\AndroidStudioProjects\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
                     "position": {
                         "startLine": 40,
                         "startColumn": 4,
@@ -591,7 +964,7 @@
                     "endOffset": 3769
                 },
                 "from": {
-                    "file": "C:\\Users\\hp\\AndroidStudioProjects\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
+                    "file": "/Users/Margot/AndroidStudioProject/ErgasiaGit/C:\\Users\\hp\\AndroidStudioProjects\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
                     "position": {
                         "startLine": 45,
                         "startColumn": 4,
@@ -612,7 +985,7 @@
                     "endOffset": 3876
                 },
                 "from": {
-                    "file": "C:\\Users\\hp\\AndroidStudioProjects\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
+                    "file": "/Users/Margot/AndroidStudioProject/ErgasiaGit/C:\\Users\\hp\\AndroidStudioProjects\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
                     "position": {
                         "startLine": 50,
                         "startColumn": 4,
@@ -633,7 +1006,7 @@
                     "endOffset": 4005
                 },
                 "from": {
-                    "file": "C:\\Users\\hp\\AndroidStudioProjects\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
+                    "file": "/Users/Margot/AndroidStudioProject/ErgasiaGit/C:\\Users\\hp\\AndroidStudioProjects\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
                     "position": {
                         "startLine": 52,
                         "startColumn": 4,
@@ -653,7 +1026,7 @@
                     "endOffset": 4076
                 },
                 "from": {
-                    "file": "C:\\Users\\hp\\AndroidStudioProjects\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
+                    "file": "/Users/Margot/AndroidStudioProject/ErgasiaGit/C:\\Users\\hp\\AndroidStudioProjects\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
                     "position": {
                         "startLine": 54,
                         "startColumn": 4,
@@ -672,7 +1045,7 @@
                     "endOffset": 4159
                 },
                 "from": {
-                    "file": "C:\\Users\\hp\\AndroidStudioProjects\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
+                    "file": "/Users/Margot/AndroidStudioProject/ErgasiaGit/C:\\Users\\hp\\AndroidStudioProjects\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
                     "position": {
                         "startLine": 55,
                         "startColumn": 4,
@@ -692,7 +1065,7 @@
                     "endOffset": 7867
                 },
                 "from": {
-                    "file": "C:\\Users\\hp\\AndroidStudioProjects\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
+                    "file": "/Users/Margot/AndroidStudioProject/ErgasiaGit/C:\\Users\\hp\\AndroidStudioProjects\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
                     "position": {
                         "startLine": 56,
                         "startColumn": 4,
@@ -713,7 +1086,7 @@
                     "endOffset": 11715
                 },
                 "from": {
-                    "file": "C:\\Users\\hp\\AndroidStudioProjects\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
+                    "file": "/Users/Margot/AndroidStudioProject/ErgasiaGit/C:\\Users\\hp\\AndroidStudioProjects\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
                     "position": {
                         "startLine": 107,
                         "startColumn": 4,
@@ -733,7 +1106,7 @@
                     "endOffset": 11806
                 },
                 "from": {
-                    "file": "C:\\Users\\hp\\AndroidStudioProjects\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
+                    "file": "/Users/Margot/AndroidStudioProject/ErgasiaGit/C:\\Users\\hp\\AndroidStudioProjects\\ErgasiaGit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\values-v11\\values-v11.xml",
                     "position": {
                         "startLine": 159,
                         "startColumn": 4,
