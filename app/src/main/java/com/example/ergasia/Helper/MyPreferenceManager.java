@@ -21,7 +21,7 @@ public class MyPreferenceManager {
     //Shared pref mode
     int PRIVATE_MODE = 0;
 
-    private static final String PREF_NAME = "Ergasia";
+    private static final String PREF_NAME = "MessagePref";
 
     private static final String KEY_USER_EMAIL = "user_email";
     private static final String KEY_USER_ID = "user_id";
