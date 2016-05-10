@@ -46,7 +46,7 @@ import java.util.Map;
  */
 public class LoginActivity extends Activity {
 
-    private static final String TAG = Inscription_activity.class.getSimpleName();//Tag to identify the request
+    private static final String TAG = LoginActivity.class.getSimpleName();//Tag to identify the request
     private Button btnLogin;
     private Button createAccountButton;
 
@@ -56,6 +56,7 @@ public class LoginActivity extends Activity {
     //private UserLoginTask mAuthTask = null;
     private EditText inputEmail;
     private EditText inputPassword;
+    private TextInputLayout inputLayoutEmail;
     private ProgressDialog pDialog;
     private SessionManager session;
     private SQLiteHandler db;
@@ -79,6 +80,7 @@ public class LoginActivity extends Activity {
         textView5.setPaintFlags(textView5.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
         // intialisation of the different inputs and buttons
+        inputLayoutEmail = (TextInputLayout) findViewById(R.id.input_layout_email);
         inputEmail = (EditText) findViewById(R.id.email);
         inputPassword = (EditText) findViewById(R.id.password);
         btnLogin = (Button) findViewById(R.id.email_sign_in_button);
@@ -94,6 +96,7 @@ public class LoginActivity extends Activity {
         // Session manager
         session = new SessionManager(getApplicationContext());
 
+        inputEmail.addTextChangedListener(new MyTextWatcher(inputEmail));
         addListenerOnButton();
     }
 
@@ -136,6 +139,12 @@ public class LoginActivity extends Activity {
 
     private void checkLoginCandidate(final String email, final String password) {
         //Tag used to cancel the request
+
+        if (!validateEmail()){
+            return;
+        }
+        final String valEmail = inputEmail.getText().toString();
+
         String tag_string_req = "req_login";
 
         pDialog.setMessage("Connection en cours ... ");
@@ -160,6 +169,10 @@ public class LoginActivity extends Activity {
                         //Now store the user in SQLite
                         JSONObject userObj = obj.getJSONObject("user");
                         User user = new User(userObj.getString("user_id"), userObj.getString("name"), userObj.getString("email"));
+
+                        //Storing user in shared preferences
+                        AppController.getInstance().getPrefManager().storeUser(user);
+
                         String uidUser = userObj.getString("uidUser");
                         String nameUser = userObj.getString("name");
                         String firstnameUser = userObj.getString("firstname");
@@ -190,8 +203,7 @@ public class LoginActivity extends Activity {
                                 language1, levelLanguage1, language2, levelLanguage2, language3, levelLanguage3,
                                 skill, geolocation, uidCandidate, created_at_candidate);
 
-                        //Storing user in shared preferences
-                        AppController.getInstance().getPrefManager().storeUser(user);
+
 
                         //Launch main activity
 
@@ -372,6 +384,55 @@ public class LoginActivity extends Activity {
             Toast.makeText(getApplicationContext(), "Veuillez saisir tous les champs!", Toast.LENGTH_LONG).show();
         }
 
+    }
+
+    private void requestFocus(View view) {
+        if (view.requestFocus()) {
+            getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+        }
+    }
+
+
+    // Validating email
+    private boolean validateEmail() {
+        String email = inputEmail.getText().toString().trim();
+
+        if (email.isEmpty() || !isValidEmail(email)) {
+            inputLayoutEmail.setError(getString(R.string.err_msg_email));
+            requestFocus(inputEmail);
+            return false;
+        } else {
+            inputLayoutEmail.setErrorEnabled(false);
+        }
+
+        return true;
+    }
+
+    private static boolean isValidEmail(String email) {
+        return !TextUtils.isEmpty(email) && android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
+    }
+
+    private class MyTextWatcher implements TextWatcher {
+
+        private View view;
+        private MyTextWatcher(View view) {
+            this.view = view;
+        }
+
+        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+        }
+
+        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+        }
+
+        public void afterTextChanged(Editable editable) {
+            switch (view.getId()) {
+
+                case R.id.email:
+                    validateEmail();
+                    break;
+            }
+        }
     }
 
 

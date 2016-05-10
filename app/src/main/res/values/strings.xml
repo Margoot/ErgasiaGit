@@ -67,6 +67,7 @@
     <string name="title_activity_view_offer_activity">Votre offre</string>
 
     <string name="finish_modification">Terminé !</string>
+    <string name="err_msg_email">Enter valid email address</string>
 
     <string-array name="training_array">
         <item>Séléctionner une formation</item>
@@ -81,5 +82,6 @@
         <item>DUT</item>
         <item>BTS</item>
     </string-array>
+    <string name="title_activity_chat_room">ChatRoomActivity</string>
 
 </resources>

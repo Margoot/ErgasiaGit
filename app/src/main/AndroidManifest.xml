@@ -136,6 +136,9 @@
             android:label="@string/title_activity_view_offer_activity"
             android:windowSoftInputMode="adjustPan">
         </activity>
+        <activity android:name=".Activity.ChatRoomActivity"
+                  android:windowSoftInputMode="adjustPan">
+            </activity>
 
         <receiver
             android:name="com.google.android.gms.gcm.GcmReceiver"

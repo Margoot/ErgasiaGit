@@ -29,6 +29,7 @@ import android.widget.Toast;
 import com.example.ergasia.Helper.SQLiteHandler;
 import com.example.ergasia.R;
 import com.example.ergasia.Helper.SessionManager;
+import com.example.ergasia.app.AppController;
 import com.example.ergasia.app.MessageConfig;
 import com.example.ergasia.gcm.GcmIntentService;
 import com.google.android.gms.common.ConnectionResult;
@@ -158,6 +159,7 @@ public class MainTabbedActivityPost extends AppCompatActivity {
 
                         db.deleteUsers();
                         db.deleteCandidates();
+                        AppController.getInstance().getPrefManager().clear();
 
                         //Starting login activity
                         Intent intent = new Intent(MainTabbedActivityPost.this, Post_rec_activity.class);

@@ -56,8 +56,6 @@ public class GcmIntentService extends IntentService {
                 subscribeToTopic(topic);
                 break;
             case UNSUBSCRIBE:
-                String topic1 = intent.getStringExtra(TOPIC);
-                unsubscribeFromTopic(topic1);
                 break;
             default:
                 // if key is not specified, register with GCM
@@ -70,11 +68,11 @@ public class GcmIntentService extends IntentService {
      */
     private void registerGCM() {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        String token = null;
+
 
         try {
             InstanceID instanceID = InstanceID.getInstance(this);
-            token = instanceID.getToken(getString(R.string.gcm_defaultSenderId), GoogleCloudMessaging.INSTANCE_ID_SCOPE, null);
+            String token = instanceID.getToken(getString(R.string.gcm_defaultSenderId), GoogleCloudMessaging.INSTANCE_ID_SCOPE, null);
 
             Log.e(TAG, "GCM Registration Token: " + token);
 
@@ -89,7 +87,6 @@ public class GcmIntentService extends IntentService {
         }
         //Notify UI that registration has completed, so the progress indicator can be hidden.
         Intent registrationComplete = new Intent(MessageConfig.REGISTRATION_COMPLETE);
-        registrationComplete.putExtra("token", token);
         LocalBroadcastManager.getInstance(this).sendBroadcast(registrationComplete);
     }
 
@@ -113,12 +110,14 @@ public class GcmIntentService extends IntentService {
             @Override
             public void onResponse(String response) {
                 Log.e(TAG, "response: " + response);
+                Log.e(TAG, "in response function");
 
                 try {
                     JSONObject obj = new JSONObject(response);
+                    Log.e(TAG, "getting response");
 
                     //check for error
-                    if (obj.getBoolean("error") == false) {
+                    if (!obj.getBoolean("error")) {
                         // broadcasting token to server
                         Intent registrationComplete = new Intent(MessageConfig.SENT_TOKEN_TO_SERVER);
                         LocalBroadcastManager.getInstance(getApplicationContext()).sendBroadcast(registrationComplete);
@@ -158,11 +157,11 @@ public class GcmIntentService extends IntentService {
      * Subscribe to topic
      */
     public void subscribeToTopic(String topic) {
-        GcmPubSub pubSub = GcmPubSub.getInstance(getApplicationContext());
-        InstanceID instanceID = InstanceID.getInstance(getApplicationContext());
+        GcmPubSub pubSub = GcmPubSub.getInstance(AppController.getInstance().getApplicationContext());
+        InstanceID instanceID = InstanceID.getInstance(AppController.getInstance().getApplicationContext());
         String token = null;
         try {
-            token = instanceID.getToken(getString(R.string.gcm_defaultSenderId), GoogleCloudMessaging.INSTANCE_ID_SCOPE, null);
+            token = instanceID.getToken(AppController.getInstance().getString(R.string.gcm_defaultSenderId), GoogleCloudMessaging.INSTANCE_ID_SCOPE, null);
             if (token != null) {
                 pubSub.subscribe(token, "/topics/" + topic, null);
                 Log.e(TAG, "Subscribed to topic: " + topic);

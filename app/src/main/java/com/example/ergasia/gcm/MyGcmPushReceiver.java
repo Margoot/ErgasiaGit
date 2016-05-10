@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.example.ergasia.Activity.ChatRoomActivity;
 import com.example.ergasia.Activity.MainTabbedActivityPost;
 import com.example.ergasia.Activity.MessageFragmentPost;
 import com.example.ergasia.app.AppController;
@@ -44,20 +45,20 @@ public class MyGcmPushReceiver extends GcmListenerService {
         Boolean isBackground = Boolean.valueOf(bundle.getString("is_background"));
         String flag = bundle.getString("flag");
         String data = bundle.getString("data");
-        Log.e(TAG, "From: " + from);
-        Log.e(TAG, "Title: " + title);
-        Log.e(TAG, "isBackground: " + isBackground);
-        Log.e(TAG, "flag " + flag);
-        Log.e(TAG, "data: " + data);
+        Log.d(TAG, "From: " + from);
+        Log.d(TAG, "Title: " + title);
+        Log.d(TAG, "isBackground: " + isBackground);
+        Log.d(TAG, "flag " + flag);
+        Log.d(TAG, "data: " + data);
 
         if (flag == null)
             return;
 
-       /* if (AppController.getInstance().getPrefManager().getUser() == null) {
+       if (AppController.getInstance().getPrefManager().getUser() == null) {
             //user is not logged in, skipping push notification
             Log.e(TAG, "user is not logged in, skipping push notification");
             return;
-        }*/
+        }
 
         if (from.startsWith("/topics/")) {
             //message received from some topic
@@ -126,9 +127,9 @@ public class MyGcmPushReceiver extends GcmListenerService {
                     notificationUtils.playNotificationSound();
                 } else {
                     //app is in background. show the message notification try
-                    /*Intent resultIntent = new Intent(getApplicationContext(), ChatRoomActivity.class);
-                    resultIntent.putExtra("chat_room_id", chatRoomId);
-                    showNotificationMessage(getApplicationContext(), title, user.getName() + " : " + message.getMessage(), message.getCreatedAt(), resultIntent);*/
+                    Intent resultIntent = new Intent(getApplicationContext(), ChatRoomActivity.class);
+                    resultIntent.putExtra("chat_rooms_id", chatRoomId);
+                    showNotificationMessage(getApplicationContext(), title, user.getName() + " : " + message.getMessage(), message.getCreatedAt(), resultIntent);
 
                 }
             } catch (JSONException e) {
@@ -147,6 +148,7 @@ public class MyGcmPushReceiver extends GcmListenerService {
      */
     private void processUserMessage(String title, boolean isBackground, String data) {
         if (!isBackground) {
+
             try {
                 JSONObject datObj = new JSONObject(data);
 
@@ -155,7 +157,8 @@ public class MyGcmPushReceiver extends GcmListenerService {
                 JSONObject mObj = datObj.getJSONObject("message");
                 Message message = new Message();
                 message.setMessage(mObj.getString("message"));
-                message.setId(mObj.getString("created_at"));
+                message.setId(mObj.getString("message_id"));
+                message.setCreatedAt(mObj.getString("created_at"));
 
                 JSONObject uObj = datObj.getJSONObject("user");
                 User user = new User();
@@ -183,7 +186,7 @@ public class MyGcmPushReceiver extends GcmListenerService {
 
                     //check for push notification image attachment
                     if (TextUtils.isEmpty(imageUrl)) {
-                        showNotificationMessage(getApplicationContext(), title, message.getMessage(), message.getCreatedAt(), resultIntent);
+                        showNotificationMessage(getApplicationContext(), title, user.getName() + " : " + message.getMessage(), message.getCreatedAt(), resultIntent);
                     } else {
                         //push notification contains image
                         // show it with the image

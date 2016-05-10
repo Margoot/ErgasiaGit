@@ -341,6 +341,8 @@ public class New_offer_activity extends AppCompatActivity {
                         editor.commit();
                         db.deleteUsers();
                         db.deleteOffers();
+                        AppController.getInstance().getPrefManager().clear();
+
 
                         //Starting login activity
                         Intent intent = new Intent(New_offer_activity.this, Post_rec_activity.class);

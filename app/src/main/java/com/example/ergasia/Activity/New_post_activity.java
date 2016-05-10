@@ -447,6 +447,7 @@ public class New_post_activity extends AppCompatActivity
                         editor.commit();
                         db.deleteUsers();
                         db.deleteCandidates();
+                        AppController.getInstance().getPrefManager().clear();
 
                         //Starting login activity
                         Intent intent = new Intent(New_post_activity.this, Post_rec_activity.class);

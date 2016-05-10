@@ -32,7 +32,7 @@ public class ChatRoomsAdapter extends RecyclerView.Adapter<ChatRoomsAdapter.View
 
         public ViewHolder(View view) {
             super(view);
-            name = (TextView) view.findViewById((R.id.name));
+            name = (TextView) view.findViewById(R.id.name);
             message = (TextView) view.findViewById(R.id.message);
             timestamp = (TextView) view.findViewById(R.id.timestamp);
             count = (TextView) view.findViewById(R.id.count);

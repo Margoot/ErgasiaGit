@@ -21,6 +21,7 @@ import android.view.MenuItem;
 import com.example.ergasia.Helper.SQLiteHandler;
 import com.example.ergasia.R;
 import com.example.ergasia.Helper.SessionManager;
+import com.example.ergasia.app.AppController;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -125,6 +126,7 @@ public class MainTabbedActivityRec extends AppCompatActivity  {
                         //db.deleteOffers();
                         db.deleteUsers();
                         db.deleteOffers();
+                        AppController.getInstance().getPrefManager().clear();
 
                         //Saving the sharedpreferences
                         editor.commit();

@@ -2,6 +2,7 @@ package com.example.ergasia.Helper;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
 
 import com.example.ergasia.model.User;
 
@@ -39,6 +40,8 @@ public class MyPreferenceManager {
         editor.putString(KEY_USER_NAME, user.getName());
         editor.putString(KEY_USER_EMAIL, user.getEmail());
         editor.commit();
+
+        Log.e(TAG, "user is sored in shared preferences." + user.getName() + ", " + user.getEmail());
     }
 
     public User getUser() {

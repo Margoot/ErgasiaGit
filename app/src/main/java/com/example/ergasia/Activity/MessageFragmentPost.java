@@ -69,6 +69,14 @@ public class MessageFragmentPost extends Fragment {
     }
 
     @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        //getActivity().setContentView(R.layout.fragment_message_post);
+
+
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_message_post, container, false);
@@ -123,11 +131,12 @@ public class MessageFragmentPost extends Fragment {
             @Override
             public void onClick(View view, int position) {
                 // when chat is clicked, launch full chat thread activity
-                /*ChatRoom chatRoom = chatRoomArrayList.get(position);
-                Intent intent = new Intent(MessageFragmentPost.this, ChatRoomActivity.class);
+                ChatRoom chatRoom = chatRoomArrayList.get(position);
+                Intent intent = new Intent(getActivity()
+                        , ChatRoomActivity.class);
                 intent.putExtra("chat_rooms_id", chatRoom.getId());
                 intent.putExtra("name", chatRoom.getName());
-                startActivity(intent);*/
+                startActivity(intent);
             }
 
             @Override
