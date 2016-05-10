@@ -20,6 +20,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     private static final String TAG = SQLiteHandler.class.getSimpleName();
     private String emailLogged;
     private String uidCandidatePrivate;
+    private String uidRecruiterPrivate;
 
 
     //All Static variables
@@ -253,12 +254,9 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         //Inserting Row
         long id = db.insert(TABLE_NEW_CANDIDATE, null, values);
         db.close(); //Closing database connection
-        ;
-        System.out.println("uidCandidate : " + uidCandidate);
 
         Log.d(TAG, "New candidate inserted into sqlite; " + id);
         uidCandidatePrivate = uidCandidate;
-        System.out.println("uidCandidateprivate : " + uidCandidatePrivate);
     }
 
     public String getUidCandidatePrivate() {
@@ -270,7 +268,6 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                                 String language3, String level_language3, String skill, String geolocation) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL("PRAGMA foreign_keys=ON;");
-        System.out.println("getcandidateprivate : " + getUidCandidatePrivate());
 
         ContentValues values = new ContentValues();
 
@@ -358,7 +355,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
      * @param created_at
      */
     public void addOffer(String company, String jobTitle, String areaActivity, String type,
-                         String geolocation, String skill, String uidOffer ,int id_users_fk,String created_at) {
+                         String geolocation, String skill, String uidOffer,String created_at) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL("PRAGMA foreign_keys=ON;");
 
@@ -370,13 +367,39 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         values.put(KEY_GEOLOCATION_RECRUITER, geolocation);
         values.put(KEY_SKILL_RECRUITER, skill);
         values.put(KEY_UID_RECRUITER, uidOffer); //unique id
-        values.put(KEY_ID_USERS_FK_RECRUITER, id_users_fk);
         values.put(KEY_CREATED_AT_RECRUITER, created_at); //created_at
         //Inserting Row
         long id = db.insert(TABLE_NEW_OFFER, null, values);
         db.close(); //Closing database connection
 
+        uidRecruiterPrivate = uidOffer;
         Log.d(TAG, "New offer inserted into sqlite; " + id);
+    }
+
+    public String getUidRecruiterPrivate() {
+        return uidRecruiterPrivate;
+    }
+
+    public void updateRecruiter(String company, String jobTitle, String area_activity, String type,
+                                String geolocation, String skill) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("PRAGMA foreign_keys=ON;");
+
+        ContentValues values = new ContentValues();
+
+        values.put(KEY_COMPANY_RECRUITER, company);
+        values.put(KEY_JOB_TITLE_RECRUITER, jobTitle);
+        values.put(KEY_AREA_ACTIVITY_CANDIDATE, area_activity);
+        values.put(KEY_TYPE_CANDIDATE, type);
+        values.put(KEY_GEOLOCATION_CANDIDATE, geolocation);
+        values.put(KEY_SKILL_CANDIDATE, skill);
+
+        //Inserting Row
+        long id=db.update(TABLE_NEW_OFFER, values, KEY_UID_RECRUITER+ "=" + getUidRecruiterPrivate() , null);
+
+        db.close(); //Closing database connection
+
+        Log.d(TAG, "Candidate updated into sqlite; " + id);
     }
 
     /**

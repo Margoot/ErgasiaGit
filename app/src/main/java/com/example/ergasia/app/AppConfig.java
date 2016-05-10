@@ -24,7 +24,11 @@ public class AppConfig {
 
     //update candidate url
     public static String URL_UPDATE_CANDIDATE = "http://192.168.0.13:8888/task_manager/include/Update_Candidate.php";
-    //public static String URL_NEW_OFFER = "http://90.79.44.238/New_Offer.php";
+    //public static String URL_UPDATE_CANDIDATE = "http://90.79.44.238/Update_Candidate.php";
+
+    //update candidate url
+    public static String URL_UPDATE_RECRUITER = "http://192.168.0.13:8888/task_manager/include/Update_Recruiter.php";
+    //public static String URL_UPDATE_RECRUITER = "http://90.79.44.238/Update_Recruiter.php";
 
 
 }

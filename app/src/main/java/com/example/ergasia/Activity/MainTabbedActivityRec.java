@@ -124,6 +124,7 @@ public class MainTabbedActivityRec extends AppCompatActivity  {
                         editor.putBoolean(session.KEY_IS_LOGGEDIN, false);
                         //db.deleteOffers();
                         db.deleteUsers();
+                        db.deleteOffers();
 
                         //Saving the sharedpreferences
                         editor.commit();
@@ -152,6 +153,8 @@ public class MainTabbedActivityRec extends AppCompatActivity  {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main_tabbed, menu);
+        menu.findItem(R.id.action_modify).setVisible(false);
+        super.onPrepareOptionsMenu(menu);
         return true;
     }
 
@@ -166,6 +169,5 @@ public class MainTabbedActivityRec extends AppCompatActivity  {
         }
         return super.onOptionsItemSelected(item);
     }
-
 
 }

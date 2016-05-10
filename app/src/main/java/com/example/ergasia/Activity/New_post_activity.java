@@ -1,14 +1,25 @@
 package com.example.ergasia.Activity;
 
+import android.annotation.TargetApi;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.graphics.Typeface;
+import android.location.Address;
+import android.location.Criteria;
+import android.location.Geocoder;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.app.Activity;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -17,6 +28,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -31,6 +43,7 @@ import android.widget.Toast;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.example.ergasia.Manifest;
 import com.example.ergasia.app.AppConfig;
 import com.example.ergasia.app.AppController;
 import com.example.ergasia.R;
@@ -40,12 +53,16 @@ import com.example.ergasia.Helper.SessionManager;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import static com.android.volley.Request.Method.POST;
 
-public class New_post_activity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class New_post_activity extends AppCompatActivity
+        implements AdapterView.OnItemSelectedListener,LocationListener {
 
     private static final String TAG = New_post_activity.class.getSimpleName();
     private SessionManager session;
@@ -74,6 +91,16 @@ public class New_post_activity extends AppCompatActivity implements AdapterView.
     private SQLiteHandler db;
     private Toolbar toolbar;
 
+    private EditText addressGeoloc;
+    private LocationManager locationManager;
+    private String provider;
+    private Location location;
+    private boolean LocationAvailable;
+    private static final int PERMISSION_REQUEST_CODE = 1;
+    private final static int DISTANCE_UPDATES = 1;
+    private final static int TIME_UPDATES = 1;
+
+    @TargetApi(Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -194,7 +221,160 @@ public class New_post_activity extends AppCompatActivity implements AdapterView.
         });
 
         addListenerOnButton();
+
+        //géolocation
+
+        addressGeoloc = (AutoCompleteTextView) findViewById(R.id.locationEditText);
+
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        LocationAvailable = false;
+
+        Criteria criteria = new Criteria();
+        provider = locationManager.getBestProvider(criteria, false);
+
+        if(checkPermission())
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, TIME_UPDATES, DISTANCE_UPDATES, this);
+        else
+            requestPermission();
+
+
+
+        if (location != null) {
+            System.out.println("Provider " + provider + " has been selected.");
+            onLocationChanged(location);
+        } else {
+            Toast.makeText(getApplicationContext(), "Localisation impossible "
+                    , Toast.LENGTH_LONG).show();
+        }
+
     }
+
+    //geolocation next
+
+    private boolean checkPermission(){
+        int result = ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION);
+        if (result == PackageManager.PERMISSION_GRANTED){
+            LocationAvailable = true;
+            return true;
+        } else {
+            LocationAvailable = false;
+            return false;
+        }
+    }
+
+    private void requestPermission(){
+        if (ActivityCompat.shouldShowRequestPermissionRationale(this, android.Manifest.permission.ACCESS_FINE_LOCATION)){
+            Toast.makeText(this, "Activez la localisation de votre téléphone afin d'obtenir votre position", Toast.LENGTH_LONG).show();
+        } else {
+            ActivityCompat.requestPermissions(this,new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},PERMISSION_REQUEST_CODE);
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (checkPermission())
+            locationManager.requestLocationUpdates(provider, 400, 1, this);
+        else
+            requestPermission();
+
+    }
+
+
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (checkPermission())
+            locationManager.removeUpdates(this);
+        else
+            requestPermission();
+
+    }
+
+    @Override
+    public void onLocationChanged(Location location) {
+        int lat = (int) (location.getLatitude());
+        int lng = (int) (location.getLongitude());
+        System.out.println("lat : " + lat+ "   lng : " + lng);
+
+        Geocoder geoCoder = new Geocoder(this, Locale.getDefault());
+        StringBuilder builder = new StringBuilder();
+        try {
+            List<Address> address = geoCoder.getFromLocation(lat, lng, 1);
+            int maxLines = address.get(0).getMaxAddressLineIndex();
+            for (int i=0; i<maxLines; i++) {
+                String addressStr = address.get(0).getAddressLine(i);
+                builder.append(addressStr);
+                builder.append(" ");
+            }
+            if (address.size() >0) {
+                System.out.println(address.get(0).getLocality());
+                System.out.println(address.get(0).getCountryName());
+            }
+
+
+            String fnialAddress = builder.toString(); //This is the complete address.
+
+            addressGeoloc.setText(fnialAddress); //This will display the final address.
+
+        } catch (IOException e) {
+            // Handle IOException
+        } catch (NullPointerException e) {
+            // Handle NullPointerException
+        }
+    }
+
+    @Override
+    public void onStatusChanged(String provider, int status, Bundle extras) {
+
+    }
+
+    @Override
+    public void onProviderEnabled(String provider) {
+        Toast.makeText(this, "Enabled new provider " + provider,
+                Toast.LENGTH_SHORT).show();
+        if (checkPermission())
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, TIME_UPDATES, DISTANCE_UPDATES, this);
+        else
+            requestPermission();
+
+    }
+
+    @Override
+    public void onProviderDisabled(String provider) {
+        Toast.makeText(this, "Disabled provider " + provider,
+                Toast.LENGTH_SHORT).show();
+        if (checkPermission())
+            locationManager.removeUpdates(this);
+        else
+            requestPermission();
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case PERMISSION_REQUEST_CODE:
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    /**
+                     * We are good, turn on monitoring
+                     */
+                    if (checkPermission()) {
+                        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, TIME_UPDATES, DISTANCE_UPDATES, this);
+                    } else {
+                        requestPermission();
+                    }
+                } else {
+                    /**
+                     * No permissions, block out all activities that require a location to function
+                     */
+                    Toast.makeText(this, "Permission Not Granted.", Toast.LENGTH_LONG).show();
+                }
+                break;
+        }
+    }
+
+
 
     /**
      * function setFont which use to customize the font of the view
@@ -351,6 +531,10 @@ public class New_post_activity extends AppCompatActivity implements AdapterView.
         AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
     }
 
+
+
+
+
     private void showDialog() {
         if (!pDialog.isShowing())
             pDialog.show();
@@ -381,6 +565,8 @@ public class New_post_activity extends AppCompatActivity implements AdapterView.
 
                         //Saving the sharedpreferences
                         editor.commit();
+                        db.deleteUsers();
+                        db.deleteCandidates();
 
                         //Starting login activity
                         Intent intent = new Intent(New_post_activity.this, Post_rec_activity.class);

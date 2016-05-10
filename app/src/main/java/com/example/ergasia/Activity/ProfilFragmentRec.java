@@ -17,14 +17,18 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.ergasia.Helper.SQLiteHandler;
+import com.example.ergasia.Helper.SessionManager;
 import com.example.ergasia.R;
 
+import java.sql.SQLInput;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 public class ProfilFragmentRec extends ListFragment {
 
+    private SQLiteHandler db;
+    private SessionManager session;
 
     public static ProfilFragmentRec newInstance() {
         ProfilFragmentRec fragment = new ProfilFragmentRec();
@@ -42,16 +46,25 @@ public class ProfilFragmentRec extends ListFragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        String[] offers = new String[] {"ingénieur", "avocat", "peintre", "DG", "responsable",
-                "vendeur"};
+
+        db = new SQLiteHandler(getActivity().getApplicationContext());
+
+        HashMap<String, String> recruiter = db.getOfferDetails();
+        String jobTitle = recruiter.get("job_title");
+        System.out.println(jobTitle);
+
+        String[] offers = new String[] {jobTitle};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
                 android.R.layout.simple_list_item_1, offers);
         setListAdapter(adapter);
 
+
     }
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
-
+        super.onListItemClick(l, v, position, id);
+        Intent intent = new Intent(getActivity(), View_offer_activity.class);
+        startActivity(intent);
     }
 
     @Override

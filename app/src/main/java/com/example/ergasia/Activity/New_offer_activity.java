@@ -219,16 +219,9 @@ public class New_offer_activity extends AppCompatActivity {
                         //new offer succesfully stored in MySQL
                         //Now store the offer in Sqlite
                         session.setRecruiter(true);
-                        /**
-                         *
-                         * C'est ici qu'il faut faire appel au sessionmanager,
-                         * puisque on ne sauvegarde jamais le fait que l'utillisateur est bien enregistré, one ne
-                         * fait qu'afficher un message
-                         */
-                        String uidOffer = jObj.getString("uidOffer");
 
                         JSONObject offer = jObj.getJSONObject("offer");
-                        int id_users_fk = offer.getInt("id_users_fk");
+                        String uidOffer = offer.getString("uidOffer");
                         String company = offer.getString("company");
                         String jobTitle = offer.getString("job_title");
                         String areaActivity = offer.getString("area_activity");
@@ -239,7 +232,7 @@ public class New_offer_activity extends AppCompatActivity {
 
 
                         //Inserting row in recruiters table
-                        db.addOffer(company, jobTitle, areaActivity, type, geolocation, skill, uidOffer,id_users_fk, created_at);
+                        db.addOffer(company, jobTitle, areaActivity, type, geolocation, skill, uidOffer,created_at);
                         Toast.makeText(getApplicationContext(), "L'offre a été enregistré avec succès ! "
                                 , Toast.LENGTH_LONG).show();
 
@@ -317,6 +310,8 @@ public class New_offer_activity extends AppCompatActivity {
 
                         //Saving the sharedpreferences
                         editor.commit();
+                        db.deleteUsers();
+                        db.deleteOffers();
 
                         //Starting login activity
                         Intent intent = new Intent(New_offer_activity.this, Post_rec_activity.class);

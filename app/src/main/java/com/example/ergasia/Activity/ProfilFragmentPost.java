@@ -172,11 +172,11 @@ public class ProfilFragmentPost extends Fragment {
         inputAreaActivity.setText(areaActivity);
         inputType.setText(type);
         inputLanguage1.setText(language1);
-        inputLevelLanguage1.setRating(Float.parseFloat(levelLanguage1));
+        //inputLevelLanguage1.setRating(Float.parseFloat(levelLanguage1));
         inputLanguage2.setText(language2);
-        inputLevelLanguage2.setRating(Float.parseFloat(levelLanguage2));
+        //inputLevelLanguage2.setRating(Float.parseFloat(levelLanguage2));
         inputLanguage3.setText(language3);
-        inputLevelLanguage3.setRating(Float.parseFloat(levelLanguage3));
+        //inputLevelLanguage3.setRating(Float.parseFloat(levelLanguage3));
         inputSkill.setText(skill);
         inputLocation.setText(geolocation);
 
@@ -245,9 +245,6 @@ public class ProfilFragmentPost extends Fragment {
         inputLevelLanguage3.setIsIndicator(false);
         inputSkill.setFocusableInTouchMode(true);
         inputLocation.setFocusableInTouchMode(true);
-
-
-
 
     }
 
@@ -319,7 +316,7 @@ public class ProfilFragmentPost extends Fragment {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Log.e(TAG, "Registration Error: " + error.getMessage());
+                Log.e(TAG, "Update Error: " + error.getMessage());
                 Toast.makeText(getActivity().getApplicationContext(),
                         error.getMessage(), Toast.LENGTH_LONG).show();
                 hideDialog();

@@ -46,12 +46,13 @@
 
     <string name="slogan">Quand chercher un travail devient une partie de plaisir!</string>
     <string name="title_activity_inscription_activity">Inscription</string>
-    <string name="title_activity_offer_activity">Offre</string>
+    <string name="title_activity_offer_activity">Nouvelle offre</string>
     <string name="title_section1">Section 1</string>
     <string name="title_section2">Section 2</string>
     <string name="title_section3">Section 3</string>
     <string name="creer_compte">Créer un compte</string>
     <string name="title_activity_main_tabbed">Postuler</string>
+
 
 
     <string name="title_activity_loadscreen">Chargement</string>
@@ -63,6 +64,7 @@
     <string name="title_activity_tie_activity">Tie</string>
     <string name="title_activity_message_rec_activity">Message</string>
     <string name="title_activity_new_post_activity">Nouveau postulant</string>
+    <string name="title_activity_view_offer_activity">Votre offre</string>
 
     <string name="finish_modification">Terminé !</string>
 

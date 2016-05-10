@@ -1,19 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".Activity.New_offer_activity">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:orientation="vertical"
+                tools:context=".Activity.View_offer_activity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            />
+
+    </android.support.design.widget.AppBarLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin">
+
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/scrollView3"
-        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" >
 
         <LinearLayout
@@ -35,7 +58,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/viewJobEditText"
                 android:textSize="@dimen/text1"
-                android:textStyle="italic" />
+                android:textStyle="italic"
+                android:focusable="false"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -51,7 +75,8 @@
                 android:layout_height="wrap_content"
                 android:inputType="text"
                 android:ems="10"
-                android:id="@+id/jobTitleEditText2" />
+                android:id="@+id/jobTitleEditText2"
+                android:focusable="false"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -62,6 +87,12 @@
                 android:textStyle="bold"
                 android:textSize="@dimen/sub_title2" />
 
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/viewTypeEditText"
+                android:focusable="false"/>
+
             <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -70,7 +101,8 @@
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:visibility="gone">
 
                     <RadioButton
                         android:layout_width="wrap_content"
@@ -112,7 +144,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/viewAreaEditText"
                 android:textStyle="italic"
-                android:textSize="@dimen/text1" />
+                android:textSize="@dimen/text1"
+                android:focusable="false"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -129,14 +162,8 @@
                 android:text="New AutoCompleteTextView"
                 android:id="@+id/viewLocationTextEdit"
                 android:textSize="@dimen/text1"
-                android:textStyle="italic" />
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-            </LinearLayout>
+                android:textStyle="italic"
+                android:focusable="false"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -152,8 +179,20 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/viewSkillsTextEdit"
                 android:textSize="@dimen/text1"
-                android:textStyle="italic" />
+                android:textStyle="italic"
+                android:focusable="false"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/finish_modification"
+                android:id="@+id/finishModification"
+                android:textColor="@color/white"
+                android:background="@color/ergasiagreen"
+                android:visibility="gone"/>
 
         </LinearLayout>
     </ScrollView>
-</RelativeLayout>
+</LinearLayout>
+</LinearLayout>
+

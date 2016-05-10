@@ -170,7 +170,6 @@ public class LoginActivity extends Activity {
 
                         JSONObject candidateObj = obj.getJSONObject("candidate");
                         String uidCandidate = candidateObj.getString("uidCandidate");
-                        System.out.println("uidCandidate loginac: " + uidCandidate);
                         String nameCandidate = candidateObj.getString("name");
                         String firstnameCandidate = candidateObj.getString("firstname");
                         String training = candidateObj.getString("training");
@@ -277,6 +276,20 @@ public class LoginActivity extends Activity {
                         String created_at_user = userObj.getString("created_at");
 
                         db.addUser(nameUser, firstnameUser, email, uidUser, created_at_user);
+
+                        JSONObject recruiterObj = obj.getJSONObject("offer");
+                        String uidRecruiter = recruiterObj.getString("uidOffer");
+                        String company = recruiterObj.getString("company");
+                        String jobTitle = recruiterObj.getString("job_title");
+                        String areaActivity = recruiterObj.getString("area_activity");
+                        String type = recruiterObj.getString("type");
+                        String geolocation = recruiterObj.getString("geolocation");
+                        String skill = recruiterObj.getString("skill");
+                        String created_at_recruiter = recruiterObj.getString("created_at");
+
+                        db.addOffer(company,jobTitle,areaActivity,type,geolocation,skill,
+                                uidRecruiter,created_at_recruiter);
+
 
                         //Storing user in shared preferences
                         AppController.getInstance().getPrefManager().storeUser(user);

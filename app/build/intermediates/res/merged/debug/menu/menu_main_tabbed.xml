@@ -10,11 +10,4 @@
         android:id="@+id/action_modify"
         android:orderInCategory="1"
         android:title="@string/action_modify"/>
-
-
-
-
-
-
-
 </menu>

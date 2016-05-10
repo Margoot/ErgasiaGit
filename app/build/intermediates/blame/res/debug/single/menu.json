@@ -28,6 +28,10 @@
         "source": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/src/main/res/menu/menu_main_tabbed_activity_rec.xml"
     },
     {
+        "merged": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/res/merged/debug/menu/menu_view_offer_activity.xml",
+        "source": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/src/main/res/menu/menu_view_offer_activity.xml"
+    },
+    {
         "merged": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/res/merged/debug/menu/menu_main_tabbed.xml",
         "source": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/src/main/res/menu/menu_main_tabbed.xml"
     },

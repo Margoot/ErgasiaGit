@@ -14,6 +14,9 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.GET_TASKS"/>
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
     <permission android:name="com.example.ergasia.gcm.permission.C2D_MESSAGE"
                 android:protectionLevel="signature"/>
     <uses-permission android:name="com.example.ergasia.gcm.permission.C2D_MESSAGE"/>
@@ -126,6 +129,11 @@
         <activity
             android:name=".Activity.New_post_activity"
             android:label="@string/title_activity_new_post_activity"
+            android:windowSoftInputMode="adjustPan">
+        </activity>
+        <activity
+            android:name=".Activity.View_offer_activity"
+            android:label="@string/title_activity_view_offer_activity"
             android:windowSoftInputMode="adjustPan">
         </activity>
 
