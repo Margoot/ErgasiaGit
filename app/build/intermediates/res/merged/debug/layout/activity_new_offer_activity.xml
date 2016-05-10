@@ -173,7 +173,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Géolocalisation"
-                    android:id="@+id/geolocSwitchNewOffer"/>
+                    android:id="@+id/geolocSwitchNewOffer"
+                    android:checked="false"/>
 
                 <SeekBar
                     android:layout_width="match_parent"
@@ -183,7 +184,7 @@
                 <AutoCompleteTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/LocationEditText"
+                    android:id="@+id/locationEditText"
                     android:textSize="@dimen/text1"
                     android:textStyle="italic"
                     android:text="Lieu"

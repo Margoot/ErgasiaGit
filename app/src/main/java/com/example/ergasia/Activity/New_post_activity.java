@@ -30,12 +30,14 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RatingBar;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -43,6 +45,7 @@ import android.widget.Toast;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.example.ergasia.GPS.GPSTracker;
 import com.example.ergasia.Manifest;
 import com.example.ergasia.app.AppConfig;
 import com.example.ergasia.app.AppController;
@@ -62,7 +65,7 @@ import java.util.Map;
 import static com.android.volley.Request.Method.POST;
 
 public class New_post_activity extends AppCompatActivity
-        implements AdapterView.OnItemSelectedListener,LocationListener {
+        implements AdapterView.OnItemSelectedListener {
 
     private static final String TAG = New_post_activity.class.getSimpleName();
     private SessionManager session;
@@ -91,16 +94,10 @@ public class New_post_activity extends AppCompatActivity
     private SQLiteHandler db;
     private Toolbar toolbar;
 
-    private EditText addressGeoloc;
-    private LocationManager locationManager;
-    private String provider;
-    private Location location;
-    private boolean LocationAvailable;
-    private static final int PERMISSION_REQUEST_CODE = 1;
-    private final static int DISTANCE_UPDATES = 1;
-    private final static int TIME_UPDATES = 1;
+    private Switch switchGeoloc;
+    private AutoCompleteTextView geolocationEditText;
+    GPSTracker gps;
 
-    @TargetApi(Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -164,7 +161,7 @@ public class New_post_activity extends AppCompatActivity
         validateButton = (Button) findViewById(R.id.createButton);
 
         spinnerTraining = (Spinner) findViewById(R.id.trainingSpinner);
-        ArrayAdapter adapter = ArrayAdapter.createFromResource(this,R.array.training_array,
+        ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.training_array,
                 android.R.layout.simple_spinner_item);
         spinnerTraining.setAdapter(adapter);
         spinnerTraining.setOnItemSelectedListener(this);
@@ -207,7 +204,7 @@ public class New_post_activity extends AppCompatActivity
                     //dans le else car !empty is verified
 
                     if (!name.isEmpty() && !firstname.isEmpty() && !training.isEmpty() && !areaActivity.isEmpty() &&
-                            !language1.isEmpty() && !levelLanguage1.isEmpty()  &&
+                            !language1.isEmpty() && !levelLanguage1.isEmpty() &&
                             !skill.isEmpty() && !geolocation.isEmpty()) {
                         registerNewCandidate(name, firstname, training, areaActivity, type,
                                 language1, levelLanguage1, language2, levelLanguage2,
@@ -222,158 +219,41 @@ public class New_post_activity extends AppCompatActivity
 
         addListenerOnButton();
 
-        //géolocation
+        //switch button to set the geolocation
+        //= (TextView) findViewById(R.id.switch);
+        switchGeoloc = (Switch) findViewById(R.id.geolocSwitch);
+        geolocationEditText = (AutoCompleteTextView) findViewById(R.id.locationEditText);
 
-        addressGeoloc = (AutoCompleteTextView) findViewById(R.id.locationEditText);
+        //attach a listener to check for changes in state
+        switchGeoloc.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
-        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        LocationAvailable = false;
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
-        Criteria criteria = new Criteria();
-        provider = locationManager.getBestProvider(criteria, false);
+                if(isChecked){
+                    //creation of class GPSTracker
+                    gps = new GPSTracker(New_post_activity.this);
 
-        if(checkPermission())
-            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, TIME_UPDATES, DISTANCE_UPDATES, this);
-        else
-            requestPermission();
+                    //check if GPS enabled
+                    if (gps.canGetLocation()) {
+                        double latitude = gps.getLatitude();
+                        double longitude = gps.getLongitude();
 
-
-
-        if (location != null) {
-            System.out.println("Provider " + provider + " has been selected.");
-            onLocationChanged(location);
-        } else {
-            Toast.makeText(getApplicationContext(), "Localisation impossible "
-                    , Toast.LENGTH_LONG).show();
-        }
-
-    }
-
-    //geolocation next
-
-    private boolean checkPermission(){
-        int result = ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION);
-        if (result == PackageManager.PERMISSION_GRANTED){
-            LocationAvailable = true;
-            return true;
-        } else {
-            LocationAvailable = false;
-            return false;
-        }
-    }
-
-    private void requestPermission(){
-        if (ActivityCompat.shouldShowRequestPermissionRationale(this, android.Manifest.permission.ACCESS_FINE_LOCATION)){
-            Toast.makeText(this, "Activez la localisation de votre téléphone afin d'obtenir votre position", Toast.LENGTH_LONG).show();
-        } else {
-            ActivityCompat.requestPermissions(this,new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},PERMISSION_REQUEST_CODE);
-        }
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        if (checkPermission())
-            locationManager.requestLocationUpdates(provider, 400, 1, this);
-        else
-            requestPermission();
-
-    }
-
-
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        if (checkPermission())
-            locationManager.removeUpdates(this);
-        else
-            requestPermission();
-
-    }
-
-    @Override
-    public void onLocationChanged(Location location) {
-        int lat = (int) (location.getLatitude());
-        int lng = (int) (location.getLongitude());
-        System.out.println("lat : " + lat+ "   lng : " + lng);
-
-        Geocoder geoCoder = new Geocoder(this, Locale.getDefault());
-        StringBuilder builder = new StringBuilder();
-        try {
-            List<Address> address = geoCoder.getFromLocation(lat, lng, 1);
-            int maxLines = address.get(0).getMaxAddressLineIndex();
-            for (int i=0; i<maxLines; i++) {
-                String addressStr = address.get(0).getAddressLine(i);
-                builder.append(addressStr);
-                builder.append(" ");
-            }
-            if (address.size() >0) {
-                System.out.println(address.get(0).getLocality());
-                System.out.println(address.get(0).getCountryName());
-            }
-
-
-            String fnialAddress = builder.toString(); //This is the complete address.
-
-            addressGeoloc.setText(fnialAddress); //This will display the final address.
-
-        } catch (IOException e) {
-            // Handle IOException
-        } catch (NullPointerException e) {
-            // Handle NullPointerException
-        }
-    }
-
-    @Override
-    public void onStatusChanged(String provider, int status, Bundle extras) {
-
-    }
-
-    @Override
-    public void onProviderEnabled(String provider) {
-        Toast.makeText(this, "Enabled new provider " + provider,
-                Toast.LENGTH_SHORT).show();
-        if (checkPermission())
-            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, TIME_UPDATES, DISTANCE_UPDATES, this);
-        else
-            requestPermission();
-
-    }
-
-    @Override
-    public void onProviderDisabled(String provider) {
-        Toast.makeText(this, "Disabled provider " + provider,
-                Toast.LENGTH_SHORT).show();
-        if (checkPermission())
-            locationManager.removeUpdates(this);
-        else
-            requestPermission();
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
-        switch (requestCode) {
-            case PERMISSION_REQUEST_CODE:
-                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    /**
-                     * We are good, turn on monitoring
-                     */
-                    if (checkPermission()) {
-                        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, TIME_UPDATES, DISTANCE_UPDATES, this);
+                        // \n is for new line
+                        Toast.makeText(getApplicationContext(),
+                                "Your Location is - \nLat: " + latitude + "\nLong: " + longitude, Toast.LENGTH_LONG).show();
                     } else {
-                        requestPermission();
+                        // can't get location
+                        // GPS or Network is not enabled
+                        // Ask user to enable GPS/network in settings
+                        gps.showSettingsAlert();
                     }
-                } else {
-                    /**
-                     * No permissions, block out all activities that require a location to function
-                     */
-                    Toast.makeText(this, "Permission Not Granted.", Toast.LENGTH_LONG).show();
-                }
-                break;
-        }
-    }
 
+                }
+            }
+        });
+
+    }
 
 
     /**

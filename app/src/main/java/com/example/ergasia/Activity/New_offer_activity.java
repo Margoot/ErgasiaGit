@@ -15,16 +15,20 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.example.ergasia.GPS.GPSTracker;
 import com.example.ergasia.app.AppConfig;
 import com.example.ergasia.app.AppController;
 import com.example.ergasia.R;
@@ -53,6 +57,9 @@ public class New_offer_activity extends AppCompatActivity {
     private ProgressDialog pDialog;
     private SQLiteHandler db;
     private Toolbar toolbar;
+    private Switch switchGeoloc;
+    private AutoCompleteTextView geolocationEditText;
+    GPSTracker gps;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,7 +76,7 @@ public class New_offer_activity extends AppCompatActivity {
         TextView  textView4  = (TextView)findViewById(R.id.newAreaTextView);
         TextView  textView5  = (TextView)findViewById(R.id.newAreaEditText);
         TextView  textView6  = (TextView)findViewById(R.id.newLocationTextView);
-        TextView  textView7  = (TextView)findViewById(R.id.LocationEditText);
+        TextView  textView7  = (TextView)findViewById(R.id.locationEditText);
         TextView  textView8  = (TextView)findViewById(R.id.newJobTitleTextView);
         TextView  textView9  = (TextView)findViewById(R.id.newJobTitleEditText);
         TextView  textView10  = (TextView)findViewById(R.id.geolocSwitchNewOffer);
@@ -102,7 +109,7 @@ public class New_offer_activity extends AppCompatActivity {
         inputJobTitle = (EditText) findViewById(R.id.newJobTitleEditText);
         inputAreaActivity = (EditText) findViewById(R.id.newAreaEditText);
         inputType = (RadioGroup) findViewById(R.id.typeRadioGroup);
-        inputGeolocation = (EditText) findViewById(R.id.LocationEditText);
+        inputGeolocation = (EditText) findViewById(R.id.locationEditText);
         inputSkill = (EditText) findViewById(R.id.newSkillsEditText);
         validateButton = (Button) findViewById(R.id.createButton);
 
@@ -115,19 +122,6 @@ public class New_offer_activity extends AppCompatActivity {
 
         //SQlite database handler for a new offer
         db = new SQLiteHandler(getApplicationContext());
-
-       /* if (session.isRecruiter()) {
-            Intent intent = new Intent(New_offer_activity.this, MainTabbedActivityRec.class);
-            startActivity(intent);
-            //finish();
-        }*/
-
-        /*
-        if(session.isRecruiter()){
-            Intent intent = new Intent(New_offer_activity.this,MainTabbedActivityRec.class);
-            startActivity(intent);
-        }
-        */
 
         //validate button click event
         validateButton.setOnClickListener(new View.OnClickListener() {
@@ -162,6 +156,41 @@ public class New_offer_activity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Veuillez entrer tous les champs !",
                                 Toast.LENGTH_LONG).show();
                     }
+                }
+            }
+        });
+
+
+        //switch button to set the geolocation
+        //= (TextView) findViewById(R.id.switch);
+        switchGeoloc = (Switch) findViewById(R.id.geolocSwitchNewOffer);
+        geolocationEditText = (AutoCompleteTextView) findViewById(R.id.locationEditText);
+
+        //attach a listener to check for changes in state
+        switchGeoloc.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+                if(isChecked){
+                    //creation of class GPSTracker
+                    gps = new GPSTracker(New_offer_activity.this);
+
+                    //check if GPS enabled
+                    if (gps.canGetLocation()) {
+                        double latitude = gps.getLatitude();
+                        double longitude = gps.getLongitude();
+
+                        // \n is for new line
+                        Toast.makeText(getApplicationContext(),
+                                "Your Location is - \nLat: " + latitude + "\nLong: " + longitude, Toast.LENGTH_LONG).show();
+                    } else {
+                        // can't get location
+                        // GPS or Network is not enabled
+                        // Ask user to enable GPS/network in settings
+                        gps.showSettingsAlert();
+                    }
+
                 }
             }
         });
