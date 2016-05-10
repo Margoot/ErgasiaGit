@@ -176,6 +176,8 @@ public class ChatRoomActivity extends AppCompatActivity {
                     JSONObject obj = new JSONObject(response);
 
                     //check for error
+
+                    Log.e(TAG, "json error inside on Response");
                     if(!obj.getBoolean("error")) {
                         JSONObject commentObj = obj.getJSONObject("message");
 
@@ -261,6 +263,7 @@ public class ChatRoomActivity extends AppCompatActivity {
                     JSONObject obj = new JSONObject(response);
 
                     //check for error
+                    Log.e(TAG, "Json error in fetchChat thread");
                     if (!obj.getBoolean("error")) {
                         JSONArray commentsObj = obj.getJSONArray("messages");
 
@@ -273,7 +276,7 @@ public class ChatRoomActivity extends AppCompatActivity {
 
                             JSONObject userObj = commentObj.getJSONObject("user");
                             String userId = userObj.getString("user_id");
-                            String userName = userObj.getString("name");
+                            String userName = userObj.getString("username");
                             User user = new User(userId, userName, null);
 
                             Message message = new Message();
