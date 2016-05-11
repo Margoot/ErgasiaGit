@@ -172,11 +172,11 @@ public class ProfilFragmentPost extends Fragment {
         inputAreaActivity.setText(areaActivity);
         inputType.setText(type);
         inputLanguage1.setText(language1);
-        //inputLevelLanguage1.setRating(Float.parseFloat(levelLanguage1));
+        inputLevelLanguage1.setRating(Float.parseFloat(levelLanguage1));
         inputLanguage2.setText(language2);
-        //inputLevelLanguage2.setRating(Float.parseFloat(levelLanguage2));
+        inputLevelLanguage2.setRating(Float.parseFloat(levelLanguage2));
         inputLanguage3.setText(language3);
-        //inputLevelLanguage3.setRating(Float.parseFloat(levelLanguage3));
+        inputLevelLanguage3.setRating(Float.parseFloat(levelLanguage3));
         inputSkill.setText(skill);
         inputLocation.setText(geolocation);
 

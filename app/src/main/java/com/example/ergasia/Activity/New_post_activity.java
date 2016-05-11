@@ -36,6 +36,7 @@ import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RatingBar;
+import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TableRow;
@@ -55,8 +56,12 @@ import com.example.ergasia.Helper.SessionManager;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -94,9 +99,17 @@ public class New_post_activity extends AppCompatActivity
     private SQLiteHandler db;
     private Toolbar toolbar;
 
+
     private Switch switchGeoloc;
     private AutoCompleteTextView geolocationEditText;
     GPSTracker gps;
+    private String city;
+    private String country;
+    private ArrayList<String> addr;
+    private String addStr;
+
+    private SeekBar searchRadius;
+    private TextView viewKm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -123,6 +136,7 @@ public class New_post_activity extends AppCompatActivity
         TextView textView14 = (TextView) findViewById(R.id.geolocation);
         TextView textView15 = (TextView) findViewById(R.id.name);
         TextView textView16 = (TextView) findViewById(R.id.typeTextView);
+        TextView textView17 = (TextView) findViewById(R.id.seekbarTextView);
         TextView textView18 = (TextView) findViewById(R.id.editArea);
 
         setFont(textView1, "BigCaslon.ttf");
@@ -141,7 +155,7 @@ public class New_post_activity extends AppCompatActivity
         setFont(textView14, "BigCaslon.ttf");
         setFont(textView15, "BigCaslon.ttf");
         setFont(textView16, "BigCaslon.ttf");
-        //setFont(textView17, "BigCaslon.ttf");
+        setFont(textView17, "BigCaslon.ttf");
         setFont(textView18, "BigCaslon.ttf");
 
 
@@ -223,6 +237,7 @@ public class New_post_activity extends AppCompatActivity
         //= (TextView) findViewById(R.id.switch);
         switchGeoloc = (Switch) findViewById(R.id.geolocSwitch);
         geolocationEditText = (AutoCompleteTextView) findViewById(R.id.locationEditText);
+        addr = new ArrayList<String>();
 
         //attach a listener to check for changes in state
         switchGeoloc.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -230,18 +245,24 @@ public class New_post_activity extends AppCompatActivity
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
-                if(isChecked){
+                if (isChecked) {
                     //creation of class GPSTracker
                     gps = new GPSTracker(New_post_activity.this);
 
                     //check if GPS enabled
                     if (gps.canGetLocation()) {
-                        double latitude = gps.getLatitude();
-                        double longitude = gps.getLongitude();
+                        addr = gps.getAddr();
 
-                        // \n is for new line
-                        Toast.makeText(getApplicationContext(),
-                                "Your Location is - \nLat: " + latitude + "\nLong: " + longitude, Toast.LENGTH_LONG).show();
+                        addStr="";
+                        for (String elem : addr) {
+                            addStr+=elem;
+                        }
+                        geolocationEditText.setText(addStr);
+
+                        geolocationEditText.setFocusable(false);
+                        geolocationEditText.setFocusableInTouchMode(false);
+
+
                     } else {
                         // can't get location
                         // GPS or Network is not enabled
@@ -253,16 +274,41 @@ public class New_post_activity extends AppCompatActivity
             }
         });
 
+
+        searchRadius = (SeekBar) findViewById(R.id.seekBar);
+        viewKm = (TextView) findViewById(R.id.kmTextView);
+        searchRadius.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            int progressChanged = 0;
+            String numberKm="";
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                progressChanged = progress;
+                numberKm = String.valueOf(progressChanged) + " Km";
+                viewKm.setText(numberKm);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
     }
 
 
     /**
      * function setFont which use to customize the font of the view
+     *
      * @param textView
      * @param fontName
      */
     private void setFont(TextView textView, String fontName) {
-        if(fontName != null){
+        if (fontName != null) {
             try {
                 Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/" + fontName);
                 textView.setTypeface(typeface);
@@ -282,33 +328,32 @@ public class New_post_activity extends AppCompatActivity
         addLanguageButton = (ImageButton) findViewById(R.id.addLanguage);
         tableRow2 = (TableRow) findViewById(R.id.tableRow2);
         tableRow3 = (TableRow) findViewById(R.id.tableRow3);
-        timesClick=0;
+        timesClick = 0;
 
 
-            addLanguageButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View arg0) {
-                    if (timesClick == 0){
+        addLanguageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                if (timesClick == 0) {
                     tableRow2.setVisibility(TableRow.VISIBLE);
-                        inputLanguage2.setVisibility(RatingBar.VISIBLE);
-                        inputLevelLanguage2.setVisibility(EditText.VISIBLE);
-                    timesClick=1;
-                    }
-                     else {
-                        tableRow3.setVisibility(TableRow.VISIBLE);
-                        inputLanguage3.setVisibility(RatingBar.VISIBLE);
-                        inputLevelLanguage3.setVisibility(EditText.VISIBLE);
-                    }
+                    inputLanguage2.setVisibility(RatingBar.VISIBLE);
+                    inputLevelLanguage2.setVisibility(EditText.VISIBLE);
+                    timesClick = 1;
+                } else {
+                    tableRow3.setVisibility(TableRow.VISIBLE);
+                    inputLanguage3.setVisibility(RatingBar.VISIBLE);
+                    inputLevelLanguage3.setVisibility(EditText.VISIBLE);
                 }
-            });
+            }
+        });
     }
 
 
     private void registerNewCandidate(final String name, final String firstname, final String training,
-                              final String areaActivity, final String type,
-                              final String language1, final String levelLanguage1, final String language2,
-                              final String levelLanguage2, final String language3, final String levelLanguage3,
-                              final String skill, final String geolocation) {
+                                      final String areaActivity, final String type,
+                                      final String language1, final String levelLanguage1, final String language2,
+                                      final String levelLanguage2, final String language3, final String levelLanguage3,
+                                      final String skill, final String geolocation) {
         //Tag used to cancel the request
         String tag_string_req = "req_new_candidate";
         pDialog.setMessage("Enregistrement...");
@@ -412,9 +457,6 @@ public class New_post_activity extends AppCompatActivity
     }
 
 
-
-
-
     private void showDialog() {
         if (!pDialog.isShowing())
             pDialog.show();
@@ -426,7 +468,7 @@ public class New_post_activity extends AppCompatActivity
     }
 
     //Logout function
-    private void logout(){
+    private void logout() {
         //Creating an alert dialog to confirm logout
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setMessage("Etes-vous sûr de vouloir vous déconnecter ?");

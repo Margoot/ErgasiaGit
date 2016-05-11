@@ -21,6 +21,7 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,8 +38,11 @@ import com.example.ergasia.Helper.SessionManager;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static com.android.volley.Request.Method.POST;
@@ -58,8 +62,11 @@ public class New_offer_activity extends AppCompatActivity {
     private SQLiteHandler db;
     private Toolbar toolbar;
     private Switch switchGeoloc;
+    private SeekBar searchRadius;
+    private TextView viewKm;
     private AutoCompleteTextView geolocationEditText;
     GPSTracker gps;
+    private ArrayList<String> addr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,6 +93,7 @@ public class New_offer_activity extends AppCompatActivity {
         TextView  textView13  = (TextView)findViewById(R.id.newTypeTextView);
         TextView textView14  = (TextView)findViewById(R.id.newCompanyTextView);
         TextView textView16  = (TextView)findViewById(R.id.newCompanyEditText);
+        TextView textView17 = (TextView) findViewById(R.id.seekbarTextView);
 
 
         setFont(textView1, "BigCaslon.ttf");
@@ -104,6 +112,8 @@ public class New_offer_activity extends AppCompatActivity {
         setFont(textView14, "BigCaslon.ttf");
         setFont(textView15, "BigCaslon.ttf");
         setFont(textView16, "BigCaslon.ttf");
+        setFont(textView17, "BigCaslon.ttf");
+
 
         inputCompany = (EditText) findViewById(R.id.newCompanyEditText);
         inputJobTitle = (EditText) findViewById(R.id.newJobTitleEditText);
@@ -165,6 +175,7 @@ public class New_offer_activity extends AppCompatActivity {
         //= (TextView) findViewById(R.id.switch);
         switchGeoloc = (Switch) findViewById(R.id.geolocSwitchNewOffer);
         geolocationEditText = (AutoCompleteTextView) findViewById(R.id.locationEditText);
+        addr = new ArrayList<String>();
 
         //attach a listener to check for changes in state
         switchGeoloc.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -172,18 +183,25 @@ public class New_offer_activity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
-                if(isChecked){
+                if (isChecked) {
                     //creation of class GPSTracker
                     gps = new GPSTracker(New_offer_activity.this);
 
                     //check if GPS enabled
                     if (gps.canGetLocation()) {
-                        double latitude = gps.getLatitude();
-                        double longitude = gps.getLongitude();
+                        addr = gps.getAddr();
 
-                        // \n is for new line
-                        Toast.makeText(getApplicationContext(),
-                                "Your Location is - \nLat: " + latitude + "\nLong: " + longitude, Toast.LENGTH_LONG).show();
+                        String addStr="";
+                        for (String elem : addr) {
+                            addStr+=elem;
+                        }
+                        System.out.println(addStr);
+                        geolocationEditText.setText(addStr);
+
+                        geolocationEditText.setFocusable(false);
+                        geolocationEditText.setFocusableInTouchMode(false);
+
+
                     } else {
                         // can't get location
                         // GPS or Network is not enabled
@@ -192,6 +210,29 @@ public class New_offer_activity extends AppCompatActivity {
                     }
 
                 }
+            }
+        });
+
+        searchRadius = (SeekBar) findViewById(R.id.seekBar);
+        viewKm = (TextView) findViewById(R.id.kmTextView);
+        searchRadius.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            int progressChanged = 0;
+            String numberKm ="";
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                progressChanged = progress;
+                numberKm = String.valueOf(progressChanged) + " Km";
+                viewKm.setText(numberKm);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
             }
         });
     }

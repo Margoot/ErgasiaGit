@@ -26,6 +26,7 @@
     <string name="langues">Langues</string>
     <string name="competences">Compétences</string>
     <string name="geoloc">Géolocalisation</string>
+    <string name="enableGeoloc">Autoriser</string>
     <string name="offre">Offre</string>
     <string name="mess">Messagerie</string>
     <string name="job">Emplois</string>
@@ -42,6 +43,7 @@
     <string name="envoyer_mess_post">Envoyer un message au recruteur </string>
     <string name="envoyer_mess_rec">Envoyer un message au postulant </string>
     <string name="lancer_recherche">Lancer la recherche !</string>
+    <string name="seekbar">Rayon de recherche : </string>
 
 
     <string name="slogan">Quand chercher un travail devient une partie de plaisir!</string>

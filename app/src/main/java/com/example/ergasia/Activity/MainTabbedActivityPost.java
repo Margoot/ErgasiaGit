@@ -23,6 +23,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,8 +33,6 @@ import com.example.ergasia.Helper.SessionManager;
 import com.example.ergasia.app.AppController;
 import com.example.ergasia.app.MessageConfig;
 import com.example.ergasia.gcm.GcmIntentService;
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.GoogleApiAvailability;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,9 +47,9 @@ public class MainTabbedActivityPost extends AppCompatActivity {
     private TabLayout tabLayout;
     private ViewPager viewPager;
     private int[] tabIcons = {
-            R.drawable.icon_profil,
-            R.drawable.icon_ergasia,
-            R.drawable.icon_messaging
+            R.drawable.icon_profil_tab,
+            R.drawable.icon_ergasia_tab,
+            R.drawable.icon_messaging_tab
     };
 
 
@@ -58,6 +57,7 @@ public class MainTabbedActivityPost extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_tabbed);
+
 
         toolbar = (Toolbar) findViewById(R.id.toolbar); // Attaching the layout to the toolbar object
         setSupportActionBar(toolbar);
@@ -70,9 +70,17 @@ public class MainTabbedActivityPost extends AppCompatActivity {
         tabLayout = (TabLayout) findViewById(R.id.tabLayout);
         tabLayout.setupWithViewPager(viewPager);
 
+        setupTabIcons();
+
+
+
+
+
         db = new SQLiteHandler(getApplicationContext());
 
-        setupTabIcons();
+
+
+
 
 
     }

@@ -35,9 +35,9 @@ public class MainTabbedActivityRec extends AppCompatActivity  {
     private TabLayout tabLayout;
     private ViewPager viewPager;
     private int[] tabIcons = {
-            R.drawable.icon_profil,
-            R.drawable.icon_ergasia,
-            R.drawable.icon_messaging
+            R.drawable.icon_profil_tab,
+            R.drawable.icon_ergasia_tab,
+            R.drawable.icon_messaging_tab
     };
 
     @Override

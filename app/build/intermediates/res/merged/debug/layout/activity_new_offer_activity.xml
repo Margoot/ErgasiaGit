@@ -172,14 +172,42 @@
                 <Switch
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Géolocalisation"
+                    android:text="@string/enableGeoloc"
                     android:id="@+id/geolocSwitchNewOffer"
                     android:checked="false"/>
 
-                <SeekBar
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/seekBar2"/>
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                    android:text="@string/seekbar"
+                    android:id="@+id/seekbarTextView"
+                    android:textColor="@android:color/black"
+                    android:textStyle="italic"
+                    android:textSize="@dimen/tab_padding_bottom"/>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:id="@+id/kmTextView"
+                        android:layout_gravity="center_vertical|right"/>
+
+                    <SeekBar
+                        android:layout_width="fill_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/seekBar"
+                        android:max="90"
+                        android:progress="0"
+                        android:layout_gravity="left|center_horizontal"/>
+
+                </LinearLayout>
 
                 <AutoCompleteTextView
                     android:layout_width="wrap_content"
