@@ -13,7 +13,7 @@ public class Message_post_activity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_message_post_activity);
+        setContentView(R.layout.content_chat_rooms);
         getActionBar().setDisplayHomeAsUpEnabled(true);
 
         //Intent intent = getIntent();
@@ -21,12 +21,12 @@ public class Message_post_activity extends Activity {
 
 
 
-        TextView myTextView = (TextView) findViewById(R.id.messagePostEditText);
+        TextView myTextView = (TextView) findViewById(R.id.message);
 
 
         TextView textView1  = (TextView)findViewById(R.id.container);
-        TextView textView2  = (TextView)findViewById(R.id.messagePostEditText);
-        TextView textView3  = (TextView)findViewById(R.id.chatSendButton2);
+        TextView textView2  = (TextView)findViewById(R.id.message);
+        TextView textView3  = (TextView)findViewById(R.id.btn_send);
         setFont(textView1,"BigCaslon.ttf");
         setFont(textView2,"BigCaslon.ttf");
         setFont(textView3,"BigCaslon.ttf");

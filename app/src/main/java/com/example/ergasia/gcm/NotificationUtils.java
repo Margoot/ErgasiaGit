@@ -14,9 +14,11 @@ import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
+import android.os.SystemClock;
 import android.support.v4.app.NotificationCompat;
 import android.text.Html;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.Patterns;
 
 import com.example.ergasia.R;
@@ -52,19 +54,27 @@ public class NotificationUtils {
 
     public void showNotificationMessage(String title, String message, String timeStamp, Intent intent) {
         showNotificationMessage(title, message, timeStamp, intent, null);
+        Log.e(TAG, "notif message only text");
 
     }
 
     public void showNotificationMessage(final String title, final String message, final String timeStamp, Intent intent, String imageUrl) {
         //check for empty push message
-        if (TextUtils.isEmpty(message))
+        if (TextUtils.isEmpty(message)) {
+            Log.e(TAG, "notif message emptty");
             return;
+        }
 
         //notification icon
         final int icon = R.drawable.icon_ergasia;
 
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-        final PendingIntent resultPendingIntent = PendingIntent.getActivity(mContext, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
+        final PendingIntent resultPendingIntent = PendingIntent.getActivity(
+                mContext,
+                0,
+                intent,
+                PendingIntent.FLAG_CANCEL_CURRENT
+        );
 
         final NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(mContext);
 
@@ -98,14 +108,18 @@ public class NotificationUtils {
         if (MessageConfig.appendNotificationMessages) {
             // store the notification in shared pref first
             AppController.getInstance().getPrefManager().addNotification(message);
+            Log.e(TAG, "notif stored in shared Pref");
+            System.out.println(message);
 
             //get the notifications from shared preferences
             String oldNotification = AppController.getInstance().getPrefManager().getNotifications();
+            System.out.println(oldNotification);
 
             List<String> messages = Arrays.asList(oldNotification.split("\\|"));
 
             for (int i = messages.size() - 1; i >= 0; i--) {
                 inboxStyle.addLine(messages.get(i));
+                Log.e(TAG, messages.get(i));
             }
 
         } else {
@@ -127,6 +141,7 @@ public class NotificationUtils {
 
         NotificationManager notificationManager = (NotificationManager) mContext.getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.notify(MessageConfig.NOTIFICATION_ID, notification);
+        Log.e(TAG,"show the notification!");
     }
 
     private void showBigNotification(Bitmap bitmap, NotificationCompat.Builder mBuilder, int icon, String title, String message, String timeStamp, PendingIntent resultPendingIntent, Uri alarmSound) {
@@ -200,6 +215,7 @@ public class NotificationUtils {
                     for (String activeProcess : processInfo.pkgList) {
                         if (activeProcess.equals(context.getPackageName())) {
                             isInBackground = false;
+                            System.out.println("Background : " + isInBackground);
                         }
                     }
                 }
@@ -209,6 +225,7 @@ public class NotificationUtils {
             ComponentName componentInfo = taskInfo.get(0).topActivity;
             if (componentInfo.getPackageName().equals(context.getPackageName())) {
                 isInBackground = false;
+                System.out.println("Bckground: " + isInBackground);
             }
         }
 
@@ -219,6 +236,7 @@ public class NotificationUtils {
     public static void clearNotifications() {
         NotificationManager notificationManager = (NotificationManager) AppController.getInstance().getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.cancelAll();
+        Log.e(TAG, "Clear Notificaitons!");
     }
 
     public static long getTimeMilliSec(String timeStamp) {

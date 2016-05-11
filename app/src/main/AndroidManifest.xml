@@ -151,14 +151,14 @@
         </receiver>
 
         <service
-            android:name=".gcm.MyGcmPushReceiver"
+            android:name="com.example.ergasia.gcm.MyGcmPushReceiver"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
             </intent-filter>
         </service>
 
-        <service android:name=".gcm.GcmIntentService"
+        <service android:name="com.example.ergasia.gcm.GcmIntentService"
                  android:exported="false">
             <intent-filter>
                 <action android:name="com.google.android.gms.iid.InstanceID"/>

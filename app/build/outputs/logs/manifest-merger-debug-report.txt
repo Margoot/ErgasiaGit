@@ -418,7 +418,7 @@ ADDED from /Users/simonthome/ErgasiaGit/app/src/main/AndroidManifest.xml:153:9-1
 	android:exported
 		ADDED from /Users/simonthome/ErgasiaGit/app/src/main/AndroidManifest.xml:155:13-37
 	android:name
-		ADDED from /Users/simonthome/ErgasiaGit/app/src/main/AndroidManifest.xml:154:13-50
+		ADDED from /Users/simonthome/ErgasiaGit/app/src/main/AndroidManifest.xml:154:13-69
 intent-filter#com.google.android.c2dm.intent.RECEIVE
 ADDED from /Users/simonthome/ErgasiaGit/app/src/main/AndroidManifest.xml:156:13-158:29
 service#com.example.ergasia.gcm.GcmIntentService
@@ -426,7 +426,7 @@ ADDED from /Users/simonthome/ErgasiaGit/app/src/main/AndroidManifest.xml:161:9-1
 	android:exported
 		ADDED from /Users/simonthome/ErgasiaGit/app/src/main/AndroidManifest.xml:162:18-42
 	android:name
-		ADDED from /Users/simonthome/ErgasiaGit/app/src/main/AndroidManifest.xml:161:18-54
+		ADDED from /Users/simonthome/ErgasiaGit/app/src/main/AndroidManifest.xml:161:18-73
 intent-filter#com.google.android.gms.iid.InstanceID
 ADDED from /Users/simonthome/ErgasiaGit/app/src/main/AndroidManifest.xml:163:13-165:29
 action#com.google.android.gms.iid.InstanceID

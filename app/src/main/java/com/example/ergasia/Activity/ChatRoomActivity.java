@@ -98,6 +98,7 @@ public class ChatRoomActivity extends AppCompatActivity {
                 if (intent.getAction().equals(MessageConfig.PUSH_NOTIFICATION)) {
                     //new push message is received
                     handlePushNotification(intent);
+                    Log.e(TAG, "on Receive chatRoom");
                 }
             }
         };
@@ -142,6 +143,7 @@ public class ChatRoomActivity extends AppCompatActivity {
             mAdapter.notifyDataSetChanged();
             if (mAdapter.getItemCount() > 1) {
                 recyclerView.getLayoutManager().smoothScrollToPosition(recyclerView, null, mAdapter.getItemCount() - 1);
+                Log.e(TAG, "push notification scroll to position");
             }
 
             }
@@ -176,8 +178,6 @@ public class ChatRoomActivity extends AppCompatActivity {
                     JSONObject obj = new JSONObject(response);
 
                     //check for error
-
-                    Log.e(TAG, "json error inside on Response");
                     if(!obj.getBoolean("error")) {
                         JSONObject commentObj = obj.getJSONObject("message");
 
@@ -263,7 +263,6 @@ public class ChatRoomActivity extends AppCompatActivity {
                     JSONObject obj = new JSONObject(response);
 
                     //check for error
-                    Log.e(TAG, "Json error in fetchChat thread");
                     if (!obj.getBoolean("error")) {
                         JSONArray commentsObj = obj.getJSONArray("messages");
 

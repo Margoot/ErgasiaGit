@@ -52,7 +52,10 @@ public class MyPreferenceManager {
             email = pref.getString(KEY_USER_EMAIL, null);
 
             User user = new User (id, name, email);
+            Log.e(TAG, "getting user in pref");
             return user;
+
+
         }
         return null;
 
@@ -71,9 +74,12 @@ public class MyPreferenceManager {
 
         editor.putString(KEY_NOTIFICATIONS, oldNotifications);
         editor.commit();
+
+        Log.e(TAG, "adding notification in pref");
     }
 
     public String getNotifications() {
+        Log.e(TAG, "getting notification in pref");
         return pref.getString(KEY_NOTIFICATIONS, null);
     }
 

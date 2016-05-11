@@ -17,8 +17,8 @@ public class Message_rec_activity extends Activity {
         getActionBar().setDisplayHomeAsUpEnabled(true);
 
         TextView textView1  = (TextView)findViewById(R.id.container);
-        TextView textView2  = (TextView)findViewById(R.id.messagePostEditText);
-        TextView textView3  = (TextView)findViewById(R.id.chatSendButton2);
+        TextView textView2  = (TextView)findViewById(R.id.message);
+        TextView textView3  = (TextView)findViewById(R.id.btn_send);
         setFont(textView1, "BigCaslon.ttf");
         setFont(textView2, "BigCaslon.ttf");
         setFont(textView3, "BigCaslon.ttf");

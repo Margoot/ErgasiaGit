@@ -53,12 +53,15 @@ public class GcmIntentService extends IntentService {
             case SUBSCRIBE:
                 //subscribe to a topic
                 String topic = intent.getStringExtra(TOPIC);
+                Log.e(TAG, "onHandleIntent : " + topic);
                 subscribeToTopic(topic);
                 break;
             case UNSUBSCRIBE:
+                Log.e(TAG, "UnSUBSRCIRBE");
                 break;
             default:
                 // if key is not specified, register with GCM
+                Log.e(TAG, "REGISTER GCM");
                 registerGCM();
         }
     }
@@ -80,6 +83,7 @@ public class GcmIntentService extends IntentService {
             sendRegistrationToServer(token);
 
             sharedPreferences.edit().putBoolean(MessageConfig.SENT_TOKEN_TO_SERVER, true).apply();
+            Log.e(TAG, "Sending Registration to Server!");
         } catch (Exception e) {
             Log.e(TAG, "Failed to complete token refresh", e);
 
@@ -87,6 +91,7 @@ public class GcmIntentService extends IntentService {
         }
         //Notify UI that registration has completed, so the progress indicator can be hidden.
         Intent registrationComplete = new Intent(MessageConfig.REGISTRATION_COMPLETE);
+        //registrationComplete.putExtra("token", token);
         LocalBroadcastManager.getInstance(this).sendBroadcast(registrationComplete);
     }
 
@@ -157,8 +162,8 @@ public class GcmIntentService extends IntentService {
      * Subscribe to topic
      */
     public void subscribeToTopic(String topic) {
-        GcmPubSub pubSub = GcmPubSub.getInstance(AppController.getInstance().getApplicationContext());
-        InstanceID instanceID = InstanceID.getInstance(AppController.getInstance().getApplicationContext());
+        GcmPubSub pubSub = GcmPubSub.getInstance(getApplicationContext());
+        InstanceID instanceID = InstanceID.getInstance(getApplicationContext());
         String token = null;
         try {
             token = instanceID.getToken(AppController.getInstance().getString(R.string.gcm_defaultSenderId), GoogleCloudMessaging.INSTANCE_ID_SCOPE, null);

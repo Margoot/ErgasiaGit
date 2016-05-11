@@ -36,6 +36,7 @@ import com.example.ergasia.app.AppController;
 import com.example.ergasia.app.EndPoints;
 import com.example.ergasia.app.MessageConfig;
 import com.example.ergasia.gcm.GcmIntentService;
+import com.example.ergasia.gcm.NotificationUtils;
 import com.example.ergasia.model.ChatRoom;
 import com.example.ergasia.model.Message;
 import com.google.android.gms.common.ConnectionResult;
@@ -104,15 +105,23 @@ public class MessageFragmentPost extends Fragment {
                     //gcm successfully registered
                     //now subscribe to `global`topic to receive app wide notifications
                     subscribeToGlobalTopic();
+                    String token = intent.getStringExtra("token");
+
+                    Toast.makeText(getActivity().getApplicationContext(), "GCM registration token: " + token, Toast.LENGTH_LONG).show();
+
 
                 } else if (intent.getAction().equals(MessageConfig.SENT_TOKEN_TO_SERVER)) {
                     //gcm registration id is stored in our server's MySQL
                     Log.e(TAG, "GCM registration id is sent to our server");
+                    Toast.makeText(getActivity().getApplicationContext(), "GCM registration token is stored in server!", Toast.LENGTH_LONG).show();
+
 
                 } else if (intent.getAction().equals(MessageConfig.PUSH_NOTIFICATION)) {
                     // new push notification is received
 
                     handlePushNotification(intent);
+                    Toast.makeText(getActivity().getApplicationContext(), "Push notification is received!", Toast.LENGTH_LONG).show();
+
                 }
             }
         };
@@ -150,9 +159,11 @@ public class MessageFragmentPost extends Fragment {
          * proceeding further with GCM
          */
         if (checkPlayServices()) {
+            Log.e(TAG, "inside if");
             registerGCM();
             fetchChatRooms();
         }
+
 
         return rootView;
     }
@@ -168,9 +179,11 @@ public class MessageFragmentPost extends Fragment {
         if (type == MessageConfig.PUSH_TYPE_CHATROOM) {
             Message message = (Message) intent.getSerializableExtra("message");
             String chatRoomId = intent.getStringExtra("chat_rooms_id");
+            Log.e(TAG,"Updating message count UI");
 
             if (message != null && chatRoomId != null) {
                 updateRow(chatRoomId, message);
+                Log.e(TAG, "updating row");
             }
         } else if (type == MessageConfig.PUSH_TYPE_USER) {
             //push belongs to user alone
@@ -191,6 +204,7 @@ public class MessageFragmentPost extends Fragment {
                 cr.setUnreadCount(cr.getUnreadCount() + 1);
                 chatRoomArrayList.remove(index);
                 chatRoomArrayList.add(index, cr);
+                Log.e(TAG, "index : " + index);
                 break;
 
             }
@@ -222,6 +236,7 @@ public class MessageFragmentPost extends Fragment {
                             cr.setLastMessage("");
                             cr.setUnreadCount(0);
                             cr.setTimestamp(chatRoomsObj.getString("created_at"));
+                            Log.e(TAG, "chatrooms : " + cr);
 
                             chatRoomArrayList.add(cr);
                         }
@@ -259,6 +274,7 @@ public class MessageFragmentPost extends Fragment {
         intent.putExtra(GcmIntentService.KEY, GcmIntentService.SUBSCRIBE);
         intent.putExtra(GcmIntentService.TOPIC, MessageConfig.TOPIC_GLOBAL);
         getActivity().startService(intent);
+        Log.e(TAG, "SUBSCRIBING to global!");
     }
 
     //Subscribing to all chat room topics
@@ -304,11 +320,15 @@ public class MessageFragmentPost extends Fragment {
         //register GCM registration complete receiver
         LocalBroadcastManager.getInstance(getActivity()).registerReceiver(mRegistrationBroadcastReceiver,
                 new IntentFilter(MessageConfig.REGISTRATION_COMPLETE));
-
+        Log.e(TAG, "gcm registering complete receiver");
         //register new push message receiver
         //by doing this, the activity will be notified each time a new message arrives
         LocalBroadcastManager.getInstance(getActivity()).registerReceiver(mRegistrationBroadcastReceiver,
                 new IntentFilter(MessageConfig.PUSH_NOTIFICATION));
+        Log.e(TAG, "gcm registering complete push receiver");
+
+        //clearing notification tray
+        NotificationUtils.clearNotifications();
     }
 
     @Override

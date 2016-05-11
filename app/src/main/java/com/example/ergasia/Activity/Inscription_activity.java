@@ -30,6 +30,7 @@ import com.example.ergasia.app.AppController;
 import com.example.ergasia.R;
 import com.example.ergasia.Helper.SQLiteHandler;
 import com.example.ergasia.Helper.SessionManager;
+import com.example.ergasia.model.User;
 
 import static com.android.volley.Request.Method.POST;
 
@@ -164,12 +165,15 @@ public class Inscription_activity extends AppCompatActivity {
                         //Now store the user in Sqlite
                         //String uidUser = jObj.getString("uidUser");
 
-                        JSONObject user = jObj.getJSONObject("user");
-                        String uidUser = user.getString("uidUser");
-                        String name = user.getString("name");
-                        String firstname = user.getString("firstname");
-                        String email = user.getString("email");
-                        String created_at = user.getString("created_at");
+                        JSONObject userObj = jObj.getJSONObject("user");
+                        User user = new User(userObj.getString("user_id"), userObj.getString("name"), userObj.getString("email"));
+                        String uidUser = userObj.getString("uidUser");
+                        String name = userObj.getString("name");
+                        String firstname = userObj.getString("firstname");
+                        String email = userObj.getString("email");
+                        String created_at = userObj.getString("created_at");
+
+                        AppController.getInstance().getPrefManager().storeUser(user);
 
                         session.setEmail(email);
 

@@ -42,17 +42,51 @@ public class MyGcmPushReceiver extends GcmListenerService {
     @Override
     public void onMessageReceived(String from, Bundle bundle) {
         String title = bundle.getString("title");
+        String message = bundle.getString("message");
+        String image = bundle.getString("image");
+        String timestamp = bundle.getString("created_at");
         Boolean isBackground = Boolean.valueOf(bundle.getString("is_background"));
         String flag = bundle.getString("flag");
         String data = bundle.getString("data");
         Log.d(TAG, "From: " + from);
-        Log.d(TAG, "Title: " + title);
+        Log.d(TAG, "title: " + title);
+        Log.e(TAG, "message" + message);
+        Log.e(TAG, "image: " + image);
+        Log.e(TAG, "timestamp: " + timestamp);
         Log.d(TAG, "isBackground: " + isBackground);
-        Log.d(TAG, "flag " + flag);
+        Log.d(TAG, "flag: " + flag);
         Log.d(TAG, "data: " + data);
 
-        if (flag == null)
+
+        if (!NotificationUtils.isAppIsInBackground(getApplicationContext())) {
+
+            // app is in foreground, broadcast the push message
+            Intent pushNotification = new Intent(MessageConfig.PUSH_NOTIFICATION);
+            pushNotification.putExtra("message", message);
+            LocalBroadcastManager.getInstance(this).sendBroadcast(pushNotification);
+
+            // play notification sound
+            NotificationUtils notificationUtils = new NotificationUtils();
+            notificationUtils.playNotificationSound();
+        } else {
+
+            Intent resultIntent = new Intent(getApplicationContext(), MessageFragmentPost.class);
+            resultIntent.putExtra("message", message);
+
+            if (TextUtils.isEmpty(image)) {
+                showNotificationMessage(getApplicationContext(), title, message, timestamp, resultIntent);
+            } else {
+                showNotificationMessageWithBigImage(getApplicationContext(), title, message, timestamp, resultIntent, image);
+            }
+        }
+
+
+
+        if (flag == null) {
+            Log.e(TAG, "FLAG null");
             return;
+        }
+
 
        if (AppController.getInstance().getPrefManager().getUser() == null) {
             //user is not logged in, skipping push notification
@@ -61,9 +95,9 @@ public class MyGcmPushReceiver extends GcmListenerService {
         }
 
         if (from.startsWith("/topics/")) {
-            //message received from some topic
+            Log.e(TAG, "message received from some topic");
         } else {
-            // normal downstream message
+            Log.e(TAG, "normal downstream message");
         }
 
         switch (Integer.parseInt(flag)) {
@@ -82,13 +116,14 @@ public class MyGcmPushReceiver extends GcmListenerService {
      * Processing chat room push message
      * this message will be broadcasts to all the activities registered
      */
+
     private void processChatRoomPush(String title, boolean isBackground, String data) {
         if (!isBackground) {
 
             try{
                 JSONObject datObj = new JSONObject(data);
 
-                String chatRoomId = datObj.getString("chat_room_id");
+                String chatRoomId = datObj.getString("chat_rooms_id");
 
                 JSONObject mObj = datObj.getJSONObject("message");
                 Message message = new Message();
@@ -119,7 +154,7 @@ public class MyGcmPushReceiver extends GcmListenerService {
                     Intent pushNotification = new Intent(MessageConfig.PUSH_NOTIFICATION);
                     pushNotification.putExtra("type", MessageConfig.PUSH_TYPE_CHATROOM);
                     pushNotification.putExtra("message", message);
-                    pushNotification.putExtra("chat_room_id", chatRoomId);
+                    pushNotification.putExtra("chat_rooms_id", chatRoomId);
                     LocalBroadcastManager.getInstance(this).sendBroadcast(pushNotification);
 
                     //play notification sound
@@ -146,6 +181,7 @@ public class MyGcmPushReceiver extends GcmListenerService {
      * Processing user specific push message
      *It will be displayed with / without image in push notification tray
      */
+
     private void processUserMessage(String title, boolean isBackground, String data) {
         if (!isBackground) {
 
@@ -212,6 +248,7 @@ public class MyGcmPushReceiver extends GcmListenerService {
         notificationUtils = new NotificationUtils(context);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         notificationUtils.showNotificationMessage(title, message, timeStamp, intent);
+        Log.e(TAG, "SHow notification");
     }
 
     /**
@@ -221,6 +258,7 @@ public class MyGcmPushReceiver extends GcmListenerService {
         notificationUtils = new NotificationUtils(context);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         notificationUtils.showNotificationMessage(title, message, timeStamp, intent, imageUrl);
+        Log.e(TAG, "show notification");
 
 
     }
