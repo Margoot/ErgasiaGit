@@ -104,16 +104,15 @@ public class MessageFragmentPost extends Fragment {
                 if (intent.getAction().equals(MessageConfig.REGISTRATION_COMPLETE)) {
                     //gcm successfully registered
                     //now subscribe to `global`topic to receive app wide notifications
-                    subscribeToGlobalTopic();
-                    String token = intent.getStringExtra("token");
 
-                    Toast.makeText(getActivity().getApplicationContext(), "GCM registration token: " + token, Toast.LENGTH_LONG).show();
+                    subscribeToGlobalTopic();
+                    System.out.println("on receive: subscribe to global topic");
+
 
 
                 } else if (intent.getAction().equals(MessageConfig.SENT_TOKEN_TO_SERVER)) {
                     //gcm registration id is stored in our server's MySQL
                     Log.e(TAG, "GCM registration id is sent to our server");
-                    Toast.makeText(getActivity().getApplicationContext(), "GCM registration token is stored in server!", Toast.LENGTH_LONG).show();
 
 
                 } else if (intent.getAction().equals(MessageConfig.PUSH_NOTIFICATION)) {
@@ -240,6 +239,7 @@ public class MessageFragmentPost extends Fragment {
 
                             chatRoomArrayList.add(cr);
                         }
+                        System.out.println("fetching chat room : " + chatRoomArrayList);
                     } else {
                         //error in fetching chat rooms
                         Toast.makeText(getActivity().getApplicationContext(), "" + obj.getJSONObject("error").getString("message"), Toast.LENGTH_LONG).show();
@@ -287,6 +287,7 @@ public class MessageFragmentPost extends Fragment {
             intent.putExtra(GcmIntentService.KEY, GcmIntentService.SUBSCRIBE);
             intent.putExtra(GcmIntentService.TOPIC, "topic_" + cr.getId());
             getActivity().startService(intent);
+            Log.e(TAG, "Subscribing to all");
         }
     }
 

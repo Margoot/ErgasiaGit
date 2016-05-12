@@ -120,6 +120,7 @@ public class GcmIntentService extends IntentService {
                 try {
                     JSONObject obj = new JSONObject(response);
                     Log.e(TAG, "getting response");
+                    System.out.println(obj.toString());
 
                     //check for error
                     if (!obj.getBoolean("error")) {
