@@ -1,30 +1,22 @@
 package com.example.ergasia.Activity;
 
-import android.annotation.TargetApi;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.graphics.Typeface;
-import android.location.Address;
-import android.location.Criteria;
-import android.location.Geocoder;
-import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
-import android.os.Build;
+import android.os.AsyncTask;
 import android.os.Bundle;
-import android.app.Activity;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -33,10 +25,12 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.MultiAutoCompleteTextView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RatingBar;
 import android.widget.SeekBar;
+import android.widget.SimpleAdapter;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TableRow;
@@ -46,8 +40,9 @@ import android.widget.Toast;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.example.ergasia.GPS.FilterWithSpaceAdapter;
 import com.example.ergasia.GPS.GPSTracker;
-import com.example.ergasia.Manifest;
+import com.example.ergasia.GPS.PlaceJSONParser;
 import com.example.ergasia.app.AppConfig;
 import com.example.ergasia.app.AppController;
 import com.example.ergasia.R;
@@ -56,15 +51,19 @@ import com.example.ergasia.Helper.SessionManager;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
+import java.io.BufferedReader;
 import java.io.IOException;
-import java.lang.reflect.Array;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
+import java.net.HttpURLConnection;
+import java.net.MulticastSocket;
+import java.net.URL;
+import java.net.URLEncoder;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 
 import static com.android.volley.Request.Method.POST;
@@ -110,6 +109,18 @@ public class New_post_activity extends AppCompatActivity
 
     private SeekBar searchRadius;
     private TextView viewKm;
+    private PlacesTask placesTask;
+    private ParserTask parserTask;
+    /*
+    private static final String LOG_TAG ="Google places autocomplete";
+    private static final String PLACES_API_BASE = "https://maps.googleapis.com/maps/api/place";
+    private static final String TYPE_AUTOCOMPLETE = "/autocomplete";
+    private static final String OUT_JSON = "/json";
+    private static final String API_KEY = "AIzaSyCFELTNRhBDnrkOb7xibRodvn5FmPDHjQI";
+    */
+    private boolean geolocActiv = false;
+    private FilterWithSpaceAdapter<String> adapterFilter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -120,43 +131,10 @@ public class New_post_activity extends AppCompatActivity
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        TextView textView1 = (TextView) findViewById(R.id.editName);
-        TextView textView2 = (TextView) findViewById(R.id.firstName);
-        TextView textView3 = (TextView) findViewById(R.id.editFirstName);
-        TextView textView4 = (TextView) findViewById(R.id.training);
-        TextView textView5 = (TextView) findViewById(R.id.area);
-        TextView textView6 = (TextView) findViewById(R.id.editLanguage1);
-        TextView textView7 = (TextView) findViewById(R.id.editLanguage2);
-        TextView textView8 = (TextView) findViewById(R.id.language);
-        TextView textView9 = (TextView) findViewById(R.id.editLanguage3);
-        TextView textView10 = (TextView) findViewById(R.id.skills);
-        TextView textView11 = (TextView) findViewById(R.id.skillsEditText);
-        TextView textView12 = (TextView) findViewById(R.id.locationEditText);
-        TextView textView13 = (TextView) findViewById(R.id.geolocSwitch);
-        TextView textView14 = (TextView) findViewById(R.id.geolocation);
-        TextView textView15 = (TextView) findViewById(R.id.name);
-        TextView textView16 = (TextView) findViewById(R.id.typeTextView);
-        TextView textView17 = (TextView) findViewById(R.id.seekbarTextView);
-        TextView textView18 = (TextView) findViewById(R.id.editArea);
-
+        TextView textView1 = (TextView) findViewById(R.id.locationEditText);
+        TextView textView2 = (TextView) findViewById(R.id.geolocSwitch);
         setFont(textView1, "BigCaslon.ttf");
         setFont(textView2, "BigCaslon.ttf");
-        setFont(textView3, "BigCaslon.ttf");
-        setFont(textView4, "BigCaslon.ttf");
-        setFont(textView5, "BigCaslon.ttf");
-        setFont(textView6, "BigCaslon.ttf");
-        setFont(textView7, "BigCaslon.ttf");
-        setFont(textView8, "BigCaslon.ttf");
-        setFont(textView9, "BigCaslon.ttf");
-        setFont(textView10, "BigCaslon.ttf");
-        setFont(textView11, "BigCaslon.ttf");
-        setFont(textView12, "BigCaslon.ttf");
-        setFont(textView13, "BigCaslon.ttf");
-        setFont(textView14, "BigCaslon.ttf");
-        setFont(textView15, "BigCaslon.ttf");
-        setFont(textView16, "BigCaslon.ttf");
-        setFont(textView17, "BigCaslon.ttf");
-        setFont(textView18, "BigCaslon.ttf");
 
 
         inputName = (EditText) findViewById(R.id.editName);
@@ -246,6 +224,7 @@ public class New_post_activity extends AppCompatActivity
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
                 if (isChecked) {
+                    geolocActiv = true;
                     //creation of class GPSTracker
                     gps = new GPSTracker(New_post_activity.this);
 
@@ -253,9 +232,9 @@ public class New_post_activity extends AppCompatActivity
                     if (gps.canGetLocation()) {
                         addr = gps.getAddr();
 
-                        addStr="";
+                        addStr = "";
                         for (String elem : addr) {
-                            addStr+=elem;
+                            addStr += elem;
                         }
                         geolocationEditText.setText(addStr);
 
@@ -273,6 +252,36 @@ public class New_post_activity extends AppCompatActivity
                 }
             }
         });
+
+        if (geolocActiv == false) {
+            System.out.println("dans le false");
+            geolocationEditText.setThreshold(1);
+            geolocationEditText.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                }
+
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                    placesTask = new PlacesTask();
+                    placesTask.execute(s.toString());
+                }
+
+                @Override
+                public void afterTextChanged(Editable s) {
+
+                }
+            });
+            geolocationEditText.setOnTouchListener(new View.OnTouchListener(){
+                @Override
+                public boolean onTouch(View v, MotionEvent event){
+                    geolocationEditText.showDropDown();
+                    return false;
+                }
+            });
+
+        }
 
 
         searchRadius = (SeekBar) findViewById(R.id.seekBar);
@@ -299,6 +308,141 @@ public class New_post_activity extends AppCompatActivity
         });
 
     }
+
+    /** A method to download json data from url */
+    private String downloadUrl(String strUrl) throws IOException {
+        String data = "";
+        InputStream iStream = null;
+        HttpURLConnection urlConnection = null;
+        try {
+            URL url = new URL(strUrl);
+
+            // Creating an http connection to communicate with url
+            urlConnection = (HttpURLConnection) url.openConnection();
+
+            // Connecting to url
+            urlConnection.connect();
+
+            // Reading data from url
+            iStream = urlConnection.getInputStream();
+
+            BufferedReader br = new BufferedReader(new InputStreamReader(iStream));
+
+            StringBuffer sb = new StringBuffer();
+
+            String line = "";
+            while ((line = br.readLine()) != null) {
+                sb.append(line);
+            }
+
+            data = sb.toString();
+
+
+            br.close();
+
+        } catch (Exception e) {
+            Log.d("Exception while downloading url", e.toString());
+        } finally {
+            iStream.close();
+            urlConnection.disconnect();
+        }
+        return data;
+    }
+
+    // Fetches all places from GooglePlaces AutoComplete Web Service
+    private class PlacesTask extends AsyncTask<String, Void, String> {
+
+        @Override
+        protected String doInBackground(String... place) {
+            // For storing data from web service
+            String data = "";
+
+            // Obtain browser key from https://code.google.com/apis/console
+            String key = "key=AIzaSyCFELTNRhBDnrkOb7xibRodvn5FmPDHjQI";
+
+            String input = "";
+
+            try {
+                input = "input=" + URLEncoder.encode(place[0], "utf-8");
+            } catch (UnsupportedEncodingException e1) {
+                e1.printStackTrace();
+            }
+
+            // place type to be searched
+            String types = "types=geocode";
+
+            // Sensor enabled
+            String sensor = "sensor=false";
+
+            // Building the parameters to the web service
+            String parameters = input + "&" + types + "&" + sensor + "&" + key;
+
+            // Output format
+            String output = "json";
+
+            // Building the url to the web service
+            String url = "https://maps.googleapis.com/maps/api/place/autocomplete/" + output + "?" + parameters;
+            try {
+                // Fetching the data from we service
+                data = downloadUrl(url);
+            } catch (Exception e) {
+                Log.d("Background Task", e.toString());
+            }
+            return data;
+        }
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+
+            // Creating ParserTask
+            parserTask = new ParserTask();
+
+            // Starting Parsing the JSON string returned by Web Service
+            parserTask.execute(result);
+        }
+    }
+    /** A class to parse the Google Places in JSON format */
+    private class ParserTask extends AsyncTask<String, Integer, List<HashMap<String,String>>>{
+
+        JSONObject jObject;
+
+        @Override
+        protected List<HashMap<String, String>> doInBackground(String... jsonData) {
+
+            List<HashMap<String, String>> places = null;
+
+            PlaceJSONParser placeJsonParser = new PlaceJSONParser();
+
+            try{
+                jObject = new JSONObject(jsonData[0]);
+
+                // Getting the parsed data as a List construct
+                places = placeJsonParser.parse(jObject);
+
+            }catch(Exception e){
+                Log.d("Exception",e.toString());
+            }
+            return places;
+        }
+
+        @Override
+        protected void onPostExecute(List<HashMap<String, String>> result) {
+
+            String[] from = new String[] { "description"};
+            int[] to = new int[] { android.R.id.text1 };
+
+            // Creating a SimpleAdapter for the AutoCompleteTextView
+            SimpleAdapter adapter = new SimpleAdapter(getBaseContext(), result, android.R.layout.simple_dropdown_item_1line,from, to);
+
+            // Setting the adapter
+            geolocationEditText.setAdapter(adapter);
+        }
+    }
+
+
+
+
+
 
 
     /**
@@ -455,6 +599,10 @@ public class New_post_activity extends AppCompatActivity
         //Adding request to request queue
         AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
     }
+
+
+
+
 
 
     private void showDialog() {

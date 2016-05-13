@@ -70,37 +70,6 @@ public class View_offer_activity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
 
-        TextView textView1  = (TextView)findViewById(R.id.viewJobTextView);
-        TextView textView2  = (TextView)findViewById(R.id.viewJobEditText);
-        TextView textView3  = (TextView)findViewById(R.id.viewTypeTextView);
-        TextView textView4  = (TextView)findViewById(R.id.cdiRadioButton2);
-        TextView textView5  = (TextView)findViewById(R.id.cddRadioButton2);
-        TextView textView6  = (TextView)findViewById(R.id.internRadioButton2);
-        TextView textView7  = (TextView)findViewById(R.id.viewAreaTextView);
-        TextView textView8  = (TextView)findViewById(R.id.viewAreaEditText);
-        TextView textView9  = (TextView)findViewById(R.id.viewLocationTextView);
-        TextView textView10  = (TextView)findViewById(R.id.viewLocationTextEdit);
-        TextView textView11  = (TextView)findViewById(R.id.jobTitleTextView);
-        TextView textView12  = (TextView)findViewById(R.id.jobTitleEditText2);
-        TextView textView14  = (TextView)findViewById(R.id.viewSkillsTextView);
-        TextView textView15  = (TextView)findViewById(R.id.viewSkillsTextEdit);
-        TextView textView16  = (TextView)findViewById(R.id.viewTypeEditText);
-
-        setFont(textView1, "BigCaslon.ttf");
-        setFont(textView2, "BigCaslon.ttf");
-        setFont(textView3, "BigCaslon.ttf");
-        setFont(textView4, "BigCaslon.ttf");
-        setFont(textView5, "BigCaslon.ttf");
-        setFont(textView6, "BigCaslon.ttf");
-        setFont(textView7, "BigCaslon.ttf");
-        setFont(textView8, "BigCaslon.ttf");
-        setFont(textView9, "BigCaslon.ttf");
-        setFont(textView10, "BigCaslon.ttf");
-        setFont(textView11, "BigCaslon.ttf");
-        setFont(textView12, "BigCaslon.ttf");
-        setFont(textView14, "BigCaslon.ttf");
-        setFont(textView15, "BigCaslon.ttf");
-        setFont(textView16, "BigCaslon.ttf");
 
         db = new SQLiteHandler(getApplicationContext());
         session = new SessionManager(getApplicationContext());
@@ -292,21 +261,6 @@ public class View_offer_activity extends AppCompatActivity {
         inputSkill.setFocusable(false);
     }
 
-    /**
-     * function setFont which use to customize the font of the view
-     * @param textView
-     * @param fontName
-     */
-    private void setFont(TextView textView, String fontName) {
-        if(fontName != null){
-            try {
-                Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/" + fontName);
-                textView.setTypeface(typeface);
-            } catch (Exception e) {
-                Log.e("FONT", fontName + " not found", e);
-            }
-        }
-    }
 
     //Logout function
     private void logout(){

@@ -44,6 +44,7 @@ public class CandidateFragmentRec extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_candidate_main, container, false);
 
+        /*
         TextView textView1 = (TextView) rootView.findViewById(R.id.recDiplomaTextView);
         TextView textView2 = (TextView) rootView.findViewById(R.id.recAreaTextView);
         TextView textView3 = (TextView) rootView.findViewById(R.id.recAreaSmallTextView);
@@ -63,6 +64,7 @@ public class CandidateFragmentRec extends Fragment {
         textView7.setTypeface(font);
         textView8.setTypeface(font);
         textView9.setTypeface(font);
+        */
 
         return rootView;
     }

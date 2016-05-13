@@ -24,12 +24,36 @@
 
     </style>
 
+    <style name="ergasiatitle" parent="@android:style/Widget.EditText">
+        <item name="com.example.ergasia:font">fonts/BrushScriptMT.ttf</item>
+    </style>
+
+    <style name="button" parent="@android:style/Widget.Button">
+        <item name="com.example.ergasia:font">fonts/BigCaslon.ttf</item>
+    </style>
+
+    <style name="textview" parent="@android:style/Widget.TextView">
+        <item name="com.example.ergasia:font">fonts/BigCaslon.ttf</item>
+    </style>
+
+    <style name="edittext" parent="@android:style/Widget.EditText">
+        <item name="com.example.ergasia:font">fonts/BigCaslon.ttf</item>
+    </style>
+    <style name="autocompletetextview" parent="@android:style/Widget.AutoCompleteTextView">
+        <item name="com.example.ergasia:font">fonts/BigCaslon.ttf</item>
+    </style>
+    <style name="radiobutton" parent="@android:style/Widget.CompoundButton.RadioButton">
+        <item name="com.example.ergasia:font">fonts/BigCaslon.ttf</item>
+    </style>
+
     <style name="FullscreenTheme" parent="AppTheme">
         <item name="android:windowActionBarOverlay">true</item>
         <item name="android:windowBackground">@null</item>
         <item name="metaButtonBarStyle">?android:attr/buttonBarStyle</item>
         <item name="metaButtonBarButtonStyle">?android:attr/buttonBarButtonStyle</item>
     </style>
+    
+
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
 

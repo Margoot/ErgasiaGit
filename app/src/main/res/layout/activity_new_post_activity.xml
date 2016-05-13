@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
               xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
-              tools:context=".Activity.New_offer_activity"
               android:orientation="vertical"
-              android:weightSum="1">
+              android:weightSum="1"
+              tools:context=".Activity.New_offer_activity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+            app:popupTheme="@style/AppTheme.PopupOverlay"/>
 
     </android.support.design.widget.AppBarLayout>
 
@@ -29,347 +29,372 @@
         android:paddingBottom="@dimen/activity_vertical_margin"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_vertical_margin" >
+        android:paddingTop="@dimen/activity_vertical_margin">
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="363dp"
-        android:layout_above="@+id/linearLayout2"
-        android:layout_weight="0.85">
-
-        <ScrollView
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/scrollView3"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true" >
+            android:layout_height="363dp"
+            android:layout_above="@+id/linearLayout2"
+            android:layout_weight="0.85">
 
-            <LinearLayout
-                android:orientation="vertical"
+            <ScrollView
+                android:id="@+id/scrollView3"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="@string/nom"
-                    android:id="@+id/name"
-                    android:textSize="@dimen/sub_title2"
-                    android:textStyle="bold"
-                    />
-
-                <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:inputType="textCapWords|textPersonName"
-                    android:ems="10"
-                    android:id="@+id/editName"
-                    android:selectAllOnFocus="false"
-                    android:textStyle="italic"
-                    android:textSize="@dimen/text1" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="@string/prenom"
-                    android:id="@+id/firstName"
-                    android:textSize="@dimen/sub_title2"
-                    android:textStyle="bold" />
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textCapWords|textPersonName"
-                    android:ems="10"
-                    android:id="@+id/editFirstName"
-                    android:layout_gravity="center_horizontal"
-                    android:textSize="@dimen/text1"
-                    android:textStyle="italic" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="@string/formation"
-                    android:id="@+id/training"
-                    android:textSize="@dimen/sub_title2"
-                    android:textStyle="bold" />
-
-                <Spinner
-                    android:layout_width="match_parent"
-                    android:layout_height="46dp"
-                    android:id="@+id/trainingSpinner"
-                    android:spinnerMode="dropdown"
-                    android:touchscreenBlocksFocus="false"
-                    android:textAlignment="center"
-                    android:gravity="center"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="@string/domaine"
-                    android:id="@+id/area"
-                    android:textSize="@dimen/sub_title2"
-                    android:textStyle="bold" />
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/editArea"
-                    android:textSize="@dimen/text1"
-                    android:textStyle="italic"
-                    android:inputType="textCapSentences"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/type"
-                    android:id="@+id/typeTextView"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textSize="@dimen/sub_title2"
-                    android:textStyle="bold"/>
-
-                <RadioGroup
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:id="@+id/radioButtonType">
-
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="CDI"
-                        android:id="@+id/radioButtonCdi"/>
-
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="CDD"
-                        android:id="@+id/radioButtonCdd"/>
-
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Stage"
-                        android:id="@+id/radioButtonIntern"/>
-                </RadioGroup>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="left|center_horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="@string/langues"
-                        android:id="@+id/language"
-                        android:textSize="@dimen/sub_title2"
-                        android:textStyle="bold"
-                        android:layout_gravity="center_vertical"/>
-
-                    <Space
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_weight="10"/>
-
-                    <ImageButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/addLanguage"
-                        android:background="@drawable/icon_plus"
-                        android:adjustViewBounds="false"/>
-
-                </TableRow>
-
-                <TableLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:id="@+id/tableRow1"
-                        android:visibility="visible"
-                        android:transitionGroup="true"
-                        android:measureWithLargestChild="false"
-                        android:minWidth="@dimen/lang_dimension"
-                        android:layout_gravity="bottom">
-
-                        <EditText
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/editLanguage1"
-                            android:minWidth="@dimen/text_language"
-                            android:inputType="textCapWords"/>
-
-                        <RatingBar
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/ratingBar1"
-                            android:layout_column="1"
-                            android:numStars="3"
-                            android:stepSize="1"
-                            android:indeterminateDrawable="@color/ergasiagreen"
-                            android:visibility="visible"/>
-
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:id="@+id/tableRow2"
-                        android:visibility="gone">
-
-                        <EditText
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/editLanguage2"
-                            android:minWidth="@dimen/text_language"
-                            android:inputType="textCapWords"/>
-
-                        <RatingBar
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/ratingBar2"
-                            android:numStars="3"
-                            android:visibility="gone"/>
-
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:id="@+id/tableRow3"
-                        android:visibility="gone">
-
-                        <EditText
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/editLanguage3"
-                            android:minWidth="@dimen/text_language"
-                            android:inputType="textCapWords"/>
-
-                        <RatingBar
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/ratingBar3"
-                            android:numStars="3"
-                            android:visibility="gone"/>
-
-                    </TableRow>
-                </TableLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="@string/competences"
-                    android:id="@+id/skills"
-                    android:textSize="@dimen/sub_title2"
-                    android:textStyle="bold" />
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:id="@+id/skillsEditText"
-                    android:textStyle="italic"
-                    android:textSize="@dimen/text1"
-                    android:inputType="textCapWords"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="@string/geoloc"
-                    android:id="@+id/geolocation"
-                    android:textSize="@dimen/sub_title2"
-                    android:textStyle="bold" />
-
-                <Switch
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/enableGeoloc"
-                    android:id="@+id/geolocSwitch"
-                    android:checked="false" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-                    android:text="@string/seekbar"
-                    android:id="@+id/seekbarTextView"
-                    android:textColor="@android:color/black"
-                    android:textStyle="italic"
-                    android:textSize="@dimen/tab_padding_bottom"/>
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true">
 
                 <LinearLayout
-                    android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:weightSum="1">
+                    android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <com.example.ergasia.CustomFont.CustomTextView
+                        android:id="@+id/name"
+                        style="@style/textview"
+                        android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:id="@+id/kmTextView"
-                        android:layout_gravity="center_vertical|right"/>
-
-                    <SeekBar
-                        android:layout_width="fill_parent"
-                        android:layout_height="match_parent"
-                        android:id="@+id/seekBar"
-                        android:max="90"
-                        android:progress="0"
-                        android:layout_gravity="left|center_horizontal"
+                        android:text="@string/nom"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textSize="@dimen/sub_title2"
+                        android:textStyle="bold"
                         />
 
+                    <com.example.ergasia.CustomFont.CustomEditText
+                        android:id="@+id/editName"
+                        style="@style/edittext"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:inputType="textCapWords|textPersonName"
+                        android:selectAllOnFocus="false"
+                        android:textSize="@dimen/text1"
+                        android:textStyle="italic"/>
+
+                    <com.example.ergasia.CustomFont.CustomTextView
+                        android:id="@+id/firstName"
+                        style="@style/textview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/prenom"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textSize="@dimen/sub_title2"
+                        android:textStyle="bold"/>
+
+                    <com.example.ergasia.CustomFont.CustomEditText
+                        android:id="@+id/editFirstName"
+                        style="@style/edittext"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:ems="10"
+                        android:inputType="textCapWords|textPersonName"
+                        android:textSize="@dimen/text1"
+                        android:textStyle="italic"/>
+
+                    <com.example.ergasia.CustomFont.CustomTextView
+                        android:id="@+id/training"
+                        style="@style/textview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/formation"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textSize="@dimen/sub_title2"
+                        android:textStyle="bold"/>
+
+                    <Spinner
+                        android:id="@+id/trainingSpinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="46dp"
+                        android:gravity="center"
+                        android:spinnerMode="dropdown"
+                        android:textAlignment="center"
+                        android:touchscreenBlocksFocus="false"/>
+
+                    <com.example.ergasia.CustomFont.CustomTextView
+                        android:id="@+id/area"
+                        style="@style/textview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/domaine"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textSize="@dimen/sub_title2"
+                        android:textStyle="bold"/>
+
+                    <com.example.ergasia.CustomFont.CustomEditText
+                        android:id="@+id/editArea"
+                        style="@style/edittext"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textCapSentences"
+                        android:textSize="@dimen/text1"
+                        android:textStyle="italic"/>
+
+                    <com.example.ergasia.CustomFont.CustomTextView
+                        android:id="@+id/typeTextView"
+                        style="@style/textview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/type"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textSize="@dimen/sub_title2"
+                        android:textStyle="bold"/>
+
+                    <RadioGroup
+                        android:id="@+id/radioButtonType"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <com.example.ergasia.CustomFont.CustomRadioButton
+                            android:id="@+id/radioButtonCdi"
+                            style="@style/radiobutton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="CDI"/>
+
+                        <com.example.ergasia.CustomFont.CustomRadioButton
+                            android:id="@+id/radioButtonCdd"
+                            style="@style/radiobutton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="CDD"/>
+
+                        <com.example.ergasia.CustomFont.CustomRadioButton
+                            android:id="@+id/radioButtonIntern"
+                            style="@style/radiobutton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Stage"/>
+                    </RadioGroup>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left|center_horizontal">
+
+                        <com.example.ergasia.CustomFont.CustomTextView
+                            android:id="@+id/language"
+                            style="@style/textview"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="@string/langues"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textSize="@dimen/sub_title2"
+                            android:textStyle="bold"/>
+
+                        <Space
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_weight="10"/>
+
+                        <ImageButton
+                            android:id="@+id/addLanguage"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:adjustViewBounds="false"
+                            android:background="@drawable/icon_plus"/>
+
+                    </TableRow>
+
+                    <TableLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TableRow
+                            android:id="@+id/tableRow1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="bottom"
+                            android:measureWithLargestChild="false"
+                            android:minWidth="@dimen/lang_dimension"
+                            android:transitionGroup="true"
+                            android:visibility="visible">
+
+                            <com.example.ergasia.CustomFont.CustomEditText
+                                android:id="@+id/editLanguage1"
+                                style="@style/edittext"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:inputType="textCapWords"
+                                android:minWidth="@dimen/text_language"/>
+
+                            <RatingBar
+                                android:id="@+id/ratingBar1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_column="1"
+                                android:indeterminateDrawable="@color/ergasiagreen"
+                                android:numStars="3"
+                                android:stepSize="1"
+                                android:visibility="visible"/>
+
+                        </TableRow>
+
+                        <TableRow
+                            android:id="@+id/tableRow2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:visibility="gone">
+
+                            <com.example.ergasia.CustomFont.CustomEditText
+                                android:id="@+id/editLanguage2"
+                                style="@style/edittext"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:inputType="textCapWords"
+                                android:minWidth="@dimen/text_language"/>
+
+                            <RatingBar
+                                android:id="@+id/ratingBar2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:numStars="3"
+                                android:visibility="gone"/>
+
+                        </TableRow>
+
+                        <TableRow
+                            android:id="@+id/tableRow3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:visibility="gone">
+
+                            <com.example.ergasia.CustomFont.CustomEditText
+                                android:id="@+id/editLanguage3"
+                                style="@style/edittext"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:inputType="textCapWords"
+                                android:minWidth="@dimen/text_language"/>
+
+                            <RatingBar
+                                android:id="@+id/ratingBar3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:numStars="3"
+                                android:visibility="gone"/>
+
+                        </TableRow>
+                    </TableLayout>
+
+                    <com.example.ergasia.CustomFont.CustomTextView
+                        android:id="@+id/skills"
+                        style="@style/textview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/competences"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textSize="@dimen/sub_title2"
+                        android:textStyle="bold"/>
+
+                    <com.example.ergasia.CustomFont.CustomEditText
+                        android:id="@+id/skillsEditText"
+                        style="@style/edittext"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="textCapWords"
+                        android:textSize="@dimen/text1"
+                        android:textStyle="italic"/>
+
+                    <com.example.ergasia.CustomFont.CustomTextView
+                        android:id="@+id/geolocation"
+                        style="@style/textview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/geoloc"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textSize="@dimen/sub_title2"
+                        android:textStyle="bold"/>
+
+                    <Switch
+                        android:id="@+id/geolocSwitch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="false"
+                        android:text="@string/enableGeoloc"/>
+
+                    <com.example.ergasia.CustomFont.CustomTextView
+                        android:id="@+id/seekbarTextView"
+                        style="@style/textview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/seekbar"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/tab_padding_bottom"
+                        android:textStyle="italic"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <com.example.ergasia.CustomFont.CustomTextView
+                            android:id="@+id/kmTextView"
+                            style="@style/textview"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_vertical|right"
+                            android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+                        <SeekBar
+                            android:id="@+id/seekBar"
+                            android:layout_width="fill_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="left|center_horizontal"
+                            android:max="90"
+                            android:progress="0"
+                            />
+
+                    </LinearLayout>
+
+                    <com.example.ergasia.GPS.CustomAutoCompleteTextView
+                        android:id="@+id/locationEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:hint="Entrer le lieu"
+                        android:inputType="textCapSentences"
+                        android:textSize="@dimen/text1"
+                        android:textStyle="italic">
+
+                        <requestFocus/>
+                    </com.example.ergasia.GPS.CustomAutoCompleteTextView>
+
                 </LinearLayout>
+            </ScrollView>
+        </FrameLayout>
 
-                <AutoCompleteTextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Lieu"
-                    android:id="@+id/locationEditText"
-                    android:textStyle="italic"
-                    android:textSize="@dimen/text1"
-                    android:inputType="textCapSentences"/>
-            </LinearLayout>
-        </ScrollView>
-    </FrameLayout>
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/scrollView3"
-        android:layout_alignStart="@+id/scrollView3"
-        android:id="@+id/linearLayout2"
-        android:layout_alignParentBottom="true"
-        android:gravity="center_vertical">
-
-        <Space
+        <LinearLayout
+            android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
-            android:layout_height="22dp"
-            android:layout_gravity="center_horizontal"/>
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/scrollView3"
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@+id/scrollView3"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/lancer_recherche"
-            android:id="@+id/createButton"
-            android:background="@drawable/shape"
-            android:textColor="@color/white"
-            />
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="22dp"
+                android:layout_gravity="center_horizontal"/>
+
+            <com.example.ergasia.CustomFont.CustomButton
+                android:id="@+id/createButton"
+                style="@style/button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/shape"
+                android:text="@string/lancer_recherche"
+                android:textColor="@color/white"/>
+        </LinearLayout>
+
     </LinearLayout>
-
-</LinearLayout>
 </LinearLayout>

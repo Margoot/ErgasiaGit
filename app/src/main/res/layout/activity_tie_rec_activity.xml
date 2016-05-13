@@ -18,7 +18,8 @@
         android:layout_alignParentStart="true"
         android:id="@+id/layoutTie">
 
-        <TextView
+        <com.example.ergasia.CustomFont.CustomTextView
+            style="@style/textview"
             android:layout_width="match_parent"
             android:layout_height="105dp"
             android:text="@string/tie"
@@ -29,7 +30,8 @@
             android:textColor="@color/ergasiagreen"
             android:gravity="center" />
 
-        <TextView
+        <com.example.ergasia.CustomFont.CustomTextView
+            style="@style/textview"
             android:layout_width="wrap_content"
             android:layout_height="63dp"
             android:text="NOM Prénom"
@@ -43,7 +45,8 @@
             android:gravity="bottom"
             android:textColor="@color/white" />
 
-        <TextView
+        <com.example.ergasia.CustomFont.CustomTextView
+            style="@style/textview"
             android:layout_width="wrap_content"
             android:layout_height="82dp"
             android:text="Libellé de l&apos;offre"
@@ -66,7 +69,8 @@
         android:gravity="bottom"
         android:weightSum="1">
 
-        <Button
+        <com.example.ergasia.CustomFont.CustomButton
+            style="@style/button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/envoyer_mess_rec"
@@ -80,7 +84,8 @@
             android:layout_gravity="center_horizontal"
             android:layout_weight="0.10" />
 
-        <Button
+        <com.example.ergasia.CustomFont.CustomButton
+            style="@style/button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/cont_rech"

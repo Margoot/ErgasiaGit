@@ -77,43 +77,11 @@ public class New_offer_activity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        TextView textView1  = (TextView)findViewById(R.id.cdiRadioButton);
-        TextView  textView2  = (TextView)findViewById(R.id.cddRadioButton);
-        TextView  textView3  = (TextView)findViewById(R.id.internRadioButton);
-        TextView  textView4  = (TextView)findViewById(R.id.newAreaTextView);
-        TextView  textView5  = (TextView)findViewById(R.id.newAreaEditText);
-        TextView  textView6  = (TextView)findViewById(R.id.newLocationTextView);
-        TextView  textView7  = (TextView)findViewById(R.id.locationEditText);
-        TextView  textView8  = (TextView)findViewById(R.id.newJobTitleTextView);
-        TextView  textView9  = (TextView)findViewById(R.id.newJobTitleEditText);
-        TextView  textView10  = (TextView)findViewById(R.id.geolocSwitchNewOffer);
-        TextView  textView11  = (TextView)findViewById(R.id.newSkillsTextView);
-        TextView  textView12  = (TextView)findViewById(R.id.newSkillsEditText);
-        TextView  textView15  = (TextView)findViewById(R.id.newTypeTextView);
-        TextView  textView13  = (TextView)findViewById(R.id.newTypeTextView);
-        TextView textView14  = (TextView)findViewById(R.id.newCompanyTextView);
-        TextView textView16  = (TextView)findViewById(R.id.newCompanyEditText);
-        TextView textView17 = (TextView) findViewById(R.id.seekbarTextView);
 
-
+        TextView  textView1  = (TextView)findViewById(R.id.locationEditText);
+        TextView  textView2  = (TextView)findViewById(R.id.geolocSwitchNewOffer);
         setFont(textView1, "BigCaslon.ttf");
         setFont(textView2, "BigCaslon.ttf");
-        setFont(textView3, "BigCaslon.ttf");
-        setFont(textView4, "BigCaslon.ttf");
-        setFont(textView5, "BigCaslon.ttf");
-        setFont(textView6, "BigCaslon.ttf");
-        setFont(textView7, "BigCaslon.ttf");
-        setFont(textView8, "BigCaslon.ttf");
-        setFont(textView9, "BigCaslon.ttf");
-        setFont(textView10, "BigCaslon.ttf");
-        setFont(textView11, "BigCaslon.ttf");
-        setFont(textView12, "BigCaslon.ttf");
-        setFont(textView13, "BigCaslon.ttf");
-        setFont(textView14, "BigCaslon.ttf");
-        setFont(textView15, "BigCaslon.ttf");
-        setFont(textView16, "BigCaslon.ttf");
-        setFont(textView17, "BigCaslon.ttf");
-
 
         inputCompany = (EditText) findViewById(R.id.newCompanyEditText);
         inputJobTitle = (EditText) findViewById(R.id.newJobTitleEditText);

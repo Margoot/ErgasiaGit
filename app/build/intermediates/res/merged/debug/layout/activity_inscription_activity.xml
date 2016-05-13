@@ -11,7 +11,8 @@
     tools:context=".Activity.Inscription_activity">
 
 
-    <TextView
+    <com.example.ergasia.CustomFont.CustomTextView
+        style="@style/textview"
         android:id="@+id/inscriptionTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -45,7 +46,8 @@
                 android:layout_height="383dp"
                 android:orientation="vertical" >
 
-                <TextView
+                <com.example.ergasia.CustomFont.CustomTextView
+                    style="@style/textview"
                     android:id="@+id/nameTextView1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -54,7 +56,8 @@
                     android:textSize="@dimen/sub_title"
                     android:textStyle="bold" />
 
-                <EditText
+                <com.example.ergasia.CustomFont.CustomEditText
+                    style="@style/edittext"
                     android:id="@+id/nameEditText1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -64,9 +67,10 @@
                     android:textSize="@dimen/text1">
 
                     <requestFocus />
-                </EditText>
+                </com.example.ergasia.CustomFont.CustomEditText>
 
-                <TextView
+                <com.example.ergasia.CustomFont.CustomTextView
+                    style="@style/textview"
                     android:id="@+id/firstnameTextView1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -75,7 +79,8 @@
                     android:textSize="@dimen/sub_title"
                     android:textStyle="bold" />
 
-                <EditText
+                <com.example.ergasia.CustomFont.CustomEditText
+                    style="@style/edittext"
                     android:id="@+id/firstNameEditText1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -84,7 +89,8 @@
                     android:textStyle="italic"
                     android:textSize="@dimen/text1" />
 
-                <TextView
+                <com.example.ergasia.CustomFont.CustomTextView
+                    style="@style/textview"
                     android:id="@+id/emailTextView1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -93,7 +99,8 @@
                     android:textSize="@dimen/sub_title"
                     android:textStyle="bold" />
 
-                <EditText
+                <com.example.ergasia.CustomFont.CustomEditText
+                    style="@style/edittext"
                     android:id="@+id/emailEditText1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -102,7 +109,8 @@
                     android:textStyle="italic"
                     android:textSize="@dimen/text1" />
 
-                <TextView
+                <com.example.ergasia.CustomFont.CustomTextView
+                    style="@style/textview"
                     android:id="@+id/passwordTextView1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -111,7 +119,8 @@
                     android:textSize="@dimen/sub_title"
                     android:textStyle="bold" />
 
-                <EditText
+                <com.example.ergasia.CustomFont.CustomEditText
+                    style="@style/edittext"
                     android:id="@+id/passwordEditText1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -120,7 +129,8 @@
                     android:textStyle="italic"
                     android:textSize="@dimen/text1" />
 
-                <TextView
+                <com.example.ergasia.CustomFont.CustomTextView
+                    style="@style/textview"
                     android:id="@+id/confpasswordTextView1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -129,7 +139,8 @@
                     android:textSize="@dimen/sub_title"
                     android:textStyle="bold" />
 
-                <EditText
+                <com.example.ergasia.CustomFont.CustomEditText
+                    style="@style/edittext"
                     android:id="@+id/confpasswordEditText1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -151,7 +162,8 @@
         android:layout_below="@+id/frameLayout6"
         android:gravity="center_vertical">
 
-        <Button
+        <com.example.ergasia.CustomFont.CustomButton
+            style="@style/button"
             android:id="@+id/createButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

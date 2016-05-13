@@ -67,17 +67,8 @@ public class LoginActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        TextView textView1 = (TextView) findViewById(R.id.inscriptionTextView);
-        TextView textView2 = (TextView) findViewById(R.id.email);
-        TextView textView3 = (TextView) findViewById(R.id.password);
-        TextView textView4 = (TextView) findViewById(R.id.email_sign_in_button);
-        TextView textView5 = (TextView) findViewById(R.id.createAccountButton);
-        setFont(textView1, "BrushScriptMT.ttf");
-        setFont(textView2, "BigCaslon.ttf");
-        setFont(textView3, "BigCaslon.ttf");
-        setFont(textView4, "BigCaslon.ttf");
-        setFont(textView5, "BigCaslon.ttf");
-        textView5.setPaintFlags(textView5.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        TextView textView1 = (TextView) findViewById(R.id.createAccountButton);
+        textView1.setPaintFlags(textView1.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
         // intialisation of the different inputs and buttons
         inputLayoutEmail = (TextInputLayout) findViewById(R.id.input_layout_email);
@@ -98,23 +89,6 @@ public class LoginActivity extends Activity {
 
         inputEmail.addTextChangedListener(new MyTextWatcher(inputEmail));
         addListenerOnButton();
-    }
-
-    /**
-     * function setFont which use to customize the font of the view
-     *
-     * @param textView
-     * @param fontName
-     */
-    private void setFont(TextView textView, String fontName) {
-        if (fontName != null) {
-            try {
-                Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/" + fontName);
-                textView.setTypeface(typeface);
-            } catch (Exception e) {
-                Log.e("FONT", fontName + " not found", e);
-            }
-        }
     }
 
 

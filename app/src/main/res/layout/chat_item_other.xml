@@ -8,7 +8,8 @@
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp">
 
-    <TextView
+    <com.example.ergasia.CustomFont.CustomTextView
+        style="@style/textview"
         android:id="@+id/message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -18,7 +19,8 @@
         android:background="@drawable/bg_bubble_gray"
         android:textSize="14dp" />
 
-    <TextView
+    <com.example.ergasia.CustomFont.CustomTextView
+        style="@style/textview"
         android:id="@+id/timestamp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

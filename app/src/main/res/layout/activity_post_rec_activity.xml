@@ -13,7 +13,8 @@
         android:layout_height="300dp"
         android:id="@+id/frameLayout4">
 
-        <TextView
+        <com.example.ergasia.CustomFont.CustomTextView
+            style="@style/textview"
             android:id="@+id/sloganTextView"
             android:layout_width="match_parent"
             android:layout_height="312dp"
@@ -29,7 +30,8 @@
             android:textStyle="italic"
             android:layout_gravity="center" />
 
-        <TextView
+        <com.example.ergasia.CustomFont.CustomTextView
+            style="@style/ergasiatitle"
             android:id="@+id/inscriptionTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -54,7 +56,8 @@
         android:layout_below="@+id/frameLayout4"
         android:weightSum="1">
 
-        <Button
+        <com.example.ergasia.CustomFont.CustomButton
+            style="@style/button"
             android:id="@+id/postButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -69,7 +72,8 @@
             android:layout_gravity="center_horizontal"
             android:layout_weight="0.10" />
 
-        <Button
+        <com.example.ergasia.CustomFont.CustomButton
+            style="@style/button"
             android:id="@+id/recButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -20,14 +20,15 @@
         android:layout_marginBottom="8dp"
         android:visibility="gone" />
 
-    <TextView
+    <com.example.ergasia.CustomFont.CustomTextView
+        style="@style/textview"
         android:id="@+id/inscriptionTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/app_name"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="@color/ergasiagreen"
-        android:textSize="@dimen/title_dimension" />
+        android:textSize="@dimen/title_dimension"/>
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -52,7 +53,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <EditText
+                    <com.example.ergasia.CustomFont.CustomEditText
+                        style="@style/edittext"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textEmailAddress"
@@ -65,7 +67,8 @@
 
                 </android.support.design.widget.TextInputLayout>
 
-                <EditText
+                <com.example.ergasia.CustomFont.CustomEditText
+                    style="@style/edittext"
                     android:id="@+id/password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -87,7 +90,8 @@
         android:layout_height="match_parent"
         android:gravity="center_vertical">
 
-        <Button
+        <com.example.ergasia.CustomFont.CustomButton
+            style="@style/button"
             android:id="@+id/email_sign_in_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -96,7 +100,8 @@
             android:textColor="@color/white"
             android:layout_weight="0.27" />
 
-        <Button
+        <com.example.ergasia.CustomFont.CustomButton
+            style="@style/button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/creer_compte"

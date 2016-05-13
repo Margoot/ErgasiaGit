@@ -15,104 +15,74 @@ import com.example.ergasia.Helper.SessionManager;
 
 public class Post_rec_activity extends Activity {
 
-	Button jepostButton;
-	Button jerecButton;
-	private SessionManager session;
-	private SQLiteHandler db;
-	private static Boolean isPost;
+    Button jepostButton;
+    Button jerecButton;
+    private SessionManager session;
+    private SQLiteHandler db;
+    private static Boolean isPost;
 
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_post_rec_activity);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_post_rec_activity);
+
+        // SQlite database handler
+        db = new SQLiteHandler(getApplicationContext());
+        // Session manager
+        session = new SessionManager(getApplicationContext());
 
 
-		TextView  textView1  = (TextView)findViewById(R.id.inscriptionTextView);
-		TextView  textView2  = (TextView)findViewById(R.id.postButton);
-		TextView  textView3  = (TextView)findViewById(R.id.recButton);
-		TextView  textView4  = (TextView)findViewById(R.id.sloganTextView);
+        //check if user is already logged in
+        if (session.isLoggedIn()) {
+            if (session.isCandidate()) {
+                //User is already logged in. Take him to Post/Rec activity
+                Intent i = new Intent(Post_rec_activity.this, MainTabbedActivityPost.class);
+                startActivity(i);
+                finish();
+            } else {
+                Intent i = new Intent(Post_rec_activity.this, MainTabbedActivityRec.class);
+                startActivity(i);
+                finish();
+            }
+            // A FAIRE: différencier Postulant Recruteur
+        }
 
-		setFont(textView1, "BrushScriptMT.ttf");
-		setFont(textView2, "BigCaslon.ttf");
-		setFont(textView3, "BigCaslon.ttf");
-		setFont(textView4, "BigCaslon.ttf");
+        addListenerOnButton();
 
-		// SQlite database handler
-		db = new SQLiteHandler(getApplicationContext());
-		// Session manager
-		session = new SessionManager(getApplicationContext());
+    }
 
+    private void addListenerOnButton() {
 
-		//check if user is already logged in
-		if(session.isLoggedIn()) {
-			if(session.isCandidate()) {
-				//User is already logged in. Take him to Post/Rec activity
-				Intent i = new Intent(Post_rec_activity.this, MainTabbedActivityPost.class);
-				startActivity(i);
-				finish();
-			} else {
-				Intent i = new Intent(Post_rec_activity.this, MainTabbedActivityRec.class);
-				startActivity(i);
-				finish();
-			}
-			// A FAIRE: différencier Postulant Recruteur
-		}
+        //final Context context = this;
 
-		addListenerOnButton();
+        jepostButton = (Button) findViewById(R.id.postButton);
+        jerecButton = (Button) findViewById(R.id.recButton);
 
-	}
+        jepostButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                isPost = true;
+                Intent i = new Intent(Post_rec_activity.this, LoginActivity.class);
+                startActivity(i);
 
-	/**
-	 * function setFont which use to customize the font of the view
-	 * @param textView
-	 * @param fontName
-	 */
+            }
+        });
 
+        jerecButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                isPost = false;
+                Intent i = new Intent(Post_rec_activity.this, LoginActivity.class);
+                startActivity(i);
 
-	private void setFont(TextView textView, String fontName) {
-		if(fontName != null){
-			try {
-				Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/" + fontName);
-				textView.setTypeface(typeface);
-			} catch (Exception e) {
-				Log.e("FONT", fontName + " not found", e);
-			}
-		}
-	}
+            }
+        });
+    }
 
 
-		private  void addListenerOnButton() {
-
-			//final Context context = this;
-
-			jepostButton = (Button) findViewById(R.id.postButton);
-			jerecButton = (Button) findViewById(R.id.recButton);
-
-			jepostButton.setOnClickListener(new View.OnClickListener() {
-				@Override
-				public void onClick(View arg0) {
-					isPost = true;
-					Intent i = new Intent(Post_rec_activity.this, LoginActivity.class);
-					startActivity(i);
-
-				}
-			});
-
-			jerecButton.setOnClickListener(new View.OnClickListener() {
-				@Override
-				public void onClick(View arg0) {
-					isPost = false;
-					Intent i = new Intent(Post_rec_activity.this, LoginActivity.class);
-					startActivity(i);
-
-				}
-			});
-		}
-
-
-	public static boolean getIsPost() {
-		return isPost;
-	}
+    public static boolean getIsPost() {
+        return isPost;
+    }
 
 }

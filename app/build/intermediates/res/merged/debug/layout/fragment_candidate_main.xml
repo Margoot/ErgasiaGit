@@ -26,7 +26,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" >
 
-                <TextView
+                <com.example.ergasia.CustomFont.CustomTextView
+                    style="@style/textview"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
@@ -35,7 +36,8 @@
                     android:textSize="@dimen/sub_title2"
                     android:textStyle="bold" />
 
-                <TextView
+                <com.example.ergasia.CustomFont.CustomTextView
+                    style="@style/textview"
                     android:layout_width="match_parent"
                     android:layout_height="47dp"
                     android:text="Bac"
@@ -44,7 +46,8 @@
                     android:textStyle="italic"
                     android:textAppearance="?android:attr/textAppearanceSmall"/>
 
-                <TextView
+                <com.example.ergasia.CustomFont.CustomTextView
+                    style="@style/textview"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
@@ -53,7 +56,8 @@
                     android:textSize="@dimen/sub_title2"
                     android:textStyle="bold" />
 
-                <TextView
+                <com.example.ergasia.CustomFont.CustomTextView
+                    style="@style/textview"
                     android:layout_width="wrap_content"
                     android:layout_height="47dp"
                     android:textAppearance="?android:attr/textAppearanceSmall"
@@ -62,7 +66,8 @@
                     android:textSize="@dimen/text1"
                     android:textStyle="italic" />
 
-                <TextView
+                <com.example.ergasia.CustomFont.CustomTextView
+                    style="@style/textview"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/type"
@@ -71,7 +76,8 @@
                     android:textSize="@dimen/sub_title2"
                     android:textStyle="bold"/>
 
-                <TextView
+                <com.example.ergasia.CustomFont.CustomTextView
+                    style="@style/textview"
                     android:layout_width="wrap_content"
                     android:layout_height="47dp"
                     android:text="CDI"
@@ -80,7 +86,8 @@
                     android:textStyle="italic"
                     android:textAppearance="?android:attr/textAppearanceSmall"/>
 
-                <TextView
+                <com.example.ergasia.CustomFont.CustomTextView
+                    style="@style/textview"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
@@ -95,7 +102,8 @@
                     android:layout_height="match_parent"
                     android:weightSum="1" >
 
-                    <TextView
+                    <com.example.ergasia.CustomFont.CustomTextView
+                        style="@style/textview"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:textAppearance="?android:attr/textAppearanceSmall"
@@ -114,7 +122,8 @@
                         android:numStars="3" />
                 </LinearLayout>
 
-                <TextView
+                <com.example.ergasia.CustomFont.CustomTextView
+                    style="@style/textview"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
@@ -123,7 +132,8 @@
                     android:textStyle="bold"
                     android:textSize="@dimen/sub_title2" />
 
-                <TextView
+                <com.example.ergasia.CustomFont.CustomTextView
+                    style="@style/textview"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceSmall"

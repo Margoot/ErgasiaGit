@@ -183,6 +183,7 @@
     <declare-styleable name="CompoundButton"><attr name="android:button"/><attr format="color" name="buttonTint"/><attr name="buttonTintMode"><enum name="src_over" value="3"/><enum name="src_in" value="5"/><enum name="src_atop" value="9"/><enum name="multiply" value="14"/><enum name="screen" value="15"/></attr></declare-styleable>
     <declare-styleable name="CoordinatorLayout"><attr format="reference" name="keylines"/><attr format="reference" name="statusBarBackground"/></declare-styleable>
     <declare-styleable name="CoordinatorLayout_LayoutParams"><attr name="android:layout_gravity"/><attr format="string" name="layout_behavior"/><attr format="reference" name="layout_anchor"/><attr format="integer" name="layout_keyline"/><attr name="layout_anchorGravity"><flag name="top" value="0x30"/><flag name="bottom" value="0x50"/><flag name="left" value="0x03"/><flag name="right" value="0x05"/><flag name="center_vertical" value="0x10"/><flag name="fill_vertical" value="0x70"/><flag name="center_horizontal" value="0x01"/><flag name="fill_horizontal" value="0x07"/><flag name="center" value="0x11"/><flag name="fill" value="0x77"/><flag name="clip_vertical" value="0x80"/><flag name="clip_horizontal" value="0x08"/><flag name="start" value="0x00800003"/><flag name="end" value="0x00800005"/></attr></declare-styleable>
+    <declare-styleable name="CustomFont"><attr format="string" name="font"/></declare-styleable>
     <declare-styleable name="CustomWalletTheme"><attr format="enum" name="windowTransitionStyle"><enum name="slide" value="1"/><enum name="none" value="2"/></attr></declare-styleable>
     <declare-styleable name="DesignTheme"><attr format="reference" name="bottomSheetDialogTheme"/><attr format="reference" name="bottomSheetStyle"/><attr format="color" name="textColorError"/></declare-styleable>
     <declare-styleable name="DrawerArrowToggle"><attr format="color" name="color"/><attr format="boolean" name="spinBars"/><attr format="dimension" name="drawableSize"/><attr format="dimension" name="gapBetweenBars"/><attr format="dimension" name="arrowHeadLength"/><attr format="dimension" name="arrowShaftLength"/><attr format="dimension" name="barLength"/><attr format="dimension" name="thickness"/></declare-styleable>
@@ -2027,5 +2028,23 @@
         <item name="android:focusable">true</item>
         <item name="android:contentDescription">@string/mr_media_route_button_content_description</item>
         <item name="externalRouteEnabledDrawable">@drawable/mr_ic_media_route_mono_dark</item>
+    </style>
+    <style name="autocompletetextview" parent="@android:style/Widget.AutoCompleteTextView">
+        <item name="com.example.ergasia:font">fonts/BigCaslon.ttf</item>
+    </style>
+    <style name="button" parent="@android:style/Widget.Button">
+        <item name="com.example.ergasia:font">fonts/BigCaslon.ttf</item>
+    </style>
+    <style name="edittext" parent="@android:style/Widget.EditText">
+        <item name="com.example.ergasia:font">fonts/BigCaslon.ttf</item>
+    </style>
+    <style name="ergasiatitle" parent="@android:style/Widget.EditText">
+        <item name="com.example.ergasia:font">fonts/BrushScriptMT.ttf</item>
+    </style>
+    <style name="radiobutton" parent="@android:style/Widget.CompoundButton.RadioButton">
+        <item name="com.example.ergasia:font">fonts/BigCaslon.ttf</item>
+    </style>
+    <style name="textview" parent="@android:style/Widget.TextView">
+        <item name="com.example.ergasia:font">fonts/BigCaslon.ttf</item>
     </style>
 </resources>

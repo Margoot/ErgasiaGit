@@ -8,6 +8,14 @@
         "source": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/notification_template_media.xml"
     },
     {
+        "merged": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/res/merged/debug/layout/chat_item_self.xml",
+        "source": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/src/main/res/layout/chat_item_self.xml"
+    },
+    {
+        "merged": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/res/merged/debug/layout/chat_item_other.xml",
+        "source": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/src/main/res/layout/chat_item_other.xml"
+    },
+    {
         "merged": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/res/merged/debug/layout/abc_dialog_title_material.xml",
         "source": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/abc_dialog_title_material.xml"
     },
@@ -42,6 +50,10 @@
     {
         "merged": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/res/merged/debug/layout/abc_search_dropdown_item_icons_2line.xml",
         "source": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/abc_search_dropdown_item_icons_2line.xml"
+    },
+    {
+        "merged": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/res/merged/debug/layout/activity_chat_room.xml",
+        "source": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/src/main/res/layout/activity_chat_room.xml"
     },
     {
         "merged": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/res/merged/debug/layout/design_navigation_menu.xml",
@@ -86,6 +98,10 @@
     {
         "merged": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/res/merged/debug/layout/abc_action_mode_bar.xml",
         "source": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/abc_action_mode_bar.xml"
+    },
+    {
+        "merged": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/res/merged/debug/layout/content_message_post.xml",
+        "source": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/src/main/res/layout/content_message_post.xml"
     },
     {
         "merged": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/res/merged/debug/layout/activity_tie_rec_activity.xml",
@@ -156,10 +172,6 @@
         "source": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/src/main/res/layout/fragment_message_rec.xml"
     },
     {
-        "merged": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/res/merged/debug/layout/activity_message_post_activity.xml",
-        "source": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/src/main/res/layout/activity_message_post_activity.xml"
-    },
-    {
         "merged": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/res/merged/debug/layout/notification_template_big_media.xml",
         "source": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/notification_template_big_media.xml"
     },
@@ -182,6 +194,10 @@
     {
         "merged": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/res/merged/debug/layout/design_navigation_item_separator.xml",
         "source": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/exploded-aar/com.android.support/design/23.3.0/res/layout/design_navigation_item_separator.xml"
+    },
+    {
+        "merged": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/res/merged/debug/layout/content_chat_room_bis.xml",
+        "source": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/src/main/res/layout/content_chat_room_bis.xml"
     },
     {
         "merged": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/res/merged/debug/layout/activity_new_post_activity.xml",
@@ -254,6 +270,10 @@
     {
         "merged": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/res/merged/debug/layout/notification_template_big_media_narrow.xml",
         "source": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/notification_template_big_media_narrow.xml"
+    },
+    {
+        "merged": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/res/merged/debug/layout/content_chat_rooms.xml",
+        "source": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/src/main/res/layout/content_chat_rooms.xml"
     },
     {
         "merged": "/Users/Margot/AndroidStudioProject/ErgasiaGit/app/build/intermediates/res/merged/debug/layout/activity_message_rec_activity.xml",

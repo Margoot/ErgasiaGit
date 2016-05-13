@@ -11,7 +11,8 @@
         android:orientation="vertical"
         android:padding="20dp">
 
-        <EditText
+        <com.example.ergasia.CustomFont.CustomEditText
+            style="@style/edittext"
             android:id="@+id/message"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -20,7 +21,8 @@
             android:autoText="true"
             android:hint="Ecrire message" />
 
-        <Button
+        <com.example.ergasia.CustomFont.CustomButton
+            style="@style/button"
             android:id="@+id/btn_send"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

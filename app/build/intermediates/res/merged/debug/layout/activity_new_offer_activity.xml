@@ -47,7 +47,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <TextView
+                <com.example.ergasia.CustomFont.CustomTextView
+                    style="@style/textview"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
@@ -56,7 +57,8 @@
                     android:textSize="@dimen/sub_title2"
                     android:textStyle="bold" />
 
-                <EditText
+                <com.example.ergasia.CustomFont.CustomEditText
+                    style="@style/edittext"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/newCompanyEditText"
@@ -64,7 +66,8 @@
                     android:textStyle="italic"
                     android:inputType="textCapSentences"/>
 
-                <TextView
+                <com.example.ergasia.CustomFont.CustomTextView
+                    style="@style/textview"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
@@ -73,14 +76,16 @@
                     android:textSize="@dimen/sub_title2"
                     android:textStyle="bold" />
 
-                <EditText
+                <com.example.ergasia.CustomFont.CustomEditText
+                    style="@style/edittext"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textCapSentences"
                     android:ems="10"
                     android:id="@+id/newJobTitleEditText" />
 
-                <TextView
+                <com.example.ergasia.CustomFont.CustomTextView
+                    style="@style/textview"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
@@ -89,7 +94,8 @@
                     android:textSize="@dimen/sub_title2"
                     android:textStyle="bold" />
 
-                <EditText
+                <com.example.ergasia.CustomFont.CustomEditText
+                    style="@style/edittext"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/newAreaEditText"
@@ -97,7 +103,8 @@
                     android:textSize="@dimen/text1"
                     android:inputType="textCapSentences"/>
 
-                <TextView
+                <com.example.ergasia.CustomFont.CustomTextView
+                    style="@style/textview"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
@@ -115,7 +122,8 @@
                     android:onClick="setContentView"
                     >
 
-                    <RadioButton
+                    <com.example.ergasia.CustomFont.CustomRadioButton
+                        style="@style/radiobutton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="CDI"
@@ -124,7 +132,8 @@
                         android:textStyle="italic"
                         android:contextClickable="true"/>
 
-                    <RadioButton
+                    <com.example.ergasia.CustomFont.CustomRadioButton
+                        style="@style/radiobutton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="CDD"
@@ -133,7 +142,8 @@
                         android:textStyle="italic"
                         android:contextClickable="true"/>
 
-                    <RadioButton
+                    <com.example.ergasia.CustomFont.CustomRadioButton
+                        style="@style/radiobutton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Stage"
@@ -143,7 +153,8 @@
                         android:contextClickable="true"/>
                 </RadioGroup>
 
-                <TextView
+                <com.example.ergasia.CustomFont.CustomTextView
+                    style="@style/textview"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
@@ -152,7 +163,8 @@
                     android:textSize="@dimen/sub_title2"
                     android:textStyle="bold" />
 
-                <EditText
+                <com.example.ergasia.CustomFont.CustomEditText
+                    style="@style/edittext"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/newSkillsEditText"
@@ -160,7 +172,8 @@
                     android:textStyle="italic"
                     android:inputType="textCapWords"/>
 
-                <TextView
+                <com.example.ergasia.CustomFont.CustomTextView
+                    style="@style/textview"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
@@ -176,7 +189,8 @@
                     android:id="@+id/geolocSwitchNewOffer"
                     android:checked="false"/>
 
-                <TextView
+                <com.example.ergasia.CustomFont.CustomTextView
+                    style="@style/textview"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
@@ -192,7 +206,8 @@
                     android:layout_height="match_parent"
                     android:weightSum="1">
 
-                    <TextView
+                    <com.example.ergasia.CustomFont.CustomTextView
+                        style="@style/textview"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:textAppearance="?android:attr/textAppearanceMedium"
@@ -208,6 +223,7 @@
                         android:layout_gravity="left|center_horizontal"/>
 
                 </LinearLayout>
+
 
                 <AutoCompleteTextView
                     android:layout_width="wrap_content"
@@ -233,7 +249,8 @@
             android:layout_height="20dp"
             android:layout_gravity="center_horizontal"/>
 
-        <Button
+        <com.example.ergasia.CustomFont.CustomButton
+            style="@style/button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/lancer_recherche"
