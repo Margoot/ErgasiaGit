@@ -101,6 +101,7 @@ public class MessageFragmentPost extends Fragment {
             @Override
             public void onReceive(Context context, Intent intent) {
                 //checking for type intent filter
+                System.out.println("on reveice: MessageFragmentPost");
                 if (intent.getAction().equals(MessageConfig.REGISTRATION_COMPLETE)) {
                     //gcm successfully registered
                     //now subscribe to `global`topic to receive app wide notifications
@@ -126,7 +127,8 @@ public class MessageFragmentPost extends Fragment {
         };
 
         chatRoomArrayList = new ArrayList<>();
-        mAdapter = new ChatRoomsAdapter(getActivity(), chatRoomArrayList);
+        mAdapter = new ChatRoomsAdapter(getActivity().getApplication(), chatRoomArrayList);
+        System.out.println("constructor : " + chatRoomArrayList);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.addItemDecoration(new SimpleDividerItemDecoration(
@@ -204,6 +206,7 @@ public class MessageFragmentPost extends Fragment {
                 chatRoomArrayList.remove(index);
                 chatRoomArrayList.add(index, cr);
                 Log.e(TAG, "index : " + index);
+
                 break;
 
             }
@@ -238,6 +241,7 @@ public class MessageFragmentPost extends Fragment {
                             Log.e(TAG, "chatrooms : " + cr);
 
                             chatRoomArrayList.add(cr);
+
                         }
                         System.out.println("fetching chat room : " + chatRoomArrayList);
                     } else {
@@ -250,6 +254,8 @@ public class MessageFragmentPost extends Fragment {
                 }
 
                 mAdapter.notifyDataSetChanged();
+                System.out.println("data change :" + chatRoomArrayList + " : " + chatRoomArrayList.size());
+                //mAdapter.notifyItemInserted(chatRoomArrayList.size());
 
                 //subscribing to all chat room topics
                 subscribeToAllTopics();

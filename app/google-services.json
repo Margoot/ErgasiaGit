@@ -6,9 +6,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:629894714266:android:e3dd90c90f705085",
+        "mobilesdk_app_id": "1:629894714266:android:1ba8e27dfec30a92",
         "android_client_info": {
-          "package_name": "com.package.Ergasia"
+          "package_name": "com.example.ergasia"
         }
       },
       "oauth_client": [],

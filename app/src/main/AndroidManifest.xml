@@ -17,9 +17,9 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
-    <permission android:name="com.example.ergasia.gcm.permission.C2D_MESSAGE"
+    <permission android:name="com.example.ergasia.permission.C2D_MESSAGE"
                 android:protectionLevel="signature"/>
-    <uses-permission android:name="com.example.ergasia.gcm.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="com.example.ergasia.permission.C2D_MESSAGE"/>
 
     <application
         android:name=".app.AppController"
@@ -122,9 +122,9 @@
              ATTENTION: This was auto-generated to add Google Play services to your project for
              App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
         -->
-        <meta-data
+        <!--<meta-data
             android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version"/>
+            android:value="@integer/google_play_services_version"/>-->
 
         <activity
             android:name=".Activity.New_post_activity"
@@ -137,28 +137,33 @@
             android:windowSoftInputMode="adjustPan">
         </activity>
         <activity android:name=".Activity.ChatRoomActivity"
-                  android:windowSoftInputMode="adjustPan">
+                  android:windowSoftInputMode="adjustPan"
+                  android:parentName=".Activity."
+                   >
+            <meta-data
+                android:name="android.support.PARENT_FRAGMENT"
+                android:value="com.example.ergasia.MessageFragmentPost" />
             </activity>
 
         <receiver
             android:name="com.google.android.gms.gcm.GcmReceiver"
             android:exported="true"
-            android:permission="com.google.android.c2m.permission.SEND">
+            android:permission="com.google.android.c2dm.permission.SEND">
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-                <category android:name="info.androidhive.gcm" />
+                <category android:name="com.example.ergasia" />
             </intent-filter>
         </receiver>
 
         <service
-            android:name="com.example.ergasia.gcm.MyGcmPushReceiver"
+            android:name=".gcm.MyGcmPushReceiver"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
             </intent-filter>
         </service>
 
-        <service android:name="com.example.ergasia.gcm.GcmIntentService"
+        <service android:name=".gcm.GcmIntentService"
                  android:exported="false">
             <intent-filter>
                 <action android:name="com.google.android.gms.iid.InstanceID"/>

@@ -50,16 +50,21 @@ public class ChatRoomsAdapter extends RecyclerView.Adapter<ChatRoomsAdapter.View
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.chat_rooms_list_row, parent, false);
+        System.out.println("Executing create view holder");
 
         return new ViewHolder(itemView);
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
+        System.out.println("inside bindView" + chatRoomArrayList +" pos: " + position);
         ChatRoom chatRoom = chatRoomArrayList.get(position);
         holder.name.setText(chatRoom.getName());
+        System.out.println("set name bind view: " + chatRoom.getName());
         holder.message.setText(chatRoom.getLastMessage());
+        System.out.println("unreadCount: " + chatRoom.getUnreadCount());
         if (chatRoom.getUnreadCount() > 0) {
+            System.out.println("String value name: " + String.valueOf(chatRoom.getUnreadCount()));
             holder.count.setText(String.valueOf(chatRoom.getUnreadCount()));
             holder.count.setVisibility(View.VISIBLE);
         } else {
@@ -70,7 +75,14 @@ public class ChatRoomsAdapter extends RecyclerView.Adapter<ChatRoomsAdapter.View
     }
 
     @Override
+    public void onAttachedToRecyclerView(RecyclerView recyclerView) {
+        super.onAttachedToRecyclerView(recyclerView);
+    }
+
+
+    @Override
     public int getItemCount() {
+        System.out.println("getItemCount: " + chatRoomArrayList.size());
         return chatRoomArrayList.size();
     }
 

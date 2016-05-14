@@ -22,10 +22,10 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <permission
-        android:name="com.example.ergasia.gcm.permission.C2D_MESSAGE"
+        android:name="com.example.ergasia.permission.C2D_MESSAGE"
         android:protectionLevel="signature" />
 
-    <uses-permission android:name="com.example.ergasia.gcm.permission.C2D_MESSAGE" />
+    <uses-permission android:name="com.example.ergasia.permission.C2D_MESSAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <uses-feature
@@ -130,9 +130,11 @@
              ATTENTION: This was auto-generated to add Google Play services to your project for
              App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
         -->
-        <meta-data
+        <!--
+            <meta-data
             android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
+            android:value="@integer/google_play_services_version"/>
+        -->
 
         <activity
             android:name="com.example.ergasia.Activity.New_post_activity"
@@ -146,17 +148,18 @@
         </activity>
         <activity
             android:name="com.example.ergasia.Activity.ChatRoomActivity"
+            android:parentActivityName="com.example.ergasia.Activity.MainTabbedActivityPost"
             android:windowSoftInputMode="adjustPan" >
         </activity>
 
         <receiver
             android:name="com.google.android.gms.gcm.GcmReceiver"
             android:exported="true"
-            android:permission="com.google.android.c2m.permission.SEND" >
+            android:permission="com.google.android.c2dm.permission.SEND" >
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
 
-                <category android:name="info.androidhive.gcm" />
+                <category android:name="com.example.ergasia" />
             </intent-filter>
         </receiver>
 
@@ -191,7 +194,11 @@
         <service
             android:name="com.google.android.gms.measurement.AppMeasurementService"
             android:enabled="true"
-            android:exported="false" /> <!-- Include the AdActivity and InAppPurchaseActivity configChanges and themes. -->
+            android:exported="false" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" /> <!-- Include the AdActivity and InAppPurchaseActivity configChanges and themes. -->
         <activity
             android:name="com.google.android.gms.ads.AdActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"

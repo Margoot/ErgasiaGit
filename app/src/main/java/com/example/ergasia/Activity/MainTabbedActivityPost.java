@@ -59,6 +59,7 @@ public class MainTabbedActivityPost extends AppCompatActivity {
         setContentView(R.layout.activity_main_tabbed);
 
 
+
         toolbar = (Toolbar) findViewById(R.id.toolbar); // Attaching the layout to the toolbar object
         setSupportActionBar(toolbar);
 

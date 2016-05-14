@@ -42,53 +42,21 @@ public class MyGcmPushReceiver extends GcmListenerService {
     @Override
     public void onMessageReceived(String from, Bundle bundle) {
         String title = bundle.getString("title");
-        String message = bundle.getString("message");
-        String image = bundle.getString("image");
-        String timestamp = bundle.getString("created_at");
         Boolean isBackground = Boolean.valueOf(bundle.getString("is_background"));
         String flag = bundle.getString("flag");
         String data = bundle.getString("data");
         Log.d(TAG, "From: " + from);
         Log.d(TAG, "title: " + title);
-        Log.e(TAG, "message" + message);
-        Log.e(TAG, "image: " + image);
-        Log.e(TAG, "timestamp: " + timestamp);
         Log.d(TAG, "isBackground: " + isBackground);
         Log.d(TAG, "flag: " + flag);
         Log.d(TAG, "data: " + data);
-
-
-        if (!NotificationUtils.isAppIsInBackground(getApplicationContext())) {
-
-            // app is in foreground, broadcast the push message
-            Intent pushNotification = new Intent(MessageConfig.PUSH_NOTIFICATION);
-            pushNotification.putExtra("message", message);
-            LocalBroadcastManager.getInstance(this).sendBroadcast(pushNotification);
-
-            // play notification sound
-            NotificationUtils notificationUtils = new NotificationUtils();
-            notificationUtils.playNotificationSound();
-        } else {
-
-            Intent resultIntent = new Intent(getApplicationContext(), MessageFragmentPost.class);
-            resultIntent.putExtra("message", message);
-
-            if (TextUtils.isEmpty(image)) {
-                showNotificationMessage(getApplicationContext(), title, message, timestamp, resultIntent);
-            } else {
-                showNotificationMessageWithBigImage(getApplicationContext(), title, message, timestamp, resultIntent, image);
-            }
-        }
-
-
 
         if (flag == null) {
             Log.e(TAG, "FLAG null");
             return;
         }
 
-
-       if (AppController.getInstance().getPrefManager().getUser() == null) {
+        if (AppController.getInstance().getPrefManager().getUser() == null) {
             //user is not logged in, skipping push notification
             Log.e(TAG, "user is not logged in, skipping push notification");
             return;
@@ -111,6 +79,7 @@ public class MyGcmPushReceiver extends GcmListenerService {
                 break;
         }
     }
+
 
     /**
      * Processing chat room push message

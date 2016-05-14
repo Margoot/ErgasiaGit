@@ -22,6 +22,6 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_chat_rooms"/>
+    <include layout="@layout/content_chat_room"/>
 
 </android.support.design.widget.CoordinatorLayout>

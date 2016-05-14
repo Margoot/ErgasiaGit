@@ -15,6 +15,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -95,6 +96,7 @@ public class ChatRoomActivity extends AppCompatActivity {
         mRegistrationBroadcastReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
+                System.out.println("inside onReceive");
                 if (intent.getAction().equals(MessageConfig.PUSH_NOTIFICATION)) {
                     //new push message is received
                     handlePushNotification(intent);
@@ -210,6 +212,7 @@ public class ChatRoomActivity extends AppCompatActivity {
                     Log.e(TAG, "json parsing error: " + e.getMessage());
                     Toast.makeText(getApplicationContext(), "json parse error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
+                
             }
         }, new Response.ErrorListener() {
             @Override
@@ -311,6 +314,9 @@ public class ChatRoomActivity extends AppCompatActivity {
         });
         AppController.getInstance().addToRequestQueue(strReq);
     }
+
+
+
 }
 
 

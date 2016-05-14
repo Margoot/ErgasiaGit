@@ -52,6 +52,7 @@ public class ChatRoom implements Serializable {
 
     public void setUnreadCount(int unreadCount) {
         this.unreadCount = unreadCount;
+        System.out.println("chaatRoom setUnread count : " + this.unreadCount);
     }
 
     public String getTimestamp() {
