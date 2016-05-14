@@ -206,7 +206,7 @@ public class View_offer_activity extends AppCompatActivity {
                 // Posting params to new candidate url
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("email", session.getEmail());
-                params.put("unique_id", uidOffer);
+                params.put("unique_id_recruiters", uidOffer);
                 params.put("name", company);
                 params.put("firstname", jobTitle);
                 params.put("area_activity", areaActivity);
