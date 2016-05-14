@@ -141,11 +141,15 @@ public class MessageFragmentPost extends Fragment {
             @Override
             public void onClick(View view, int position) {
                 // when chat is clicked, launch full chat thread activity
+
                 ChatRoom chatRoom = chatRoomArrayList.get(position);
+                chatRoom.setUnreadCount(0);
                 Intent intent = new Intent(getActivity()
                         , ChatRoomActivity.class);
                 intent.putExtra("chat_rooms_id", chatRoom.getId());
                 intent.putExtra("name", chatRoom.getName());
+                mAdapter.notifyDataSetChanged();
+
                 startActivity(intent);
             }
 

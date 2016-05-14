@@ -98,26 +98,6 @@
             android:windowSoftInputMode="adjustPan">
 
         </activity>
-        <activity
-            android:name=".Activity.Message_rec_activity"
-            android:label="@string/title_activity_message_rec_activity"
-            android:parentActivityName=".Activity.MainTabbedActivityRec"
-            android:windowSoftInputMode="adjustPan">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Activity.MainTabbedActivityRec"/>
-
-        </activity>
-        <activity
-            android:name=".Activity.Message_post_activity"
-            android:label="@string/title_activity_message_rec_activity"
-            android:parentActivityName=".Activity.MainTabbedActivityRec"
-            android:windowSoftInputMode="adjustPan">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Activity.MainTabbedActivityRec"/>
-
-        </activity>
         <!--
              ATTENTION: This was auto-generated to add Google Play services to your project for
              App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -136,9 +116,15 @@
             android:label="@string/title_activity_view_offer_activity"
             android:windowSoftInputMode="adjustPan">
         </activity>
+        <activity android:name=".Activity.FragmentMessagePost"
+                  android:launchMode="singleTop"
+            >
+
+        </activity>
+
         <activity android:name=".Activity.ChatRoomActivity"
                   android:windowSoftInputMode="adjustPan"
-                  android:parentActivityName=".Activity.MainTabbedActivityPost">
+                  android:parentActivityName=".Activity.FragmentMessagePost">
 
             </activity>
 

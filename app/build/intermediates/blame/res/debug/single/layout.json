@@ -144,12 +144,12 @@
         "source": "/Users/simonthome/ErgasiaGit/app/src/main/res/layout/activity_new_post_activity.xml"
     },
     {
-        "merged": "/Users/simonthome/ErgasiaGit/app/build/intermediates/res/merged/debug/layout/notification_template_big_media.xml",
-        "source": "/Users/simonthome/ErgasiaGit/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/notification_template_big_media.xml"
-    },
-    {
         "merged": "/Users/simonthome/ErgasiaGit/app/build/intermediates/res/merged/debug/layout/fragment_offer_main.xml",
         "source": "/Users/simonthome/ErgasiaGit/app/src/main/res/layout/fragment_offer_main.xml"
+    },
+    {
+        "merged": "/Users/simonthome/ErgasiaGit/app/build/intermediates/res/merged/debug/layout/notification_template_big_media.xml",
+        "source": "/Users/simonthome/ErgasiaGit/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/notification_template_big_media.xml"
     },
     {
         "merged": "/Users/simonthome/ErgasiaGit/app/build/intermediates/res/merged/debug/layout/activity_chat_room.xml",

@@ -108,24 +108,6 @@
             android:label="@string/title_activity_tie_activity"
             android:windowSoftInputMode="adjustPan" >
         </activity>
-        <activity
-            android:name="com.example.ergasia.Activity.Message_rec_activity"
-            android:label="@string/title_activity_message_rec_activity"
-            android:parentActivityName="com.example.ergasia.Activity.MainTabbedActivityRec"
-            android:windowSoftInputMode="adjustPan" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Activity.MainTabbedActivityRec" />
-        </activity>
-        <activity
-            android:name="com.example.ergasia.Activity.Message_post_activity"
-            android:label="@string/title_activity_message_rec_activity"
-            android:parentActivityName="com.example.ergasia.Activity.MainTabbedActivityRec"
-            android:windowSoftInputMode="adjustPan" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Activity.MainTabbedActivityRec" />
-        </activity>
         <!--
              ATTENTION: This was auto-generated to add Google Play services to your project for
              App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -147,8 +129,12 @@
             android:windowSoftInputMode="adjustPan" >
         </activity>
         <activity
+            android:name="com.example.ergasia.Activity.FragmentMessagePost"
+            android:launchMode="singleTop" >
+        </activity>
+        <activity
             android:name="com.example.ergasia.Activity.ChatRoomActivity"
-            android:parentActivityName="com.example.ergasia.Activity.MainTabbedActivityPost"
+            android:parentActivityName="com.example.ergasia.Activity.FragmentMessagePost"
             android:windowSoftInputMode="adjustPan" >
         </activity>
 
