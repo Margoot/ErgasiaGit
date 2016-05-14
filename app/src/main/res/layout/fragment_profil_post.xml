@@ -296,7 +296,7 @@
                 android:id="@+id/seekBar"
                 android:layout_gravity="center_horizontal" />
 
-        <com.example.ergasia.CustomFont.CustomFontAutoCompleteTextView>
+
             <AutoCompleteTextView
                 style="@style/autocompletetextview"
                 android:layout_width="match_parent"
@@ -306,7 +306,6 @@
                 android:textStyle="italic"
                 android:textSize="@dimen/text1"
                 android:focusable="false"/>
-        </com.example.ergasia.CustomFont.CustomFontAutoCompleteTextView>
 
 
             <com.example.ergasia.CustomFont.CustomButton

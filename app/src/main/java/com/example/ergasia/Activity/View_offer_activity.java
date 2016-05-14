@@ -68,7 +68,6 @@ public class View_offer_activity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar); // Attaching the layout to the toolbar object
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowTitleEnabled(true);
 
 
         db = new SQLiteHandler(getApplicationContext());
