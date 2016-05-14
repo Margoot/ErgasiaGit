@@ -63,7 +63,7 @@ public class ProfilFragmentPost extends Fragment {
     private static EditText inputLocation;
     private static Button finishButton;
     private static ProgressDialog pDialog;
-    private String uid;
+    private String uidCandidate;
 
 
     public static ProfilFragmentPost newInstance() {
@@ -123,7 +123,7 @@ public class ProfilFragmentPost extends Fragment {
         String levelLanguage3 = candidate.get("level_language3");
         String skill = candidate.get("skill");
         String geolocation = candidate.get("geolocation");
-        uid = candidate.get("uidCandidate");
+        uidCandidate = candidate.get("uidCandidate");
 
         inputName.setText(name);
         inputFirstname.setText(firstname);
@@ -166,7 +166,7 @@ public class ProfilFragmentPost extends Fragment {
                     if (!name.isEmpty() && !firstname.isEmpty() && !training.isEmpty() && !areaActivity.isEmpty() &&
                             !language1.isEmpty() && !levelLanguage1.isEmpty() &&
                             !skill.isEmpty() && !geolocation.isEmpty()) {
-                        updatedNewCandidate(uid,name, firstname, training, areaActivity, type,
+                        updatedNewCandidate(uidCandidate,name, firstname, training, areaActivity, type,
                                 language1, levelLanguage1, language2, levelLanguage2,
                                 language3, levelLanguage3, skill, geolocation);
                     } else {
@@ -225,7 +225,7 @@ public class ProfilFragmentPost extends Fragment {
 
             @Override
             public void onResponse(String response) {
-                Log.d(TAG, "New Candidate Register Response: " + response.toString());
+                Log.d(TAG, "New Candidate Update Response: " + response.toString());
                 hideDialog();
 
 
@@ -286,7 +286,7 @@ public class ProfilFragmentPost extends Fragment {
                 // Posting params to new candidate url
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("email", session.getEmail());
-                params.put("unique_id", uidCandidate);
+                params.put("unique_id_candidates", uidCandidate);
                 params.put("name", name);
                 params.put("firstname", firstname);
                 params.put("training", training);
