@@ -28,7 +28,8 @@
             android:text="@string/slogan"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textStyle="italic"
-            android:layout_gravity="center" />
+            android:layout_gravity="center"
+            android:textSize="@dimen/slogan_size"/>
 
         <com.example.ergasia.CustomFont.CustomTextView
             style="@style/ergasiatitle"

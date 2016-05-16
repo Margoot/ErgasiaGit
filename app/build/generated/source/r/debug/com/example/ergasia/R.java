@@ -2827,15 +2827,16 @@ containing a value of this type.
         public static final int notification_large_icon_height=0x7f08006f;
         public static final int notification_large_icon_width=0x7f080070;
         public static final int notification_subtext_size=0x7f080071;
-        public static final int sub_title=0x7f080072;
-        public static final int sub_title2=0x7f080073;
-        public static final int tab_label=0x7f080074;
-        public static final int tab_max_width=0x7f080075;
-        public static final int tab_padding_bottom=0x7f080076;
-        public static final int text1=0x7f080077;
-        public static final int text_language=0x7f080078;
-        public static final int text_size_button=0x7f080079;
-        public static final int title_dimension=0x7f08007a;
+        public static final int slogan_size=0x7f080072;
+        public static final int sub_title=0x7f080073;
+        public static final int sub_title2=0x7f080074;
+        public static final int tab_label=0x7f080075;
+        public static final int tab_max_width=0x7f080076;
+        public static final int tab_padding_bottom=0x7f080077;
+        public static final int text1=0x7f080078;
+        public static final int text_language=0x7f080079;
+        public static final int text_size_button=0x7f08007a;
+        public static final int title_dimension=0x7f08007b;
     }
     public static final class drawable {
         public static final int abc_ab_share_pack_mtrl_alpha=0x7f020000;
@@ -3459,6 +3460,7 @@ containing a value of this type.
     }
     public static final class raw {
         public static final int gtm_analytics=0x7f050000;
+        public static final int notification=0x7f050001;
     }
     public static final class string {
         public static final int abc_action_bar_home_description=0x7f060000;

@@ -1,2 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
+
+    <item
+        jar="/Users/simonthome/ErgasiaGit/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="a5f18b41e6fb1965f6ffa1bbe7050d27b7977234">
+        <dex dex="/Users/simonthome/ErgasiaGit/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_0e279ee405e7c110c1784c5febf53471c474aabc/classes.dex" />
+    </item>
+
+</items>
