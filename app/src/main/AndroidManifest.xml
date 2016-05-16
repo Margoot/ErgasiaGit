@@ -32,6 +32,8 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".Activity.Load_activity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_load_activity">
 
             <!-- android:label="@string/app_name" -->
@@ -48,10 +50,14 @@
         -->
         <activity
             android:name=".Activity.Post_rec_activity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_post_rec_activity"
             android:windowSoftInputMode="adjustPan"/>
         <activity
             android:name=".Activity.Inscription_activity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_inscription_activity"
             android:parentActivityName=".Activity.Post_rec_activity"
             android:windowSoftInputMode="adjustPan">
@@ -61,21 +67,29 @@
         </activity>
         <activity
             android:name=".Activity.LoginActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_login"
             android:windowSoftInputMode="adjustResize|stateVisible"/>
         <activity
             android:name=".Activity.MainTabbedActivityPost"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_main_tabbed"
             android:windowSoftInputMode="adjustPan">
         </activity>
         <activity
             android:name=".Activity.MainTabbedActivityRec"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_main_tabbed_activity_rec"
             android:windowSoftInputMode="adjustPan">
 
         </activity>
         <activity
             android:name=".Activity.New_offer_activity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_new_offer_activity"
             android:parentActivityName=".Activity.MainTabbedActivityRec"
             android:windowSoftInputMode="adjustPan">
@@ -86,6 +100,8 @@
         </activity>
         <activity
             android:name=".Activity.Tie_rec_activity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_tie_activity"
             android:windowSoftInputMode="adjustPan">
             <intent-filter>
@@ -96,11 +112,15 @@
         </activity>
         <activity
             android:name=".Activity.Tie_post_activity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_tie_activity"
             android:windowSoftInputMode="adjustPan">
         </activity>
         <activity
             android:name=".Activity.Message_rec_activity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_message_rec_activity"
             android:parentActivityName=".Activity.MainTabbedActivityRec"
             android:windowSoftInputMode="adjustPan">
@@ -110,6 +130,8 @@
         </activity>
         <activity
             android:name=".Activity.Message_post_activity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_message_rec_activity"
             android:parentActivityName=".Activity.MainTabbedActivityRec"
             android:windowSoftInputMode="adjustPan">
@@ -127,22 +149,30 @@
 
         <activity
             android:name=".Activity.New_post_activity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_new_post_activity"
             android:windowSoftInputMode="adjustPan">
         </activity>
         <activity
             android:name=".Activity.View_offer_activity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_view_offer_activity"
             android:parentActivityName=".Activity.MainTabbedActivityRec"
             android:windowSoftInputMode="adjustPan">
         </activity>
         <activity android:name=".Activity.FragmentMessagePost"
+                  android:configChanges="orientation"
+                  android:screenOrientation="portrait"
                   android:launchMode="singleTop"
             >
 
         </activity>
 
         <activity android:name=".Activity.ChatRoomActivity"
+                  android:configChanges="orientation"
+                  android:screenOrientation="portrait"
                   android:windowSoftInputMode="adjustPan"
                   android:parentActivityName=".Activity.FragmentMessagePost">
 
