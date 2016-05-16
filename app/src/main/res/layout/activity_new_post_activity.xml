@@ -151,21 +151,24 @@
                             style="@style/radiobutton"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="CDI"/>
+                            android:text="CDI"
+                            android:singleLine="true"/>
 
                         <com.example.ergasia.CustomFont.CustomRadioButton
                             android:id="@+id/radioButtonCdd"
                             style="@style/radiobutton"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="CDD"/>
+                            android:text="CDD"
+                            android:singleLine="true"/>
 
                         <com.example.ergasia.CustomFont.CustomRadioButton
                             android:id="@+id/radioButtonIntern"
                             style="@style/radiobutton"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Stage"/>
+                            android:text="Stage"
+                            android:singleLine="true"/>
                     </RadioGroup>
 
                     <TableRow

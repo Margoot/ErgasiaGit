@@ -1,5 +1,6 @@
 package com.example.ergasia.Activity;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -9,6 +10,10 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.example.ergasia.R;
@@ -22,6 +27,15 @@ public class OfferFragmentPost extends Fragment {
      * fragment.
      */
     private static final String ARG_SECTION_NUMBER = "section_number";
+    private ImageButton likeButton;
+    private ImageButton dislikeButton;
+    private int count;
+    private TextView inputCompany;
+    private TextView inputJobTitle;
+    private TextView inputAreaActivity;
+    private TextView inputType;
+    private TextView inputGeolocation;
+    private TextView inputSkill;
 
     public OfferFragmentPost() {
 
@@ -48,6 +62,71 @@ public class OfferFragmentPost extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_offer_main, container, false);
 
         setHasOptionsMenu(true);
+
+        likeButton = (ImageButton) rootView.findViewById(R.id.okButton);
+        inputCompany = (TextView) rootView.findViewById(R.id.companySmallText2);
+        inputJobTitle = (TextView) rootView.findViewById(R.id.jobTitleSmallTextView);
+        inputAreaActivity = (TextView) rootView.findViewById(R.id.areaSmallTextView);
+        inputType = (TextView) rootView.findViewById(R.id.typeSmallTextView);
+        inputGeolocation = (TextView) rootView.findViewById(R.id.locationSmallTextView);
+        inputSkill = (TextView) rootView.findViewById(R.id.skillsSmallTextView);
+
+
+        count = 0;
+        likeButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Perform action on click
+                switch(count) {
+                    case 0:
+                    inputCompany.setText("France 2");
+                    inputJobTitle.setText("Camera man");
+                    inputAreaActivity.setText("Media");
+                    inputType.setText("CDI");
+                    inputGeolocation.setText("Lyon, France");
+                    inputSkill.setText("video, son");
+                        count++;
+                        break;
+                    case 1:
+                        inputCompany.setText("Vinci");
+                        inputJobTitle.setText("chef de chantier");
+                        inputAreaActivity.setText("BTP");
+                        inputType.setText("CDD");
+                        inputGeolocation.setText("Rouen, France");
+                        inputSkill.setText("savoir creuser");
+                        count++;
+                        break;
+                    case 2:
+                        inputCompany.setText("Sfr");
+                        inputJobTitle.setText("Vendeur");
+                        inputAreaActivity.setText("Telephonie");
+                        inputType.setText("CDD");
+                        inputGeolocation.setText("Paris, France");
+                        inputSkill.setText("parler");
+                    case 3:
+                        Intent intent = new Intent(getActivity(), Tie_post_activity.class);
+                        getActivity().startActivity(intent);
+
+
+                }
+
+
+
+
+            }
+        });
+
+
+        dislikeButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Perform action on click
+                inputCompany.setText("Auchun");
+                inputJobTitle.setText("Caissier");
+                inputAreaActivity.setText("Magasin");
+                inputType.setText("CDI");
+                inputGeolocation.setText("Lyon, France");
+                inputSkill.setText("Manger");
+            }
+        });
 
         return rootView;
     }
