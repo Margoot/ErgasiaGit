@@ -73,16 +73,7 @@ public class MainTabbedActivityPost extends AppCompatActivity {
 
         setupTabIcons();
 
-
-
-
-
         db = new SQLiteHandler(getApplicationContext());
-
-
-
-
-
 
     }
 

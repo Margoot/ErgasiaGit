@@ -234,7 +234,6 @@
                     android:textSize="@dimen/text1"
                     android:textStyle="italic">
 
-                    <requestFocus/>
                 </com.example.ergasia.GPS.CustomAutoCompleteTextView>
 
             </LinearLayout>
