@@ -315,7 +315,7 @@
                 android:text="@string/finish_modification"
                 android:id="@+id/finishModification"
                 android:textColor="@color/white"
-                android:background="@color/ergasiagreen"
+                android:background="@drawable/shape"
                 android:visibility="gone"/>
         </LinearLayout>
     </ScrollView>

@@ -17,8 +17,10 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
-    <permission android:name="com.example.ergasia.permission.C2D_MESSAGE"
-                android:protectionLevel="signature"/>
+    <permission
+        android:name="com.example.ergasia.permission.C2D_MESSAGE"
+        android:protectionLevel="signature"/>
+
     <uses-permission android:name="com.example.ergasia.permission.C2D_MESSAGE"/>
 
     <application
@@ -96,7 +98,24 @@
             android:name=".Activity.Tie_post_activity"
             android:label="@string/title_activity_tie_activity"
             android:windowSoftInputMode="adjustPan">
-
+        </activity>
+        <activity
+            android:name=".Activity.Message_rec_activity"
+            android:label="@string/title_activity_message_rec_activity"
+            android:parentActivityName=".Activity.MainTabbedActivityRec"
+            android:windowSoftInputMode="adjustPan">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activity.MainTabbedActivityRec"/>
+        </activity>
+        <activity
+            android:name=".Activity.Message_post_activity"
+            android:label="@string/title_activity_message_rec_activity"
+            android:parentActivityName=".Activity.MainTabbedActivityRec"
+            android:windowSoftInputMode="adjustPan">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activity.MainTabbedActivityRec"/>
         </activity>
         <!--
              ATTENTION: This was auto-generated to add Google Play services to your project for
@@ -114,6 +133,7 @@
         <activity
             android:name=".Activity.View_offer_activity"
             android:label="@string/title_activity_view_offer_activity"
+            android:parentActivityName=".Activity.MainTabbedActivityRec"
             android:windowSoftInputMode="adjustPan">
         </activity>
         <activity android:name=".Activity.FragmentMessagePost"
@@ -142,12 +162,12 @@
             android:name=".gcm.MyGcmPushReceiver"
             android:exported="false">
             <intent-filter>
-                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
             </intent-filter>
         </service>
-
-        <service android:name=".gcm.GcmIntentService"
-                 android:exported="false">
+        <service
+            android:name=".gcm.GcmIntentService"
+            android:exported="false">
             <intent-filter>
                 <action android:name="com.google.android.gms.iid.InstanceID"/>
             </intent-filter>

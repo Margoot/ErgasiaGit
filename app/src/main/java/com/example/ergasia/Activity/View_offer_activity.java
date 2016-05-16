@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -16,6 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -26,15 +28,19 @@ import android.widget.Toast;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.example.ergasia.CustomFont.CustomButton;
+import com.example.ergasia.CustomFont.CustomEditText;
 import com.example.ergasia.Helper.SQLiteHandler;
 import com.example.ergasia.Helper.SessionManager;
 import com.example.ergasia.R;
 import com.example.ergasia.app.AppConfig;
 import com.example.ergasia.app.AppController;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -51,13 +57,15 @@ public class View_offer_activity extends AppCompatActivity {
     private static EditText inputJobTitle;
     private static EditText inputAreaActivity;
     private static EditText inputType;
-    private static EditText inputGeolocation;
+    private static AutoCompleteTextView inputGeolocation;
     private static EditText inputSkill;
     private static Button finishButton;
     private static RadioGroup inputTypeGroup;
 
     private ProgressDialog pDialog;
-    private String uid;
+    private String uidOffer;
+    private String job;
+    private static boolean modify = false;
 
 
     @Override
@@ -77,23 +85,31 @@ public class View_offer_activity extends AppCompatActivity {
         inputJobTitle = (EditText) findViewById(R.id.jobTitleEditText2);
         inputAreaActivity = (EditText) findViewById(R.id.viewAreaEditText);
         inputType = (EditText) findViewById(R.id.viewTypeEditText);
-        inputGeolocation = (EditText) findViewById(R.id.viewLocationTextEdit);
+        inputGeolocation = (AutoCompleteTextView) findViewById(R.id.locationEditText);
         inputSkill = (EditText) findViewById(R.id.viewSkillsTextEdit);
         finishButton = (Button) findViewById(R.id.finishModification);
+        inputTypeGroup = (RadioGroup) findViewById(R.id.typeRadioGroup);
 
         //Progress dialog
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(false);
 
+
         //Fetching candidate details from SQlite
-        HashMap<String, String> recruiter = db.getOfferDetails();
-        String company = recruiter.get("company");
-        String jobTitle = recruiter.get("job_title");
-        String areaActivity = recruiter.get("area_activity");
-        String type = recruiter.get("type");
-        String geolocation = recruiter.get("geolocation");
-        String skill = recruiter.get("skill");
-        uid = recruiter.get("uidOffer");
+        Intent intent = getIntent();
+        job = intent.getStringExtra("jobChoosen");
+        Cursor cursor = db.getOfferDetails(job);
+        cursor.moveToFirst();
+        String company = cursor.getString(cursor.getColumnIndex("company"));
+        String jobTitle = cursor.getString(cursor.getColumnIndex("job_title"));
+        String areaActivity = cursor.getString(cursor.getColumnIndex("area_activity"));
+        String type = cursor.getString(cursor.getColumnIndex("type"));
+        String geolocation = cursor.getString(cursor.getColumnIndex("geolocation"));
+        String skill = cursor.getString(cursor.getColumnIndex("skill"));
+        uidOffer = cursor.getString(cursor.getColumnIndex("uidOffer"));
+
+        cursor.close();
+
 
         inputCompany.setText(company);
         inputJobTitle.setText(jobTitle);
@@ -122,8 +138,11 @@ public class View_offer_activity extends AppCompatActivity {
 
                     if (!company.isEmpty() && !jobTitle.isEmpty() && !areaActivity.isEmpty() &&
                             !skill.isEmpty() && !geolocation.isEmpty()) {
-                        updatedNewRecruiter(uid,company, jobTitle, areaActivity, type,
-                               geolocation, skill);
+                        updatedNewRecruiter(uidOffer, company, jobTitle, areaActivity, type,
+                                geolocation, skill);
+                        modify = true;
+                        ProfilFragmentRec profilFragmentRec = new ProfilFragmentRec();
+
                     } else {
                         Toast.makeText(getApplicationContext(), "Veuillez entrer tous les champs !",
                                 Toast.LENGTH_LONG).show();
@@ -132,13 +151,24 @@ public class View_offer_activity extends AppCompatActivity {
             }
         });
 
-        setContentView(R.layout.activity_view_offer_activity);
 
     }
 
-    private void updatedNewRecruiter(final String uidOffer,final String company, final String jobTitle,
+    public static boolean getModify() {
+        return modify;
+    }
+
+    public static void setModify(boolean modifyBool) {
+        modifyBool = modify;
+    }
+
+    public String getJobTitle() {
+        return job;
+    }
+
+    private void updatedNewRecruiter(final String uidOffer, final String company, final String jobTitle,
                                      final String areaActivity, final String type,
-                                     final String geolocation, final String skill ) {
+                                     final String geolocation, final String skill) {
 
         //Tag used to cancel the request
         String tag_string_req = "req_update_recruiter";
@@ -163,19 +193,19 @@ public class View_offer_activity extends AppCompatActivity {
                         //the new candidate succesfully stored in MySQL
                         //Now store the candidate in Sqlite
 
-                        JSONObject jUpdateRecruiter = jObj.getJSONObject("offer");
+                        JSONObject jUpdateCandidate = jObj.getJSONObject("offer");
 
-                        String company = jUpdateRecruiter.getString("company");
-                        String jobTitle = jUpdateRecruiter.getString("job_title");
-                        String areaActivity = jUpdateRecruiter.getString("area_activity");
-                        String type = jUpdateRecruiter.getString("type");
-                        String geolocation = jUpdateRecruiter.getString("geolocation");
-                        String skill = jUpdateRecruiter.getString("skill");
+                        //JSONObject recruiterObj = obj.getJSONObject("offer");
+                        String company = jUpdateCandidate.getString("company");
+                        String jobTitle = jUpdateCandidate.getString("job_title");
+                        String areaActivity = jUpdateCandidate.getString("area_activity");
+                        String type = jUpdateCandidate.getString("type");
+                        String geolocation = jUpdateCandidate.getString("geolocation");
+                        String skill = jUpdateCandidate.getString("skill");
+
+                        db.updateRecruiter(company, jobTitle, areaActivity, type, geolocation, skill);
 
 
-                        //Inserting row in candidates table
-                        db.updateRecruiter(company, jobTitle, areaActivity,type,
-                                geolocation, skill);
                         Toast.makeText(getApplicationContext(), "Votre offre a été mise à jour avec succès ! "
                                 , Toast.LENGTH_LONG).show();
 
@@ -207,8 +237,8 @@ public class View_offer_activity extends AppCompatActivity {
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("email", session.getEmail());
                 params.put("unique_id_recruiters", uidOffer);
-                params.put("name", company);
-                params.put("firstname", jobTitle);
+                params.put("company", company);
+                params.put("job_title", jobTitle);
                 params.put("area_activity", areaActivity);
                 params.put("type", type);
                 params.put("geolocation", geolocation);
@@ -262,7 +292,7 @@ public class View_offer_activity extends AppCompatActivity {
 
 
     //Logout function
-    private void logout(){
+    private void logout() {
         //Creating an alert dialog to confirm logout
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setMessage("Etes-vous sûr de vouloir vous déconnecter ?");

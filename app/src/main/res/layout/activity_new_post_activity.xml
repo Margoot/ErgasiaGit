@@ -358,12 +358,10 @@
                         android:id="@+id/locationEditText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentTop="true"
-                        android:hint="Entrer le lieu"
+                        android:hint="@string/title_location"
                         android:inputType="textCapSentences"
                         android:textSize="@dimen/text1"
                         android:textStyle="italic">
-
                         <requestFocus/>
                     </com.example.ergasia.GPS.CustomAutoCompleteTextView>
 

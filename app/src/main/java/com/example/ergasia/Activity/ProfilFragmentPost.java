@@ -3,9 +3,11 @@ package com.example.ergasia.Activity;
 import android.app.ProgressDialog;
 import android.content.ContentValues;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SimpleCursorAdapter;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -131,11 +133,11 @@ public class ProfilFragmentPost extends Fragment {
         inputAreaActivity.setText(areaActivity);
         inputType.setText(type);
         inputLanguage1.setText(language1);
-        inputLevelLanguage1.setRating(Float.parseFloat(levelLanguage1));
+        //inputLevelLanguage1.setRating(Float.parseFloat(levelLanguage1));
         inputLanguage2.setText(language2);
-        inputLevelLanguage2.setRating(Float.parseFloat(levelLanguage2));
+        //inputLevelLanguage2.setRating(Float.parseFloat(levelLanguage2));
         inputLanguage3.setText(language3);
-        inputLevelLanguage3.setRating(Float.parseFloat(levelLanguage3));
+        //inputLevelLanguage3.setRating(Float.parseFloat(levelLanguage3));
         inputSkill.setText(skill);
         inputLocation.setText(geolocation);
 

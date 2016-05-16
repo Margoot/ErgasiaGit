@@ -8,6 +8,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import com.example.ergasia.Activity.View_offer_activity;
+
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -76,6 +79,8 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     private static final String KEY_UID_RECRUITER = "uidOffer";
     private static final String KEY_CREATED_AT_RECRUITER = "created_at";
     private static final String KEY_ID_USERS_FK_RECRUITER = "id_users_fk";
+
+    private View_offer_activity viewOfferActivity = new View_offer_activity();
 
     public SQLiteHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -395,41 +400,30 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         values.put(KEY_SKILL_CANDIDATE, skill);
 
         //Inserting Row
-        long id=db.update(TABLE_NEW_OFFER, values, KEY_UID_RECRUITER+ "=" + getUidRecruiterPrivate() , null);
+        long id=db.update(TABLE_NEW_OFFER, values, KEY_UID_RECRUITER+ "=" + getUidRecruiterPrivate(), null);
 
         db.close(); //Closing database connection
 
-        Log.d(TAG, "Candidate updated into sqlite; " + id);
+        Log.d(TAG, "Recruiter updated into sqlite; " + id);
     }
 
     /**
      * Getting user data from database
      */
-    public HashMap<String, String> getOfferDetails() {
-        HashMap<String, String> offer = new HashMap<String, String>();
-        String selectQuery = "SELECT * FROM " + TABLE_NEW_OFFER;
+    public Cursor getOfferDetails(String jobChoosen) {
 
         SQLiteDatabase db = this.getReadableDatabase();
+        String selectQuery = "SELECT * FROM " + TABLE_NEW_OFFER
+                +" WHERE "+ KEY_JOB_TITLE_RECRUITER+ " = " + "'" +jobChoosen+"'" ;
         Cursor cursor = db.rawQuery(selectQuery, null);
-        //Move to first row
-        cursor.moveToFirst();
-        if (cursor.getCount() > 0) {
-            offer.put("company", cursor.getString(1));
-            offer.put("job_title", cursor.getString(2));
-            offer.put("area_activity", cursor.getString(3));
-            offer.put("type", cursor.getString(4));
-            offer.put("geolocation", cursor.getString(5));
-            offer.put("skill", cursor.getString(6));
-            offer.put("uidOffer", cursor.getString(7));
-            offer.put("created_at", cursor.getString(8));
-        }
+        return cursor;
+    }
 
-        cursor.close();
-        db.close();
-
-        //Return offer
-        Log.d(TAG, "Fetching offer from Sqlite: " + offer.toString());
-        return offer;
+    public Cursor getJobTitles() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String selectQuery = "SELECT " + KEY_JOB_TITLE_RECRUITER + " FROM " + TABLE_NEW_OFFER;
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        return cursor;
     }
 
     /**
@@ -442,6 +436,10 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         db.close();
 
         Log.d(TAG, "Deleted the offer info from Sqlite");
+    }
+
+    public String getKeyJobTitleRecruiter() {
+        return KEY_JOB_TITLE_RECRUITER;
     }
 }
 

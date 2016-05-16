@@ -126,6 +126,7 @@
         <activity
             android:name="com.example.ergasia.Activity.View_offer_activity"
             android:label="@string/title_activity_view_offer_activity"
+            android:parentActivityName="com.example.ergasia.Activity.MainTabbedActivityRec"
             android:windowSoftInputMode="adjustPan" >
         </activity>
         <activity

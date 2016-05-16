@@ -102,8 +102,6 @@ public class New_post_activity extends AppCompatActivity
     private Switch switchGeoloc;
     private AutoCompleteTextView geolocationEditText;
     GPSTracker gps;
-    private String city;
-    private String country;
     private ArrayList<String> addr;
     private String addStr;
 
@@ -111,15 +109,7 @@ public class New_post_activity extends AppCompatActivity
     private TextView viewKm;
     private PlacesTask placesTask;
     private ParserTask parserTask;
-    /*
-    private static final String LOG_TAG ="Google places autocomplete";
-    private static final String PLACES_API_BASE = "https://maps.googleapis.com/maps/api/place";
-    private static final String TYPE_AUTOCOMPLETE = "/autocomplete";
-    private static final String OUT_JSON = "/json";
-    private static final String API_KEY = "AIzaSyCFELTNRhBDnrkOb7xibRodvn5FmPDHjQI";
-    */
     private boolean geolocActiv = false;
-    private FilterWithSpaceAdapter<String> adapterFilter;
 
 
     @Override
@@ -254,7 +244,6 @@ public class New_post_activity extends AppCompatActivity
         });
 
         if (geolocActiv == false) {
-            System.out.println("dans le false");
             geolocationEditText.setThreshold(1);
             geolocationEditText.addTextChangedListener(new TextWatcher() {
                 @Override

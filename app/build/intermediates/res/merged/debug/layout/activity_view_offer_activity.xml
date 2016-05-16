@@ -17,8 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay"
-            />
+            app:popupTheme="@style/AppTheme.PopupOverlay"/>
 
     </android.support.design.widget.AppBarLayout>
 
@@ -44,8 +43,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <com.example.ergasia.CustomFont.CustomTextView
-                style="@style/textview"
+            <TextView
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
@@ -54,8 +53,8 @@
                 android:textSize="@dimen/sub_title2"
                 android:textStyle="bold" />
 
-            <com.example.ergasia.CustomFont.CustomEditText
-                style="@style/edittext"
+            <EditText
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/viewJobEditText"
@@ -63,8 +62,8 @@
                 android:textStyle="italic"
                 android:focusable="false"/>
 
-            <com.example.ergasia.CustomFont.CustomTextView
-                style="@style/textview"
+            <TextView
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
@@ -73,8 +72,8 @@
                 android:textSize="@dimen/sub_title2"
                 android:textStyle="bold" />
 
-            <com.example.ergasia.CustomFont.CustomEditText
-                style="@style/edittext"
+            <EditText
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
@@ -82,8 +81,8 @@
                 android:id="@+id/jobTitleEditText2"
                 android:focusable="false"/>
 
-            <com.example.ergasia.CustomFont.CustomTextView
-                style="@style/textview"
+            <TextView
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
@@ -92,8 +91,8 @@
                 android:textStyle="bold"
                 android:textSize="@dimen/sub_title2" />
 
-            <com.example.ergasia.CustomFont.CustomEditText
-                style="@style/edittext"
+            <EditText
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/viewTypeEditText"
@@ -102,16 +101,12 @@
             <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/typeRadioGroup">
+                android:id="@+id/typeRadioGroup"
+                android:visibility="gone"
+                android:orientation="horizontal">
 
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:visibility="gone">
+                    <RadioButton
 
-                    <com.example.ergasia.CustomFont.CustomRadioButton
-                        style="@style/radiobutton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="CDI"
@@ -119,8 +114,8 @@
                         android:textSize="@dimen/text1"
                         android:textStyle="italic" />
 
-                    <com.example.ergasia.CustomFont.CustomRadioButton
-                        style="@style/radiobutton"
+                    <RadioButton
+
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="CDD"
@@ -128,19 +123,19 @@
                         android:textSize="@dimen/text1"
                         android:textStyle="italic" />
 
-                    <com.example.ergasia.CustomFont.CustomRadioButton
-                        style="@style/radiobutton"
+                    <RadioButton
+
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Stage"
                         android:id="@+id/internRadioButton2"
                         android:textStyle="italic"
                         android:textSize="@dimen/text1" />
-                </LinearLayout>
+
             </RadioGroup>
 
-            <com.example.ergasia.CustomFont.CustomTextView
-                style="@style/textview"
+            <TextView
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
@@ -149,8 +144,8 @@
                 android:textSize="@dimen/sub_title2"
                 android:textStyle="bold" />
 
-            <com.example.ergasia.CustomFont.CustomEditText
-                style="@style/edittext"
+            <EditText
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/viewAreaEditText"
@@ -158,8 +153,8 @@
                 android:textSize="@dimen/text1"
                 android:focusable="false"/>
 
-            <com.example.ergasia.CustomFont.CustomTextView
-                style="@style/textview"
+            <TextView
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
@@ -169,16 +164,20 @@
                 android:textSize="@dimen/sub_title2" />
 
             <AutoCompleteTextView
-                android:layout_width="wrap_content"
+                android:id="@+id/locationEditText"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="New AutoCompleteTextView"
-                android:id="@+id/viewLocationTextEdit"
+                android:hint="@string/title_location"
+                android:inputType="textCapSentences"
                 android:textSize="@dimen/text1"
                 android:textStyle="italic"
-                android:focusable="false"/>
+                android:focusable="false">
 
-            <com.example.ergasia.CustomFont.CustomTextView
-                style="@style/textview"
+
+            </AutoCompleteTextView>
+
+            <TextView
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
@@ -187,8 +186,8 @@
                 android:textSize="@dimen/sub_title2"
                 android:textStyle="bold" />
 
-            <com.example.ergasia.CustomFont.CustomEditText
-                style="@style/edittext"
+            <EditText
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/viewSkillsTextEdit"
@@ -196,14 +195,14 @@
                 android:textStyle="italic"
                 android:focusable="false"/>
 
-            <com.example.ergasia.CustomFont.CustomButton
-                style="@style/button"
+            <Button
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/finish_modification"
                 android:id="@+id/finishModification"
                 android:textColor="@color/white"
-                android:background="@color/ergasiagreen"
+                android:background="@drawable/shape"
                 android:visibility="gone"/>
 
         </LinearLayout>

@@ -71,12 +71,14 @@ public class Inscription_activity extends AppCompatActivity {
         db = new SQLiteHandler(getApplicationContext());
 
         //Check if user is already logged in or not
+        /*
         if (session.isLoggedIn()) {
             //User is already logged in. Take him to main activity
             Intent intent = new Intent(Inscription_activity.this, MainTabbedActivityPost.class);
             startActivity(intent);
             finish();
         }
+        */
 
 
         //Create button click event

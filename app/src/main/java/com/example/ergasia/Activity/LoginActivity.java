@@ -34,6 +34,7 @@ import com.example.ergasia.model.User;
 
 import static com.android.volley.Request.Method.POST;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -114,7 +115,7 @@ public class LoginActivity extends Activity {
     private void checkLoginCandidate(final String email, final String password) {
         //Tag used to cancel the request
 
-        if (!validateEmail()){
+        if (!validateEmail()) {
             return;
         }
         final String valEmail = inputEmail.getText().toString();
@@ -155,6 +156,7 @@ public class LoginActivity extends Activity {
 
                         db.addUser(nameUser, firstnameUser, email, uidUser, created_at_user);
 
+
                         JSONObject candidateObj = obj.getJSONObject("candidate");
                         String uidCandidate = candidateObj.getString("uidCandidate");
                         String nameCandidate = candidateObj.getString("name");
@@ -176,7 +178,6 @@ public class LoginActivity extends Activity {
                         db.addNewCandidate(nameCandidate, firstnameCandidate, training, areaActivity, type,
                                 language1, levelLanguage1, language2, levelLanguage2, language3, levelLanguage3,
                                 skill, geolocation, uidCandidate, created_at_candidate);
-
 
 
                         //Launch main activity
@@ -263,19 +264,24 @@ public class LoginActivity extends Activity {
 
                         db.addUser(nameUser, firstnameUser, email, uidUser, created_at_user);
 
-                        JSONObject recruiterObj = obj.getJSONObject("offer");
-                        String uidRecruiter = recruiterObj.getString("uidOffer");
-                        String company = recruiterObj.getString("company");
-                        String jobTitle = recruiterObj.getString("job_title");
-                        String areaActivity = recruiterObj.getString("area_activity");
-                        String type = recruiterObj.getString("type");
-                        String geolocation = recruiterObj.getString("geolocation");
-                        String skill = recruiterObj.getString("skill");
-                        String created_at_recruiter = recruiterObj.getString("created_at");
+                        JSONArray recruitersObj = obj.getJSONArray("offer");
 
-                        db.addOffer(company,jobTitle,areaActivity,type,geolocation,skill,
-                                uidRecruiter,created_at_recruiter);
+                        for (int i = 0; i < recruitersObj.length(); i++) {
+                            JSONObject recruiterObj = (JSONObject) recruitersObj.get(i);
 
+                            //JSONObject recruiterObj = obj.getJSONObject("offer");
+                            String uidRecruiter = recruiterObj.getString("uidOffer");
+                            String company = recruiterObj.getString("company");
+                            String jobTitle = recruiterObj.getString("job_title");
+                            String areaActivity = recruiterObj.getString("area_activity");
+                            String type = recruiterObj.getString("type");
+                            String geolocation = recruiterObj.getString("geolocation");
+                            String skill = recruiterObj.getString("skill");
+                            String created_at_recruiter = recruiterObj.getString("created_at");
+
+                            db.addOffer(company, jobTitle, areaActivity, type, geolocation, skill,
+                                    uidRecruiter, created_at_recruiter);
+                        }
 
                         //Storing user in shared preferences
                         AppController.getInstance().getPrefManager().storeUser(user);
@@ -389,6 +395,7 @@ public class LoginActivity extends Activity {
     private class MyTextWatcher implements TextWatcher {
 
         private View view;
+
         private MyTextWatcher(View view) {
             this.view = view;
         }

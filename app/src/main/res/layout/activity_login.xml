@@ -21,7 +21,7 @@
         android:visibility="gone" />
 
     <com.example.ergasia.CustomFont.CustomTextView
-        style="@style/textview"
+        style="@style/ergasiatitle"
         android:id="@+id/inscriptionTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
