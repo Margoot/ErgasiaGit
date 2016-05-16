@@ -532,6 +532,8 @@ public class New_post_activity extends AppCompatActivity
                         int id_users_fk = candidate.getInt("id_users_fk");
                         String created_at = candidate.getString("created_at");
 
+                       // session.setCandidateName(firstname);
+
                         //Inserting row in candidates table
                         db.addNewCandidate(name, firstname, training, areaActivity, type,
                                 language1, levelLanguage1, language2, levelLanguage2,

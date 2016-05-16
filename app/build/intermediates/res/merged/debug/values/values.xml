@@ -127,6 +127,7 @@
     <color name="material_grey_800">#ff424242</color>
     <color name="material_grey_850">#ff303030</color>
     <color name="material_grey_900">#ff212121</color>
+    <item name="messageGrey" type="color">#B8B8B8</item>
     <item name="orange" type="color">#FFFFBB33</item>
     <color name="primary_dark_material_dark">@android:color/black</color>
     <color name="primary_dark_material_light">@color/material_grey_600</color>
@@ -342,6 +343,7 @@
     <dimen name="tab_padding_bottom">16dp</dimen>
     <dimen name="text1">18sp</dimen>
     <dimen name="text_language">190sp</dimen>
+    <dimen name="text_size_button">20sp</dimen>
     <dimen name="title_dimension">50sp</dimen>
     <drawable name="notification_template_icon_bg">#3333B5E5</drawable>
     <item name="action_bar_activity_content" type="id"/>
@@ -491,14 +493,14 @@
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password (optional)</string>
     <string name="seekbar">Rayon de recherche : </string>
-    <string name="slogan">Quand chercher un travail devient une partie de plaisir!</string>
+    <string name="slogan">Une rencontre professionnelle en un clic!</string>
     <string name="status_bar_notification_info_overflow">999+</string>
     <string name="store_picture_message">"Allow Ad to store image in Picture gallery?"</string>
     <string name="store_picture_title">Save image</string>
     <string name="tie">Félicitations vous avez un \"Tie\"</string>
     <string name="title_activity_chat_room">ChatRoomActivity</string>
     <string name="title_activity_inscription_activity">Inscription</string>
-    <string name="title_activity_load_activity">Chargement</string>
+    <string name="title_activity_load_activity">Ergasia</string>
     <string name="title_activity_loadscreen">Chargement</string>
     <string name="title_activity_login">Ergasia</string>
     <string name="title_activity_main">MainActivity</string>
@@ -2041,7 +2043,7 @@
     <style name="edittext" parent="@android:style/Widget.EditText">
         <item name="com.example.ergasia:font">fonts/BigCaslon.ttf</item>
     </style>
-    <style name="ergasiatitle" parent="@android:style/Widget.EditText">
+    <style name="ergasiatitle" parent="@android:style/Widget.TextView">
         <item name="com.example.ergasia:font">fonts/BrushScriptMT.ttf</item>
     </style>
     <style name="radiobutton" parent="@android:style/Widget.CompoundButton.RadioButton">

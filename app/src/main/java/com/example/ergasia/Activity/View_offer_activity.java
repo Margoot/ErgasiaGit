@@ -64,7 +64,7 @@ public class View_offer_activity extends AppCompatActivity {
 
     private ProgressDialog pDialog;
     private String uidOffer;
-    private String job;
+    private static String job;
     private static boolean modify = false;
 
 
@@ -98,7 +98,7 @@ public class View_offer_activity extends AppCompatActivity {
         //Fetching candidate details from SQlite
         Intent intent = getIntent();
         job = intent.getStringExtra("jobChoosen");
-        Cursor cursor = db.getOfferDetails(job);
+        Cursor cursor = db.getOfferDetailsByJob(job);
         cursor.moveToFirst();
         String company = cursor.getString(cursor.getColumnIndex("company"));
         String jobTitle = cursor.getString(cursor.getColumnIndex("job_title"));
@@ -162,7 +162,7 @@ public class View_offer_activity extends AppCompatActivity {
         modifyBool = modify;
     }
 
-    public String getJobTitle() {
+    public static String getJobTitle() {
         return job;
     }
 

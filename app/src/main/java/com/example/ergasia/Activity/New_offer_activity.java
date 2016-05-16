@@ -445,6 +445,8 @@ public class New_offer_activity extends AppCompatActivity {
                         String skill = offer.getString("skill");
                         String created_at = offer.getString("created_at");
 
+                        //session.setCandidateName(company);
+
 
                         //Inserting row in recruiters table
                         db.addOffer(company, jobTitle, areaActivity, type, geolocation, skill, uidOffer,created_at);

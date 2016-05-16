@@ -15,6 +15,10 @@
     <dimen name="tab_label">14dp</dimen>
     <dimen name="custom_tab_layout_height">72dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="slogan_size">18dp</dimen>
+
+    <dimen name="text_size_button">20sp</dimen>
+
 
 
 </resources>

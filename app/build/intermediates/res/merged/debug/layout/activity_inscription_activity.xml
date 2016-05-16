@@ -89,6 +89,8 @@
                     android:textStyle="italic"
                     android:textSize="@dimen/text1" />
 
+
+
                 <com.example.ergasia.CustomFont.CustomTextView
                     style="@style/textview"
                     android:id="@+id/emailTextView1"
@@ -99,15 +101,20 @@
                     android:textSize="@dimen/sub_title"
                     android:textStyle="bold" />
 
+
+
+
+
                 <com.example.ergasia.CustomFont.CustomEditText
                     style="@style/edittext"
                     android:id="@+id/emailEditText1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:inputType="textEmailAddress"
                     android:textStyle="italic"
+                    android:singleLine="true"
                     android:textSize="@dimen/text1" />
+
 
                 <com.example.ergasia.CustomFont.CustomTextView
                     style="@style/textview"

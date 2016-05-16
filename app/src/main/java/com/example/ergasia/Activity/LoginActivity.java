@@ -118,7 +118,6 @@ public class LoginActivity extends Activity {
         if (!validateEmail()) {
             return;
         }
-        final String valEmail = inputEmail.getText().toString();
 
         String tag_string_req = "req_login";
 
@@ -140,6 +139,8 @@ public class LoginActivity extends Activity {
                         //user successfully logged in
                         //create login session
                         session.setLogin(true);
+                        session.setCandidate(true);
+                        session.setRecruiter(false);
 
                         //Now store the user in SQLite
                         JSONObject userObj = obj.getJSONObject("user");
@@ -173,6 +174,8 @@ public class LoginActivity extends Activity {
                         String skill = candidateObj.getString("skill");
                         String geolocation = candidateObj.getString("geolocation");
                         String created_at_candidate = candidateObj.getString("created_at");
+
+                        //session.setCandidateName(firstnameCandidate);
 
 
                         db.addNewCandidate(nameCandidate, firstnameCandidate, training, areaActivity, type,
@@ -231,6 +234,11 @@ public class LoginActivity extends Activity {
     }
 
     private void checkLoginRecruiter(final String email, final String password) {
+
+        if (!validateEmail()){
+            return;
+        }
+
         //Tag used to cancel the request
         String tag_string_req = "req_login";
 
@@ -252,6 +260,8 @@ public class LoginActivity extends Activity {
                         //user successfully logged in
                         //create login session
                         session.setLogin(true);
+                        session.setRecruiter(true);
+                        session.setCandidate(false);
 
                         //Now store the user in SQLite
                         JSONObject userObj = obj.getJSONObject("user");
@@ -378,7 +388,7 @@ public class LoginActivity extends Activity {
         String email = inputEmail.getText().toString().trim();
 
         if (email.isEmpty() || !isValidEmail(email)) {
-            inputLayoutEmail.setError(getString(R.string.err_msg_email));
+            inputLayoutEmail.setError("Veuillez entrer un email valide");
             requestFocus(inputEmail);
             return false;
         } else {

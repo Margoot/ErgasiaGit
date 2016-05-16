@@ -28,7 +28,8 @@
             android:text="@string/slogan"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textStyle="italic"
-            android:layout_gravity="center" />
+            android:layout_gravity="center"
+            android:textSize="@dimen/slogan_size"/>
 
         <com.example.ergasia.CustomFont.CustomTextView
             style="@style/ergasiatitle"
@@ -63,6 +64,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/shape"
             android:text="@string/je_post"
+            android:textSize="@dimen/text_size_button"
             android:textColor="@color/white"
             android:layout_weight="0.27" />
 
@@ -79,6 +81,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/shape"
             android:text="@string/je_rec"
+            android:textSize="@dimen/text_size_button"
             android:textColor="@color/white"
             android:layout_weight="0.27" />
     </LinearLayout>

@@ -9,6 +9,7 @@
     <item name="darkorange" type="color">#FFFF8800</item>
     <item name="ergasiagreen" type="color">#1CD4AC</item>
     <item name="appBackground" type="color">#E0E0E3</item>
+    <item name="messageGrey" type="color">#B8B8B8</item>
 
     <integer-array name="androidcolors">
         <item>@color/blue</item>

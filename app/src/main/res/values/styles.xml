@@ -24,7 +24,7 @@
 
     </style>
 
-    <style name="ergasiatitle" parent="@android:style/Widget.EditText">
+    <style name="ergasiatitle" parent="@android:style/Widget.TextView">
         <item name="com.example.ergasia:font">fonts/BrushScriptMT.ttf</item>
     </style>
 

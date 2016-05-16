@@ -7,16 +7,17 @@ import java.io.Serializable;
  */
 public class ChatRoom implements Serializable {
 
-    String id, name, lastMessage, timestamp;
+    String id, candidateName, recruiterCompany, lastMessage, timestamp;
     int unreadCount;
 
     public ChatRoom () {
 
     }
 
-    public ChatRoom(String id, String name, String lastMessage, String timestamp, int unreadCount) {
+    public ChatRoom(String id, String candidateName, String recruiterCompany, String lastMessage, String timestamp, int unreadCount) {
         this.id = id;
-        this.name = name;
+        this.candidateName = candidateName;
+        this.recruiterCompany = recruiterCompany;
         this.lastMessage = lastMessage;
         this.timestamp = timestamp;
         this.unreadCount = unreadCount;
@@ -30,13 +31,17 @@ public class ChatRoom implements Serializable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getCandidateName() {
+        return candidateName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setCandidateName(String candidateName) {
+        this.candidateName = candidateName;
     }
+
+    public String getRecruiterCompany() {return recruiterCompany;}
+
+    public void setRecruiterCompany (String recruiterCompany) {this.recruiterCompany = recruiterCompany; }
 
     public String getLastMessage() {
         return lastMessage;

@@ -5,10 +5,15 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
@@ -48,12 +53,15 @@ public class Inscription_activity extends AppCompatActivity {
     private SQLiteHandler db;
     RelativeLayout layout;
 
+    private TextInputLayout inputLayoutEmail;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         layout = (RelativeLayout) RelativeLayout.inflate(Inscription_activity.this,
                 R.layout.activity_inscription_activity, null);
 
+        inputLayoutEmail = (TextInputLayout) findViewById(R.id.input_layout_email);
         inputName = (EditText) layout.findViewById(R.id.nameEditText1);
         inputFirstName = (EditText) layout.findViewById(R.id.firstNameEditText1);
         inputEmail = (EditText) layout.findViewById(R.id.emailEditText1);
@@ -69,6 +77,7 @@ public class Inscription_activity extends AppCompatActivity {
 
         //SQlite database handler
         db = new SQLiteHandler(getApplicationContext());
+
 
         //Check if user is already logged in or not
         /*
@@ -99,6 +108,8 @@ public class Inscription_activity extends AppCompatActivity {
             }
         });
 
+
+
         setContentView(layout);
     }
 
@@ -113,10 +124,14 @@ public class Inscription_activity extends AppCompatActivity {
      */
     private void registerUser(final String name, final String firstname,
                               final String email, final String password) {
+
+
         //Tag used to cancel the request
         String tag_string_req = "req_register";
         pDialog.setMessage("Enregistrement...");
         showDialog();
+
+
 
         //Request a string response from the provided URL
         StringRequest strReq = new StringRequest(POST,
@@ -134,6 +149,7 @@ public class Inscription_activity extends AppCompatActivity {
                     if (!error) {
                         session.setCandidate(false);
                         session.setRecruiter(false);
+                        session.setLogin(true);
                         //User succesfully stored in MySQL
                         //Now store the user in Sqlite
                         //String uidUser = jObj.getString("uidUser");
@@ -209,5 +225,8 @@ public class Inscription_activity extends AppCompatActivity {
         if (pDialog.isShowing())
             pDialog.dismiss();
     }
+
+
+
 
 }

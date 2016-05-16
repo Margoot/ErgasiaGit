@@ -6,7 +6,7 @@
     <string name="action_add">Ajouter offre</string>
     <string name="action_modify">Modifier</string>
     <string name="logo_of_the_application">logo of the application</string>
-    <string name="title_activity_load_activity">Chargement</string>
+    <string name="title_activity_load_activity">Ergasia</string>
     <string name="load_activity_icon">Chargement</string>
     <string name="title_activity_post_rec_activity">Postuler/Recruter</string>
     <string name="je_post">Je Postule</string>
@@ -45,7 +45,7 @@
     <string name="lancer_recherche">Lancer la recherche !</string>
     <string name="seekbar">Rayon de recherche : </string>
     <string name="title_location">Entrer la ville</string>
-    <string name="slogan">Quand chercher un travail devient une partie de plaisir!</string>
+    <string name="slogan">Une rencontre professionnelle en un clic!</string>
     <string name="title_activity_inscription_activity">Inscription</string>
     <string name="title_activity_offer_activity">Nouvelle offre</string>
     <string name="title_section1">Section 1</string>

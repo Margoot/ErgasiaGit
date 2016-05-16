@@ -27,7 +27,9 @@ public class SessionManager {
     public static final String KEY_USER_EMAIL = "user_email";
     public static final String KEY_IS_CANDIDATE = "isCandidate";
     public static final String KEY_IS_RECRUITER = "isRecruiter";
-    ;
+    public static final String KEY_CANDIDATE_NAME = "candidate_firstname";
+    public static final String KEY_RECRUITER_COMPANY = "recruiter_company";
+
 
     public SessionManager (Context context) {
         this._context = context;
@@ -85,6 +87,7 @@ public class SessionManager {
     public boolean isRecruiter() {
         return pref.getBoolean(KEY_IS_RECRUITER, false);
     }
+
 
 
 }

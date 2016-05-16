@@ -410,11 +410,19 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     /**
      * Getting user data from database
      */
-    public Cursor getOfferDetails(String jobChoosen) {
+    public Cursor getOfferDetailsByJob(String jobChoosen) {
 
         SQLiteDatabase db = this.getReadableDatabase();
         String selectQuery = "SELECT * FROM " + TABLE_NEW_OFFER
                 +" WHERE "+ KEY_JOB_TITLE_RECRUITER+ " = " + "'" +jobChoosen+"'" ;
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        return cursor;
+    }
+
+    public Cursor getOfferDetails() {
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        String selectQuery = "SELECT * FROM " + TABLE_NEW_OFFER;
         Cursor cursor = db.rawQuery(selectQuery, null);
         return cursor;
     }

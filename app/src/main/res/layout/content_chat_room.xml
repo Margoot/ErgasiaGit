@@ -6,18 +6,20 @@
                 android:layout_height="wrap_content"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior"
                 tools:context=".Activity.ChatRoomActivity"
-                tools:showIn="@layout/activity_chat_room">
+                tools:showIn="@layout/activity_chat_room"
+    >
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="20dp"
+        android:paddingBottom="30dp"
         android:scrollbars="vertical"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="false"/>
+        android:layout_alignParentEnd="false"
+        android:paddingTop="10dp"/>
 
     <LinearLayout
         android:background="@android:color/white"

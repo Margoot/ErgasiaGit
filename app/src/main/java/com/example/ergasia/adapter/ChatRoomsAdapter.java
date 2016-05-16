@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.ergasia.Activity.Post_rec_activity;
+import com.example.ergasia.Helper.SessionManager;
 import com.example.ergasia.R;
 import com.example.ergasia.model.ChatRoom;
 
@@ -26,6 +28,7 @@ public class ChatRoomsAdapter extends RecyclerView.Adapter<ChatRoomsAdapter.View
     private Context mContext;
     private ArrayList<ChatRoom> chatRoomArrayList;
     private static String today;
+    private SessionManager session;
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView name, message, timestamp, count;
@@ -42,6 +45,8 @@ public class ChatRoomsAdapter extends RecyclerView.Adapter<ChatRoomsAdapter.View
     public ChatRoomsAdapter(Context mContext, ArrayList<ChatRoom> chatRoomArrayList) {
         this.mContext = mContext;
         this.chatRoomArrayList = chatRoomArrayList;
+        this.session = new SessionManager(mContext);
+
 
         Calendar calendar = Calendar.getInstance();
         today = String.valueOf(calendar.get(Calendar.DAY_OF_MONTH));
@@ -59,8 +64,12 @@ public class ChatRoomsAdapter extends RecyclerView.Adapter<ChatRoomsAdapter.View
     public void onBindViewHolder(ViewHolder holder, int position) {
         System.out.println("inside bindView" + chatRoomArrayList +" pos: " + position);
         ChatRoom chatRoom = chatRoomArrayList.get(position);
-        holder.name.setText(chatRoom.getName());
-        System.out.println("set name bind view: " + chatRoom.getName());
+        if (session.isCandidate()) {
+            holder.name.setText(chatRoom.getRecruiterCompany());
+        } else {
+           holder.name.setText(chatRoom.getCandidateName());
+        }
+        System.out.println("set name bind view: " + chatRoom.getRecruiterCompany());
         holder.message.setText(chatRoom.getLastMessage());
         System.out.println("unreadCount: " + chatRoom.getUnreadCount());
         if (chatRoom.getUnreadCount() > 0) {

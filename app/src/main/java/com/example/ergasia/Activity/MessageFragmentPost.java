@@ -29,6 +29,8 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.example.ergasia.Helper.SQLiteHandler;
+import com.example.ergasia.Helper.SessionManager;
 import com.example.ergasia.Helper.SimpleDividerItemDecoration;
 import com.example.ergasia.R;
 import com.example.ergasia.adapter.ChatRoomsAdapter;
@@ -47,8 +49,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class MessageFragmentPost extends Fragment {
+
+    private SessionManager session;
+    private SQLiteHandler db;
+    private String candidateFirstname;
 
     private String TAG = MessageFragmentPost.class.getSimpleName();
     private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
@@ -89,6 +97,12 @@ public class MessageFragmentPost extends Fragment {
        /* if (AppController.getInstance().getPrefManager().getUser() == null) {
             launchLoginActivity();
         }*/
+        session = new SessionManager(getActivity().getApplicationContext());
+        db = new SQLiteHandler(getActivity().getApplicationContext());
+
+        HashMap<String, String> candidate = db.getCandidateDetails();
+        candidateFirstname = candidate.get("firstname");
+        System.out.println("createView : " + candidateFirstname);
 
         recyclerView = (RecyclerView) rootView.findViewById(R.id.recycler_view);
 
@@ -147,7 +161,7 @@ public class MessageFragmentPost extends Fragment {
                 Intent intent = new Intent(getActivity()
                         , ChatRoomActivity.class);
                 intent.putExtra("chat_rooms_id", chatRoom.getId());
-                intent.putExtra("name", chatRoom.getName());
+                intent.putExtra("name", chatRoom.getRecruiterCompany());
                 mAdapter.notifyDataSetChanged();
 
                 startActivity(intent);
@@ -166,7 +180,7 @@ public class MessageFragmentPost extends Fragment {
         if (checkPlayServices()) {
             Log.e(TAG, "inside if");
             registerGCM();
-            fetchChatRooms();
+            fetchChatRoom();
         }
 
 
@@ -238,7 +252,7 @@ public class MessageFragmentPost extends Fragment {
                             JSONObject chatRoomsObj = (JSONObject) chatRoomsArray.get(i);
                             ChatRoom cr = new ChatRoom();
                             cr.setId(chatRoomsObj.getString("chat_rooms_id"));
-                            cr.setName(chatRoomsObj.getString("name"));
+                            cr.setRecruiterCompany(chatRoomsObj.getString("recruiter_company"));
                             cr.setLastMessage("");
                             cr.setUnreadCount(0);
                             cr.setTimestamp(chatRoomsObj.getString("created_at"));
@@ -273,6 +287,72 @@ public class MessageFragmentPost extends Fragment {
                 Toast.makeText(getActivity().getApplicationContext(), "Volley error: " + error.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
+
+        //Adding request to request queue
+        AppController.getInstance().addToRequestQueue(strReq);
+    }
+
+    private void fetchChatRoom () {
+        StringRequest strReq = new StringRequest(Request.Method.POST, EndPoints.CHAT_ROOM, new Response.Listener<String>() {
+
+            @Override
+            public void onResponse(String response) {
+                Log.e(TAG, "response: " + response);
+
+                try {
+                    JSONObject obj = new JSONObject(response);
+                    boolean error = obj.getBoolean("error");
+
+                    //check for error flag
+                    if (!error) {
+                            JSONObject chatRoomObj = obj.getJSONObject("chat_rooms");
+                            ChatRoom cr = new ChatRoom();
+                            cr.setId(chatRoomObj.getString("chat_rooms_id"));
+                            cr.setRecruiterCompany(chatRoomObj.getString("recruiter_company"));
+                            cr.setLastMessage("");
+                            cr.setUnreadCount(0);
+                            cr.setTimestamp(chatRoomObj.getString("chat_rooms_created_at"));
+                            Log.e(TAG, "chatrooms : " + cr);
+
+                            chatRoomArrayList.add(cr);
+                            System.out.println("fetching chat room : " + chatRoomArrayList);
+                    } else {
+                        //error in fetching chat rooms
+                        Toast.makeText(getActivity().getApplicationContext(), "" + obj.getJSONObject("error").getString("message"), Toast.LENGTH_LONG).show();
+                    }
+                } catch (JSONException e) {
+                    Log.e(TAG, "json parsing error: " + e.getMessage());
+                    Toast.makeText(getActivity().getApplicationContext(), "Json parse error: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                }
+
+                mAdapter.notifyDataSetChanged();
+                System.out.println("data change :" + chatRoomArrayList + " : " + chatRoomArrayList.size());
+                //mAdapter.notifyItemInserted(chatRoomArrayList.size());
+
+                //subscribing to all chat room topics
+                subscribeToAllTopics();
+            }
+        }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                NetworkResponse networkResponse = error.networkResponse;
+                Log.e(TAG, "Volley error : " + error.getMessage() + ", code: " + networkResponse);
+                Toast.makeText(getActivity().getApplicationContext(), "Volley error: " + error.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        }) {
+            @Override
+
+            protected Map<String, String> getParams() {
+                //Posting parameters to login url
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("post_param", candidateFirstname);
+                System.out.println("post : " + candidateFirstname);
+
+
+                return params;
+            }
+        };
 
         //Adding request to request queue
         AppController.getInstance().addToRequestQueue(strReq);
